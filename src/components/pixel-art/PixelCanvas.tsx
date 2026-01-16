@@ -50,9 +50,13 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const overlayCanvasRef = useRef<HTMLCanvasElement>(null);
 
+  // Get actual grid dimensions from canvasGrid
+  const gridHeight = canvasGrid.length;
+  const gridWidth = gridHeight > 0 ? canvasGrid[0].length : 0;
+
   const canvasRef = usePixelCanvas({
     canvasGrid: previewGrid || canvasGrid,
-    gridSize: GRID_SIZE,
+    gridSize: gridWidth, // Use actual grid width
     pixelSize: pixelSize * zoom,
     showGrid,
   });
@@ -65,8 +69,9 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
         const containerWidth = container.clientWidth;
         const containerHeight = container.clientHeight;
         
-        const maxWidth = Math.floor((containerWidth - 32) / GRID_SIZE);
-        const maxHeight = Math.floor((containerHeight - 32) / GRID_SIZE);
+        // Use actual grid dimensions for calculation
+        const maxWidth = Math.floor((containerWidth - 32) / gridWidth);
+        const maxHeight = Math.floor((containerHeight - 32) / gridHeight);
         const newPixelSize = Math.min(maxWidth, maxHeight, 16);
         
         setPixelSize(Math.max(newPixelSize, 8));
@@ -110,7 +115,11 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
     const x = Math.floor((clientX - rect.left) / ps);
     const y = Math.floor((clientY - rect.top) / ps);
 
-    if (x >= 0 && x < GRID_SIZE && y >= 0 && y < GRID_SIZE) {
+    // Use actual canvas grid dimensions instead of hardcoded GRID_SIZE
+    const gridHeight = canvasGrid.length;
+    const gridWidth = gridHeight > 0 ? canvasGrid[0].length : 0;
+
+    if (x >= 0 && x < gridWidth && y >= 0 && y < gridHeight) {
       return { x, y };
     }
     return null;
@@ -228,9 +237,9 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
     // Finalize select tool
     if (currentTool === "select" && startPoint && endPoint) {
       const minX = Math.max(0, Math.min(startPoint.x, endPoint.x));
-      const maxX = Math.min(GRID_SIZE - 1, Math.max(startPoint.x, endPoint.x));
+      const maxX = Math.min(gridWidth - 1, Math.max(startPoint.x, endPoint.x));
       const minY = Math.max(0, Math.min(startPoint.y, endPoint.y));
-      const maxY = Math.min(GRID_SIZE - 1, Math.max(startPoint.y, endPoint.y));
+      const maxY = Math.min(gridHeight - 1, Math.max(startPoint.y, endPoint.y));
 
       onSelectionChange({
         active: true,
@@ -331,7 +340,7 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
   };
 
   const actualPixelSize = pixelSize * zoom;
-  const canvasSize = GRID_SIZE * actualPixelSize;
+  const canvasSize = Math.max(gridWidth, gridHeight) * actualPixelSize;
 
   return (
     <div ref={containerRef} className="w-full h-full flex items-center justify-center relative">

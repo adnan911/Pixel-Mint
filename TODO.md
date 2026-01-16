@@ -217,6 +217,17 @@
   - [x] Applied pixel-button and font-retro classes to Cancel and Apply buttons
   - [x] Canvas size dialog now fully functional with pixel theme styling
   - [x] All 96 files passed lint checks
+- [x] Step 25: Fix dynamic canvas size boundary error (Completed)
+  - [x] Identified root cause: hardcoded GRID_SIZE constant (32) used for boundary checks
+  - [x] Added gridHeight and gridWidth calculations from actual canvasGrid dimensions
+  - [x] Updated getPixelCoords to use actual grid dimensions instead of GRID_SIZE
+  - [x] Fixed pixel size calculation in useEffect to use gridWidth and gridHeight
+  - [x] Updated select tool boundary checks to use gridWidth and gridHeight
+  - [x] Fixed canvas size calculation to use Math.max(gridWidth, gridHeight)
+  - [x] Updated usePixelCanvas gridSize parameter to use actual gridWidth
+  - [x] Prevented "Cannot set properties of undefined" error when drawing on larger canvases
+  - [x] Canvas now properly supports dynamic sizes from 8×8 to 256×256 pixels
+  - [x] All 96 files passed lint checks
 
 ## Features Implemented
 
