@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { EnhancedPixelCanvas } from "@/components/pixel-art/PixelCanvas";
 import { DrawingToolbar } from "@/components/pixel-art/DrawingToolbar";
-import { SelectionToolbar } from "@/components/pixel-art/SelectionToolbar";
 import { ColorPicker } from "@/components/pixel-art/ColorPicker";
 import { Controls } from "@/components/pixel-art/Controls";
 import { TransformControls } from "@/components/pixel-art/TransformControls";
@@ -470,28 +469,6 @@ export default function PixelArtEditor() {
               PIXEL ART PRO
             </h1>
           </div>
-          
-          {/* Canvas Size & Export */}
-          <div className="flex gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setCanvasSizeOpen(true)}
-              className="gap-1 sm:gap-2 h-8 sm:h-9 px-2 sm:px-3 pixel-button font-retro"
-            >
-              <Maximize2 className="h-4 w-4" />
-              <span className="hidden sm:inline text-xs sm:text-sm">{canvasWidth}×{canvasHeight}</span>
-            </Button>
-            <Button
-              variant="default"
-              size="sm"
-              onClick={handleExport}
-              className="gap-1 sm:gap-2 h-8 sm:h-9 px-2 sm:px-3 pixel-button font-retro"
-            >
-              <Download className="h-4 w-4" />
-              <span className="text-xs sm:text-sm">EXPORT</span>
-            </Button>
-          </div>
         </div>
       </header>
 
@@ -571,11 +548,28 @@ export default function PixelArtEditor() {
               </div>
             </div>
 
-            {/* Row 2 (Mobile) / Center+Right (Desktop): Selection Tools + Actions */}
+            {/* Row 2 (Mobile) / Center+Right (Desktop): Canvas Size, Export + Actions */}
             <div className="flex items-center justify-between gap-2 sm:gap-3">
-              {/* Selection Tools */}
-              <div className="flex-1 sm:flex-initial">
-                <SelectionToolbar currentTool={currentTool} onToolChange={setCurrentTool} />
+              {/* Canvas Size & Export Buttons */}
+              <div className="flex items-center gap-1">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => setCanvasSizeOpen(true)}
+                  className="h-11 w-11 sm:h-10 sm:w-10 pixel-button font-retro"
+                  title="Canvas Size"
+                >
+                  <Maximize2 className="h-5 w-5" />
+                </Button>
+                <Button
+                  variant="default"
+                  size="icon"
+                  onClick={handleExport}
+                  className="h-11 w-11 sm:h-10 sm:w-10 pixel-button font-retro"
+                  title="Export PNG"
+                >
+                  <Download className="h-5 w-5" />
+                </Button>
               </div>
 
               {/* Action Buttons */}

@@ -237,6 +237,27 @@
   - [x] Fixed reference error in canvasSize calculation at line 343
   - [x] All touch and mouse events now properly access grid dimensions
   - [x] All 96 files passed lint checks
+- [x] Step 27: Remove select and move tools, relocate Canvas Size and Export buttons (Completed)
+  - [x] Removed "select" and "move" from Tool type definition in pixel-art.ts
+  - [x] Deleted SelectionToolbar component file (no longer needed)
+  - [x] Removed SelectionToolbar import from PixelArtEditor.tsx
+  - [x] Removed all "select" tool handling code from PixelCanvas.tsx handleStart function
+  - [x] Removed all "move" tool handling code from PixelCanvas.tsx handleStart function
+  - [x] Removed "select" tool preview logic from PixelCanvas.tsx handleMove function
+  - [x] Removed "move" tool preview logic from PixelCanvas.tsx handleMove function
+  - [x] Removed "select" tool finalization code from PixelCanvas.tsx handleEnd function
+  - [x] Removed "move" tool finalization code from PixelCanvas.tsx handleEnd function
+  - [x] Removed "m" keyboard shortcut for select tool from use-keyboard-shortcuts.ts
+  - [x] Removed Canvas Size and Export buttons from header section
+  - [x] Moved Canvas Size button to toolbar Row 2, left side before Undo button
+  - [x] Moved Export button to toolbar Row 2, left side before Undo button
+  - [x] Changed Canvas Size and Export buttons to icon-only format (size="icon")
+  - [x] Applied consistent pixel-button styling to relocated buttons
+  - [x] Updated button sizes to h-11 w-11 (mobile) and h-10 w-10 (desktop)
+  - [x] Added tooltips: "Canvas Size" and "Export PNG"
+  - [x] Removed SelectionToolbar from Row 2 layout
+  - [x] Updated Row 2 comment to reflect new layout: "Canvas Size, Export + Actions"
+  - [x] All 95 files passed lint checks
 
 ## Features Implemented
 

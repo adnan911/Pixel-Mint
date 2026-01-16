@@ -155,22 +155,6 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
       case "eraser":
         handleDraw(coords);
         break;
-
-      case "select":
-        onSelectionChange({ active: false, points: [] });
-        break;
-
-      case "move":
-        // Check if clicking inside selection
-        if (selection.active && selection.bounds) {
-          const { x, y, width, height } = selection.bounds;
-          const maxX = x + width - 1;
-          const maxY = y + height - 1;
-          if (coords.x >= x && coords.x <= maxX && coords.y >= y && coords.y <= maxY) {
-            setMoveOffset({ x: coords.x - x, y: coords.y - y });
-          }
-        }
-        break;
     }
   };
 
@@ -202,19 +186,6 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
       case "square":
         setPreviewGrid(drawRectangle(canvasGrid, startPoint.x, startPoint.y, coords.x, coords.y, currentColor, false));
         break;
-
-      case "select":
-        // Show preview of selection rectangle
-        break;
-
-      case "move":
-        // Move the selection
-        if (selection.active && moveOffset && selection.bounds) {
-          const newMinX = coords.x - moveOffset.x;
-          const newMinY = coords.y - moveOffset.y;
-          // Update selection position (will be handled in handleEnd)
-        }
-        break;
     }
   };
 
@@ -229,42 +200,6 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
     if (previewGrid) {
       onPixelChange(previewGrid);
       setPreviewGrid(null);
-    }
-
-    // Finalize select tool
-    if (currentTool === "select" && startPoint && endPoint) {
-      const minX = Math.max(0, Math.min(startPoint.x, endPoint.x));
-      const maxX = Math.min(gridWidth - 1, Math.max(startPoint.x, endPoint.x));
-      const minY = Math.max(0, Math.min(startPoint.y, endPoint.y));
-      const maxY = Math.min(gridHeight - 1, Math.max(startPoint.y, endPoint.y));
-
-      onSelectionChange({
-        active: true,
-        points: [],
-        bounds: {
-          x: minX,
-          y: minY,
-          width: maxX - minX + 1,
-          height: maxY - minY + 1,
-        },
-      });
-    }
-
-    // Finalize move tool
-    if (currentTool === "move" && moveOffset && endPoint && selection.active && selection.bounds) {
-      const newMinX = endPoint.x - moveOffset.x;
-      const newMinY = endPoint.y - moveOffset.y;
-      
-      // Update selection bounds
-      onSelectionChange({
-        ...selection,
-        bounds: {
-          x: newMinX,
-          y: newMinY,
-          width: selection.bounds.width,
-          height: selection.bounds.height,
-        },
-      });
     }
 
     setIsDrawing(false);

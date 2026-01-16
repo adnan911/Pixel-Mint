@@ -13,9 +13,7 @@ export type Tool =
   | "eyedropper"
   | "line"
   | "circle"
-  | "square"
-  | "select"
-  | "move";
+  | "square";
 
 export type FillMode = "contiguous" | "global";
 

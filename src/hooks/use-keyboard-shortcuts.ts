@@ -101,13 +101,6 @@ export const useKeyboardShortcuts = ({
           e.preventDefault();
           onToolChange("square");
           break;
-        case "m":
-          e.preventDefault();
-          onToolChange("select");
-          break;
-        case "h":
-          // Hand tool removed
-          break;
         case "g":
           e.preventDefault();
           onToggleGrid();
