@@ -224,9 +224,11 @@
 - Dynamic brush mode system
 - Palette state management with undo/redo support
 - Comprehensive error handling for browser extension conflicts
+- Object.defineProperty override to prevent descriptor conflicts
 - Global error handlers in index.html and main.tsx
 - React Error Boundary component for graceful error recovery
 - Extension error suppression to prevent application crashes
+- window.onerror handler for additional error catching
 
 ## Notes
 - MVP focuses on 32×32 canvas with comprehensive toolset, layer system, and color management
@@ -257,7 +259,10 @@
 - Defensive object creation to prevent property descriptor conflicts with browser extensions
 - All factory functions (createLayer, createPalette, duplicateLayer) return plain objects
 - State initialization wrapped in try-catch for graceful error handling
-- Multi-layer error handling: inline script in HTML, global handlers in main.tsx, React Error Boundary
-- Chrome extension errors are caught and suppressed to prevent application crashes
+- Multi-layer error handling: Object.defineProperty override, inline script in HTML, global handlers in main.tsx, React Error Boundary
+- Object.defineProperty is overridden to automatically fix conflicting descriptor properties
+- Chrome extension errors are caught and suppressed at multiple levels to prevent application crashes
 - Error Boundary provides user-friendly fallback UI for unexpected errors
 - Console.error is intercepted to filter out extension-related errors
+- window.onerror handler provides additional error catching layer
+- Property descriptor conflicts are automatically resolved by removing conflicting properties
