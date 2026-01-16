@@ -81,8 +81,8 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
 }) => {
   return (
     <TooltipProvider>
-      <div className="flex flex-col gap-3">
-        <div className="flex gap-2 justify-center flex-wrap">
+      <div className="flex flex-col gap-2">
+        <div className="flex gap-1.5 justify-center">
           {drawingTools.map((tool) => (
             <Tooltip key={tool.id}>
               <TooltipTrigger asChild>
@@ -90,7 +90,7 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
                   variant={currentTool === tool.id ? "default" : "outline"}
                   size="icon"
                   onClick={() => onToolChange(tool.id)}
-                  className="h-12 w-12 flex-1 max-w-[80px]"
+                  className="h-11 w-11"
                   aria-label={tool.label}
                 >
                   {tool.icon}
@@ -105,7 +105,7 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
           ))}
         </div>
         
-        <div className="flex gap-2 justify-center flex-wrap">
+        <div className="flex gap-1.5 justify-center">
           {shapeTools.map((tool) => (
             <Tooltip key={tool.id}>
               <TooltipTrigger asChild>
@@ -113,7 +113,7 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
                   variant={currentTool === tool.id ? "default" : "outline"}
                   size="icon"
                   onClick={() => onToolChange(tool.id)}
-                  className="h-12 w-12 flex-1 max-w-[80px]"
+                  className="h-11 w-11"
                   aria-label={tool.label}
                 >
                   {tool.icon}

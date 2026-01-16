@@ -47,7 +47,7 @@ export const SelectionToolbar: React.FC<SelectionToolbarProps> = ({
 }) => {
   return (
     <TooltipProvider>
-      <div className="flex gap-2 justify-center flex-wrap">
+      <div className="flex gap-1.5 justify-center">
         {selectionTools.map((tool) => (
           <Tooltip key={tool.id}>
             <TooltipTrigger asChild>
@@ -55,7 +55,7 @@ export const SelectionToolbar: React.FC<SelectionToolbarProps> = ({
                 variant={currentTool === tool.id ? "default" : "outline"}
                 size="icon"
                 onClick={() => onToolChange(tool.id)}
-                className="h-12 w-12 flex-1 max-w-[80px]"
+                className="h-10 w-10"
                 aria-label={tool.label}
               >
                 {tool.icon}

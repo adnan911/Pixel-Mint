@@ -273,11 +273,13 @@ export default function PixelArtEditor() {
 
       {/* Bottom Toolbar */}
       <div className="flex-shrink-0 border-t border-border bg-card">
-        <div className="px-4 py-3 space-y-3">
-          {/* Color Selector */}
+        <div className="px-4 py-3 space-y-2">
+          {/* Color Selector and Selection Tools */}
           <div className="flex items-center gap-2">
+            {/* Color Selector - Compact */}
             <div
-              className="w-12 h-12 border-2 border-border rounded flex-shrink-0 shadow-sm"
+              className="w-10 h-10 border-2 border-border rounded flex-shrink-0 shadow-sm cursor-pointer"
+              onClick={() => setColorsOpen(true)}
               style={{
                 backgroundColor:
                   currentColor === "transparent" ? "#fff" : currentColor,
@@ -291,12 +293,6 @@ export default function PixelArtEditor() {
             />
             
             <Sheet open={colorsOpen} onOpenChange={setColorsOpen}>
-              <SheetTrigger asChild>
-                <Button variant="outline" className="flex-1 h-12">
-                  <Palette className="h-4 w-4 mr-2" />
-                  Choose Color
-                </Button>
-              </SheetTrigger>
               <SheetContent side="bottom" className="h-[80vh] overflow-y-auto">
                 <SheetHeader>
                   <SheetTitle>Color Picker</SheetTitle>
@@ -315,11 +311,21 @@ export default function PixelArtEditor() {
                 </div>
               </SheetContent>
             </Sheet>
+
+            {/* Selection Tools - Inline */}
+            <div className="flex-1 flex justify-center">
+              <SelectionToolbar currentTool={currentTool} onToolChange={setCurrentTool} />
+            </div>
+          </div>
+
+          {/* Drawing Tools */}
+          <div className="flex justify-center">
+            <DrawingToolbar currentTool={currentTool} onToolChange={setCurrentTool} />
           </div>
 
           {/* Current Tool Display */}
-          <div className="text-center text-sm text-muted-foreground">
-            Current Tool: <span className="font-medium text-foreground capitalize">{currentTool}</span>
+          <div className="text-center text-xs text-muted-foreground">
+            <span className="font-medium text-foreground capitalize">{currentTool}</span>
             {selection.active && " | Selection Active"}
           </div>
         </div>
