@@ -43,7 +43,7 @@ import type {
   BrushMode,
   DitherPattern,
 } from "@/types/pixel-art";
-import { Palette, Settings, Undo2, Redo2, Layers, Download, Maximize2, FlipHorizontal2 } from "lucide-react";
+import { Palette, Settings, Undo2, Redo2, Layers, Download, Maximize2, FlipHorizontal2, RotateCw, FlipVertical2, Grid3x3, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -53,6 +53,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const CANVAS_SIZE = 32;
@@ -77,13 +85,11 @@ export default function PixelArtEditor() {
   const [zoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [clipboard, setClipboard] = useState<Clipboard | null>(null);
-  const [controlsOpen, setControlsOpen] = useState(false);
   const [colorsOpen, setColorsOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
   const [layersOpen, setLayersOpen] = useState(false);
   const [palettesOpen, setPalettesOpen] = useState(false);
   const [canvasSizeOpen, setCanvasSizeOpen] = useState(false);
-  const [transformOpen, setTransformOpen] = useState(false);
 
   // Initialize with one default layer and default palettes (memoized to prevent recreation)
   // Using defensive initialization to avoid conflicts with browser extensions
@@ -170,7 +176,6 @@ export default function PixelArtEditor() {
           : layer
       ),
     });
-    setControlsOpen(false);
   };
 
   const handleToggleGrid = () => {
@@ -616,59 +621,53 @@ export default function PixelArtEditor() {
                   </SheetContent>
                 </Sheet>
 
-                <Sheet open={transformOpen} onOpenChange={setTransformOpen}>
-                  <SheetTrigger asChild>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
                     <Button variant="outline" size="icon" className="h-11 w-11 sm:h-10 sm:w-10 pixel-button font-retro" title="Transform">
                       <FlipHorizontal2 className="h-5 w-5" />
                     </Button>
-                  </SheetTrigger>
-                  <SheetContent side="right" className="w-full sm:w-[300px] overflow-y-auto pixel-card border-l-4">
-                    <SheetHeader>
-                      <SheetTitle className="font-pixel text-primary">TRANSFORM</SheetTitle>
-                      <SheetDescription className="font-retro">
-                        Rotate, flip, and transform your canvas
-                      </SheetDescription>
-                    </SheetHeader>
-                    <div className="mt-6">
-                      <TransformControls
-                        fillMode={fillMode}
-                        onFillModeChange={setFillMode}
-                        onRotate={handleRotate}
-                        onFlipHorizontal={handleFlipHorizontal}
-                        onFlipVertical={handleFlipVertical}
-                      />
-                    </div>
-                  </SheetContent>
-                </Sheet>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-56 pixel-card border-4 font-retro">
+                    <DropdownMenuLabel className="font-pixel text-xs text-primary">TRANSFORM</DropdownMenuLabel>
+                    <DropdownMenuSeparator className="bg-border h-[2px]" />
+                    <DropdownMenuItem onClick={handleRotate} className="cursor-pointer font-retro text-base py-3">
+                      <RotateCw className="mr-2 h-5 w-5" />
+                      <span>Rotate 90°</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleFlipHorizontal} className="cursor-pointer font-retro text-base py-3">
+                      <FlipHorizontal2 className="mr-2 h-5 w-5" />
+                      <span>Flip Horizontal</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleFlipVertical} className="cursor-pointer font-retro text-base py-3">
+                      <FlipVertical2 className="mr-2 h-5 w-5" />
+                      <span>Flip Vertical</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
                 
-                <Sheet open={controlsOpen} onOpenChange={setControlsOpen}>
-                  <SheetTrigger asChild>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
                     <Button variant="outline" size="icon" className="h-11 w-11 sm:h-10 sm:w-10 pixel-button font-retro" title="More Options">
                       <Settings className="h-5 w-5" />
                     </Button>
-                  </SheetTrigger>
-                  <SheetContent side="right" className="w-full sm:w-[300px] overflow-y-auto pixel-card border-l-4">
-                    <SheetHeader>
-                      <SheetTitle className="font-pixel text-primary">CONTROLS</SheetTitle>
-                      <SheetDescription className="font-retro">
-                        Export and manage your canvas
-                      </SheetDescription>
-                    </SheetHeader>
-                    <div className="mt-6">
-                      <Controls
-                        canvasGrid={canvasGrid}
-                        canvasSize={CANVAS_SIZE}
-                        showGrid={showGrid}
-                        canUndo={canUndo}
-                        canRedo={canRedo}
-                        onUndo={undo}
-                        onRedo={redo}
-                        onClear={handleClear}
-                        onToggleGrid={handleToggleGrid}
-                      />
-                    </div>
-                  </SheetContent>
-                </Sheet>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-56 pixel-card border-4 font-retro">
+                    <DropdownMenuLabel className="font-pixel text-xs text-primary">OPTIONS</DropdownMenuLabel>
+                    <DropdownMenuSeparator className="bg-border h-[2px]" />
+                    <DropdownMenuItem onClick={handleToggleGrid} className="cursor-pointer font-retro text-base py-3">
+                      <Grid3x3 className="mr-2 h-5 w-5" />
+                      <span>{showGrid ? "Hide Grid" : "Show Grid"}</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator className="bg-border h-[2px]" />
+                    <DropdownMenuItem 
+                      onClick={handleClear} 
+                      className="cursor-pointer font-retro text-base py-3 text-destructive focus:text-destructive"
+                    >
+                      <Trash2 className="mr-2 h-5 w-5" />
+                      <span>Clear Canvas</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
             </div>
           </div>

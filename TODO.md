@@ -188,6 +188,23 @@
   - [x] Applied pixel-inset effect to toolbar container
   - [x] Set body font to VT323 for better readability with pixel aesthetic
   - [x] All 96 files passed lint checks
+- [x] Step 23: Convert Transform and Controls to dropdown menus (Completed)
+  - [x] Imported DropdownMenu components from shadcn/ui
+  - [x] Added icons: RotateCw, FlipVertical2, Grid3x3, Trash2 from lucide-react
+  - [x] Replaced Transform Sheet with DropdownMenu
+  - [x] Added Transform dropdown with Rotate 90°, Flip Horizontal, Flip Vertical options
+  - [x] Replaced Controls Sheet with DropdownMenu (renamed to "OPTIONS")
+  - [x] Added Options dropdown with Show/Hide Grid and Clear Canvas options
+  - [x] Applied pixel-card styling with border-4 to dropdown menus
+  - [x] Used font-pixel for dropdown labels and font-retro for menu items
+  - [x] Set dropdown width to w-56 for consistent sizing
+  - [x] Added h-[2px] separators with bg-border for pixel aesthetic
+  - [x] Increased menu item padding to py-3 for better touch targets
+  - [x] Applied text-destructive color to Clear Canvas option
+  - [x] Removed unused state variables: controlsOpen, transformOpen
+  - [x] Removed setControlsOpen call from handleClear function
+  - [x] Removed unused TransformControls and Controls component imports
+  - [x] All 96 files passed lint checks
 
 ## Features Implemented
 
