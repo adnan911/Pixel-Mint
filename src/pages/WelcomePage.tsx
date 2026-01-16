@@ -31,65 +31,66 @@ export default function WelcomePage() {
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:32px_32px] animate-pulse" />
       </div>
-
       {/* Main Content */}
-      <div className="relative flex-1 flex items-center justify-center p-3 sm:p-6 xl:p-8 py-6 sm:py-8">
-        <div className="w-full max-w-4xl space-y-6 sm:space-y-8 animate-fade-in">
+      <div className="relative flex-1 flex items-center justify-center px-4 sm:px-6 xl:px-8 py-6 sm:py-8">
+        <div className="w-full max-w-4xl space-y-5 sm:space-y-8 animate-fade-in">
           {/* Hero Section */}
-          <div className="text-center space-y-3 sm:space-y-4 animate-slide-down">
-            <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6">
+          <div className="text-center space-y-2.5 sm:space-y-4 animate-slide-down">
+            <div className="flex items-center justify-center gap-3 mb-3 sm:mb-6">
               <div className="relative">
                 <div className="absolute inset-0 bg-primary/20 blur-xl animate-pulse" />
-                <div className="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 xl:w-20 xl:h-20 bg-primary text-primary-foreground pixel-border-primary shadow-pixel animate-bounce-slow">
-                  <Palette className="h-7 w-7 sm:h-8 sm:w-8 xl:h-10 xl:w-10" />
+                <div className="relative flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 xl:w-20 xl:h-20 bg-primary text-primary-foreground pixel-border-primary shadow-pixel animate-bounce-slow">
+                  <Palette className="h-6 w-6 sm:h-8 sm:w-8 xl:h-10 xl:w-10" />
                 </div>
               </div>
             </div>
             
-            <h1 className="text-3xl max-sm:text-2xl sm:text-5xl xl:text-7xl font-pixel pixel-heading text-primary animate-pixel-glow px-2">
+            <h1 className="text-2xl sm:text-4xl xl:text-6xl font-pixel pixel-heading text-primary animate-pixel-glow px-2 leading-tight">
               PIXEL ART PRO
             </h1>
             
-            <p className="text-base max-sm:text-sm sm:text-lg xl:text-xl text-muted-foreground font-retro max-w-2xl mx-auto animate-fade-in-delay px-4">
+            <p className="text-sm sm:text-base xl:text-lg text-muted-foreground font-retro max-w-2xl mx-auto animate-fade-in-delay px-2 leading-relaxed">
               Create stunning pixel art with professional tools and effects
             </p>
 
             {/* Feature Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-3 sm:pt-4 animate-fade-in-delay-2 px-2">
-              <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-card border-2 border-border rounded-full pixel-card-sm shadow-sm">
-                <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary" />
-                <span className="text-xs sm:text-sm font-retro">Layers</span>
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-2 sm:pt-4 animate-fade-in-delay-2 px-2">
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 bg-card border-2 border-border rounded-full pixel-card-sm shadow-sm">
+                <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-retro whitespace-nowrap">Layers</span>
               </div>
-              <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-card border-2 border-border rounded-full pixel-card-sm shadow-sm">
-                <Grid3x3 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary" />
-                <span className="text-xs sm:text-sm font-retro">Blend Modes</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 bg-card border-2 border-border rounded-full pixel-card-sm shadow-sm">
+                <Grid3x3 className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-retro whitespace-nowrap">Blend Modes</span>
               </div>
-              <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-card border-2 border-border rounded-full pixel-card-sm shadow-sm">
-                <Zap className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary" />
-                <span className="text-xs sm:text-sm font-retro">Advanced Tools</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 bg-card border-2 border-border rounded-full pixel-card-sm shadow-sm">
+                <Zap className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-retro whitespace-nowrap">Advanced Tools</span>
               </div>
             </div>
           </div>
 
           {/* Canvas Size Selection */}
           <Card className="pixel-card border-4 border-border shadow-pixel animate-slide-up">
-            <CardHeader className="text-center pb-4 sm:pb-6">
-              <CardTitle className="font-pixel text-xl max-sm:text-lg sm:text-2xl text-primary">CHOOSE CANVAS SIZE</CardTitle>
-              <CardDescription className="font-retro text-sm sm:text-base pt-1">
+            <CardHeader className="text-center pb-3 sm:pb-6 px-3 sm:px-6">
+              <CardTitle className="font-pixel text-lg sm:text-xl xl:text-2xl text-primary leading-tight">
+                CHOOSE CANVAS SIZE
+              </CardTitle>
+              <CardDescription className="font-retro text-xs sm:text-sm xl:text-base pt-1">
                 Select your canvas dimensions to get started
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-5 sm:space-y-6">
+            <CardContent className="space-y-4 sm:space-y-6 px-3 sm:px-6">
               {/* Size Grid - Mobile Optimized */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-2.5 sm:gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-2 sm:gap-3">
                 {CANVAS_SIZES.map((option) => (
                   <button
                     key={option.size}
                     onClick={() => setSelectedSize(option.size)}
                     className={`
-                      relative group p-3 sm:p-4 rounded-lg border-2 transition-all duration-200
-                      min-h-[72px] sm:min-h-[80px]
-                      active:scale-95
+                      relative group p-2.5 sm:p-4 rounded-lg border-2 transition-all duration-200
+                      min-h-[68px] sm:min-h-[80px]
+                      active:scale-95 touch-manipulation
                       ${
                         selectedSize === option.size
                           ? "border-primary bg-primary/10 shadow-lg scale-105"
@@ -98,10 +99,10 @@ export default function WelcomePage() {
                     `}
                   >
                     <div className="text-center space-y-0.5 sm:space-y-1">
-                      <div className="font-pixel text-base sm:text-lg text-primary">
+                      <div className="font-pixel text-sm sm:text-base xl:text-lg text-primary leading-tight">
                         {option.label}
                       </div>
-                      <div className="text-xs text-muted-foreground font-retro">
+                      <div className="text-xs text-muted-foreground font-retro leading-tight">
                         {option.description}
                       </div>
                     </div>
@@ -113,23 +114,23 @@ export default function WelcomePage() {
               </div>
 
               {/* Start Button - Mobile Optimized */}
-              <div className="flex flex-col items-center gap-3 sm:gap-4 pt-3 sm:pt-4">
+              <div className="flex flex-col items-center gap-2.5 sm:gap-4 pt-2 sm:pt-4">
                 <Button
                   onClick={handleStartDrawing}
                   disabled={isAnimating}
                   size="lg"
                   className={`
-                    w-full sm:w-auto px-8 sm:px-12 py-5 sm:py-6 
-                    text-base sm:text-lg font-pixel
+                    w-full sm:w-auto px-6 sm:px-12 py-4 sm:py-6 
+                    text-sm sm:text-base xl:text-lg font-pixel
                     pixel-button shadow-pixel hover:shadow-pixel-lg
                     transition-all duration-200
-                    min-h-[56px] sm:min-h-[64px]
-                    active:scale-95
+                    min-h-[52px] sm:min-h-[64px]
+                    active:scale-95 touch-manipulation
                     ${isAnimating ? "animate-pulse" : "animate-bounce-subtle"}
                   `}
                 >
-                  <Palette className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-                  START DRAWING
+                  <Palette className="mr-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+                  <span className="whitespace-nowrap">START DRAWING</span>
                 </Button>
                 <p className="text-xs sm:text-sm text-muted-foreground font-retro">
                   Selected: <span className="text-primary font-bold">{selectedSize}×{selectedSize}</span> pixels
@@ -139,8 +140,8 @@ export default function WelcomePage() {
           </Card>
 
           {/* Footer Info - Mobile Optimized */}
-          <div className="text-center text-xs sm:text-sm text-muted-foreground font-retro animate-fade-in-delay-3 px-4 pb-4 sm:pb-0">
-            <p className="max-sm:leading-relaxed">✨ Professional pixel art editor with layers, blend modes, and advanced tools</p>
+          <div className="text-center text-xs sm:text-sm text-muted-foreground font-retro animate-fade-in-delay-3 px-4 pb-6 sm:pb-2">
+            <p className="leading-relaxed">✨ Professional pixel art editor with layers, blend modes, and advanced tools</p>
           </div>
         </div>
       </div>
