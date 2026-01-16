@@ -56,11 +56,9 @@ export default function WelcomePage() {
               </div>
             </div>
             
-            <h1 className="text-4xl sm:text-6xl xl:text-7xl font-pixel pixel-heading text-primary animate-pixel-glow px-2 leading-tight">
-              PIXEL ART PRO
-            </h1>
+            <h1 className="sm:text-6xl xl:text-7xl font-pixel pixel-heading text-primary animate-pixel-glow px-2 border-[0px] text-[32px] border-solid border-[rgb(20,20,82)]">{"PIXEL MINT"}</h1>
             
-            <p className="text-base sm:text-lg xl:text-xl text-muted-foreground font-retro max-w-2xl mx-auto animate-fade-in-delay px-2 leading-relaxed">
+            <p className="sm:text-lg xl:text-xl text-muted-foreground font-retro max-w-2xl mx-auto animate-fade-in-delay px-2 bg-[#8db9d800] bg-none text-[20px] border-solid border-[rgb(20,20,82)] border-[0px] border-[rgb(20,20,82)]">
               Create stunning pixel art with professional tools and effects
             </p>
 
@@ -104,7 +102,7 @@ export default function WelcomePage() {
 
           {/* Footer Info */}
           <div className="text-center text-sm sm:text-base text-muted-foreground font-retro animate-fade-in-delay-3 px-4 pb-6 sm:pb-2">
-            <p className="leading-relaxed">✨ Professional pixel art editor with layers, blend modes, and advanced tools</p>
+            <p className="leading-relaxed text-[#131213] bg-[#8db9d800] bg-none">{"MINT YOUR PIXEL ART"}</p>
           </div>
         </div>
       </div>
