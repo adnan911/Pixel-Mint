@@ -409,15 +409,24 @@ export default function PixelArtEditor() {
     };
   }, []);
 
-  // Export canvas as PNG with high quality
+  // Export canvas as PNG with high quality and optimized file size
   const handleExport = () => {
     // Merge all visible layers
     const mergedCanvas = mergeLayers(layers, Math.max(canvasWidth, canvasHeight));
     
-    // Scale factor for high quality export (8x to ensure >200KB)
-    const EXPORT_SCALE = 8;
+    // Calculate optimal scale factor to ensure file size >= 100KB
+    // Target: ~500,000 pixels for reliable 100KB+ PNG files
+    const currentPixels = canvasWidth * canvasHeight;
+    const targetPixels = 500000; // Aim for 500K pixels to ensure 100KB+ file size
+    const calculatedScale = Math.sqrt(targetPixels / currentPixels);
+    
+    // Use minimum scale of 16x, maximum of 32x, rounded to nearest integer
+    const EXPORT_SCALE = Math.max(16, Math.min(32, Math.round(calculatedScale)));
+    
     const exportWidth = canvasWidth * EXPORT_SCALE;
     const exportHeight = canvasHeight * EXPORT_SCALE;
+    
+    console.log(`Exporting ${canvasWidth}x${canvasHeight} canvas at ${EXPORT_SCALE}x scale (${exportWidth}x${exportHeight})`);
     
     // Create a temporary canvas for export
     const exportCanvas = document.createElement("canvas");

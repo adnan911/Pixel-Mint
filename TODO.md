@@ -258,6 +258,21 @@
   - [x] Removed SelectionToolbar from Row 2 layout
   - [x] Updated Row 2 comment to reflect new layout: "Canvas Size, Export + Actions"
   - [x] All 95 files passed lint checks
+- [x] Step 28: Optimize export pixel size for minimum 100KB file size (Completed)
+  - [x] Replaced fixed 8x export scale with dynamic calculation algorithm
+  - [x] Implemented smart scaling: calculates optimal scale based on canvas dimensions
+  - [x] Target: 500,000 pixels in exported image to ensure 100KB+ PNG file size
+  - [x] Formula: scale = sqrt(500,000 / (width × height))
+  - [x] Applied minimum scale factor of 16x for small canvases
+  - [x] Applied maximum scale factor of 32x to prevent excessive file sizes
+  - [x] Rounds calculated scale to nearest integer for clean pixel multiplication
+  - [x] Added console logging: displays canvas size, scale factor, and output dimensions
+  - [x] Examples: 32×32 canvas → 22x scale → 704×704 output (~495K pixels)
+  - [x] Examples: 64×64 canvas → 16x scale → 1024×1024 output (~1M pixels)
+  - [x] Examples: 128×128 canvas → 16x scale → 2048×2048 output (~4M pixels)
+  - [x] Maintains crisp pixel art quality with imageSmoothingEnabled = false
+  - [x] Preserves maximum PNG quality setting (1.0)
+  - [x] All 95 files passed lint checks
 
 ## Features Implemented
 
