@@ -487,6 +487,30 @@
   - [x] Added Number.isFinite check to prevent Infinity or NaN values
   - [x] Fixed error that occurred when navigating directly to /editor without size parameter
   - [x] All 97 files passed lint checks
+- [x] Step 40: Reduce canvas size dialog to half size (Completed)
+  - [x] Reduced dialog max-width from max-w-2xl (672px) to max-w-md (448px)
+  - [x] Removed custom hardcoded margins (ml-[20px] mr-[200px] mt-[10px]) from DialogContent
+  - [x] Removed duplicate classes from DialogHeader (pixel-card, border-4, shadow-pixel, margins)
+  - [x] Reduced title size: text-2xl sm:text-3xl → text-lg sm:text-xl
+  - [x] Reduced description size: text-sm sm:text-base → text-xs sm:text-sm
+  - [x] Reduced description top padding: pt-2 → pt-1
+  - [x] Reduced main content spacing: space-y-6 → space-y-3
+  - [x] Reduced main content top padding: pt-4 → pt-2
+  - [x] Reduced grid gap: gap-3 → gap-2
+  - [x] Reduced canvas size button padding: p-4 sm:p-5 → p-2 sm:p-3
+  - [x] Reduced canvas size button height: min-h-[80px] sm:min-h-[90px] → min-h-[60px] sm:min-h-[70px]
+  - [x] Reduced canvas size button text: text-lg sm:text-xl → text-sm sm:text-base
+  - [x] Reduced canvas size button description: text-sm → text-xs
+  - [x] Reduced button text spacing: space-y-1 → space-y-0.5
+  - [x] Reduced confirm button padding: px-12 py-6 → px-8 py-4
+  - [x] Reduced confirm button text size: text-lg → text-base
+  - [x] Reduced confirm button height: min-h-[56px] → min-h-[48px]
+  - [x] Reduced confirm button icon: h-5 w-5 → h-4 w-4
+  - [x] Reduced button container spacing: gap-3 → gap-2
+  - [x] Reduced button container top padding: pt-2 → pt-1
+  - [x] Reduced selected size text: text-sm → text-xs
+  - [x] Overall dialog size reduced by approximately 50% (from 672px to 448px width)
+  - [x] All 97 files passed lint checks
 
 ## Features Implemented
 

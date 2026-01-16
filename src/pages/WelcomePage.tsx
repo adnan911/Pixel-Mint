@@ -112,27 +112,26 @@ export default function WelcomePage() {
       </div>
       {/* Canvas Size Selection Dialog */}
       <Dialog open={showSizeDialog} onOpenChange={setShowSizeDialog}>
-        <DialogContent className="pixel-card border-4 border-border shadow-pixel max-w-2xl ml-[20px]">
-          <DialogHeader
-            className="pixel-card border-4 border-border shadow-pixel max-w-2xl ml-[20px] mr-[20px]">
-            <DialogTitle className="font-pixel text-2xl sm:text-3xl text-primary text-center leading-tight">
+        <DialogContent className="pixel-card border-4 border-border shadow-pixel max-w-md">
+          <DialogHeader>
+            <DialogTitle className="font-pixel text-lg sm:text-xl text-primary text-center leading-tight">
               CHOOSE CANVAS SIZE
             </DialogTitle>
-            <DialogDescription className="font-retro text-sm sm:text-base text-center pt-2">
+            <DialogDescription className="font-retro text-xs sm:text-sm text-center pt-1">
               Select your canvas dimensions to get started
             </DialogDescription>
           </DialogHeader>
           
-          <div className="space-y-6 pt-4">
+          <div className="space-y-3 pt-2">
             {/* Size Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {CANVAS_SIZES.map((option) => (
                 <button
                   key={option.size}
                   onClick={() => setSelectedSize(option.size)}
                   className={`
-                    relative group p-4 sm:p-5 rounded-lg border-2 transition-all duration-200
-                    min-h-[80px] sm:min-h-[90px]
+                    relative group p-2 sm:p-3 rounded-lg border-2 transition-all duration-200
+                    min-h-[60px] sm:min-h-[70px]
                     active:scale-95 touch-manipulation
                     ${
                       selectedSize === option.size
@@ -141,11 +140,11 @@ export default function WelcomePage() {
                     }
                   `}
                 >
-                  <div className="text-center space-y-1">
-                    <div className="font-pixel text-lg sm:text-xl text-primary leading-tight">
+                  <div className="text-center space-y-0.5">
+                    <div className="font-pixel text-sm sm:text-base text-primary leading-tight">
                       {option.label}
                     </div>
-                    <div className="text-sm text-muted-foreground font-retro leading-tight">
+                    <div className="text-xs text-muted-foreground font-retro leading-tight">
                       {option.description}
                     </div>
                   </div>
@@ -157,16 +156,16 @@ export default function WelcomePage() {
             </div>
 
             {/* Confirm Button */}
-            <div className="flex flex-col items-center gap-3 pt-2">
+            <div className="flex flex-col items-center gap-2 pt-1">
               <Button
                 onClick={handleSizeConfirm}
                 size="lg"
-                className="w-full sm:w-auto px-12 py-6 text-lg font-pixel pixel-button shadow-pixel hover:shadow-pixel-lg min-h-[56px] active:scale-95 touch-manipulation"
+                className="w-full sm:w-auto px-8 py-4 text-base font-pixel pixel-button shadow-pixel hover:shadow-pixel-lg min-h-[48px] active:scale-95 touch-manipulation"
               >
-                <Palette className="mr-2 h-5 w-5 flex-shrink-0" />
+                <Palette className="mr-2 h-4 w-4 flex-shrink-0" />
                 <span className="whitespace-nowrap">CONFIRM & START</span>
               </Button>
-              <p className="text-sm text-muted-foreground font-retro">
+              <p className="text-xs text-muted-foreground font-retro">
                 Selected: <span className="text-primary font-bold">{selectedSize}×{selectedSize}</span> pixels
               </p>
             </div>
