@@ -311,6 +311,13 @@
   - [x] Applied to main container div with className "fixed inset-0 flex flex-col overflow-hidden pixel-grid"
   - [x] Background image URL: https://miaoda-edit-image.s3cdn.medo.dev/8ydy3wce8yrl/IMG-8z4wrlhevlds.jpg
   - [x] All 95 files passed lint checks
+- [x] Step 32: Add permanent border to canvas area (Completed)
+  - [x] Added border-4 border-border classes to canvas area container
+  - [x] Applied to canvas container at line 733 in PixelArtEditor.tsx
+  - [x] Border style: 4px solid border using semantic border-border color
+  - [x] Preserved existing canvas container classes: flex-1 flex items-center justify-center overflow-hidden p-2 sm:p-4 @container
+  - [x] Canvas area now always displays with visible border frame
+  - [x] All 95 files passed lint checks
 
 ## Features Implemented
 

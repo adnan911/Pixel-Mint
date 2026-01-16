@@ -730,7 +730,7 @@ export default function PixelArtEditor() {
         </div>
       </div>
       {/* Canvas Area */}
-      <div className="flex-1 flex items-center justify-center overflow-hidden p-2 sm:p-4 @container">
+      <div className="flex-1 flex items-center justify-center overflow-hidden p-2 sm:p-4 @container border-4 border-border">
         <div className="w-full h-full flex items-center justify-center">
           <EnhancedPixelCanvas
             canvasGrid={canvasGrid}
