@@ -421,7 +421,8 @@
   - [x] All 96 files passed lint checks
 - [x] Step 37: Replace pencil tool with color selector in bottom toolbar (Completed)
   - [x] Created new ColorSelector component at src/components/pixel-art/ColorSelector.tsx
-  - [x] Removed pencil tool from DrawingToolbar component (kept eraser, fill, eyedropper, shapes)
+  - [x] Removed pencil tool from main DrawingToolbar buttons (kept eraser, fill, eyedropper)
+  - [x] Moved pencil tool to shapes dropdown menu (accessible via Shapes button)
   - [x] Added ColorSelector to bottom status bar with current color button
   - [x] Implemented 5 quick color slots with default colors: Red, Green, Blue, Yellow, Magenta
   - [x] Added click functionality to quick color slots to select color
@@ -440,6 +441,7 @@
   - [x] Added pixel-card styling to popover dialogs
   - [x] Used font-retro for labels and font-mono for hex inputs
   - [x] Imported ColorSelector component in PixelArtEditor
+  - [x] Pencil tool still accessible via keyboard shortcut (P) and shapes dropdown
   - [x] All 97 files passed lint checks
 
 ## Features Implemented

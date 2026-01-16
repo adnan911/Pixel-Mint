@@ -58,6 +58,12 @@ const shapeTools: Array<{
   shortcut: string;
 }> = [
   {
+    id: "pencil",
+    icon: <Pencil className="h-4 w-4" />,
+    label: "Pencil",
+    shortcut: "P",
+  },
+  {
     id: "line",
     icon: <Minus className="h-4 w-4" />,
     label: "Line",
