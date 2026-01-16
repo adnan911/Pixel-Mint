@@ -355,6 +355,21 @@ export default function PixelArtEditor() {
     canRedo,
   });
 
+  // Prevent body scroll on mobile
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.height = "100%";
+    
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.height = "";
+    };
+  }, []);
+
   // Export canvas as PNG
   const handleExport = () => {
     // Merge all visible layers
@@ -391,21 +406,6 @@ export default function PixelArtEditor() {
       URL.revokeObjectURL(url);
     });
   };
-
-  // Prevent body scroll on mobile
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-    document.body.style.width = "100%";
-    document.body.style.height = "100%";
-    
-    return () => {
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-      document.body.style.height = "";
-    };
-  }, []);
 
   return (
     <div className="fixed inset-0 flex flex-col bg-background overflow-hidden">

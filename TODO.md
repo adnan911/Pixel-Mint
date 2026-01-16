@@ -118,6 +118,11 @@
   - [x] Callbacks now use latest values via refs instead of dependencies
   - [x] History correctly captures all state changes
   - [x] Undo/redo now properly navigate through history stack
+- [x] Step 17: Fix React hooks order violation (Completed)
+  - [x] Moved useEffect hook to come immediately after useKeyboardShortcuts
+  - [x] Ensured all hooks are called in consistent order on every render
+  - [x] Fixed "Rendered more hooks than during the previous render" error
+  - [x] Proper hook ordering: useState → useMemo → useHistory → useKeyboardShortcuts → useEffect → function definitions
 
 ## Features Implemented
 
@@ -297,6 +302,8 @@
 - All palette operations integrated with undo/redo system
 - Undo/redo functionality working correctly with 20-step history using refs to avoid stale closures
 - History hook uses refs (historyRef, currentIndexRef) to track latest values and prevent race conditions
+- All React hooks follow proper ordering rules to prevent "Rendered more hooks" errors
+- Hook call order: useState → useMemo → useHistory → useKeyboardShortcuts → useEffect
 - Defensive object creation to prevent property descriptor conflicts with browser extensions
 - All factory functions (createLayer, createPalette, duplicateLayer) return plain objects
 - State initialization wrapped in try-catch for graceful error handling
