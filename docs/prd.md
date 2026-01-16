@@ -4,8 +4,7 @@
 
 **Problem**: Digital artists, hobbyists, game developers, and creative learners need an accessible, mobile-optimized tool to create pixel art without installing desktop software or dealing with complex interfaces.
 
-**Value Proposition**: A lightweight, intuitive mobile-first web application that enables users to create, edit, and export high-resolution pixel art directly in their smartphone browser. The tool democratizes pixel art creation by removing technical barriers while providing essential features optimized specifically for mobile touch interactions, with enhanced pixel resolution to ensure exported images meet professional quality standards (minimum 100KB file size).
-
+**Value Proposition**: A lightweight, intuitive mobile-first web application that enables users to create, edit, and export high-resolution pixel art directly in their smartphone browser. The tool democratizes pixel art creation by removing technical barriers while providing essential features optimized specifically for mobile touch interactions, with enhanced pixel resolution to ensure exported images meet professional quality standards (minimum 100KB file size).\n
 **Target Users**:
 - Mobile indie game developers creating high-quality sprites on-the-go
 - Digital artists exploring retro aesthetics from smartphones
@@ -15,7 +14,8 @@
 
 ## 2. Product Requirements Document (PRD)
 
-### 2.1 Goals\n- Provide an intuitive pixel-by-pixel drawing experience optimized for smartphone screens (320px-480px)\n- Enable one-handed operation for core drawing functions\n- Deliver responsive performance for customizable canvas sizes on mobile devices
+### 2.1 Goals\n- Provide an intuitive pixel-by-pixel drawing experience optimized for smartphone screens (320px-480px)\n- Enable one-handed operation for core drawing functions
+- Deliver responsive performance for customizable canvas sizes on mobile devices
 - Support essential drawing tools with thumb-friendly controls
 - Implement simplified layer system (maximum 5 layers) for mobile memory constraints
 - Provide streamlined color palette with quick-access swatches
@@ -23,7 +23,9 @@
 - Ensure all UI elements are accessible within thumb reach zones
 - Minimize drawer height to maximize canvas visibility
 - Support portrait orientation as primary mode
-- Allow users to move selected pixels or drawn elements\n- Optimize pixel resolution to ensure professional-quality output
+- Allow users to move selected pixels or drawn elements
+- Optimize pixel resolution to ensure professional-quality output
+- Provide intuitive zoom controls with dropdown options
 
 ### 2.2 Non-Goals
 - Desktop optimization (mobile-first approach)
@@ -36,13 +38,11 @@
 - Native mobile app versions
 - Marquee selection tool
 - Lasso selection tool
-- Hand/pan tool as separate tool
-\n### 2.3 User Personas
+- Hand/pan tool as separate tool\n\n### 2.3 User Personas
 
 **Persona 1: Mobile Commuter Artist**
 - Age: 25, creates pixel art during subway rides
-- Device: iPhone 13 (390×844px)
-- Needs: One-handed operation, quick tool access, simple interface, high-quality exports
+- Device: iPhone 13 (390×844px)\n- Needs: One-handed operation, quick tool access, simple interface, high-quality exports
 - Pain points: Limited screen space, need to hold phone with one hand, low-resolution outputs
 
 **Persona 2: Mobile Game Developer**
@@ -61,22 +61,22 @@
 **Journey 1: Quick Icon Creation on Phone**
 1. User opens app on smartphone during commute
 2. Selects desired canvas size from customizable options
-3. Sees canvas optimized for portrait mode
-4. Taps pencil tool from bottom drawer
+3. Sees canvas optimized for portrait mode\n4. Taps pencil tool from bottom drawer
 5. Draws with thumb on lower canvas area
-6. Swipes up drawer to access color swatches
-7. Continues drawing with one hand
-8. Taps Export button
-9. Receives high-resolution PNG (minimum 100KB)
-10. Total time: 3-5 minutes
+6. Uses zoom button dropdown to adjust view (Zoom In/Zoom Out/Fit)
+7. Swipes up drawer to access color swatches
+8. Continues drawing with one hand
+9. Taps Export button\n10. Receives high-resolution PNG (minimum 100KB)
+11. Total time: 3-5 minutes
 
 **Journey 2: Simple Sprite with Layers and Movement**
 1. User opens app on phone
 2. Creates background layer
 3. Adds character layer\n4. Uses move tool to reposition drawn elements
-5. Toggles layer visibility to check composition
-6. Adjusts layer opacity\n7. Exports final high-resolution sprite
-8. Total time: 10-15 minutes
+5. Adjusts zoom level via dropdown for detailed work
+6. Toggles layer visibility to check composition
+7. Adjusts layer opacity\n8. Exports final high-resolution sprite
+9. Total time: 10-15 minutes
 
 ### 2.5 Functional Requirements
 
@@ -93,8 +93,7 @@
 #### Drawing Tools
 - **FR-9**: Pencil tool - primary drawing tool\n- **FR-10**: Eraser tool - remove pixels
 - **FR-11**: Fill tool - flood fill with contiguous mode only
-- **FR-12**: Eyedropper tool - long press gesture (800ms)
-- **FR-13**: Line tool - draw straight lines
+- **FR-12**: Eyedropper tool - long press gesture (800ms)\n- **FR-13**: Line tool - draw straight lines
 - **FR-14**: Move tool - select and move drawn pixels or elements
 - **FR-15**: Tool selection via bottom drawer with 56×56px buttons
 - **FR-16**: Active tool highlighted with visual indicator
@@ -103,8 +102,7 @@
 - **FR-18**: Selected area highlighted with visual indicator
 - **FR-19**: Drag gesture to move selected pixels to new position
 - **FR-20**: Tap outside selection to deselect
-- **FR-21**: Move operation supports undo/redo\n
-#### Simplified Layer System
+- **FR-21**: Move operation supports undo/redo\n\n#### Simplified Layer System
 - **FR-22**: Maximum 5 layers (mobile memory constraint)
 - **FR-23**: Create new layer button (56×56px)\n- **FR-24**: Delete layer with confirmation\n- **FR-25**: Layer visibility toggle
 - **FR-26**: Layer opacity slider (0-100%)
@@ -121,54 +119,55 @@
 \n#### Navigation
 - **FR-35**: Pan canvas - two-finger drag gesture
 - **FR-36**: Zoom - pinch gesture
-- **FR-37**: Reset view button
-\n#### History
-- **FR-38**: Undo button (56×56px) - 10 steps maximum
-- **FR-39**: Redo button (56×56px) - 10 steps maximum
-- **FR-40**: Undo/redo via swipe gestures (optional)
+- **FR-37**: Zoom button with dropdown menu (56×56px)
+- **FR-38**: Dropdown options: Zoom In, Zoom Out, Fit
+- **FR-39**: Zoom button positioned in first row of drawer interface
+- **FR-40**: Zoom In increases zoom level by one step (100% → 200% → 400%)
+- **FR-41**: Zoom Out decreases zoom level by one step (400% → 200% → 100%)
+- **FR-42**: Fit option adjusts canvas to optimal viewing size within viewport
+- **FR-43**: Reset view button\n
+#### History\n- **FR-44**: Undo button (56×56px) - 10 steps maximum
+- **FR-45**: Redo button (56×56px) - 10 steps maximum
+- **FR-46**: Undo/redo via swipe gestures (optional)
+\n#### Export\n- **FR-47**: Export high-resolution PNG button (120×56px)\n- **FR-48**: Export resolution multiplier: minimum 8× physical pixels per logical pixel
+- **FR-49**: Ensure exported PNG file size meets minimum 100KB threshold
+- **FR-50**: Clear canvas button with confirmation\n- **FR-51**: Auto-save to browser storage
 
-#### Export\n- **FR-41**: Export high-resolution PNG button (120×56px)
-- **FR-42**: Export resolution multiplier: minimum 8× physical pixels per logical pixel
-- **FR-43**: Ensure exported PNG file size meets minimum 100KB threshold
-- **FR-44**: Clear canvas button with confirmation
-- **FR-45**: Auto-save to browser storage
-\n#### Mobile-Optimized UI
-- **FR-46**: Bottom drawer interface (maximum 30vh height)
-- **FR-47**: Drawer toggle button (56×56px floating action button)
-- **FR-48**: All buttons minimum 56×56px for thumb-friendly interaction
-- **FR-49**: Drawer slides up from bottom with smooth animation
-- **FR-50**: Canvas occupies 60-70% of viewport height
-- **FR-51**: Portrait orientation as primary mode
-- **FR-52**: Prevent accidental page zoom during drawing
-- **FR-53**: Haptic feedback for tool selection (if supported)
+#### Mobile-Optimized UI
+- **FR-52**: Bottom drawer interface (maximum 30vh height)
+- **FR-53**: Drawer toggle button (56×56px floating action button)
+- **FR-54**: All buttons minimum 56×56px for thumb-friendly interaction
+- **FR-55**: Drawer slides up from bottom with smooth animation
+- **FR-56**: Canvas occupies 60-70% of viewport height
+- **FR-57**: Portrait orientation as primary mode
+- **FR-58**: Prevent accidental page zoom during drawing
+- **FR-59**: Haptic feedback for tool selection (if supported)
 
 ### 2.6 Non-Functional Requirements
 
 #### Performance
 - **NFR-1**: Canvas rendering within 80ms for customizable grid sizes on mobile
-- **NFR-2**: Touch response within 16ms (60fps)
-- **NFR-3**: App load time under 2 seconds on 4G
+- **NFR-2**: Touch response within 16ms (60fps)\n- **NFR-3**: App load time under 2 seconds on 4G
 - **NFR-4**: Memory usage under 80MB on mobile devices (increased for high-resolution rendering)
 - **NFR-5**: Battery-efficient rendering (minimize redraws)
 - **NFR-6**: Export processing time under 3 seconds for high-resolution output
-
-#### Mobile Usability
-- **NFR-7**: All interactive elements minimum 56×56px
-- **NFR-8**: Thumb reach zone optimization for portrait mode
-- **NFR-9**: One-handed operation for core functions
-- **NFR-10**: Drawer height never exceeds 30vh
-- **NFR-11**: Canvas always visible when drawer is open
+- **NFR-7**: Zoom dropdown menu opens within 100ms
+\n#### Mobile Usability
+- **NFR-8**: All interactive elements minimum 56×56px
+- **NFR-9**: Thumb reach zone optimization for portrait mode
+- **NFR-10**: One-handed operation for core functions
+- **NFR-11**: Drawer height never exceeds 30vh
+- **NFR-12**: Canvas always visible when drawer is open
 \n#### Browser Support
-- **NFR-12**: iOS Safari 14+, Chrome Mobile 90+, Firefox Mobile 88+
-- **NFR-13**: Responsive design for 320px-480px width (portrait)
-- **NFR-14**: Touch event support required\n\n#### Accessibility
-- **NFR-15**: High contrast mode support
-- **NFR-16**: Screen reader compatibility
-- **NFR-17**: Minimum 4.5:1 color contrast for UI elements
+- **NFR-13**: iOS Safari 14+, Chrome Mobile 90+, Firefox Mobile 88+\n- **NFR-14**: Responsive design for 320px-480px width (portrait)
+- **NFR-15**: Touch event support required\n\n#### Accessibility
+- **NFR-16**: High contrast mode support
+- **NFR-17**: Screen reader compatibility
+- **NFR-18**: Minimum 4.5:1 color contrast for UI elements
 \n#### Export Quality
-- **NFR-18**: Minimum export resolution: 8× physical pixels per logical pixel
-- **NFR-19**: Exported PNG file size minimum: 100KB
-- **NFR-20**: Support for lossless PNG compression
+- **NFR-19**: Minimum export resolution: 8× physical pixels per logical pixel
+- **NFR-20**: Exported PNG file size minimum: 100KB
+- **NFR-21**: Support for lossless PNG compression
 
 ### 2.7 Success Metrics
 - **Engagement**: Average mobile session duration > 8 minutes
@@ -178,20 +177,23 @@
 - **One-Handed Use**: 60%+ of users successfully create art one-handed
 - **Layer Adoption**: 40%+ of users utilize multiple layers
 - **Move Tool Usage**: 30%+ of users utilize move tool for repositioning
+- **Zoom Control Usage**: 50%+ of users utilize zoom dropdown for view adjustment
 - **Export Quality**: 95%+ of exported images meet 100KB minimum file size
 
 ---
 
 ## 3. MVP Definition
 
-### 3.1 MVP Included Features\n
+### 3.1 MVP Included Features
+
 **Core Drawing**:\n- Customizable canvas size (user input + presets: 16×16, 32×32, 64×64, 128×128)
 - High-resolution pixel rendering (8× physical pixels per logical pixel)
 - Pencil tool\n- Eraser tool
 - Fill tool (contiguous mode only)
 - Eyedropper tool (long press)
 - Line tool\n- Move tool (select and move pixels)
-\n**Simplified Layers**:\n- Maximum 5 layers\n- Create/delete layer\n- Layer visibility toggle
+\n**Simplified Layers**:
+- Maximum 5 layers\n- Create/delete layer\n- Layer visibility toggle
 - Layer opacity (0-100%)
 - Blend modes: Normal, Multiply, Overlay\n- Layer thumbnails\n\n**Streamlined Colors**:
 - 8 quick-access swatches
@@ -202,6 +204,7 @@
 **Navigation**:
 - Pan (two-finger drag)
 - Zoom (pinch gesture)
+- Zoom button with dropdown (Zoom In, Zoom Out, Fit)
 - Zoom levels: 100%, 200%, 400%
 \n**History**:
 - Undo (10 steps)
@@ -215,27 +218,27 @@
 - 56×56px touch targets
 - Portrait-optimized layout
 - Floating action button for drawer toggle
+- Zoom button in first row of drawer
 
 ### 3.2 MVP Excluded Features
 
 - Marquee selection tool
 - Lasso selection tool
 - Hand/pan tool as separate tool (pan via two-finger drag)
-- Transformation tools (rotate, flip)
-- Advanced blend modes
-- Custom palette management
+- Transformation tools (rotate, flip)\n- Advanced blend modes\n- Custom palette management
 - Dynamic brush modes
 - Dithering tools
 - Navigation preview window
 - Landscape mode optimization
 - More than 5 layers
-\n### 3.3 MVP Success Criteria
+
+### 3.3 MVP Success Criteria
 - 80%+ of mobile users complete icon creation within 5 minutes
 - 90%+ of users successfully operate with one hand
 - 70%+ of users export at least one image
 - Zero critical bugs in core drawing flow
 - 60fps maintained during drawing on mid-range devices
-- 30%+ of users successfully use move tool
+- 30%+ of users successfully use move tool\n- 50%+ of users utilize zoom dropdown controls
 - 95%+ of exported images meet 100KB minimum file size requirement
 
 ---
@@ -251,41 +254,48 @@
 - **Mobile Optimization**: Touch events, viewport configuration, CSS containment
 
 ### 4.2 State Management
-- **Local State**: React useState for UI
-- **Canvas State**: Custom hook for pixel array (max 5 layers) with high-resolution backing store
+- **Local State**: React useState for UI\n- **Canvas State**: Custom hook for pixel array (max 5 layers) with high-resolution backing store
 - **Layer State**: Simplified layer array\n- **Color State**: 8 swatches + 4 recent colors
 - **History State**: 10-step undo/redo stack
 - **Persistence**: localStorage for auto-save
 - **Move Tool State**: Selected pixels coordinates and movement tracking
+- **Zoom State**: Current zoom level and dropdown menu visibility
 - **Export State**: Resolution multiplier configuration (minimum 8×)\n
 ### 4.3 Data Models
-\n```typescript
+
+```typescript
 type Color = string; // hex format
 type Pixel = Color;\ntype CanvasGrid = Pixel[][];
 type Tool = 'pencil' | 'eraser' | 'fill' | 'eyedropper' | 'line' | 'move';
 type BlendMode = 'normal' | 'multiply' | 'overlay';
-\ninterface Layer {
-  id: string;\n  name: string;
+type ZoomLevel = 1 | 2 | 4; // 100%, 200%, 400%\n\ninterface Layer {
+  id: string;
+  name: string;
   canvas: CanvasGrid;
   visible: boolean;
-  opacity: number; // 0-100
-  blendMode: BlendMode;\n}\n
+  opacity: number; // 0-100\n  blendMode: BlendMode;
+}\n
 interface Selection {
   pixels: {x: number, y: number}[];
   active: boolean;
 }\n
-interface ExportConfig {
+interface ZoomControl {
+  level: ZoomLevel;
+  dropdownOpen: boolean;
+}
+\ninterface ExportConfig {
   resolutionMultiplier: number; // minimum 8\n  targetFileSize: number; // minimum 100KB
-}\n\ninterface AppState {
-  layers: Layer[]; // max 5
-  activeLayerId: string;\n  currentTool: Tool;
-  currentColor: Color;
+}
+\ninterface AppState {
+  layers: Layer[]; // max 5\n  activeLayerId: string;\n  currentTool: Tool;\n  currentColor: Color;
   quickSwatches: Color[]; // 8 colors
-  recentColors: Color[]; // 4 colors\n  history: AppState[]; // 10 steps
+  recentColors: Color[]; // 4 colors
+  history: AppState[]; // 10 steps
   historyIndex: number;
   canvasSize: {width: number, height: number}; // customizable
   drawerOpen: boolean;
-  zoom: number; // 1, 2, 4\n  selection: Selection;
+  zoom: ZoomControl;
+  selection: Selection;
   exportConfig: ExportConfig;
 }
 ```
@@ -321,32 +331,43 @@ interface ExportConfig {
    - Layer controls\n   - Action buttons
    - Canvas size selector
    - Export resolution indicator
+   - Zoom button with dropdown
 
 ### 5.2 Drawer Layout
 
-**Section 1: Tools** (horizontal scroll)
+**Section 1: First Row** (horizontal layout)
+- Zoom button with dropdown (56×56px)
+- Undo (56×56px)
+- Redo (56×56px)
+- Export (120×56px) with resolution indicator
+- Clear (56×56px)\n\n**Section 2: Tools** (horizontal scroll)
 - Pencil, Eraser, Fill, Line, Eyedropper, Move
 - Each 56×56px\n- Active tool highlighted
-\n**Section 2: Colors** (2 rows)
-- Row 1: 8 quick swatches (56×56px)\n- Row 2: Current color + 4 recent colors
-\n**Section 3: Canvas Settings** (collapsible)
+\n**Section 3: Colors** (2 rows)
+- Row 1: 8 quick swatches (56×56px)\n- Row 2: Current color + 4 recent colors\n
+**Section 4: Canvas Settings** (collapsible)
 - Canvas size input (width × height)
 - Preset size buttons (16×16, 32×32, 64×64, 128×128)
 - Grid toggle
 - Resolution multiplier display (8× minimum)
 
-**Section 4: Layers** (collapsible)
+**Section 5: Layers** (collapsible)
 - Layer list (max 5)\n- Thumbnails (40×40px)
 - Visibility toggle
-- Opacity slider\n\n**Section 5: Actions** (bottom row)
-- Undo (56×56px)
-- Redo (56×56px)
-- Export (120×56px) with resolution indicator
-- Clear (56×56px)
+- Opacity slider\n\n### 5.3 Zoom Dropdown Menu
 
-### 5.3 Thumb Reach Zones
+**Position**: Appears above zoom button when activated
+**Options**:
+1. Zoom In (increases zoom level)\n2. Zoom Out (decreases zoom level)
+3. Fit (adjusts canvas to optimal viewing size)
+\n**Interaction**:
+- Tap zoom button to open/close dropdown
+- Tap option to execute zoom action
+- Menu closes automatically after selection
 
-- **Primary Zone** (bottom 30%): Most-used tools
+### 5.4 Thumb Reach Zones
+
+- **Primary Zone** (bottom 30%): Most-used tools and zoom controls
 - **Secondary Zone** (middle 40%): Canvas\n- **Tertiary Zone** (top 30%): Less frequent actions
 
 ---
@@ -360,6 +381,7 @@ interface ExportConfig {
 - **Swipe Up**: Open drawer
 - **Swipe Down**: Close drawer
 - **Drag (Move Tool)**: Move selected pixels
+- **Tap Zoom Button**: Open/close zoom dropdown
 
 ### 6.2 Viewport Configuration
 \n```html
@@ -373,13 +395,14 @@ interface ExportConfig {
 - RequestAnimationFrame for smooth interactions
 - Lazy loading for layer thumbnails
 - Minimal DOM updates
-- CSS containment for drawer
-- Optimized rendering for customizable canvas sizes
+- CSS containment for drawer\n- Optimized rendering for customizable canvas sizes
 - Dual-canvas architecture (display + high-resolution backing store)
 - Progressive rendering for export operations
+- Efficient dropdown menu rendering
 
 ---
-\n## 7. Implementation Roadmap
+
+## 7. Implementation Roadmap
 
 ### Phase 1: Mobile Core (Week 1-2)
 - Mobile-optimized canvas rendering with customizable size
@@ -392,21 +415,22 @@ interface ExportConfig {
 - Eyedropper (long press)
 - Move tool (select and move pixels)
 - Tool selection UI
-\n### Phase 3: Simplified Layers (Week 4)\n- Layer creation/deletion (max 5)
-- Layer visibility\n- Layer opacity
+\n### Phase 3: Simplified Layers (Week 4)
+- Layer creation/deletion (max 5)\n- Layer visibility\n- Layer opacity
 - Basic blend modes
 - High-resolution layer compositing
 
 ### Phase 4: Color System (Week 5)
-- 8 quick swatches\n- Color picker
-- Recent colors
+- 8 quick swatches
+- Color picker\n- Recent colors
 - Current color indicator
 
 ### Phase 5: Navigation & History (Week 6)
 - Pan and zoom gestures
+- Zoom button with dropdown (Zoom In, Zoom Out, Fit)
 - Undo/redo (10 steps)
-- Auto-save
-\n### Phase 6: Export & Polish (Week 7)
+- Auto-save\n
+### Phase 6: Export & Polish (Week 7)
 - High-resolution PNG export (minimum 100KB)
 - Export resolution optimization
 - Clear canvas\n- UI refinements
@@ -415,21 +439,21 @@ interface ExportConfig {
 ### Phase 7: Testing & Launch (Week 8)
 - Mobile device testing
 - Export quality validation
+- Zoom control usability testing
 - User testing (15+ participants)
-- Bug fixes
-- Launch\n
+- Bug fixes\n- Launch\n
 ---
 
 ## 8. Next Steps
 
 1. **Validate High-Resolution Scope**: Confirm export quality requirements with stakeholders
-2. **Create Mobile Mockups**: Design portrait-optimized UI wireframes with resolution indicators
+2. **Create Mobile Mockups**: Design portrait-optimized UI wireframes with zoom dropdown and resolution indicators
 3. **Set Up Development Environment**: Initialize React + TypeScript project with high-resolution canvas support
 4. **Begin Phase 1**: Start with mobile canvas and high-resolution backing store implementation
 5. **Establish Testing Strategy**: Define mobile device test matrix and export quality benchmarks
 6. **Plan User Testing**: Recruit 15-20 mobile beta testers\n\n---
 
-**Document Version**: 8.0  
+**Document Version**: 9.0  
 **Last Updated**: 2026-01-16  
 **Status**: High-Resolution MVP Ready for Development  
-**Key Changes**: Optimized pixel resolution with minimum 8× physical pixels per logical pixel to ensure exported PNG images meet minimum 100KB file size requirement; updated canvas rendering architecture with dual-canvas system (display + high-resolution backing store); enhanced export functionality with resolution multiplier configuration; adjusted memory requirements and performance specifications; updated data models, technical architecture, and implementation roadmap accordingly
+**Key Changes**: Added zoom button with dropdown menu (Zoom In, Zoom Out, Fit) positioned in first row of drawer interface; updated functional requirements (FR-37 to FR-43) to include zoom dropdown specifications; modified drawer layout to place zoom button in first row alongside undo, redo, export, and clear buttons; updated data models to include ZoomControl interface; enhanced touch interactions to include zoom button tap gesture; adjusted implementation roadmap Phase 5 to include zoom dropdown development; updated success metrics to track zoom control usage

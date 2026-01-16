@@ -42,7 +42,7 @@ import type {
   BrushMode,
   DitherPattern,
 } from "@/types/pixel-art";
-import { Palette, Settings, Undo2, Redo2, Layers, Download, Maximize2, FlipHorizontal2, RotateCw, FlipVertical2, Grid3x3, Trash2 } from "lucide-react";
+import { Palette, Settings, Undo2, Redo2, Layers, Download, Maximize2, FlipHorizontal2, RotateCw, FlipVertical2, Grid3x3, Trash2, ZoomIn, ZoomOut, Maximize } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -81,7 +81,7 @@ export default function PixelArtEditor() {
   const [brushMode, setBrushMode] = useState<BrushMode>("normal");
   const [ditherPattern, setDitherPattern] = useState<DitherPattern>("bayer4x4");
   const [selection, setSelection] = useState<Selection>({ active: false, points: [] });
-  const [zoom] = useState(1);
+  const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [clipboard, setClipboard] = useState<Clipboard | null>(null);
   const [colorsOpen, setColorsOpen] = useState(false);
@@ -409,6 +409,19 @@ export default function PixelArtEditor() {
     };
   }, []);
 
+  // Zoom controls
+  const handleZoomIn = () => {
+    setZoom((prev) => Math.min(prev + 0.25, 4)); // Max 4x zoom
+  };
+
+  const handleZoomOut = () => {
+    setZoom((prev) => Math.max(prev - 0.25, 0.5)); // Min 0.5x zoom
+  };
+
+  const handleZoomFit = () => {
+    setZoom(1); // Reset to 1x (fit to screen)
+  };
+
   // Export canvas as PNG with high quality and optimized file size
   const handleExport = () => {
     // Merge all visible layers
@@ -555,6 +568,49 @@ export default function PixelArtEditor() {
               <div className="flex-1 overflow-x-auto sm:overflow-visible">
                 <DrawingToolbar currentTool={currentTool} onToolChange={setCurrentTool} />
               </div>
+
+              {/* Zoom Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="h-11 w-11 sm:h-10 sm:w-10 pixel-button font-retro flex-shrink-0"
+                    title="Zoom"
+                  >
+                    <ZoomIn className="h-5 w-5" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48 pixel-card border-4 border-border">
+                  <DropdownMenuLabel className="font-pixel text-primary text-xs">
+                    ZOOM ({Math.round(zoom * 100)}%)
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator className="bg-border h-1" />
+                  <DropdownMenuItem
+                    onClick={handleZoomIn}
+                    disabled={zoom >= 4}
+                    className="font-retro text-base cursor-pointer hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground"
+                  >
+                    <ZoomIn className="mr-2 h-4 w-4" />
+                    Zoom In
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={handleZoomOut}
+                    disabled={zoom <= 0.5}
+                    className="font-retro text-base cursor-pointer hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground"
+                  >
+                    <ZoomOut className="mr-2 h-4 w-4" />
+                    Zoom Out
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={handleZoomFit}
+                    className="font-retro text-base cursor-pointer hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground"
+                  >
+                    <Maximize className="mr-2 h-4 w-4" />
+                    Fit
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
 
             {/* Row 2 (Mobile) / Center+Right (Desktop): Canvas Size, Export + Actions */}

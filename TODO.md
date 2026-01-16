@@ -273,6 +273,27 @@
   - [x] Maintains crisp pixel art quality with imageSmoothingEnabled = false
   - [x] Preserves maximum PNG quality setting (1.0)
   - [x] All 95 files passed lint checks
+- [x] Step 29: Add zoom button with dropdown menu to first row (Completed)
+  - [x] Changed zoom from constant (useState(1)) to stateful (setZoom)
+  - [x] Added ZoomIn, ZoomOut, Maximize icons to lucide-react imports
+  - [x] Implemented handleZoomIn function: increases zoom by 0.25, max 4x
+  - [x] Implemented handleZoomOut function: decreases zoom by 0.25, min 0.5x
+  - [x] Implemented handleZoomFit function: resets zoom to 1x (fit to screen)
+  - [x] Added zoom DropdownMenu component after drawing tools in Row 1
+  - [x] Applied pixel-button styling with h-11 w-11 sm:h-10 sm:w-10 dimensions
+  - [x] Added flex-shrink-0 to prevent button compression
+  - [x] Used ZoomIn icon for dropdown trigger button
+  - [x] Applied pixel-card styling to dropdown content with border-4
+  - [x] Added dropdown label showing current zoom percentage (e.g., "ZOOM (100%)")
+  - [x] Applied font-pixel class to label with text-primary and text-xs
+  - [x] Added DropdownMenuSeparator with bg-border h-1 styling
+  - [x] Created "Zoom In" menu item with ZoomIn icon, disabled when zoom >= 4x
+  - [x] Created "Zoom Out" menu item with ZoomOut icon, disabled when zoom <= 0.5x
+  - [x] Created "Fit" menu item with Maximize icon to reset zoom to 1x
+  - [x] Applied font-retro text-base to all menu items
+  - [x] Added hover and focus states: hover:bg-primary hover:text-primary-foreground
+  - [x] Positioned zoom button in Row 1 after drawing tools, before Row 2
+  - [x] All 95 files passed lint checks
 
 ## Features Implemented
 
