@@ -123,6 +123,19 @@
   - [x] Ensured all hooks are called in consistent order on every render
   - [x] Fixed "Rendered more hooks than during the previous render" error
   - [x] Proper hook ordering: useState → useMemo → useHistory → useKeyboardShortcuts → useEffect → function definitions
+- [x] Step 18: Implement customizable canvas size and tool simplification (Completed)
+  - [x] Added canvasWidth and canvasHeight to EditorState
+  - [x] Created CanvasSizeSettings component with presets (16×16, 32×32, 64×64, 128×128)
+  - [x] Added custom size input (8-256 pixels range)
+  - [x] Implemented handleCanvasSizeChange to resize all layers
+  - [x] Added canvas size button in header showing current dimensions
+  - [x] Removed marquee, lasso, and hand tools
+  - [x] Renamed "marquee" to "select" tool for rectangular selection
+  - [x] Updated move tool to work with selections
+  - [x] Updated keyboard shortcuts (M for select, removed H for hand)
+  - [x] Simplified SelectionToolbar to only show Select and Move tools
+  - [x] Updated PixelCanvas to handle select and move tools properly
+  - [x] Move tool now allows dragging selected areas
 
 ## Features Implemented
 

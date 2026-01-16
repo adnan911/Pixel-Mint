@@ -8,6 +8,7 @@ import { TransformControls } from "@/components/pixel-art/TransformControls";
 import { LayerPanel } from "@/components/pixel-art/LayerPanel";
 import { PaletteManager } from "@/components/pixel-art/PaletteManager";
 import { BrushModeSelector } from "@/components/pixel-art/BrushModeSelector";
+import { CanvasSizeSettings } from "@/components/pixel-art/CanvasSizeSettings";
 import { useHistory } from "@/hooks/use-history";
 import { useKeyboardShortcuts } from "@/hooks/use-keyboard-shortcuts";
 import { 
@@ -42,7 +43,7 @@ import type {
   BrushMode,
   DitherPattern,
 } from "@/types/pixel-art";
-import { Palette, Settings, Undo2, Redo2, Layers, Download } from "lucide-react";
+import { Palette, Settings, Undo2, Redo2, Layers, Download, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -61,6 +62,8 @@ interface EditorState {
   activeLayerId: string;
   palettes: PaletteType[];
   activePaletteId: string;
+  canvasWidth: number;
+  canvasHeight: number;
 }
 
 export default function PixelArtEditor() {
@@ -79,6 +82,7 @@ export default function PixelArtEditor() {
   const [toolsOpen, setToolsOpen] = useState(false);
   const [layersOpen, setLayersOpen] = useState(false);
   const [palettesOpen, setPalettesOpen] = useState(false);
+  const [canvasSizeOpen, setCanvasSizeOpen] = useState(false);
 
   // Initialize with one default layer and default palettes (memoized to prevent recreation)
   // Using defensive initialization to avoid conflicts with browser extensions
@@ -89,6 +93,8 @@ export default function PixelArtEditor() {
         activeLayerId: "",
         palettes: getDefaultPalettes(),
         activePaletteId: "default",
+        canvasWidth: CANVAS_SIZE,
+        canvasHeight: CANVAS_SIZE,
       };
       state.activeLayerId = state.layers[0].id;
       return state;
@@ -101,6 +107,8 @@ export default function PixelArtEditor() {
         activeLayerId: fallbackLayer.id,
         palettes: getDefaultPalettes(),
         activePaletteId: "default",
+        canvasWidth: CANVAS_SIZE,
+        canvasHeight: CANVAS_SIZE,
       };
     }
   }, []);
@@ -115,12 +123,12 @@ export default function PixelArtEditor() {
     clearHistory,
   } = useHistory<EditorState>(initialState, 20);
 
-  const { layers, activeLayerId, palettes, activePaletteId } = editorState;
+  const { layers, activeLayerId, palettes, activePaletteId, canvasWidth, canvasHeight } = editorState;
   const activeLayer = getLayerById(layers, activeLayerId);
   const activePalette = palettes.find((p) => p.id === activePaletteId) || palettes[0];
 
   // Get merged canvas for display
-  const canvasGrid = mergeLayers(layers, CANVAS_SIZE);
+  const canvasGrid = mergeLayers(layers, Math.max(canvasWidth, canvasHeight));
 
   const handlePixelChange = (newGrid: CanvasGrid) => {
     if (!activeLayer || activeLayer.locked) return;
@@ -343,6 +351,32 @@ export default function PixelArtEditor() {
     });
   };
 
+  const handleCanvasSizeChange = (newWidth: number, newHeight: number) => {
+    // Resize all layers
+    const resizedLayers = layers.map((layer) => {
+      const newPixels: CanvasGrid = [];
+      for (let y = 0; y < newHeight; y++) {
+        newPixels[y] = [];
+        for (let x = 0; x < newWidth; x++) {
+          // Copy existing pixels or fill with transparent
+          if (y < layer.pixels.length && x < layer.pixels[y].length) {
+            newPixels[y][x] = layer.pixels[y][x];
+          } else {
+            newPixels[y][x] = "transparent";
+          }
+        }
+      }
+      return { ...layer, pixels: newPixels };
+    });
+
+    setEditorState({
+      ...editorState,
+      layers: resizedLayers,
+      canvasWidth: newWidth,
+      canvasHeight: newHeight,
+    });
+  };
+
   useKeyboardShortcuts({
     onToolChange: setCurrentTool,
     onUndo: undo,
@@ -421,16 +455,27 @@ export default function PixelArtEditor() {
             </h1>
           </div>
           
-          {/* Quick Export */}
-          <Button
-            variant="default"
-            size="sm"
-            onClick={handleExport}
-            className="gap-1 sm:gap-2 h-8 sm:h-9 px-2 sm:px-3"
-          >
-            <Download className="h-4 w-4" />
-            <span className="text-xs sm:text-sm">Export</span>
-          </Button>
+          {/* Canvas Size & Export */}
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setCanvasSizeOpen(true)}
+              className="gap-1 sm:gap-2 h-8 sm:h-9 px-2 sm:px-3"
+            >
+              <Maximize2 className="h-4 w-4" />
+              <span className="hidden sm:inline text-xs sm:text-sm">{canvasWidth}×{canvasHeight}</span>
+            </Button>
+            <Button
+              variant="default"
+              size="sm"
+              onClick={handleExport}
+              className="gap-1 sm:gap-2 h-8 sm:h-9 px-2 sm:px-3"
+            >
+              <Download className="h-4 w-4" />
+              <span className="text-xs sm:text-sm">Export</span>
+            </Button>
+          </div>
         </div>
       </header>
 
@@ -640,6 +685,15 @@ export default function PixelArtEditor() {
           {selection.active && " | Selection"}
         </div>
       </div>
+
+      {/* Canvas Size Settings Dialog */}
+      <CanvasSizeSettings
+        currentWidth={canvasWidth}
+        currentHeight={canvasHeight}
+        onSizeChange={handleCanvasSizeChange}
+        open={canvasSizeOpen}
+        onOpenChange={setCanvasSizeOpen}
+      />
     </div>
   );
 }

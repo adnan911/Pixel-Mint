@@ -14,9 +14,7 @@ export type Tool =
   | "line"
   | "circle"
   | "square"
-  | "marquee"
-  | "lasso"
-  | "hand"
+  | "select"
   | "move";
 
 export type FillMode = "contiguous" | "global";

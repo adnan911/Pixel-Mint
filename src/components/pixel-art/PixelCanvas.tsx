@@ -45,7 +45,8 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
   const [pixelSize, setPixelSize] = useState(16);
   const [startPoint, setStartPoint] = useState<Point | null>(null);
   const [previewGrid, setPreviewGrid] = useState<CanvasGrid | null>(null);
-  const [lassoPoints, setLassoPoints] = useState<Point[]>([]);
+  const [moveOffset, setMoveOffset] = useState<Point | null>(null);
+  const [endPoint, setEndPoint] = useState<Point | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const overlayCanvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -98,20 +99,7 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
       ctx.strokeRect(x * ps, y * ps, width * ps, height * ps);
       ctx.setLineDash([]);
     }
-
-    // Draw lasso path
-    if (lassoPoints.length > 0) {
-      const ps = pixelSize * zoom;
-      ctx.strokeStyle = "rgba(0, 123, 255, 0.8)";
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(lassoPoints[0].x * ps, lassoPoints[0].y * ps);
-      for (let i = 1; i < lassoPoints.length; i++) {
-        ctx.lineTo(lassoPoints[i].x * ps, lassoPoints[i].y * ps);
-      }
-      ctx.stroke();
-    }
-  }, [selection, lassoPoints, pixelSize, zoom]);
+  }, [selection, pixelSize, zoom]);
 
   const getPixelCoords = (clientX: number, clientY: number): Point | null => {
     const canvas = canvasRef.current;
@@ -162,17 +150,20 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
         handleDraw(coords);
         break;
 
-      case "marquee":
+      case "select":
         onSelectionChange({ active: false, points: [] });
         break;
 
-      case "lasso":
-        setLassoPoints([coords]);
-        onSelectionChange({ active: false, points: [] });
-        break;
-
-      case "hand":
-        // Pan will be handled in move
+      case "move":
+        // Check if clicking inside selection
+        if (selection.active && selection.bounds) {
+          const { x, y, width, height } = selection.bounds;
+          const maxX = x + width - 1;
+          const maxY = y + height - 1;
+          if (coords.x >= x && coords.x <= maxX && coords.y >= y && coords.y <= maxY) {
+            setMoveOffset({ x: coords.x - x, y: coords.y - y });
+          }
+        }
         break;
     }
   };
@@ -182,6 +173,8 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
 
     const coords = getPixelCoords(clientX, clientY);
     if (!coords) return;
+
+    setEndPoint(coords);
 
     switch (currentTool) {
       case "pencil":
@@ -204,15 +197,17 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
         setPreviewGrid(drawRectangle(canvasGrid, startPoint.x, startPoint.y, coords.x, coords.y, currentColor, false));
         break;
 
-      case "lasso":
-        setLassoPoints((prev) => [...prev, coords]);
+      case "select":
+        // Show preview of selection rectangle
         break;
 
-      case "hand":
-        const dx = coords.x - startPoint.x;
-        const dy = coords.y - startPoint.y;
-        onPanChange({ x: pan.x + dx, y: pan.y + dy });
-        setStartPoint(coords);
+      case "move":
+        // Move the selection
+        if (selection.active && moveOffset && selection.bounds) {
+          const newMinX = coords.x - moveOffset.x;
+          const newMinY = coords.y - moveOffset.y;
+          // Update selection position (will be handled in handleEnd)
+        }
         break;
     }
   };
@@ -220,6 +215,7 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
   const handleEnd = () => {
     if (!isDrawing || !startPoint) {
       setIsDrawing(false);
+      setMoveOffset(null);
       return;
     }
 
@@ -229,51 +225,16 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
       setPreviewGrid(null);
     }
 
-    // Finalize marquee selection
-    if (currentTool === "marquee" && startPoint) {
-      const canvas = canvasRef.current;
-      if (canvas) {
-        const rect = canvas.getBoundingClientRect();
-        const ps = pixelSize * zoom;
-        const endX = Math.floor((lastClientX - rect.left) / ps);
-        const endY = Math.floor((lastClientY - rect.top) / ps);
-
-        const minX = Math.max(0, Math.min(startPoint.x, endX));
-        const maxX = Math.min(GRID_SIZE - 1, Math.max(startPoint.x, endX));
-        const minY = Math.max(0, Math.min(startPoint.y, endY));
-        const maxY = Math.min(GRID_SIZE - 1, Math.max(startPoint.y, endY));
-
-        onSelectionChange({
-          active: true,
-          points: [],
-          bounds: {
-            x: minX,
-            y: minY,
-            width: maxX - minX + 1,
-            height: maxY - minY + 1,
-          },
-        });
-      }
-    }
-
-    // Finalize lasso selection
-    if (currentTool === "lasso" && lassoPoints.length > 2) {
-      // Find bounding box
-      let minX = GRID_SIZE;
-      let maxX = 0;
-      let minY = GRID_SIZE;
-      let maxY = 0;
-
-      for (const point of lassoPoints) {
-        minX = Math.min(minX, point.x);
-        maxX = Math.max(maxX, point.x);
-        minY = Math.min(minY, point.y);
-        maxY = Math.max(maxY, point.y);
-      }
+    // Finalize select tool
+    if (currentTool === "select" && startPoint && endPoint) {
+      const minX = Math.max(0, Math.min(startPoint.x, endPoint.x));
+      const maxX = Math.min(GRID_SIZE - 1, Math.max(startPoint.x, endPoint.x));
+      const minY = Math.max(0, Math.min(startPoint.y, endPoint.y));
+      const maxY = Math.min(GRID_SIZE - 1, Math.max(startPoint.y, endPoint.y));
 
       onSelectionChange({
         active: true,
-        points: lassoPoints,
+        points: [],
         bounds: {
           x: minX,
           y: minY,
@@ -281,12 +242,29 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
           height: maxY - minY + 1,
         },
       });
+    }
 
-      setLassoPoints([]);
+    // Finalize move tool
+    if (currentTool === "move" && moveOffset && endPoint && selection.active && selection.bounds) {
+      const newMinX = endPoint.x - moveOffset.x;
+      const newMinY = endPoint.y - moveOffset.y;
+      
+      // Update selection bounds
+      onSelectionChange({
+        ...selection,
+        bounds: {
+          x: newMinX,
+          y: newMinY,
+          width: selection.bounds.width,
+          height: selection.bounds.height,
+        },
+      });
     }
 
     setIsDrawing(false);
     setStartPoint(null);
+    setEndPoint(null);
+    setMoveOffset(null);
   };
 
   const handleDraw = (coords: Point) => {

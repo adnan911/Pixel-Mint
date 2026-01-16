@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Square, Lasso, Hand, Move } from "lucide-react";
+import { Square, Move } from "lucide-react";
 import type { Tool } from "@/types/pixel-art";
 
 interface SelectionToolbarProps {
@@ -16,28 +16,16 @@ const selectionTools: Array<{
   shortcut: string;
 }> = [
   {
-    id: "marquee",
+    id: "select",
     icon: <Square className="h-5 w-5" />,
-    label: "Marquee",
-    shortcut: "M",
-  },
-  {
-    id: "lasso",
-    icon: <Lasso className="h-5 w-5" />,
-    label: "Lasso",
-    shortcut: "L",
+    label: "Select",
+    shortcut: "S",
   },
   {
     id: "move",
     icon: <Move className="h-5 w-5" />,
     label: "Move",
     shortcut: "V",
-  },
-  {
-    id: "hand",
-    icon: <Hand className="h-5 w-5" />,
-    label: "Hand",
-    shortcut: "H",
   },
 ];
 
@@ -55,7 +43,7 @@ export const SelectionToolbar: React.FC<SelectionToolbarProps> = ({
                 variant={currentTool === tool.id ? "default" : "outline"}
                 size="icon"
                 onClick={() => onToolChange(tool.id)}
-                className="h-10 w-10"
+                className="h-11 w-11 sm:h-10 sm:w-10"
                 aria-label={tool.label}
               >
                 {tool.icon}

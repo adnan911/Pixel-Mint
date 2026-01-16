@@ -103,11 +103,10 @@ export const useKeyboardShortcuts = ({
           break;
         case "m":
           e.preventDefault();
-          onToolChange("marquee");
+          onToolChange("select");
           break;
         case "h":
-          e.preventDefault();
-          onToolChange("hand");
+          // Hand tool removed
           break;
         case "g":
           e.preventDefault();

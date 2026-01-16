@@ -6,7 +6,8 @@
 
 **Value Proposition**: A lightweight, intuitive mobile-first web application that enables users to create, edit, and export pixel art directly in their smartphone browser. The tool democratizes pixel art creation by removing technical barriers while providing essential features optimized specifically for mobile touch interactions.
 
-**Target Users**:\n- Mobile indie game developers creating sprites on-the-go
+**Target Users**:
+- Mobile indie game developers creating sprites on-the-go
 - Digital artists exploring retro aesthetics from smartphones
 - Students learning digital art fundamentals on mobile devices
 - Hobbyists creating avatars, icons, and social media content during commutes
@@ -14,15 +15,15 @@
 
 ## 2. Product Requirements Document (PRD)
 
-### 2.1 Goals\n- Provide an intuitive pixel-by-pixel drawing experience optimized for smartphone screens (320px-480px)
-- Enable one-handed operation for core drawing functions
-- Deliver responsive performance for canvases up to 64×64 pixels on mobile devices
+### 2.1 Goals\n- Provide an intuitive pixel-by-pixel drawing experience optimized for smartphone screens (320px-480px)\n- Enable one-handed operation for core drawing functions
+- Deliver responsive performance for customizable canvas sizes on mobile devices
 - Support essential drawing tools with thumb-friendly controls
 - Implement simplified layer system (maximum 5 layers) for mobile memory constraints
 - Provide streamlined color palette with quick-access swatches
 - Enable artwork export in PNG format\n- Ensure all UI elements are accessible within thumb reach zones
 - Minimize drawer height to maximize canvas visibility
 - Support portrait orientation as primary mode
+- Allow users to move selected pixels or drawn elements
 
 ### 2.2 Non-Goals
 - Desktop optimization (mobile-first approach)
@@ -33,12 +34,16 @@
 - Real-time collaboration features
 - User accounts or cloud storage
 - Native mobile app versions
+- Marquee selection tool
+- Lasso selection tool
+- Hand/pan tool as separate tool
 
 ### 2.3 User Personas
 
 **Persona 1: Mobile Commuter Artist**
 - Age: 25, creates pixel art during subway rides
-- Device: iPhone 13 (390×844px)\n- Needs: One-handed operation, quick tool access, simple interface
+- Device: iPhone 13 (390×844px)
+- Needs: One-handed operation, quick tool access, simple interface
 - Pain points: Limited screen space, need to hold phone with one hand
 \n**Persona 2: Mobile Game Developer**
 - Age: 30, sketches game sprites during breaks
@@ -55,78 +60,94 @@
 
 **Journey 1: Quick Icon Creation on Phone**
 1. User opens app on smartphone during commute
-2. Sees canvas optimized for portrait mode
-3. Taps pencil tool from bottom drawer
-4. Draws with thumb on lower canvas area
-5. Swipes up drawer to access color swatches
-6. Continues drawing with one hand
-7. Taps Export button\n8. Total time: 3-5 minutes
+2. Selects desired canvas size from customizable options
+3. Sees canvas optimized for portrait mode
+4. Taps pencil tool from bottom drawer
+5. Draws with thumb on lower canvas area
+6. Swipes up drawer to access color swatches
+7. Continues drawing with one hand
+8. Taps Export button
+9. Total time: 3-5 minutes
 
-**Journey 2: Simple Sprite with Layers**
+**Journey 2: Simple Sprite with Layers and Movement**
 1. User opens app on phone
 2. Creates background layer
-3. Adds character layer\n4. Toggles layer visibility to check composition
-5. Adjusts layer opacity\n6. Exports final sprite
-7. Total time: 10-15 minutes
+3. Adds character layer
+4. Uses move tool to reposition drawn elements
+5. Toggles layer visibility to check composition
+6. Adjusts layer opacity\n7. Exports final sprite
+8. Total time: 10-15 minutes
 
 ### 2.5 Functional Requirements
 
 #### Canvas Management
-- **FR-1**: Display pixel grid with mobile-optimized dimensions (16×16, 32×32, 64×64)
-- **FR-2**: Canvas positioned in upper 50% of screen for thumb reach
-- **FR-3**: Support zoom levels: 100%, 200%, 400%
-- **FR-4**: Canvas size selector in drawer with large touch targets
-- **FR-5**: Grid lines toggleable via drawer button
+- **FR-1**: Display pixel grid with customizable dimensions (user can input custom width and height)
+- **FR-2**: Provide preset canvas size options: 16×16, 32×32, 64×64, 128×128\n- **FR-3**: Canvas positioned in upper 50% of screen for thumb reach
+- **FR-4**: Support zoom levels: 100%, 200%, 400%
+- **FR-5**: Canvas size selector in drawer with large touch targets
+- **FR-6**: Grid lines toggleable via drawer button
+- **FR-7**: Allow users to change canvas size during editing (with confirmation to prevent data loss)
 
-#### Drawing Tools\n- **FR-6**: Pencil tool - primary drawing tool\n- **FR-7**: Eraser tool - remove pixels
-- **FR-8**: Fill tool - flood fill with contiguous mode only
-- **FR-9**: Eyedropper tool - long press gesture (800ms)
-- **FR-10**: Line tool - draw straight lines
-- **FR-11**: Tool selection via bottom drawer with 56×56px buttons
-- **FR-12**: Active tool highlighted with visual indicator
+#### Drawing Tools
+- **FR-8**: Pencil tool - primary drawing tool
+- **FR-9**: Eraser tool - remove pixels
+- **FR-10**: Fill tool - flood fill with contiguous mode only
+- **FR-11**: Eyedropper tool - long press gesture (800ms)
+- **FR-12**: Line tool - draw straight lines
+- **FR-13**: Move tool - select and move drawn pixels or elements
+- **FR-14**: Tool selection via bottom drawer with 56×56px buttons
+- **FR-15**: Active tool highlighted with visual indicator
 
+#### Move Tool Functionality
+- **FR-16**: Move tool allows users to select any drawn line or pixel group
+- **FR-17**: Selected area highlighted with visual indicator
+- **FR-18**: Drag gesture to move selected pixels to new position
+- **FR-19**: Tap outside selection to deselect
+- **FR-20**: Move operation supports undo/redo\n
 #### Simplified Layer System
-- **FR-13**: Maximum 5 layers (mobile memory constraint)
-- **FR-14**: Create new layer button (56×56px)
-- **FR-15**: Delete layer with confirmation\n- **FR-16**: Layer visibility toggle
-- **FR-17**: Layer opacity slider (0-100%)
-- **FR-18**: Active layer indicator
-- **FR-19**: Layer thumbnails (40×40px)
-- **FR-20**: Simplified blend modes: Normal, Multiply, Overlay only
+- **FR-21**: Maximum 5 layers (mobile memory constraint)
+- **FR-22**: Create new layer button (56×56px)
+- **FR-23**: Delete layer with confirmation\n- **FR-24**: Layer visibility toggle
+- **FR-25**: Layer opacity slider (0-100%)
+- **FR-26**: Active layer indicator
+- **FR-27**: Layer thumbnails (40×40px)
+- **FR-28**: Simplified blend modes: Normal, Multiply, Overlay only
 
 #### Streamlined Color System
-- **FR-21**: 8 quick-access color swatches (56×56px each)
-- **FR-22**: Current color indicator (56×56px)
-- **FR-23**: Basic color picker with hex input
-- **FR-24**: Recently used colors (4 slots)
-- **FR-25**: Transparency option
+- **FR-29**: 8 quick-access color swatches (56×56px each)
+- **FR-30**: Current color indicator (56×56px)
+- **FR-31**: Basic color picker with hex input
+- **FR-32**: Recently used colors (4 slots)
+- **FR-33**: Transparency option
 \n#### Navigation
-- **FR-26**: Pan tool - two-finger drag
-- **FR-27**: Zoom - pinch gesture
-- **FR-28**: Reset view button
-\n#### History\n- **FR-29**: Undo button (56×56px) - 10 steps maximum
-- **FR-30**: Redo button (56×56px) - 10 steps maximum
-- **FR-31**: Undo/redo via swipe gestures (optional)
+- **FR-34**: Pan canvas - two-finger drag gesture
+- **FR-35**: Zoom - pinch gesture
+- **FR-36**: Reset view button
+\n#### History
+- **FR-37**: Undo button (56×56px) - 10 steps maximum
+- **FR-38**: Redo button (56×56px) - 10 steps maximum
+- **FR-39**: Undo/redo via swipe gestures (optional)
 
-#### Export\n- **FR-32**: Export PNG button (120×56px)
-- **FR-33**: Clear canvas button with confirmation
-- **FR-34**: Auto-save to browser storage
-\n#### Mobile-Optimized UI
-- **FR-35**: Bottom drawer interface (maximum 30vh height)
-- **FR-36**: Drawer toggle button (56×56px floating action button)
-- **FR-37**: All buttons minimum 56×56px for thumb-friendly interaction
-- **FR-38**: Drawer slides up from bottom with smooth animation
-- **FR-39**: Canvas occupies 60-70% of viewport height
-- **FR-40**: Portrait orientation as primary mode
-- **FR-41**: Prevent accidental page zoom during drawing
-- **FR-42**: Haptic feedback for tool selection (if supported)
+#### Export
+- **FR-40**: Export PNG button (120×56px)
+- **FR-41**: Clear canvas button with confirmation
+- **FR-42**: Auto-save to browser storage
+
+#### Mobile-Optimized UI
+- **FR-43**: Bottom drawer interface (maximum 30vh height)
+- **FR-44**: Drawer toggle button (56×56px floating action button)
+- **FR-45**: All buttons minimum 56×56px for thumb-friendly interaction
+- **FR-46**: Drawer slides up from bottom with smooth animation
+- **FR-47**: Canvas occupies 60-70% of viewport height
+- **FR-48**: Portrait orientation as primary mode
+- **FR-49**: Prevent accidental page zoom during drawing
+- **FR-50**: Haptic feedback for tool selection (if supported)
 
 ### 2.6 Non-Functional Requirements
 
 #### Performance
-- **NFR-1**: Canvas rendering within 80ms for 64×64 grid on mobile
-- **NFR-2**: Touch response within 16ms (60fps)
-- **NFR-3**: App load time under 2 seconds on 4G
+- **NFR-1**: Canvas rendering within 80ms for customizable grid sizes on mobile
+- **NFR-2**: Touch response within 16ms (60fps)\n- **NFR-3**: App load time under 2 seconds on 4G
 - **NFR-4**: Memory usage under 50MB on mobile devices
 - **NFR-5**: Battery-efficient rendering (minimize redraws)
 
@@ -136,8 +157,7 @@
 - **NFR-8**: One-handed operation for core functions
 - **NFR-9**: Drawer height never exceeds 30vh
 - **NFR-10**: Canvas always visible when drawer is open
-
-#### Browser Support
+\n#### Browser Support
 - **NFR-11**: iOS Safari 14+, Chrome Mobile 90+, Firefox Mobile 88+
 - **NFR-12**: Responsive design for 320px-480px width (portrait)
 - **NFR-13**: Touch event support required\n\n#### Accessibility
@@ -151,6 +171,7 @@
 - **Usability**: 90%+ of users complete drawing without frustration
 - **One-Handed Use**: 60%+ of users successfully create art one-handed
 - **Layer Adoption**: 40%+ of users utilize multiple layers
+- **Move Tool Usage**: 30%+ of users utilize move tool for repositioning
 
 ---
 
@@ -158,16 +179,15 @@
 
 ### 3.1 MVP Included Features
 
-**Core Drawing**:\n- Fixed 32×32 pixel canvas\n- Pencil tool\n- Eraser tool
+**Core Drawing**:\n- Customizable canvas size (user input + presets: 16×16, 32×32, 64×64, 128×128)
+- Pencil tool\n- Eraser tool
 - Fill tool (contiguous mode only)
 - Eyedropper tool (long press)
-- Line tool\n\n**Simplified Layers**:
-- Maximum 5 layers
-- Create/delete layer\n- Layer visibility toggle
+- Line tool\n- Move tool (select and move pixels)
+\n**Simplified Layers**:
+- Maximum 5 layers\n- Create/delete layer\n- Layer visibility toggle
 - Layer opacity (0-100%)
-- Blend modes: Normal, Multiply, Overlay\n- Layer thumbnails
-
-**Streamlined Colors**:
+- Blend modes: Normal, Multiply, Overlay\n- Layer thumbnails\n\n**Streamlined Colors**:
 - 8 quick-access swatches
 - Basic color picker
 - 4 recently used colors
@@ -191,9 +211,12 @@
 
 ### 3.2 MVP Excluded Features
 
-- Advanced selection tools (marquee, lasso)
+- Marquee selection tool
+- Lasso selection tool
+- Hand/pan tool as separate tool (pan via two-finger drag)
 - Transformation tools (rotate, flip)
-- Advanced blend modes\n- Custom palette management
+- Advanced blend modes
+- Custom palette management
 - Dynamic brush modes
 - Dithering tools
 - Navigation preview window
@@ -206,7 +229,8 @@
 - 70%+ of users export at least one image
 - Zero critical bugs in core drawing flow
 - 60fps maintained during drawing on mid-range devices
-\n---
+- 30%+ of users successfully use move tool\n
+---
 
 ## 4. Technical Architecture
 
@@ -223,12 +247,13 @@
 - **Layer State**: Simplified layer array\n- **Color State**: 8 swatches + 4 recent colors
 - **History State**: 10-step undo/redo stack
 - **Persistence**: localStorage for auto-save
+- **Move Tool State**: Selected pixels coordinates and movement tracking
 
 ### 4.3 Data Models
 \n```typescript
 type Color = string; // hex format
 type Pixel = Color;\ntype CanvasGrid = Pixel[][];
-type Tool = 'pencil' | 'eraser' | 'fill' | 'eyedropper' | 'line';
+type Tool = 'pencil' | 'eraser' | 'fill' | 'eyedropper' | 'line' | 'move';
 type BlendMode = 'normal' | 'multiply' | 'overlay';
 \ninterface Layer {
   id: string;
@@ -237,14 +262,21 @@ type BlendMode = 'normal' | 'multiply' | 'overlay';
   visible: boolean;
   opacity: number; // 0-100\n  blendMode: BlendMode;
 }\n
+interface Selection {
+  pixels: {x: number, y: number}[];
+  active: boolean;
+}\n
 interface AppState {
-  layers: Layer[]; // max 5\n  activeLayerId: string;\n  currentTool: Tool;\n  currentColor: Color;
+  layers: Layer[]; // max 5\n  activeLayerId: string;\n  currentTool: Tool;
+  currentColor: Color;
   quickSwatches: Color[]; // 8 colors
-  recentColors: Color[]; // 4 colors\n  history: AppState[]; // 10 steps
+  recentColors: Color[]; // 4 colors
+  history: AppState[]; // 10 steps
   historyIndex: number;
-  canvasSize: number; // 32 for MVP
+  canvasSize: {width: number, height: number}; // customizable
   drawerOpen: boolean;
-  zoom: number; // 1, 2, 4\n}\n```
+  zoom: number; // 1, 2, 4\n  selection: Selection;
+}\n```
 
 ---
 
@@ -254,37 +286,41 @@ interface AppState {
 
 **Screen Division**:
 1. **Canvas Area** (60% viewport height)
-   - Centered pixel grid
+   - Centered pixel grid with customizable size
    - Touch-optimized for thumb reach
    - Upper screen positioning
 
 2. **Drawer Toggle FAB** (bottom-right, 56×56px)
-   - Always visible
-   - Opens/closes drawer
+   - Always visible\n   - Opens/closes drawer
 \n3. **Bottom Drawer** (slides up, max 30vh)
    - Tool buttons (56×56px each)
    - Color swatches (56×56px each)
    - Layer controls\n   - Action buttons
+   - Canvas size selector
 
 ### 5.2 Drawer Layout
 
 **Section 1: Tools** (horizontal scroll)
-- Pencil, Eraser, Fill, Line, Eyedropper
+- Pencil, Eraser, Fill, Line, Eyedropper, Move
 - Each 56×56px\n- Active tool highlighted
-\n**Section 2: Colors** (2 rows)
-- Row 1: 8 quick swatches (56×56px)
-- Row 2: Current color + 4 recent colors
-\n**Section 3: Layers** (collapsible)
+
+**Section 2: Colors** (2 rows)
+- Row 1: 8 quick swatches (56×56px)\n- Row 2: Current color + 4 recent colors
+\n**Section 3: Canvas Settings** (collapsible)
+- Canvas size input (width × height)
+- Preset size buttons (16×16, 32×32, 64×64, 128×128)
+- Grid toggle\n
+**Section 4: Layers** (collapsible)
 - Layer list (max 5)\n- Thumbnails (40×40px)
 - Visibility toggle
 - Opacity slider
 
-**Section 4: Actions** (bottom row)
+**Section 5: Actions** (bottom row)
 - Undo (56×56px)
 - Redo (56×56px)
-- Export (120×56px)\n- Clear (56×56px)
-
-### 5.3 Thumb Reach Zones
+- Export (120×56px)
+- Clear (56×56px)
+\n### 5.3 Thumb Reach Zones
 
 - **Primary Zone** (bottom 30%): Most-used tools
 - **Secondary Zone** (middle 40%): Canvas\n- **Tertiary Zone** (top 30%): Less frequent actions
@@ -298,6 +334,7 @@ interface AppState {
 - **Pinch**: Zoom in/out
 - **Swipe Up**: Open drawer
 - **Swipe Down**: Close drawer
+- **Drag (Move Tool)**: Move selected pixels
 
 ### 6.2 Viewport Configuration
 \n```html
@@ -311,33 +348,35 @@ interface AppState {
 - RequestAnimationFrame for smooth interactions
 - Lazy loading for layer thumbnails
 - Minimal DOM updates
-- CSS containment for drawer
+- CSS containment for drawer\n- Optimized rendering for customizable canvas sizes
 
 ---
 \n## 7. Implementation Roadmap
 
 ### Phase 1: Mobile Core (Week 1-2)
-- Mobile-optimized canvas rendering
+- Mobile-optimized canvas rendering with customizable size
 - Bottom drawer interface
 - Pencil and eraser tools
 - Touch interaction handling
-\n### Phase 2: Essential Tools (Week 3)\n- Fill tool\n- Line tool
+- Canvas size selector UI
+
+### Phase 2: Essential Tools (Week 3)\n- Fill tool\n- Line tool
 - Eyedropper (long press)
+- Move tool (select and move pixels)
 - Tool selection UI
 \n### Phase 3: Simplified Layers (Week 4)\n- Layer creation/deletion (max 5)
 - Layer visibility\n- Layer opacity
 - Basic blend modes
-
-### Phase 4: Color System (Week 5)
+\n### Phase 4: Color System (Week 5)
 - 8 quick swatches
-- Color picker
-- Recent colors
+- Color picker\n- Recent colors
 - Current color indicator
 
 ### Phase 5: Navigation & History (Week 6)
 - Pan and zoom gestures
 - Undo/redo (10 steps)
-- Auto-save\n\n### Phase 6: Export & Polish (Week 7)
+- Auto-save
+\n### Phase 6: Export & Polish (Week 7)
 - PNG export
 - Clear canvas
 - UI refinements
@@ -360,7 +399,7 @@ interface AppState {
 6. **Plan User Testing**: Recruit 15-20 mobile beta testers
 \n---
 
-**Document Version**: 6.0  
+**Document Version**: 7.0  
 **Last Updated**: 2026-01-16  
 **Status**: Mobile-Optimized MVP Ready for Development  
-**Key Changes**: Streamlined for mobile phone usage with simplified layer system (max 5 layers), reduced feature complexity, optimized for one-handed portrait operation, larger touch targets (56×56px), reduced drawer height (max 30vh), simplified color system, and mobile-first implementation roadmap
+**Key Changes**: Added customizable canvas size functionality with preset options (16×16, 32×32, 64×64, 128×128) and user input capability; removed marquee, lasso, and hand tools; added move tool allowing users to select and reposition drawn pixels or lines; updated data models, UI specifications, and implementation roadmap accordingly
