@@ -294,6 +294,16 @@
   - [x] Added hover and focus states: hover:bg-primary hover:text-primary-foreground
   - [x] Positioned zoom button in Row 1 after drawing tools, before Row 2
   - [x] All 95 files passed lint checks
+- [x] Step 30: Fix React DOM removeChild error in LayerPanel (Completed)
+  - [x] Identified error: "Uncaught NotFoundError: Failed to execute 'removeChild' on 'Node'"
+  - [x] Root cause: Improper JSX structure in Button component (line 59)
+  - [x] Issue: Button content wrapped in JSX expression {"New "} without Plus icon
+  - [x] Fixed Button structure to properly include Plus icon and text together
+  - [x] Added Plus icon with className "h-4 w-4 mr-1" inside Button
+  - [x] Changed text from {"New "} to plain "New" text node
+  - [x] Preserved user's custom styling: h-8 mr-[50px] bg-[#99c8f3] bg-none
+  - [x] Resolved React virtual DOM reconciliation issue
+  - [x] All 95 files passed lint checks
 
 ## Features Implemented
 

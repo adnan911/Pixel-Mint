@@ -55,13 +55,12 @@ export const LayerPanel: React.FC<LayerPanelProps> = ({
           variant="outline"
           size="sm"
           onClick={onLayerCreate}
-          className="h-8"
+          className="h-8 mr-[50px] bg-[#99c8f3] bg-none"
         >
           <Plus className="h-4 w-4 mr-1" />
           New
         </Button>
       </div>
-
       {/* Layer List */}
       <div className="flex-1 overflow-y-auto p-4 space-y-2">
         {layers.length === 0 ? (
