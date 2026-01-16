@@ -318,6 +318,14 @@
   - [x] Preserved existing canvas container classes: flex-1 flex items-center justify-center overflow-hidden p-2 sm:p-4 @container
   - [x] Canvas area now always displays with visible border frame
   - [x] All 95 files passed lint checks
+- [x] Step 33: Fix hexToRgba undefined color error (Completed)
+  - [x] Identified error: "Cannot read properties of undefined (reading 'slice')" in blend-modes.ts
+  - [x] Root cause: hexToRgba function didn't handle undefined/null color values
+  - [x] Added null/undefined check: if (!hex || hex === "transparent")
+  - [x] Function now returns [0, 0, 0, 0] for undefined, null, or transparent colors
+  - [x] Prevents .slice() being called on undefined values
+  - [x] Fixed error chain: hexToRgba → blendColors → createEmptyCanvas → mergeLayers
+  - [x] All 95 files passed lint checks
 
 ## Features Implemented
 

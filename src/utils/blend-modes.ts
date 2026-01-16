@@ -4,7 +4,7 @@ import type { BlendMode } from "@/types/pixel-art";
  * Convert hex color to RGBA components
  */
 function hexToRgba(hex: string, alpha: number = 1): [number, number, number, number] {
-  if (hex === "transparent") {
+  if (!hex || hex === "transparent") {
     return [0, 0, 0, 0];
   }
   
