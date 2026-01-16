@@ -1,6 +1,12 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { 
   Pencil, 
   Eraser, 
@@ -8,7 +14,9 @@ import {
   Pipette,
   Minus,
   Circle,
-  Square
+  Square,
+  Shapes,
+  ChevronDown,
 } from "lucide-react";
 import type { Tool } from "@/types/pixel-art";
 
@@ -57,20 +65,20 @@ const shapeTools: Array<{
 }> = [
   {
     id: "line",
-    icon: <Minus className="h-5 w-5" />,
+    icon: <Minus className="h-4 w-4" />,
     label: "Line",
     shortcut: "L",
   },
   {
     id: "circle",
-    icon: <Circle className="h-5 w-5" />,
+    icon: <Circle className="h-4 w-4" />,
     label: "Circle",
     shortcut: "C",
   },
   {
     id: "square",
-    icon: <Square className="h-5 w-5" />,
-    label: "Square",
+    icon: <Square className="h-4 w-4" />,
+    label: "Rectangle",
     shortcut: "R",
   },
 ];
@@ -79,54 +87,68 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
   currentTool,
   onToolChange,
 }) => {
+  // Get current shape tool info
+  const currentShapeTool = shapeTools.find((tool) => tool.id === currentTool);
+  const isShapeTool = !!currentShapeTool;
+
   return (
     <TooltipProvider>
-      <div className="flex flex-col gap-2">
-        <div className="flex gap-1.5 justify-center">
-          {drawingTools.map((tool) => (
-            <Tooltip key={tool.id}>
-              <TooltipTrigger asChild>
-                <Button
-                  variant={currentTool === tool.id ? "default" : "outline"}
-                  size="icon"
-                  onClick={() => onToolChange(tool.id)}
-                  className="h-11 w-11"
-                  aria-label={tool.label}
-                >
-                  {tool.icon}
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="top">
-                <p>
-                  {tool.label} ({tool.shortcut})
-                </p>
-              </TooltipContent>
-            </Tooltip>
-          ))}
-        </div>
+      <div className="flex gap-1.5 justify-center items-center">
+        {drawingTools.map((tool) => (
+          <Tooltip key={tool.id}>
+            <TooltipTrigger asChild>
+              <Button
+                variant={currentTool === tool.id ? "default" : "outline"}
+                size="icon"
+                onClick={() => onToolChange(tool.id)}
+                className="h-11 w-11"
+                aria-label={tool.label}
+              >
+                {tool.icon}
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="top">
+              <p>
+                {tool.label} ({tool.shortcut})
+              </p>
+            </TooltipContent>
+          </Tooltip>
+        ))}
         
-        <div className="flex gap-1.5 justify-center">
-          {shapeTools.map((tool) => (
-            <Tooltip key={tool.id}>
-              <TooltipTrigger asChild>
+        {/* Shapes Dropdown */}
+        <DropdownMenu>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <DropdownMenuTrigger asChild>
                 <Button
-                  variant={currentTool === tool.id ? "default" : "outline"}
+                  variant={isShapeTool ? "default" : "outline"}
                   size="icon"
-                  onClick={() => onToolChange(tool.id)}
-                  className="h-11 w-11"
-                  aria-label={tool.label}
+                  className="h-11 w-11 relative"
+                  aria-label="Shapes"
                 >
-                  {tool.icon}
+                  {currentShapeTool ? currentShapeTool.icon : <Shapes className="h-5 w-5" />}
+                  <ChevronDown className="h-3 w-3 absolute bottom-1 right-1" />
                 </Button>
-              </TooltipTrigger>
-              <TooltipContent side="top">
-                <p>
-                  {tool.label} ({tool.shortcut})
-                </p>
-              </TooltipContent>
-            </Tooltip>
-          ))}
-        </div>
+              </DropdownMenuTrigger>
+            </TooltipTrigger>
+            <TooltipContent side="top">
+              <p>Shapes {currentShapeTool && `(${currentShapeTool.label})`}</p>
+            </TooltipContent>
+          </Tooltip>
+          <DropdownMenuContent align="center">
+            {shapeTools.map((tool) => (
+              <DropdownMenuItem
+                key={tool.id}
+                onClick={() => onToolChange(tool.id)}
+                className="flex items-center gap-2 cursor-pointer"
+              >
+                {tool.icon}
+                <span>{tool.label}</span>
+                <span className="ml-auto text-xs text-muted-foreground">{tool.shortcut}</span>
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </TooltipProvider>
   );

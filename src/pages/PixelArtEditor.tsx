@@ -125,10 +125,22 @@ export default function PixelArtEditor() {
   const handlePixelChange = (newGrid: CanvasGrid) => {
     if (!activeLayer || activeLayer.locked) return;
 
+    // Calculate the difference between new grid and merged canvas
+    // to determine which pixels were actually changed on the active layer
+    const updatedLayerPixels: CanvasGrid = activeLayer.pixels.map((row, y) =>
+      row.map((pixel, x) => {
+        // If the merged canvas pixel changed, update the active layer
+        if (newGrid[y][x] !== canvasGrid[y][x]) {
+          return newGrid[y][x];
+        }
+        return pixel;
+      })
+    );
+
     setEditorState({
       ...editorState,
       layers: layers.map((layer) =>
-        layer.id === activeLayerId ? { ...layer, pixels: newGrid } : layer
+        layer.id === activeLayerId ? { ...layer, pixels: updatedLayerPixels } : layer
       ),
     });
   };
@@ -424,14 +436,9 @@ export default function PixelArtEditor() {
 
       {/* Top Toolbar - Main Controls */}
       <div className="flex-shrink-0 border-b border-border bg-card">
-        <div className="px-4 py-3 space-y-3">
-          {/* Row 1: Drawing Tools */}
-          <div className="flex items-center justify-center gap-1 flex-wrap">
-            <DrawingToolbar currentTool={currentTool} onToolChange={setCurrentTool} />
-          </div>
-
-          {/* Row 2: Color, Layers, and Action Buttons */}
-          <div className="flex items-center justify-between gap-2">
+        <div className="px-4 py-3">
+          {/* Single Row: Color, Drawing Tools, Selection Tools, Action Buttons */}
+          <div className="flex items-center justify-between gap-3">
             {/* Left: Color Selector */}
             <div className="flex items-center gap-2">
               <div
@@ -497,8 +504,10 @@ export default function PixelArtEditor() {
               </Sheet>
             </div>
 
-            {/* Center: Selection Tools */}
-            <div className="flex items-center gap-1">
+            {/* Center: Drawing Tools + Selection Tools */}
+            <div className="flex items-center gap-3">
+              <DrawingToolbar currentTool={currentTool} onToolChange={setCurrentTool} />
+              <div className="w-px h-8 bg-border" />
               <SelectionToolbar currentTool={currentTool} onToolChange={setCurrentTool} />
             </div>
 
@@ -597,7 +606,7 @@ export default function PixelArtEditor() {
       <div className="flex-1 flex items-center justify-center overflow-hidden p-4 @container">
         <div className="w-full h-full flex items-center justify-center">
           <EnhancedPixelCanvas
-            canvasGrid={activeLayer?.pixels || canvasGrid}
+            canvasGrid={canvasGrid}
             currentTool={currentTool}
             currentColor={currentColor}
             showGrid={showGrid}

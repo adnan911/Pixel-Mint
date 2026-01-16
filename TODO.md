@@ -92,6 +92,13 @@
   - [x] Larger action buttons (10x10px) with tooltips
   - [x] Better visual hierarchy and spacing
   - [x] Improved icon sizes for better visibility
+- [x] Step 14: Fix critical bugs (Completed)
+  - [x] Fixed blend modes not working (canvas now displays merged layers with blend modes applied)
+  - [x] Consolidated shapes into dropdown menu (Line, Circle, Rectangle in single dropdown)
+  - [x] Fixed undo/redo functionality (history hook working correctly)
+  - [x] Updated handlePixelChange to correctly update active layer from merged canvas
+  - [x] Simplified toolbar to single row with shapes dropdown
+  - [x] Added visual separator between tool groups
 
 ## Features Implemented
 
@@ -254,8 +261,9 @@
 - Active layer name and status shown in bottom status bar
 - Locked layers prevent all editing operations
 - Alpha lock restricts painting to existing pixels only
-- Blend modes use proper color compositing algorithms
+- Blend modes use proper color compositing algorithms and are now visible during editing
 - Layer opacity applies during final compositing
+- Canvas displays merged layers with all blend modes and opacity applied in real-time
 - Color picker with tabbed interface (Color, Palette, Brush)
 - Palettes support drag-and-drop color reordering
 - GPL format compatible with GIMP and other tools
@@ -264,6 +272,7 @@
 - Random mode respects active palette colors
 - Dither mode uses industry-standard Bayer matrices
 - All palette operations integrated with undo/redo system
+- Undo/redo functionality working correctly with 20-step history
 - Defensive object creation to prevent property descriptor conflicts with browser extensions
 - All factory functions (createLayer, createPalette, duplicateLayer) return plain objects
 - State initialization wrapped in try-catch for graceful error handling
@@ -277,7 +286,8 @@
 - UI reorganized with controls at top for better accessibility
 - Larger, more visible icons and buttons for improved usability
 - Quick Export button prominently placed in header
-- Drawing tools centered in top row for easy access
+- Drawing tools and selection tools in single row with visual separator
+- Shapes consolidated into dropdown menu (Line, Circle, Rectangle)
 - Color selector enlarged with hover effect for better visibility
 - Action buttons (Undo/Redo/Layers/Settings) grouped on right side
 - Status bar at bottom shows current tool and layer information
