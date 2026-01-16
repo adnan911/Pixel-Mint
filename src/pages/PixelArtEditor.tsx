@@ -5,6 +5,7 @@ import { SelectionToolbar } from "@/components/pixel-art/SelectionToolbar";
 import { ColorPicker } from "@/components/pixel-art/ColorPicker";
 import { Controls } from "@/components/pixel-art/Controls";
 import { TransformControls } from "@/components/pixel-art/TransformControls";
+import { LayerPanel } from "@/components/pixel-art/LayerPanel";
 import { useHistory } from "@/hooks/use-history";
 import { useKeyboardShortcuts } from "@/hooks/use-keyboard-shortcuts";
 import { 
@@ -16,7 +17,17 @@ import {
   pastePixels,
   clearSelection,
 } from "@/utils/canvas-utils";
-import type { Tool, Color, CanvasGrid, Selection, FillMode, Clipboard } from "@/types/pixel-art";
+import {
+  createLayer,
+  duplicateLayer,
+  deleteLayer,
+  updateLayer,
+  reorderLayers,
+  getLayerById,
+  mergeLayers,
+  applyAlphaLock,
+} from "@/utils/layer-utils";
+import type { Tool, Color, CanvasGrid, Selection, FillMode, Clipboard, Layer } from "@/types/pixel-art";
 import { Palette, Settings, Undo2, Redo2, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -31,6 +42,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const CANVAS_SIZE = 32;
 
+interface EditorState {
+  layers: Layer[];
+  activeLayerId: string;
+}
+
 export default function PixelArtEditor() {
   const [currentTool, setCurrentTool] = useState<Tool>("pencil");
   const [currentColor, setCurrentColor] = useState<Color>("#000000");
@@ -43,19 +59,40 @@ export default function PixelArtEditor() {
   const [controlsOpen, setControlsOpen] = useState(false);
   const [colorsOpen, setColorsOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
+  const [layersOpen, setLayersOpen] = useState(false);
+
+  // Initialize with one default layer
+  const initialState: EditorState = {
+    layers: [createLayer("Background", CANVAS_SIZE)],
+    activeLayerId: "",
+  };
+  initialState.activeLayerId = initialState.layers[0].id;
 
   const {
-    state: canvasGrid,
-    setState: setCanvasGrid,
+    state: editorState,
+    setState: setEditorState,
     undo,
     redo,
     canUndo,
     canRedo,
     clearHistory,
-  } = useHistory<CanvasGrid>(createEmptyCanvas(CANVAS_SIZE), 20);
+  } = useHistory<EditorState>(initialState, 20);
+
+  const { layers, activeLayerId } = editorState;
+  const activeLayer = getLayerById(layers, activeLayerId);
+
+  // Get merged canvas for display
+  const canvasGrid = mergeLayers(layers, CANVAS_SIZE);
 
   const handlePixelChange = (newGrid: CanvasGrid) => {
-    setCanvasGrid(newGrid);
+    if (!activeLayer || activeLayer.locked) return;
+
+    setEditorState({
+      ...editorState,
+      layers: layers.map((layer) =>
+        layer.id === activeLayerId ? { ...layer, pixels: newGrid } : layer
+      ),
+    });
   };
 
   const handleColorPick = (color: Color) => {
@@ -64,8 +101,16 @@ export default function PixelArtEditor() {
   };
 
   const handleClear = () => {
-    setCanvasGrid(createEmptyCanvas(CANVAS_SIZE));
-    clearHistory();
+    if (!activeLayer) return;
+    
+    setEditorState({
+      ...editorState,
+      layers: layers.map((layer) =>
+        layer.id === activeLayerId
+          ? { ...layer, pixels: createEmptyCanvas(CANVAS_SIZE) }
+          : layer
+      ),
+    });
     setControlsOpen(false);
   };
 
@@ -74,44 +119,139 @@ export default function PixelArtEditor() {
   };
 
   const handleRotate = () => {
-    setCanvasGrid(rotateClockwise(canvasGrid));
+    if (!activeLayer || activeLayer.locked) return;
+    
+    setEditorState({
+      ...editorState,
+      layers: layers.map((layer) =>
+        layer.id === activeLayerId
+          ? { ...layer, pixels: rotateClockwise(layer.pixels) }
+          : layer
+      ),
+    });
   };
 
   const handleFlipHorizontal = () => {
-    setCanvasGrid(flipHorizontal(canvasGrid));
+    if (!activeLayer || activeLayer.locked) return;
+    
+    setEditorState({
+      ...editorState,
+      layers: layers.map((layer) =>
+        layer.id === activeLayerId
+          ? { ...layer, pixels: flipHorizontal(layer.pixels) }
+          : layer
+      ),
+    });
   };
 
   const handleFlipVertical = () => {
-    setCanvasGrid(flipVertical(canvasGrid));
+    if (!activeLayer || activeLayer.locked) return;
+    
+    setEditorState({
+      ...editorState,
+      layers: layers.map((layer) =>
+        layer.id === activeLayerId
+          ? { ...layer, pixels: flipVertical(layer.pixels) }
+          : layer
+      ),
+    });
   };
 
   const handleCopy = () => {
-    if (selection.active && selection.bounds) {
+    if (selection.active && selection.bounds && activeLayer) {
       const { x, y, width, height } = selection.bounds;
-      const pixels = extractSelection(canvasGrid, x, y, width, height);
+      const pixels = extractSelection(activeLayer.pixels, x, y, width, height);
       setClipboard({ pixels, width, height });
     }
   };
 
   const handleCut = () => {
-    if (selection.active && selection.bounds) {
+    if (selection.active && selection.bounds && activeLayer && !activeLayer.locked) {
       const { x, y, width, height } = selection.bounds;
-      const pixels = extractSelection(canvasGrid, x, y, width, height);
+      const pixels = extractSelection(activeLayer.pixels, x, y, width, height);
       setClipboard({ pixels, width, height });
-      const newGrid = clearSelection(canvasGrid, x, y, width, height);
-      setCanvasGrid(newGrid);
+      const newGrid = clearSelection(activeLayer.pixels, x, y, width, height);
+      
+      setEditorState({
+        ...editorState,
+        layers: layers.map((layer) =>
+          layer.id === activeLayerId ? { ...layer, pixels: newGrid } : layer
+        ),
+      });
       setSelection({ active: false, points: [] });
     }
   };
 
   const handlePaste = () => {
-    if (clipboard) {
-      // Paste at center or selection position
+    if (clipboard && activeLayer && !activeLayer.locked) {
       const x = selection.bounds?.x || Math.floor((CANVAS_SIZE - clipboard.width) / 2);
       const y = selection.bounds?.y || Math.floor((CANVAS_SIZE - clipboard.height) / 2);
-      const newGrid = pastePixels(canvasGrid, clipboard.pixels, x, y);
-      setCanvasGrid(newGrid);
+      const newGrid = pastePixels(activeLayer.pixels, clipboard.pixels, x, y);
+      
+      setEditorState({
+        ...editorState,
+        layers: layers.map((layer) =>
+          layer.id === activeLayerId ? { ...layer, pixels: newGrid } : layer
+        ),
+      });
     }
+  };
+
+  // Layer management handlers
+  const handleLayerCreate = () => {
+    const newLayer = createLayer(`Layer ${layers.length + 1}`, CANVAS_SIZE);
+    setEditorState({
+      layers: [newLayer, ...layers],
+      activeLayerId: newLayer.id,
+    });
+  };
+
+  const handleLayerDuplicate = (layerId: string) => {
+    const layer = getLayerById(layers, layerId);
+    if (!layer) return;
+    
+    const duplicated = duplicateLayer(layer);
+    const layerIndex = layers.findIndex((l) => l.id === layerId);
+    const newLayers = [...layers];
+    newLayers.splice(layerIndex, 0, duplicated);
+    
+    setEditorState({
+      layers: newLayers,
+      activeLayerId: duplicated.id,
+    });
+  };
+
+  const handleLayerDelete = (layerId: string) => {
+    if (layers.length === 1) return; // Keep at least one layer
+    
+    const newLayers = deleteLayer(layers, layerId);
+    const newActiveId = activeLayerId === layerId ? newLayers[0].id : activeLayerId;
+    
+    setEditorState({
+      layers: newLayers,
+      activeLayerId: newActiveId,
+    });
+  };
+
+  const handleLayerUpdate = (layerId: string, updates: Partial<Layer>) => {
+    setEditorState({
+      ...editorState,
+      layers: updateLayer(layers, layerId, updates),
+    });
+  };
+
+  const handleLayerReorder = (fromIndex: number, toIndex: number) => {
+    setEditorState({
+      ...editorState,
+      layers: reorderLayers(layers, fromIndex, toIndex),
+    });
+  };
+
+  const handleLayerSelect = (layerId: string) => {
+    setEditorState({
+      ...editorState,
+      activeLayerId: layerId,
+    });
   };
 
   useKeyboardShortcuts({
@@ -178,29 +318,23 @@ export default function PixelArtEditor() {
               <Redo2 className="h-4 w-4" />
             </Button>
             
-            <Sheet open={toolsOpen} onOpenChange={setToolsOpen}>
+            <Sheet open={layersOpen} onOpenChange={setLayersOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="h-9 w-9">
                   <Layers className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-[300px] overflow-y-auto">
-                <SheetHeader>
-                  <SheetTitle>Tools</SheetTitle>
-                  <SheetDescription>
-                    Select drawing and selection tools
-                  </SheetDescription>
-                </SheetHeader>
-                <div className="mt-6 space-y-6">
-                  <div>
-                    <h3 className="text-sm font-medium mb-3">Drawing Tools</h3>
-                    <DrawingToolbar currentTool={currentTool} onToolChange={setCurrentTool} />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-medium mb-3">Selection & Navigation</h3>
-                    <SelectionToolbar currentTool={currentTool} onToolChange={setCurrentTool} />
-                  </div>
-                </div>
+              <SheetContent side="left" className="w-[320px] p-0">
+                <LayerPanel
+                  layers={layers}
+                  activeLayerId={activeLayerId}
+                  onLayerSelect={handleLayerSelect}
+                  onLayerCreate={handleLayerCreate}
+                  onLayerDuplicate={handleLayerDuplicate}
+                  onLayerDelete={handleLayerDelete}
+                  onLayerUpdate={handleLayerUpdate}
+                  onLayerReorder={handleLayerReorder}
+                />
               </SheetContent>
             </Sheet>
             
@@ -255,7 +389,7 @@ export default function PixelArtEditor() {
       <div className="flex-1 flex items-center justify-center overflow-hidden p-2 @container">
         <div className="w-full h-full flex items-center justify-center">
           <EnhancedPixelCanvas
-            canvasGrid={canvasGrid}
+            canvasGrid={activeLayer?.pixels || canvasGrid}
             currentTool={currentTool}
             currentColor={currentColor}
             showGrid={showGrid}
@@ -326,6 +460,9 @@ export default function PixelArtEditor() {
           {/* Current Tool Display */}
           <div className="text-center text-xs text-muted-foreground">
             <span className="font-medium text-foreground capitalize">{currentTool}</span>
+            {activeLayer && ` | ${activeLayer.name}`}
+            {activeLayer?.locked && " (Locked)"}
+            {activeLayer?.alphaLock && " (Alpha Lock)"}
             {selection.active && " | Selection Active"}
           </div>
         </div>

@@ -16,19 +16,18 @@
 
 ### 2.1 Goals\n- Provide an intuitive pixel-by-pixel drawing experience optimized for mobile browsers
 - Enable users to create, edit, and export pixel art in standard formats on mobile devices
-- Deliver responsive performance for canvases up to 128×128 pixels on mobile
-- Support essential drawing tools (pencil, eraser, fill, eyedropper, line, circle, square) with touch-friendly controls
+- Deliver responsive performance for canvases up to 128×128 pixels on mobile\n- Support essential drawing tools (pencil, eraser, fill, eyedropper, line, circle, square) with touch-friendly controls
 - Implement selection tools (marquee, lasso) with move, cut, copy, and paste operations
 - Support transformations (rotate, flip vertical, flip horizontal)\n- Provide navigation tools (pan, zoom, preview window)\n- Implement undo/redo functionality for error correction
 - Allow color palette customization and management
 - Enable artwork export in PNG format
 - Ensure all UI elements fit within a fixed mobile viewport without scrolling
+- Support comprehensive layer system with opacity, blend modes, and layer management
 
 ### 2.2 Non-Goals
 - Animation or frame-by-frame editing (post-MVP)
 - Real-time collaboration features (post-MVP)
 - User accounts or cloud storage (post-MVP)
-- Advanced layer blending modes (post-MVP)
 - Native mobile app versions (web-first approach)
 - Social features or community gallery (post-MVP)
 
@@ -36,15 +35,14 @@
 
 **Persona 1: Alex - Mobile Indie Game Developer**
 - Age: 28, creates 2D game assets on commute
-- Needs: Quick sprite creation on phone, precise touch control, easy export, shape tools for efficient drawing
-- Pain points: Desktop tools unavailable on mobile, needs browser accessibility
-\n**Persona 2: Jordan - Digital Art Student**
+- Needs: Quick sprite creation on phone, precise touch control, easy export, shape tools for efficient drawing, layer management for complex sprites
+- Pain points: Desktop tools unavailable on mobile, needs browser accessibility\n\n**Persona 2: Jordan - Digital Art Student**
 - Age: 19, learning digital art fundamentals on tablet
-- Needs: Simple mobile interface, experimentation-friendly, forgiving tools, selection and transformation features
+- Needs: Simple mobile interface, experimentation-friendly, forgiving tools, selection and transformation features, layer system for non-destructive editing
 - Pain points: Intimidated by complex mobile interfaces\n
 **Persona 3: Sam - Mobile Hobbyist Creator**
 - Age: 35, creates icons and avatars during breaks
-- Needs: Quick mobile access, no installation, shareable results, efficient editing tools
+- Needs: Quick mobile access, no installation, shareable results, efficient editing tools, layer organization for complex designs
 - Pain points: Wants immediate creativity on phone without setup friction
 
 ### 2.4 User Journeys
@@ -61,8 +59,7 @@
 
 **Journey 2: Experienced Mobile User Creating a Sprite**
 1. User opens application on tablet (returning visitor)
-2. Changes canvas size to 64×64
-3. Uses line tool to create character outline
+2. Changes canvas size to 64×64\n3. Uses line tool to create character outline
 4. Uses square tool for body structure
 5. Switches to fill tool for large color areas
 6. Uses marquee selection to move character position
@@ -71,6 +68,20 @@
 9. Utilizes undo/redo multiple times during refinement
 10. Exports final sprite as PNG
 11. Total time: 20-30 minutes
+
+**Journey 3: Advanced Mobile User Creating Multi-Layer Artwork**
+1. User opens application on tablet
+2. Creates new layer for background
+3. Draws background elements with fill tool
+4. Creates new layer for character
+5. Sets character layer to Multiply blend mode
+6. Adjusts character layer opacity to 80%
+7. Locks background layer to prevent accidental edits
+8. Creates additional layer for highlights
+9. Uses alpha lock on highlights layer
+10. Reorders layers via drag-and-drop
+11. Exports final artwork as PNG with merged layers
+12. Total time: 30-45 minutes
 
 ### 2.5 Functional Requirements
 
@@ -87,8 +98,7 @@
 - **FR-10**: Line tool - draw straight lines using Bresenham's algorithm (integer-based, no anti-aliasing)
 - **FR-11**: Circle tool - draw circles using Midpoint Circle algorithm (integer-based, no anti-aliasing)
 - **FR-12**: Square tool - draw rectangles/squares with integer coordinates
-- **FR-13**: Fill tool - flood-fill connected pixels of same color with two modes:
-  - Contiguous mode: fill only connected pixels of the same color
+- **FR-13**: Fill tool - flood-fill connected pixels of same color with two modes:\n  - Contiguous mode: fill only connected pixels of the same color
   - Global mode: replace all instances of the target color across entire canvas
 - **FR-14**: Eyedropper tool - sample color from existing pixel
 - **FR-15**: Hand tool - pan canvas view (drag to move viewport)
@@ -108,34 +118,61 @@
 - **FR-24**: Flip Vertical - mirror selected area or entire canvas vertically
 - **FR-25**: Flip Horizontal - mirror selected area or entire canvas horizontally
 - **FR-26**: Transformations apply to active selection if present, otherwise to entire canvas
-
-#### Navigation Tools
+\n#### Navigation Tools
 - **FR-27**: Zoom tool - zoom in/out centered on tap/cursor position
 - **FR-28**: Zoom levels: 100%, 200%, 400%, 800%
 - **FR-29**: Pan tool (Hand) - drag to move viewport when zoomed in
 - **FR-30**: Navigation preview window - minimap showing full canvas with current viewport rectangle
 - **FR-31**: Preview window allows click-to-jump navigation\n
+#### Layer System
+- **FR-51**: Create new layer with default name (Layer 1, Layer 2, etc.)
+- **FR-52**: Delete layer with confirmation dialog (prevent deletion of last remaining layer)
+- **FR-53**: Duplicate layer - create exact copy of selected layer
+- **FR-54**: Reorder layers via drag-and-drop in layer panel
+- **FR-55**: Layer visibility toggle - show/hide individual layers
+- **FR-56**: Layer opacity control - adjustable from 0% (fully transparent) to 100% (fully opaque)
+- **FR-57**: Layer locking - prevent editing of locked layers
+- **FR-58**: Layer blend modes - support standard web compositing modes:\n  - Normal (default)
+  - Multiply\n  - Overlay
+  - Screen
+  - Darken
+  - Lighten
+  - Difference
+  - Color-Dodge
+  - Color-Burn
+  - Hard-Light
+  - Soft-Light
+- **FR-59**: Alpha lock - restrict painting only to existing non-transparent pixels on current layer
+- **FR-60**: Active layer indicator - highlight currently selected layer
+- **FR-61**: Layer thumbnail preview - display small preview of layer content
+- **FR-62**: Layer renaming - allow users to rename layers via tap-to-edit
+- **FR-63**: All drawing operations apply only to active layer
+- **FR-64**: Layer panel accessible via drawer interface
+
 #### Color Management
 - **FR-32**: Display current primary color indicator in drawer
 - **FR-33**: Provide color picker accessible from drawer (hex input + visual selector)
 - **FR-34**: Show color palette with quick-access color swatches in drawer
 - **FR-35**: Allow users to add colors to palette\n- **FR-36**: Support transparency as a color option
-
-#### History & State\n- **FR-37**: Implement undo functionality (minimum 20 steps) with drawer button
+\n#### History & State
+- **FR-37**: Implement undo functionality (minimum 20 steps) with drawer button
 - **FR-38**: Implement redo functionality with drawer button
 - **FR-39**: Display undo/redo availability in drawer UI
 - **FR-40**: Preserve drawing state during session (browser storage)
+- **FR-65**: Undo/redo operations track layer state changes (creation, deletion, reordering, property changes)
 \n#### Export & Import
 - **FR-41**: Export artwork as PNG file (actual pixel dimensions) via drawer button
-- **FR-42**: Export with transparent background support\n- **FR-43**: Generate filename with timestamp (e.g., pixelart_20260116_0519.png)
+- **FR-42**: Export with transparent background support\n- **FR-43**: Generate filename with timestamp (e.g., pixelart_20260116_0554.png)
 - **FR-44**: Clear canvas function with confirmation dialog accessible from drawer
-
-#### Mobile-Specific Requirements
+- **FR-66**: Export merges all visible layers with respect to opacity and blend modes
+- **FR-67**: Export preserves transparency from layers
+\n#### Mobile-Specific Requirements
 - **FR-45**: All UI controls must be contained in a collapsible drawer interface
 - **FR-46**: Drawer must be toggleable to maximize canvas space
 - **FR-47**: Touch gestures: single tap to draw, long press for eyedropper\n- **FR-48**: Prevent page zoom/scroll during drawing interactions
 - **FR-49**: Support both portrait and landscape orientations
 - **FR-50**: Drawer buttons must be resized for optimal mobile touch (44×44px minimum)
+- **FR-68**: Layer panel must be touch-optimized with drag-and-drop support
 
 ### 2.6 Non-Functional Requirements
 
@@ -143,18 +180,20 @@
 - **NFR-1**: Canvas rendering must complete within 100ms for 128×128 grid on mobile devices
 - **NFR-2**: Touch interactions must respond within 16ms (60fps)\n- **NFR-3**: Undo/redo operations must execute within 50ms
 - **NFR-4**: Application initial load time under 3 seconds on 4G connection
-- **NFR-5**: Shape drawing algorithms must use integer arithmetic to avoid anti-aliasing\n\n#### Accessibility
+- **NFR-5**: Shape drawing algorithms must use integer arithmetic to avoid anti-aliasing
+- **NFR-15**: Layer compositing must maintain 60fps during drawing operations
+- **NFR-16**: Layer reordering via drag-and-drop must provide smooth visual feedback
+
+#### Accessibility
 - **NFR-6**: Touch targets minimum 44×44px for all interactive elements
 - **NFR-7**: Support for keyboard shortcuts (Ctrl+X, Ctrl+C, Ctrl+V, Ctrl+Z, Ctrl+Y)
 - **NFR-8**: ARIA labels for all interactive elements
 - **NFR-9**: Minimum color contrast ratio of 4.5:1 for UI elements
 - **NFR-10**: Support for screen readers on mobile devices
-
-#### Browser Support
+\n#### Browser Support
 - **NFR-11**: Support mobile Chrome 90+, mobile Firefox 88+, mobile Safari 14+\n- **NFR-12**: Responsive design for mobile (320px-768px) and tablet (768px-1024px)
 - **NFR-13**: Graceful degradation for unsupported browsers with clear messaging
-
-#### Usability
+\n#### Usability
 - **NFR-14**: Zero-configuration startup (no account required)
 - **NFR-15**: Intuitive tool icons following industry conventions
 - **NFR-16**: Visual feedback for all touch actions (tap states, active tools)
@@ -169,6 +208,8 @@
 - **Technical**: Zero critical bugs in production, 99.5% uptime
 - **Mobile Usability**: 85%+ of users complete drawing without UI frustration
 - **Feature Adoption**: 40%+ of users utilize shape tools or selection features
+- **Layer Usage**: 50%+ of users create multi-layer artwork
+- **Blend Mode Usage**: 25%+ of users experiment with blend modes
 
 ---
 
@@ -184,8 +225,7 @@
 - Fill tool with Contiguous and Global modes
 - Eyedropper tool
 - Touch-optimized drawing interactions
-
-**Selection & Manipulation**:
+\n**Selection & Manipulation**:
 - Marquee selection tool
 - Lasso selection tool
 - Move, Cut (Ctrl+X), Copy (Ctrl+C), Paste (Ctrl+V) operations
@@ -193,36 +233,55 @@
 - Flip Vertical
 - Flip Horizontal
 \n**Navigation**:
-- Pan tool (Hand)\n- Zoom (100%, 200%, 400%)
+- Pan tool (Hand)
+- Zoom (100%, 200%, 400%)
 - Navigation preview window
-\n**Color System**:
+\n**Layer System**:
+- Create new layer
+- Delete layer (with confirmation)
+- Duplicate layer
+- Reorder layers via drag-and-drop
+- Layer visibility toggle
+- Layer opacity adjustment (0-100%)
+- Layer locking
+- Blend modes: Normal, Multiply, Overlay, Screen, Darken, Lighten, Difference, Color-Dodge, Color-Burn, Hard-Light, Soft-Light\n- Alpha lock toggle
+- Layer thumbnail preview
+- Layer renaming
+- Active layer indicator
+
+**Color System**:
 - Color picker with hex input in drawer
 - 8 predefined color swatches (black, white, red, blue, green, yellow, gray, transparent)
 - Current color indicator in drawer
 \n**History**:
 - Undo (20 steps) via drawer button and Ctrl+Z
 - Redo (20 steps) via drawer button and Ctrl+Y
-\n**Export**:
+- Layer state tracking in history\n
+**Export**:
 - Export as PNG (32×32 actual pixels) via drawer button
+- Merged layer export with blend modes and opacity
 - Clear canvas button in drawer
 
 **UI/UX**:
 - Collapsible drawer interface for all controls
-- Tool buttons with large touch targets (44×44px minimum)\n- Canvas with visible grid lines
+- Tool buttons with large touch targets (44×44px minimum)
+- Canvas with visible grid lines
 - Fixed viewport layout (no scrolling)
 - Portrait and landscape support
+- Layer panel in drawer with drag-and-drop support
 \n### 3.2 MVP Excluded Features (Post-MVP)
 
 **Excluded from MVP** (rationale):
 - Multiple canvas sizes → Simplifies state management and testing
 - Custom color palette editing → Predefined palette sufficient for validation
-- Layers → Significantly increases complexity\n- Import image functionality → Export-only reduces scope
+- Import image functionality → Export-only reduces scope
 - User accounts/cloud save → Local-only for MVP
 - Animation frames → Separate feature set
 - Advanced selection operations (feathering, anti-aliasing) → Basic selection sufficient
 - Desktop keyboard shortcuts beyond cut/copy/paste/undo/redo → Mobile-first approach
-
-### 3.3 MVP Success Criteria
+- Layer groups/folders → Single-level layer hierarchy for MVP
+- Layer effects (drop shadow, glow, etc.) → Basic blend modes sufficient
+\n### 3.3 MVP Success Criteria
 - Mobile users can create recognizable pixel art within 5 minutes
 - Users successfully utilize shape tools to create geometric designs
 - Selection and transformation tools work intuitively on mobile
@@ -230,8 +289,9 @@
 - No critical bugs in core mobile drawing flow
 - Drawer interface is intuitive and doesn't require scrolling
 - 15+ mobile test users successfully complete drawing → export flow\n- 60%+ of test users utilize at least one shape or selection tool
-
----
+- 50%+ of test users create artwork with multiple layers
+- 30%+ of test users experiment with blend modes or opacity adjustments
+\n---
 
 ## 4. Technical Architecture
 
@@ -245,16 +305,17 @@
 
 ### 4.2 State Management
 - **Local State**: React useState for UI interactions (tool selection, color, drawer state)
-- **Canvas State**: Custom hook managing 2D pixel array\n- **Selection State**: Active selection coordinates and clipboard data
-- **History State**: Immutable history stack (array of canvas snapshots)
-- **Persistence**: localStorage for session recovery
+- **Canvas State**: Custom hook managing 2D pixel array per layer
+- **Layer State**: Array of layer objects with properties (opacity, blend mode, visibility, lock, alpha lock)
+- **Selection State**: Active selection coordinates and clipboard data
+- **History State**: Immutable history stack (array of complete application state snapshots including all layers)\n- **Persistence**: localStorage for session recovery
 - **Drawer State**: Toggle state for collapsible control panel
 
 ### 4.3 Rendering Approach
-- **Grid Representation**: 2D array pixels[y][x] = colorHex
-- **Canvas Rendering**: Redraw entire canvas on state change (acceptable for 32×32)\n- **Optimization**: RequestAnimationFrame for smooth touch interactions
-- **Grid Lines**: Separate canvas layer or CSS grid overlay
-- **Mobile Viewport**: Fixed positioning with CSS containment to prevent scrolling
+- **Grid Representation**: 2D array pixels[y][x] = colorHex per layer
+- **Canvas Rendering**: Composite all visible layers with blend modes and opacity, redraw on state change
+- **Layer Compositing**: Use Canvas globalCompositeOperation for blend modes\n- **Optimization**: RequestAnimationFrame for smooth touch interactions
+- **Grid Lines**: Separate canvas layer or CSS grid overlay\n- **Mobile Viewport**: Fixed positioning with CSS containment to prevent scrolling
 - **Shape Algorithms**: Integer-based algorithms (Bresenham's for lines, Midpoint for circles) to avoid anti-aliasing
 \n### 4.4 Data Models
 \n```typescript
@@ -266,16 +327,29 @@ type CanvasGrid = Pixel[][]; // [y][x] = color
 type Tool = 'pencil' | 'eraser' | 'line' | 'circle' | 'square' | 'fill' | 'eyedropper' | 'hand' | 'marquee' | 'lasso';
 
 type FillMode = 'contiguous' | 'global';
-\ntype TransformType = 'rotate90' | 'rotate180' | 'rotate270' | 'flipVertical' | 'flipHorizontal';
 
-interface AppState {
+type TransformType = 'rotate90' | 'rotate180' | 'rotate270' | 'flipVertical' | 'flipHorizontal';
+
+type BlendMode = 'normal' | 'multiply' | 'overlay' | 'screen' | 'darken' | 'lighten' | 'difference' | 'color-dodge' | 'color-burn' | 'hard-light' | 'soft-light';
+
+interface Layer {
+  id: string;\n  name: string;
   canvas: CanvasGrid;
-  currentTool: Tool;
+  visible: boolean;
+  opacity: number; // 0-100
+  locked: boolean;
+  blendMode: BlendMode;
+  alphaLock: boolean;
+  thumbnail?: string; // base64 data URL
+}\n\ninterface AppState {
+  layers: Layer[];
+  activeLayerId: string;\n  currentTool: Tool;
   currentColor: Color;
   fillMode: FillMode;
-  history: CanvasGrid[];
+  history: AppState[];
   historyIndex: number;
-  canvasSize: number; // 32 for MVP\n  drawerOpen: boolean;
+  canvasSize: number; // 32 for MVP
+  drawerOpen: boolean;
   selection: Selection | null;
   clipboard: CanvasGrid | null;
   zoom: number; // 1, 2, 4, 8 (100%, 200%, 400%, 800%)
@@ -286,8 +360,7 @@ interface AppState {
   type: 'marquee' | 'lasso';
   points: Point[]; // for lasso\n  bounds: Rectangle; // for marquee
   pixels: CanvasGrid; // selected pixel data
-}
-\ninterface Rectangle {
+}\n\ninterface Rectangle {
   x: number;
   y: number;
   width: number;\n  height: number;
@@ -305,7 +378,7 @@ interface AppState {
 
 ### 5.1 Fixed Viewport Structure
 \n**Layout Components**:
-1. **Canvas Area** (top section, 65% viewport height)
+1. **Canvas Area** (top section, 60% viewport height)
    - Centered pixel grid canvas
    - Touch-optimized for drawing
    - No scroll, fixed position
@@ -315,14 +388,13 @@ interface AppState {
    - Opens/closes control drawer
    - Always visible\n\n3. **Control Drawer** (bottom sheet, slides up)
    - Collapsible panel containing all tools and controls
-   - Maximum height: 35% viewport
+   - Maximum height: 40% viewport
    - Scrollable if content exceeds height
 \n### 5.2 Drawer Contents Layout
 
 **Drawer organized in sections**:
 \n1. **Tool Selection Row** (top of drawer)
-   - Primary tools: Pencil, Eraser, Line, Circle, Square, Fill, Eyedropper, Hand
-   - Each button: 44×44px minimum\n   - Horizontal scrollable layout
+   - Primary tools: Pencil, Eraser, Line, Circle, Square, Fill, Eyedropper, Hand\n   - Each button: 44×44px minimum\n   - Horizontal scrollable layout
    - Active tool highlighted
 
 2. **Selection & Transform Row** (second section)
@@ -332,13 +404,24 @@ interface AppState {
    - Toggle between Contiguous and Global modes
    - Visual indicator of active mode
 
-4. **Color Control Row** (middle section)
+4. **Layer Panel** (expandable section)
+   - Layer list with drag-and-drop reordering
+   - Each layer item displays:\n     - Thumbnail preview (32×32px)
+     - Layer name (tap to rename)
+     - Visibility toggle icon
+     - Lock icon\n   - Active layer highlighted
+   - Layer controls:\n     - Create new layer button (44×44px)
+     - Delete layer button (44×44px)
+     - Duplicate layer button (44×44px)
+   - Layer properties (for active layer):
+     - Opacity slider (0-100%)
+     - Blend mode dropdown
+     - Alpha lock toggle
+\n5. **Color Control Row** (middle section)
    - Current color indicator (44×44px)
    - Color palette (8 swatches, 36×36px each)
    - Color picker button (44×44px)
-
-5. **Action Buttons Row** (bottom section)
-   - Undo button (44×44px)
+\n6. **Action Buttons Row** (bottom section)\n   - Undo button (44×44px)
    - Redo button (44×44px)
    - Export PNG button (88×44px, wider)\n   - Clear canvas button (44×44px)
 
@@ -346,17 +429,20 @@ interface AppState {
 
 - **Portrait Mobile** (320px-480px width)
   - Canvas: 280px × 280px
-  - Drawer: Full width, 35vh height
+  - Drawer: Full width, 40vh height
   - Tool buttons: Horizontal scroll
+  - Layer panel: Compact view
 \n- **Landscape Mobile** (480px-768px width)
   - Canvas: 400px × 400px
-  - Drawer: Full width, 30vh height
+  - Drawer: Full width, 35vh height
   - Tool buttons: Single row
+  - Layer panel: Expanded view
 
 - **Tablet** (768px-1024px width)
   - Canvas: 512px × 512px
-  - Drawer: Full width, 25vh height
+  - Drawer: Full width, 30vh height
   - All controls in organized rows
+  - Layer panel: Full-featured view
 
 ---
 
@@ -369,10 +455,9 @@ interface AppState {
 export function bresenhamLine(x0: number, y0: number, x1: number, y1: number): Point[] {
   const points: Point[] = [];
   const dx = Math.abs(x1 - x0);
-  const dy = Math.abs(y1 - y0);
-  const sx = x0 < x1 ? 1 : -1;
-  const sy = y0 < y1 ? 1 : -1;
-  let err = dx - dy;\n\n  let x = x0;
+  const dy = Math.abs(y1 - y0);\n  const sx = x0 < x1 ? 1 : -1;
+  const sy = y0 < y1 ? 1 : -1;\n  let err = dx - dy;
+\n  let x = x0;
   let y = y0;
 
   while (true) {
@@ -464,8 +549,7 @@ export function floodFill(\n  grid: string[][],
 
   return newGrid;
 }
-```
-
+```\n
 ### 6.4 Transformation Algorithms
 
 ```typescript
@@ -489,7 +573,62 @@ export function flipHorizontal(grid: string[][]): string[][] {
   return grid.map(row => row.slice().reverse());
 }
 ```\n
----
+### 6.5 Layer Compositing Algorithm
+
+```typescript
+// utils/layerCompositing.ts
+export function compositeLayers(layers: Layer[], canvasSize: number): HTMLCanvasElement {
+  const compositeCanvas = document.createElement('canvas');
+  compositeCanvas.width = canvasSize;
+  compositeCanvas.height = canvasSize;
+  const ctx = compositeCanvas.getContext('2d')!;
+\n  // Render layers from bottom to top
+  for (const layer of layers) {
+    if (!layer.visible) continue;
+\n    const layerCanvas = document.createElement('canvas');
+    layerCanvas.width = canvasSize;
+    layerCanvas.height = canvasSize;
+    const layerCtx = layerCanvas.getContext('2d')!;
+
+    // Draw layer pixels
+    for (let y = 0; y < canvasSize; y++) {
+      for (let x = 0; x < canvasSize; x++) {
+        const color = layer.canvas[y][x];
+        if (color !== 'transparent') {
+          layerCtx.fillStyle = color;
+          layerCtx.fillRect(x, y, 1, 1);
+        }
+      }
+    }
+
+    // Apply blend mode and opacity
+    ctx.globalAlpha = layer.opacity / 100;
+    ctx.globalCompositeOperation = getCompositeOperation(layer.blendMode);
+    ctx.drawImage(layerCanvas, 0, 0);\n  }
+
+  // Reset composite settings
+  ctx.globalAlpha = 1;
+  ctx.globalCompositeOperation = 'source-over';
+\n  return compositeCanvas;
+}
+
+function getCompositeOperation(blendMode: BlendMode): GlobalCompositeOperation {
+  const modeMap: Record<BlendMode, GlobalCompositeOperation> = {
+    'normal': 'source-over',
+    'multiply': 'multiply',
+    'overlay': 'overlay',
+    'screen': 'screen',
+    'darken': 'darken',
+    'lighten': 'lighten',
+    'difference': 'difference',
+    'color-dodge': 'color-dodge',
+    'color-burn': 'color-burn',
+    'hard-light': 'hard-light',
+    'soft-light': 'soft-light'\n  };
+  return modeMap[blendMode];
+}
+```
+\n---
 
 ## 7. Mobile-Specific Considerations
 
@@ -498,6 +637,7 @@ export function flipHorizontal(grid: string[][]): string[][] {
 - **Drag**: Continuous drawing or selection
 - **Two-Finger Pinch**: Zoom in/out (when zoom tool active)
 - **Two-Finger Pan**: Move viewport (when zoomed in)
+- **Layer Drag**: Reorder layers in layer panel
 
 ### 7.2 Viewport Configuration
 \n```html
@@ -525,14 +665,22 @@ export function flipHorizontal(grid: string[][]): string[][] {
   left: 0;\n  right: 0;
   bottom: 0;
   overflow: hidden;
-}\n\n/* Selection marching ants animation */
+}
+\n/* Selection marching ants animation */
 @keyframes marching-ants {
   0% { stroke-dashoffset: 0; }
   100% { stroke-dashoffset: 8; }
 }
-\n.selection-border {
+
+.selection-border {
   stroke-dasharray: 4 4;
   animation: marching-ants 0.5s linear infinite;
+}
+\n/* Layer drag preview */
+.layer-drag-preview {
+  opacity: 0.8;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 ```
 
@@ -546,6 +694,7 @@ export function flipHorizontal(grid: string[][]): string[][] {
 3. **Technical Literacy**: Users comfortable with basic mobile web applications and familiar with cut/copy/paste operations
 4. **Browser Environment**: JavaScript enabled, HTML5 Canvas support, touch events, clipboard API
 5. **Network**: Application can be fully client-side (no backend required for MVP)
+6. **Layer Usage**: Users will create artwork with 2-5 layers on average
 
 ### Technical Constraints
 1. **Canvas Size**: Limited to 128×128 maximum (mobile performance considerations)
@@ -555,16 +704,18 @@ export function flipHorizontal(grid: string[][]): string[][] {
 5. **No Server**: All processing happens client-side
 6. **Fixed Viewport**: All UI must fit within viewport without scrolling
 7. **Integer Algorithms**: Shape tools must use integer-based algorithms to avoid anti-aliasing artifacts
-
-### Mobile-Specific Constraints
+8. **Layer Limit**: Maximum 10 layers per project (mobile memory constraints)
+9. **Blend Mode Support**: Limited to blend modes supported by Canvas globalCompositeOperation
+\n### Mobile-Specific Constraints
 1. **Touch Target Size**: Minimum 44×44px for all interactive elements
-2. **Drawer Height**: Maximum 35vh to preserve canvas visibility
+2. **Drawer Height**: Maximum 40vh to preserve canvas visibility
 3. **Performance**: Must maintain 60fps on mid-range mobile devices
 4. **Battery**: Optimize rendering to minimize battery drain
 5. **Clipboard Access**: Requires user permission for clipboard operations
+6. **Layer Panel**: Must support touch-based drag-and-drop for layer reordering
+\n---
 
----
-\n## 9. Implementation Roadmap
+## 9. Implementation Roadmap
 
 ### Phase 1: Mobile Core Canvas & Basic Tools (Week 1-2)
 - Set up React + TypeScript + Vite project with mobile viewport configuration
@@ -594,29 +745,43 @@ export function flipHorizontal(grid: string[][]): string[][] {
 - Rotate (90° increments)
 - Flip Vertical\n- Flip Horizontal
 - Apply to selection or full canvas
-\n### Phase 6: Polish & Testing (Week 7)
-- UI refinements for mobile
-- Touch interaction improvements
+\n### Phase 6: Layer System (Week 7-8)
+- Layer data structure and state management
+- Create, delete, duplicate layer operations
+- Layer panel UI with thumbnails
+- Layer visibility toggle
+- Layer locking\n- Active layer indicator
+- Layer renaming
+- Drag-and-drop layer reordering\n- Layer opacity control
+- Blend mode implementation
+- Alpha lock functionality
+- Layer compositing algorithm
+- History integration for layer operations
+
+### Phase 7: Polish & Testing (Week 9)
+- UI refinements for mobile\n- Touch interaction improvements
 - Cross-browser mobile testing (iOS Safari, Chrome, Firefox)
 - Performance optimization for mobile devices
+- Layer system testing
 - User testing with 15+ mobile participants
-
-### Phase 7: MVP Launch (Week 8)
+\n### Phase 8: MVP Launch (Week 10)
 - Bug fixes from mobile testing
 - Documentation\n- Mobile deployment setup
 - Launch preparation
+\n---
 
----
-\n## 10. Next Steps
+## 10. Next Steps
 
-1. **Validate Enhanced MVP Scope**: Review with stakeholders to confirm expanded mobile-first feature set
-2. **Set Up Mobile Development Environment**: Initialize React + TypeScript project with mobile viewport\n3. **Create Mobile Design Mockups**: Low-fidelity wireframes for drawer UI layout with new tools
+1. **Validate Enhanced MVP Scope**: Review with stakeholders to confirm expanded mobile-first feature set with layer system
+2. **Set Up Mobile Development Environment**: Initialize React + TypeScript project with mobile viewport\n3. **Create Mobile Design Mockups**: Low-fidelity wireframes for drawer UI layout with new tools and layer panel
 4. **Begin Phase 1 Implementation**: Start with mobile-optimized canvas rendering and basic tools
-5. **Establish Mobile Testing Strategy**: Set up device testing, define touch interaction test cases for shape and selection tools
+5. **Establish Mobile Testing Strategy**: Set up device testing, define touch interaction test cases for shape, selection, and layer tools
 6. **Plan Mobile User Testing**: Recruit 15-20 mobile beta testers for MVP validation
-7. **Algorithm Validation**: Test integer-based algorithms on various mobile devices to ensure no anti-aliasing\n\n---
+7. **Algorithm Validation**: Test integer-based algorithms and layer compositing on various mobile devices
+8. **Layer System Design**: Create detailed specifications for layer panel UI and interaction patterns
+\n---
 
-**Document Version**: 3.0  
+**Document Version**: 4.0  
 **Last Updated**: 2026-01-16  
-**Status**: Ready for Enhanced Mobile Development  
-**Key Changes**: Added shape primitives (Line, Circle, Square), selection tools (Marquee, Lasso), transformation operations (Rotate, Flip), navigation tools (Pan, Zoom, Preview), enhanced fill modes (Contiguous, Global), clipboard operations (Cut, Copy, Paste), and integer-based algorithms to prevent anti-aliasing
+**Status**: Ready for Enhanced Mobile Development with Layer System  
+**Key Changes**: Added comprehensive layer system with create/delete/duplicate/reorder operations, layer properties (opacity, visibility, locking, alpha lock), blend modes (Normal, Multiply, Overlay, Screen, Darken, Lighten, Difference, Color-Dodge, Color-Burn, Hard-Light, Soft-Light), layer panel UI with drag-and-drop support, layer compositing algorithm, and updated implementation roadmap to include layer system development
