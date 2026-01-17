@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { usePixelCanvas } from "@/hooks/use-pixel-canvas";
-import type { CanvasGrid, Tool, Color, Point, Selection, FillMode, BrushMode, DitherPattern } from "@/types/pixel-art";
+import type { CanvasGrid, Tool, Color, Point, Selection, FillMode, BrushMode, DitherPattern, PencilSize } from "@/types/pixel-art";
 import {
   floodFill,
   globalFill,
@@ -22,6 +22,7 @@ interface EnhancedPixelCanvasProps {
   pan: Point;
   brushMode?: BrushMode;
   ditherPattern?: DitherPattern;
+  pencilSize?: PencilSize;
   onPixelChange: (newGrid: CanvasGrid) => void;
   onColorPick: (color: Color) => void;
   onSelectionChange: (selection: Selection) => void;
@@ -65,6 +66,7 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
   pan,
   brushMode = "normal",
   ditherPattern = "bayer4x4",
+  pencilSize = 1,
   onPixelChange,
   onColorPick,
   onSelectionChange,
@@ -277,8 +279,21 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
 
     switch (currentTool) {
       case "pencil":
-        const brushColor = getBrushColor(coords.x, coords.y, currentColor);
-        newGrid[coords.y][coords.x] = brushColor;
+        // Draw with pencil size (1x1, 2x2, 3x3, 4x4, or 5x5)
+        const halfSize = Math.floor(pencilSize / 2);
+        
+        for (let dy = -halfSize; dy <= halfSize; dy++) {
+          for (let dx = -halfSize; dx <= halfSize; dx++) {
+            const targetX = coords.x + dx;
+            const targetY = coords.y + dy;
+            
+            // Check bounds
+            if (targetX >= 0 && targetX < gridWidth && targetY >= 0 && targetY < gridHeight) {
+              const brushColor = getBrushColor(targetX, targetY, currentColor);
+              newGrid[targetY][targetX] = brushColor;
+            }
+          }
+        }
         
         // Increment rainbow hue shift for next pixel
         if (brushMode === "rainbow") {
@@ -288,7 +303,21 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
         onPixelChange(newGrid);
         break;
       case "eraser":
-        newGrid[coords.y][coords.x] = "transparent";
+        // Erase with pencil size
+        const eraserHalfSize = Math.floor(pencilSize / 2);
+        
+        for (let dy = -eraserHalfSize; dy <= eraserHalfSize; dy++) {
+          for (let dx = -eraserHalfSize; dx <= eraserHalfSize; dx++) {
+            const targetX = coords.x + dx;
+            const targetY = coords.y + dy;
+            
+            // Check bounds
+            if (targetX >= 0 && targetX < gridWidth && targetY >= 0 && targetY < gridHeight) {
+              newGrid[targetY][targetX] = "transparent";
+            }
+          }
+        }
+        
         onPixelChange(newGrid);
         break;
     }

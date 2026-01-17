@@ -649,6 +649,35 @@
   - [x] Added leading-tight to description text for reduced line height
   - [x] All 97 files passed lint checks
   - [x] Brush modes now fully functional: Normal, Rainbow, Random, and Dither all working
+- [x] Step 51: Add pencil size options (2px, 3px, 4px, 5px) with mini icons (Completed)
+  - [x] Added PencilSize type (1 | 2 | 3 | 4 | 5) to pixel-art types
+  - [x] Added pencilSize and onPencilSizeChange props to DrawingToolbarProps interface
+  - [x] Created pencilSizes array with 5 size options: 1px, 2px, 3px, 4px, 5px
+  - [x] Updated DrawingToolbar to accept pencilSize prop with default value of 1
+  - [x] Added pencilSize state to PixelArtEditor with initial value of 1
+  - [x] Imported PencilSize type in PixelArtEditor
+  - [x] Updated brush mode button to highlight when pencilSize !== 1 or brushMode !== "normal"
+  - [x] Updated tooltip to show both brush mode and pencil size: "Brush Mode (Normal) | Size: 1px"
+  - [x] Added "BRUSH MODE" section header in dropdown menu
+  - [x] Added separator (1px border line) between brush modes and pencil sizes
+  - [x] Added "PENCIL SIZE" section header in dropdown menu
+  - [x] Created pencil size menu items with mini square icons
+  - [x] Mini icons scale with size: 3px, 6px, 9px, 12px, 15px (size * 3)
+  - [x] Icons use bg-foreground for visibility in both light and dark modes
+  - [x] Added checkmark (✓) indicator for currently selected pencil size
+  - [x] Set dropdown menu width to w-48 for better layout
+  - [x] Passed pencilSize and setPencilSize props from PixelArtEditor to DrawingToolbar
+  - [x] Added pencilSize prop to EnhancedPixelCanvasProps interface
+  - [x] Imported PencilSize type in PixelCanvas component
+  - [x] Updated EnhancedPixelCanvas to accept pencilSize prop with default value of 1
+  - [x] Passed pencilSize prop from PixelArtEditor to EnhancedPixelCanvas
+  - [x] Updated handleDraw function to draw NxN pixel area based on pencilSize
+  - [x] Implemented centered drawing: calculates halfSize and draws from -halfSize to +halfSize
+  - [x] Applied pencil size to both pencil and eraser tools
+  - [x] Added bounds checking to prevent drawing outside canvas grid
+  - [x] Brush mode effects (rainbow, random, dither) work with all pencil sizes
+  - [x] All 97 files passed lint checks
+  - [x] Pencil sizes fully functional: 1px, 2px, 3px, 4px, and 5px all working correctly
 
 ## Features Implemented
 

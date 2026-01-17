@@ -19,13 +19,15 @@ import {
   ChevronDown,
   Paintbrush,
 } from "lucide-react";
-import type { Tool, BrushMode } from "@/types/pixel-art";
+import type { Tool, BrushMode, PencilSize } from "@/types/pixel-art";
 
 interface DrawingToolbarProps {
   currentTool: Tool;
   onToolChange: (tool: Tool) => void;
   brushMode?: BrushMode;
   onBrushModeChange?: (mode: BrushMode) => void;
+  pencilSize?: PencilSize;
+  onPencilSizeChange?: (size: PencilSize) => void;
 }
 
 const drawingTools: Array<{
@@ -113,11 +115,24 @@ const brushModes: Array<{
   },
 ];
 
+const pencilSizes: Array<{
+  size: PencilSize;
+  label: string;
+}> = [
+  { size: 1, label: "1px" },
+  { size: 2, label: "2px" },
+  { size: 3, label: "3px" },
+  { size: 4, label: "4px" },
+  { size: 5, label: "5px" },
+];
+
 export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
   currentTool,
   onToolChange,
   brushMode = "normal",
   onBrushModeChange,
+  pencilSize = 1,
+  onPencilSizeChange,
 }) => {
   // Get current shape tool info
   const currentShapeTool = shapeTools.find((tool) => tool.id === currentTool);
@@ -192,7 +207,7 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
               <TooltipTrigger asChild>
                 <DropdownMenuTrigger asChild>
                   <Button
-                    variant={brushMode !== "normal" ? "default" : "outline"}
+                    variant={brushMode !== "normal" || pencilSize !== 1 ? "default" : "outline"}
                     size="icon"
                     className="h-11 w-11 relative"
                     aria-label="Brush Mode"
@@ -203,10 +218,14 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
                 </DropdownMenuTrigger>
               </TooltipTrigger>
               <TooltipContent side="top">
-                <p>Brush Mode ({currentBrushMode?.label})</p>
+                <p>Brush Mode ({currentBrushMode?.label}) | Size: {pencilSize}px</p>
               </TooltipContent>
             </Tooltip>
-            <DropdownMenuContent align="center">
+            <DropdownMenuContent align="center" className="w-48">
+              {/* Brush Modes */}
+              <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">
+                BRUSH MODE
+              </div>
               {brushModes.map((mode) => (
                 <DropdownMenuItem
                   key={mode.id}
@@ -215,6 +234,36 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
                 >
                   <span className="font-medium">{mode.label}</span>
                   <span className="text-[10px] text-muted-foreground leading-tight">{mode.description}</span>
+                </DropdownMenuItem>
+              ))}
+              
+              {/* Separator */}
+              <div className="h-px bg-border my-1" />
+              
+              {/* Pencil Sizes */}
+              <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">
+                PENCIL SIZE
+              </div>
+              {onPencilSizeChange && pencilSizes.map((item) => (
+                <DropdownMenuItem
+                  key={item.size}
+                  onClick={() => onPencilSizeChange(item.size)}
+                  className="flex items-center gap-3 cursor-pointer"
+                >
+                  {/* Mini icon representing size */}
+                  <div className="flex items-center justify-center w-5 h-5">
+                    <div 
+                      className="bg-foreground"
+                      style={{
+                        width: `${item.size * 3}px`,
+                        height: `${item.size * 3}px`,
+                      }}
+                    />
+                  </div>
+                  <span className="font-medium">{item.label}</span>
+                  {pencilSize === item.size && (
+                    <span className="ml-auto text-primary">✓</span>
+                  )}
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>

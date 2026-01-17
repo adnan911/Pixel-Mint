@@ -43,6 +43,7 @@ import type {
   Palette as PaletteType,
   BrushMode,
   DitherPattern,
+  PencilSize,
 } from "@/types/pixel-art";
 import { Palette, Settings, Undo2, Redo2, Layers, Download, Maximize2, FlipHorizontal2, RotateCw, FlipVertical2, Grid3x3, Trash2, ZoomIn, ZoomOut, Maximize } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -87,6 +88,7 @@ export default function PixelArtEditor() {
   const [fillMode, setFillMode] = useState<FillMode>("contiguous");
   const [brushMode, setBrushMode] = useState<BrushMode>("normal");
   const [ditherPattern, setDitherPattern] = useState<DitherPattern>("bayer4x4");
+  const [pencilSize, setPencilSize] = useState<PencilSize>(1);
   const [selection, setSelection] = useState<Selection>({ active: false, points: [] });
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
@@ -525,6 +527,8 @@ export default function PixelArtEditor() {
                   onToolChange={setCurrentTool}
                   brushMode={brushMode}
                   onBrushModeChange={setBrushMode}
+                  pencilSize={pencilSize}
+                  onPencilSizeChange={setPencilSize}
                 />
               </div>
 
@@ -705,6 +709,7 @@ export default function PixelArtEditor() {
             pan={pan}
             brushMode={brushMode}
             ditherPattern={ditherPattern}
+            pencilSize={pencilSize}
             onPixelChange={handlePixelChange}
             onColorPick={handleColorPick}
             onSelectionChange={setSelection}

@@ -21,6 +21,8 @@ export type BrushMode = "normal" | "rainbow" | "random" | "dither";
 
 export type DitherPattern = "bayer2x2" | "bayer4x4" | "bayer8x8";
 
+export type PencilSize = 1 | 2 | 3 | 4 | 5;
+
 export type BlendMode =
   | "normal"
   | "multiply"

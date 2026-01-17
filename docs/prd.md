@@ -15,9 +15,7 @@
 
 ## 2. Product Requirements Document (PRD)
 
-### 2.1 Goals\n- Provide an intuitive pixel-by-pixel drawing experience optimized for smartphone screens (320px-480px)
-- Enable one-handed operation for core drawing functions
-- Deliver responsive performance for customizable canvas sizes on mobile devices
+### 2.1 Goals\n- Provide an intuitive pixel-by-pixel drawing experience optimized for smartphone screens (320px-480px)\n- Enable one-handed operation for core drawing functions\n- Deliver responsive performance for customizable canvas sizes on mobile devices
 - Support essential drawing tools with thumb-friendly controls
 - Implement simplified layer system (maximum 5 layers) for mobile memory constraints
 - Provide streamlined color palette with quick-access swatches
@@ -26,13 +24,11 @@
 - Ensure all UI elements are accessible within thumb reach zones
 - Minimize drawer height to maximize canvas visibility
 - Support portrait orientation as primary mode
-- Allow users to move selected pixels or drawn elements
-- Optimize pixel resolution to ensure professional-quality output
+- Allow users to move selected pixels or drawn elements\n- Optimize pixel resolution to ensure professional-quality output
 - Provide intuitive zoom controls with dropdown options
 - Create an engaging welcoming front page with animations
-- Allow users to select canvas size before starting
-
-### 2.2 Non-Goals
+- Allow users to select canvas size before starting\n- Offer multiple pencil brush sizes (2px, 3px, 4px, 5px) with visual indicators
+\n### 2.2 Non-Goals
 - Desktop optimization (mobile-first approach)
 - Landscape mode as primary orientation
 - Complex multi-layer compositions (>5 layers)
@@ -48,18 +44,16 @@
 
 **Persona 1: Mobile Commuter Artist**
 - Age: 25, creates pixel art during subway rides
-- Device: iPhone 13 (390×844px)\n- Needs: One-handed operation, quick tool access, simple interface, high-quality exports with transparent backgrounds
+- Device: iPhone 13 (390×844px)\n- Needs: One-handed operation, quick tool access, simple interface, high-quality exports with transparent backgrounds, variable brush sizes for different detail levels
 - Pain points: Limited screen space, need to hold phone with one hand, low-resolution outputs
-
-**Persona 2: Mobile Game Developer**
+\n**Persona 2: Mobile Game Developer**
 - Age: 30, sketches game sprites during breaks
 - Device: Samsung Galaxy S21 (360×800px)
-- Needs: Fast sprite creation, easy export, basic editing tools, professional-quality assets with transparent backgrounds
-- Pain points: Complex UIs difficult to use on small screens, insufficient image resolution
-
+- Needs: Fast sprite creation, easy export, basic editing tools, professional-quality assets with transparent backgrounds, larger brush sizes for quick fills
+- Pain points: Complex UIs difficult to use on small screens, insufficient image resolution\n
 **Persona 3: Mobile Hobbyist**
 - Age: 22, creates icons while waiting\n- Device: iPhone SE (375×667px)
-- Needs: Immediate access, no learning curve, shareable high-quality results with custom backgrounds
+- Needs: Immediate access, no learning curve, shareable high-quality results with custom backgrounds, flexible brush sizes for creative expression
 - Pain points: Wants quick creativity without setup friction, needs images suitable for social media
 
 ### 2.4 User Journeys
@@ -79,22 +73,25 @@
 2. Selects desired canvas size from selection screen
 3. Sees canvas optimized for portrait mode
 4. Taps pencil tool from bottom drawer
-5. Draws with thumb on lower canvas area
-6. Uses zoom button dropdown to adjust view (Zoom In/Zoom Out/Fit)
-7. Swipes up drawer to access color swatches
-8. Continues drawing with one hand\n9. Selects transparent background for export
-10. Taps Export button\n11. Receives high-resolution PNG (minimum 100KB) with transparent background
-12. Total time: 3-5 minutes
+5. Selects 3px brush size for medium detail work
+6. Draws with thumb on lower canvas area
+7. Uses zoom button dropdown to adjust view (Zoom In/Zoom Out/Fit)
+8. Swipes up drawer to access color swatches
+9. Continues drawing with one hand\n10. Selects transparent background for export
+11. Taps Export button\n12. Receives high-resolution PNG (minimum 100KB) with transparent background
+13. Total time: 3-5 minutes
 
 **Journey 3: Simple Sprite with Layers and Movement**
 1. User opens app on phone
 2. Selects canvas size from welcome screen
-3. Creates background layer\n4. Adds character layer\n5. Uses move tool to reposition drawn elements
-6. Adjusts zoom level via dropdown for detailed work
-7. Toggles layer visibility to check composition
-8. Adjusts layer opacity\n9. Chooses custom background color for export
-10. Exports final high-resolution sprite
-11. Total time: 10-15 minutes
+3. Creates background layer\n4. Adds character layer\n5. Uses 5px brush for quick base fills
+6. Switches to 2px brush for fine details
+7. Uses move tool to reposition drawn elements
+8. Adjusts zoom level via dropdown for detailed work
+9. Toggles layer visibility to check composition
+10. Adjusts layer opacity\n11. Chooses custom background color for export
+12. Exports final high-resolution sprite
+13. Total time: 10-15 minutes
 \n### 2.5 Functional Requirements
 
 #### Welcome Page
@@ -125,8 +122,12 @@
 - **FR-21**: Each logical pixel rendered at higher resolution (minimum 8×8 physical pixels per logical pixel) to ensure export quality
 
 #### Drawing Tools
-- **FR-22**: Pencil tool - primary drawing tool\n- **FR-23**: Eraser tool - remove pixels
-- **FR-24**: Fill tool - flood fill with contiguous mode only
+- **FR-22**: Pencil tool - primary drawing tool with multiple brush sizes\n- **FR-22a**: Pencil brush size options: 1px (default), 2px, 3px, 4px, 5px
+- **FR-22b**: Display mini icon indicators for each brush size showing visual representation of brush diameter
+- **FR-22c**: Brush size selector accessible via drawer interface with 56×56px buttons
+- **FR-22d**: Active brush size highlighted with visual indicator
+- **FR-22e**: Brush size icons show filled circles representing actual pixel coverage (1px = small dot, 5px = large circle)
+- **FR-23**: Eraser tool - remove pixels\n- **FR-24**: Fill tool - flood fill with contiguous mode only
 - **FR-25**: Eyedropper tool - long press gesture (800ms)\n- **FR-26**: Line tool - draw straight lines
 - **FR-27**: Move tool - select and move drawn pixels or elements
 - **FR-28**: Tool selection via bottom drawer with 56×56px buttons
@@ -141,12 +142,10 @@
 - **FR-36**: Create new layer button (56×56px)\n- **FR-37**: Delete layer with confirmation\n- **FR-38**: Layer visibility toggle
 - **FR-39**: Layer opacity slider (0-100%)
 - **FR-40**: Active layer indicator
-- **FR-41**: Layer thumbnails (40×40px)
-- **FR-42**: Simplified blend modes: Normal, Multiply, Overlay only
+- **FR-41**: Layer thumbnails (40×40px)\n- **FR-42**: Simplified blend modes: Normal, Multiply, Overlay only
 \n#### Streamlined Color System
 - **FR-43**: 8 quick-access color swatches (56×56px each)
-- **FR-44**: Current color indicator (56×56px)
-- **FR-45**: Basic color picker with hex input
+- **FR-44**: Current color indicator (56×56px)\n- **FR-45**: Basic color picker with hex input
 - **FR-46**: Recently used colors (4 slots)
 - **FR-47**: Transparency option\n\n#### Navigation\n- **FR-48**: Pan canvas - two-finger drag gesture
 - **FR-49**: Zoom - pinch gesture
@@ -160,8 +159,7 @@
 #### History\n- **FR-57**: Undo button (56×56px) - 10 steps maximum
 - **FR-58**: Redo button (56×56px) - 10 steps maximum
 - **FR-59**: Undo/redo via swipe gestures (optional)
-\n#### Export\n- **FR-60**: Export high-resolution PNG button (120×56px)
-- **FR-61**: Export resolution multiplier: minimum 8× physical pixels per logical pixel
+\n#### Export\n- **FR-60**: Export high-resolution PNG button (120×56px)\n- **FR-61**: Export resolution multiplier: minimum 8× physical pixels per logical pixel
 - **FR-62**: Ensure exported PNG file size meets minimum 100KB threshold
 - **FR-63**: Background color selector for export (transparent or custom color)
 - **FR-64**: Default export background: transparent\n- **FR-65**: Background color preview in export settings
@@ -190,30 +188,32 @@
 - **NFR-8**: Zoom dropdown menu opens within 100ms
 - **NFR-9**: Background color selection response within 50ms
 - **NFR-10**: Canvas size selection screen loads within 300ms
-
-#### Mobile Usability
-- **NFR-11**: All interactive elements minimum 56×56px
-- **NFR-12**: Thumb reach zone optimization for portrait mode
-- **NFR-13**: One-handed operation for core functions
-- **NFR-14**: Drawer height never exceeds 30vh
-- **NFR-15**: Canvas always visible when drawer is open
-- **NFR-16**: Welcome page animations smooth at 60fps
+- **NFR-11**: Brush size selection response within 50ms
+\n#### Mobile Usability
+- **NFR-12**: All interactive elements minimum 56×56px
+- **NFR-13**: Thumb reach zone optimization for portrait mode
+- **NFR-14**: One-handed operation for core functions
+- **NFR-15**: Drawer height never exceeds 30vh
+- **NFR-16**: Canvas always visible when drawer is open
+- **NFR-17**: Welcome page animations smooth at 60fps
+- **NFR-18**: Brush size icons clearly distinguishable at 56×56px button size
 \n#### Browser Support
-- **NFR-17**: iOS Safari 14+, Chrome Mobile 90+, Firefox Mobile 88+
-- **NFR-18**: Responsive design for 320px-480px width (portrait)
-- **NFR-19**: Touch event support required\n- **NFR-20**: CSS animation support required
+- **NFR-19**: iOS Safari 14+, Chrome Mobile 90+, Firefox Mobile 88+
+- **NFR-20**: Responsive design for 320px-480px width (portrait)
+- **NFR-21**: Touch event support required\n- **NFR-22**: CSS animation support required
 \n#### Accessibility
-- **NFR-21**: High contrast mode support
-- **NFR-22**: Screen reader compatibility
-- **NFR-23**: Minimum 4.5:1 color contrast for UI elements
-- **NFR-24**: Option to disable animations for accessibility
+- **NFR-23**: High contrast mode support
+- **NFR-24**: Screen reader compatibility
+- **NFR-25**: Minimum 4.5:1 color contrast for UI elements
+- **NFR-26**: Option to disable animations for accessibility
 \n#### Export Quality
-- **NFR-25**: Minimum export resolution: 8× physical pixels per logical pixel
-- **NFR-26**: Exported PNG file size minimum: 100KB
-- **NFR-27**: Support for lossless PNG compression
-- **NFR-28**: Support for transparent background export
-- **NFR-29**: Support for custom background color export
-\n### 2.7 Success Metrics
+- **NFR-27**: Minimum export resolution: 8× physical pixels per logical pixel
+- **NFR-28**: Exported PNG file size minimum: 100KB
+- **NFR-29**: Support for lossless PNG compression
+- **NFR-30**: Support for transparent background export
+- **NFR-31**: Support for custom background color export
+
+### 2.7 Success Metrics
 - **Engagement**: Average mobile session duration > 8 minutes
 - **Completion**: 70%+ of users export at least one image
 - **Performance**: 95th percentile touch latency < 30ms
@@ -222,10 +222,10 @@
 - **Layer Adoption**: 40%+ of users utilize multiple layers
 - **Move Tool Usage**: 30%+ of users utilize move tool for repositioning
 - **Zoom Control Usage**: 50%+ of users utilize zoom dropdown for view adjustment
-- **Export Quality**: 95%+ of exported images meet 100KB minimum file size
-- **Background Customization**: 40%+ of users customize export background color
+- **Export Quality**: 95%+ of exported images meet 100KB minimum file size\n- **Background Customization**: 40%+ of users customize export background color
 - **Welcome Page Engagement**: 80%+ of users watch full welcome animation
 - **Canvas Selection**: 90%+ of users successfully select canvas size on first attempt
+- **Brush Size Usage**: 50%+ of users utilize multiple brush sizes during creation
 \n---
 
 ## 3. MVP Definition
@@ -243,10 +243,12 @@
 
 **Core Drawing**:
 - User-selected canvas size with high-resolution rendering (8× physical pixels per logical pixel)
-- Pencil tool\n- Eraser tool
-- Fill tool (contiguous mode only)
+- Pencil tool with 5 brush sizes (1px, 2px, 3px, 4px, 5px)
+- Mini icon indicators for each brush size
+- Eraser tool\n- Fill tool (contiguous mode only)
 - Eyedropper tool (long press)
-- Line tool\n- Move tool (select and move pixels)
+- Line tool
+- Move tool (select and move pixels)
 \n**Simplified Layers**:
 - Maximum 5 layers\n- Create/delete layer\n- Layer visibility toggle
 - Layer opacity (0-100%)
@@ -274,14 +276,15 @@
 - Portrait-optimized layout
 - Floating action button for drawer toggle
 - Zoom button in first row of drawer
-\n### 3.2 MVP Excluded Features
+- Brush size selector with visual icons
+
+### 3.2 MVP Excluded Features
 
 - Marquee selection tool
 - Lasso selection tool
 - Hand/pan tool as separate tool (pan via two-finger drag)
 - Transformation tools (rotate, flip)\n- Advanced blend modes\n- Custom palette management
-- Dynamic brush modes
-- Dithering tools
+- Dynamic brush modes\n- Dithering tools
 - Navigation preview window
 - Landscape mode optimization
 - More than 5 layers
@@ -297,9 +300,11 @@
 - 40%+ of users customize export background color
 - 80%+ of users engage with welcome page animation
 - 90%+ of users successfully select canvas size without confusion
+- 50%+ of users experiment with multiple brush sizes
 
 ---
-\n## 4. Technical Architecture
+
+## 4. Technical Architecture
 
 ### 4.1 Frontend Stack
 - **Framework**: React 18+
@@ -319,6 +324,7 @@
 - **Export State**: Resolution multiplier configuration (minimum 8×) and background color settings
 - **Welcome State**: Animation progress and skip status
 - **Canvas Selection State**: Selected size and validation status
+- **Brush State**: Current brush size and size selector visibility
 
 ### 4.3 Data Models
 \n```typescript
@@ -326,7 +332,8 @@ type Color = string; // hex format
 type Pixel = Color;\ntype CanvasGrid = Pixel[][];
 type Tool = 'pencil' | 'eraser' | 'fill' | 'eyedropper' | 'line' | 'move';
 type BlendMode = 'normal' | 'multiply' | 'overlay';
-type ZoomLevel = 1 | 2 | 4; // 100%, 200%, 400%\n\ninterface Layer {
+type ZoomLevel = 1 | 2 | 4; // 100%, 200%, 400%\ntype BrushSize = 1 | 2 | 3 | 4 | 5; // pixel diameter
+\ninterface Layer {
   id: string;\n  name: string;
   canvas: CanvasGrid;
   visible: boolean;
@@ -340,15 +347,19 @@ interface ZoomControl {
   level: ZoomLevel;
   dropdownOpen: boolean;
 }
+\ninterface BrushControl {
+  size: BrushSize;
+  selectorOpen: boolean;
+}
 \ninterface ExportConfig {
   resolutionMultiplier: number; // minimum 8\n  targetFileSize: number; // minimum 100KB
   backgroundColor: Color | 'transparent'; // transparent or custom color
 }\n\ninterface WelcomeState {
   animationComplete: boolean;
   skipped: boolean;
-}
-\ninterface CanvasSizeSelection {
-  width: number;\n  height: number;
+}\n\ninterface CanvasSizeSelection {
+  width: number;
+  height: number;
   preset: '16x16' | '32x32' | '64x64' | '128x128' | 'custom';
   isValid: boolean;
 }\n\ninterface AppState {
@@ -363,6 +374,7 @@ interface ZoomControl {
   canvasSize: {width: number, height: number};
   drawerOpen: boolean;
   zoom: ZoomControl;
+  brush: BrushControl;
   selection: Selection;
   exportConfig: ExportConfig;
 }\n```
@@ -375,11 +387,17 @@ interface ZoomControl {
 - **Rendering**: Each logical pixel rendered as 8×8 physical pixel block minimum
 - **Export**: Full physical resolution exported to ensure 100KB+ file size
 
+**Brush Size Implementation**:
+- 1px brush: Draws single logical pixel (8×8 physical pixels)
+- 2px brush: Draws 2×2 logical pixel area (16×16 physical pixels)\n- 3px brush: Draws 3×3 logical pixel area (24×24 physical pixels)
+- 4px brush: Draws 4×4 logical pixel area (32×32 physical pixels)
+- 5px brush: Draws 5×5 logical pixel area (40×40 physical pixels)
+
 **Implementation**:
 - Use off-screen canvas at physical resolution
-- Scale down for display canvas
-- Export from high-resolution backing store
+- Scale down for display canvas\n- Export from high-resolution backing store
 - Apply background color or transparency during export
+- Render brush preview at appropriate scale
 
 ---
 
@@ -435,27 +453,34 @@ interface ZoomControl {
 2. **Drawer Toggle FAB** (bottom-right, 56×56px)
    - Always visible\n   - Opens/closes drawer\n\n3. **Bottom Drawer** (slides up, max 30vh)
    - Tool buttons (56×56px each)
+   - Brush size selector with mini icons
    - Color swatches (56×56px each)
    - Layer controls\n   - Action buttons
    - Canvas size selector
    - Export resolution indicator
    - Zoom button with dropdown
    - Background color selector
-
-### 5.4 Drawer Layout\n
+\n### 5.4 Drawer Layout\n
 **Section 1: First Row** (horizontal layout)
 - Zoom button with dropdown (56×56px)
-- Undo (56×56px)\n- Redo (56×56px)
+- Undo (56×56px)
+- Redo (56×56px)
 - Export (120×56px) with resolution indicator
-- Clear (56×56px)\n\n**Section 2: Tools** (horizontal scroll)
+- Clear (56×56px)
+\n**Section 2: Tools** (horizontal scroll)
 - Pencil, Eraser, Fill, Line, Eyedropper, Move
 - Each 56×56px\n- Active tool highlighted
-\n**Section 3: Colors** (2 rows)
+\n**Section 2a: Brush Size Selector** (appears when pencil tool active)
+- 5 brush size buttons (56×56px each)
+- Mini icons showing filled circles: 1px (small dot), 2px (medium dot), 3px (larger circle), 4px (large circle), 5px (largest circle)
+- Active brush size highlighted
+- Horizontal layout below tool row
+
+**Section 3: Colors** (2 rows)
 - Row 1: 8 quick swatches (56×56px)
 - Row 2: Current color + 4 recent colors\n\n**Section 4: Canvas Settings** (collapsible)
 - Canvas size display and change option
-- Grid toggle
-- Resolution multiplier display (8× minimum)
+- Grid toggle\n- Resolution multiplier display (8× minimum)
 \n**Section 5: Export Settings** (collapsible)
 - Background color selector
 - Transparent background option (default)
@@ -476,9 +501,23 @@ interface ZoomControl {
 - Tap option to execute zoom action
 - Menu closes automatically after selection
 
-### 5.6 Thumb Reach Zones
+### 5.6 Brush Size Icons
 
-- **Primary Zone** (bottom 30%): Most-used tools and zoom controls
+**Visual Design**:
+- 1px: Small filled circle (8px diameter at 56×56px button)
+- 2px: Medium filled circle (16px diameter at 56×56px button)
+- 3px: Larger filled circle (24px diameter at 56×56px button)
+- 4px: Large filled circle (32px diameter at 56×56px button)
+- 5px: Largest filled circle (40px diameter at 56×56px button)
+
+**Interaction**:
+- Tap brush size icon to select
+- Active size highlighted with border or background color
+- Icons centered within 56×56px buttons
+
+### 5.7 Thumb Reach Zones
+
+- **Primary Zone** (bottom 30%): Most-used tools, brush sizes, and zoom controls
 - **Secondary Zone** (middle 40%): Canvas\n- **Tertiary Zone** (top 30%): Less frequent actions
 
 ---
@@ -494,7 +533,9 @@ interface ZoomControl {
 - **Tap Zoom Button**: Open/close zoom dropdown
 - **Tap Background Color**: Open background color selector
 - **Tap Anywhere (Welcome Page)**: Skip animation
-\n### 6.2 Viewport Configuration
+- **Tap Brush Size Icon**: Select brush size
+
+### 6.2 Viewport Configuration
 \n```html
 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\" />
 <meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />
@@ -513,6 +554,7 @@ interface ZoomControl {
 - Optimized background color application during export
 - Preload welcome page animations
 - GPU-accelerated CSS animations
+- Efficient brush size rendering with cached icons
 
 ---
 
@@ -534,8 +576,7 @@ interface ZoomControl {
 
 **Feature Highlights Animation**:
 - Duration: 400ms per item
-- Effect: Fade-in + slide up 15px
-- Easing: ease-out
+- Effect: Fade-in + slide up 15px\n- Easing: ease-out
 - Delay: Sequential (600ms, 800ms, 1000ms)\n
 **Start Button Animation**:
 - Duration: 500ms
@@ -564,6 +605,11 @@ interface ZoomControl {
 - Effect: Scale 0.95 on tap
 - Easing: ease-in-out
 
+**Brush Size Selector**:
+- Duration: 200ms
+- Effect: Fade-in + slide up
+- Easing: ease-out
+
 ---
 
 ## 8. Implementation Roadmap
@@ -584,59 +630,67 @@ interface ZoomControl {
 - Mobile-optimized canvas rendering with user-selected size
 - High-resolution backing store implementation (8× multiplier)
 - Bottom drawer interface
-- Pencil and eraser tools
-- Touch interaction handling
+- Pencil tool with default 1px brush
+- Eraser tool\n- Touch interaction handling
 
-### Phase 4: Essential Tools (Week 3-4)
+### Phase 4: Brush Size System (Week 3)\n- Implement 5 brush sizes (1px, 2px, 3px, 4px, 5px)\n- Design and implement mini icon indicators
+- Brush size selector UI in drawer
+- Brush size state management
+- Visual feedback for active brush size
+
+### Phase 5: Essential Tools (Week 3-4)
 - Fill tool\n- Line tool
 - Eyedropper (long press)
 - Move tool (select and move pixels)
 - Tool selection UI
-\n### Phase 5: Simplified Layers (Week 4-5)
-- Layer creation/deletion (max 5)
-- Layer visibility\n- Layer opacity
+\n### Phase 6: Simplified Layers (Week 4-5)
+- Layer creation/deletion (max 5)\n- Layer visibility\n- Layer opacity
 - Basic blend modes
 - High-resolution layer compositing
 
-### Phase 6: Color System (Week 5)\n- 8 quick swatches
-- Color picker
-- Recent colors
-- Current color indicator\n\n### Phase 7: Navigation & History (Week 6)
+### Phase 7: Color System (Week 5)
+- 8 quick swatches
+- Color picker\n- Recent colors
+- Current color indicator
+\n### Phase 8: Navigation & History (Week 6)
 - Pan and zoom gestures
 - Zoom button with dropdown (Zoom In, Zoom Out, Fit)
 - Undo/redo (10 steps)
-- Auto-save\n
-### Phase 8: Export & Polish (Week 7)
+- Auto-save\n\n### Phase 9: Export & Polish (Week 7)
 - High-resolution PNG export (minimum 100KB)
 - Background color selector (transparent or custom color)
 - Export resolution optimization
 - Clear canvas\n- UI refinements
 - Performance optimization
 - Animation polish
+- Brush size icon polish
 
-### Phase 9: Testing & Launch (Week 8)
+### Phase 10: Testing & Launch (Week 8)
 - Mobile device testing
 - Export quality validation
 - Background color functionality testing
 - Zoom control usability testing
 - Welcome page animation testing
 - Canvas selection flow testing
+- Brush size selector usability testing
 - User testing (15+ participants)
 - Bug fixes\n- Launch\n
 ---
 
 ## 9. Next Steps
 
-1. **Design Welcome Page Mockups**: Create animated mockups for welcome page with logo, features, and button
-2. **Design Canvas Selection Screen**: Create UI mockups for preset and custom size selection
-3. **Validate Animation Scope**: Confirm animation requirements and performance targets with stakeholders
-4. **Create Mobile Mockups**: Design portrait-optimized UI wireframes with zoom dropdown, background color selector, and resolution indicators
-5. **Set Up Development Environment**: Initialize React + TypeScript project with high-resolution canvas support and animation libraries
-6. **Begin Phase 1**: Start with welcome page and animation implementation
-7. **Establish Testing Strategy**: Define mobile device test matrix, export quality benchmarks, and animation performance metrics
-8. **Plan User Testing**: Recruit 15-20 mobile beta testers\n\n---
+1. **Design Brush Size Icons**: Create visual mockups for 5 brush size mini icons showing clear size differentiation
+2. **Update Drawer Layout**: Integrate brush size selector into drawer design with proper spacing and visual hierarchy
+3. **Validate Brush Size UX**: Confirm brush size selector placement and interaction flow with stakeholders
+4. **Design Welcome Page Mockups**: Create animated mockups for welcome page with logo, features, and button
+5. **Design Canvas Selection Screen**: Create UI mockups for preset and custom size selection\n6. **Validate Animation Scope**: Confirm animation requirements and performance targets with stakeholders
+7. **Create Mobile Mockups**: Design portrait-optimized UI wireframes with zoom dropdown, background color selector, brush size selector, and resolution indicators
+8. **Set Up Development Environment**: Initialize React + TypeScript project with high-resolution canvas support and animation libraries
+9. **Begin Phase 1**: Start with welcome page and animation implementation
+10. **Establish Testing Strategy**: Define mobile device test matrix, export quality benchmarks, animation performance metrics, and brush size usability tests
+11. **Plan User Testing**: Recruit 15-20 mobile beta testers\n\n---
 
-**Document Version**: 11.0  
-**Last Updated**: 2026-01-16  
-**Status**: Welcome Experience + Canvas Selection MVP Ready for Development  
-**Key Changes**: Added welcoming front page with animated pixel art logo, feature highlights, and Start Creating button; implemented canvas size selection screen with preset options (16×16, 32×32, 64×64, 128×128) and custom size input; added animation specifications for welcome page elements including logo, title, features, and button with defined durations, effects, and easing; updated functional requirements (FR-1 to FR-15) to include welcome page and canvas selection functionality; modified user journeys to include first-time user experience with welcome page and canvas selection; enhanced data models to include WelcomeState and CanvasSizeSelection interfaces; updated non-functional requirements to include animation performance metrics; adjusted success metrics to track welcome page engagement and canvas selection success rate; updated implementation roadmap to include Phase 1 (Welcome Experience) and Phase 2 (Canvas Size Selection) as initial development phases
+**Document Version**: 12.0  
+**Last Updated**: 2026-01-17  
+**Status**: Brush Size Feature Added - MVP Ready for Development  
+**Key Changes**: Added multiple pencil brush sizes (1px, 2px, 3px, 4px, 5px) with mini icon indicators; updated functional requirements (FR-22a to FR-22e) to include brush size options and visual representation; enhanced data models to include BrushControl interface and BrushSize type; updated drawer layout specification to include brush size selector section with icon design details; added brush size icons visual design specification showing filled circles of varying diameters; updated success metrics to track brush size usage (50%+ target); added NFR-11 for brush size selection performance; updated user journeys to demonstrate brush size switching during creation workflow; added Phase 4 to implementation roadmap for brush size system development; included brush size selector in MVP included features; updated technical architecture to include brush state management; added brush size implementation details to high-resolution rendering strategy; updated next steps to include brush size icon design and UX validation tasks
