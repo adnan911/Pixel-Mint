@@ -45,8 +45,16 @@ import type {
   DitherPattern,
   PencilSize,
 } from "@/types/pixel-art";
-import { Palette, Settings, Undo2, Redo2, Layers, Download, Maximize2, FlipHorizontal2, RotateCw, FlipVertical2, Grid3x3, Trash2, ZoomIn, ZoomOut, Maximize } from "lucide-react";
+import { Palette, Settings, Undo2, Redo2, Layers, Download, Maximize2, FlipHorizontal2, RotateCw, FlipVertical2, Grid3x3, Trash2, ZoomIn, ZoomOut, Maximize, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import {
   Sheet,
   SheetContent,
@@ -98,6 +106,8 @@ export default function PixelArtEditor() {
   const [layersOpen, setLayersOpen] = useState(false);
   const [palettesOpen, setPalettesOpen] = useState(false);
   const [canvasSizeOpen, setCanvasSizeOpen] = useState(false);
+  const [exportPreviewOpen, setExportPreviewOpen] = useState(false);
+  const [exportPreviewUrl, setExportPreviewUrl] = useState<string | null>(null);
   const [quickColors, setQuickColors] = useState<Color[]>([
     "#FF0000", // Red
     "#00FF00", // Green
@@ -444,7 +454,7 @@ export default function PixelArtEditor() {
     setZoom(1); // Reset to 1x (fit to screen)
   };
 
-  // Export canvas as PNG with high quality and optimized file size
+  // Export canvas as PNG with preview dialog
   const handleExport = () => {
     // Merge all visible layers
     const mergedCanvas = mergeLayers(layers, Math.max(canvasWidth, canvasHeight));
@@ -487,17 +497,31 @@ export default function PixelArtEditor() {
       }
     }
     
-    // Download with high quality (1.0 = maximum quality)
-    exportCanvas.toBlob((blob) => {
-      if (!blob) return;
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, -5);
-      link.download = `pixelart_${timestamp}.png`;
-      link.href = url;
-      link.click();
-      URL.revokeObjectURL(url);
-    }, "image/png", 1.0);
+    // Generate preview URL and show dialog
+    const dataUrl = exportCanvas.toDataURL("image/png", 1.0);
+    setExportPreviewUrl(dataUrl);
+    setExportPreviewOpen(true);
+  };
+
+  // Confirm and download the export
+  const handleConfirmExport = () => {
+    if (!exportPreviewUrl) return;
+
+    const link = document.createElement("a");
+    const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, -5);
+    link.download = `pixelart_${timestamp}.png`;
+    link.href = exportPreviewUrl;
+    link.click();
+
+    // Close dialog and cleanup
+    setExportPreviewOpen(false);
+    setTimeout(() => setExportPreviewUrl(null), 300); // Delay cleanup for smooth animation
+  };
+
+  // Cancel export
+  const handleCancelExport = () => {
+    setExportPreviewOpen(false);
+    setTimeout(() => setExportPreviewUrl(null), 300); // Delay cleanup for smooth animation
   };
 
   return (
@@ -809,6 +833,54 @@ export default function PixelArtEditor() {
         open={canvasSizeOpen}
         onOpenChange={setCanvasSizeOpen}
       />
+
+      {/* Export Preview Dialog */}
+      <Dialog open={exportPreviewOpen} onOpenChange={setExportPreviewOpen}>
+        <DialogContent className="max-w-3xl pixel-card border-4 border-border">
+          <DialogHeader>
+            <DialogTitle className="font-pixel text-primary text-xl">
+              Export Preview
+            </DialogTitle>
+            <DialogDescription className="font-retro text-muted-foreground">
+              Preview your pixel art before downloading
+            </DialogDescription>
+          </DialogHeader>
+          
+          {/* Preview Image */}
+          <div className="flex items-center justify-center p-4 bg-muted/20 border-2 border-border rounded-md min-h-[300px] max-h-[500px] overflow-auto">
+            {exportPreviewUrl && (
+              <img
+                src={exportPreviewUrl}
+                alt="Export Preview"
+                className="max-w-full max-h-full object-contain"
+                style={{
+                  imageRendering: "pixelated",
+                }}
+              />
+            )}
+          </div>
+
+          {/* Footer with Download and Cancel buttons */}
+          <DialogFooter className="flex flex-row gap-2 sm:gap-3">
+            <Button
+              variant="outline"
+              onClick={handleCancelExport}
+              className="flex-1 sm:flex-none pixel-button font-retro"
+            >
+              <X className="mr-2 h-4 w-4" />
+              Cancel
+            </Button>
+            <Button
+              variant="default"
+              onClick={handleConfirmExport}
+              className="flex-1 sm:flex-none pixel-button font-retro"
+            >
+              <Download className="mr-2 h-4 w-4" />
+              Download PNG
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
