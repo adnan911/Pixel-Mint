@@ -705,26 +705,7 @@ export default function PixelArtEditor() {
           />
         </div>
         
-        {/* Floating Color Selector - Bottom Right */}
-        <div className="absolute bottom-4 right-4 z-10">
-          <div
-            className="w-11 h-11 sm:w-12 sm:h-12 border-4 border-border flex-shrink-0 shadow-pixel cursor-pointer active:scale-95 sm:hover:scale-105 transition-transform pixel-button pixel-crisp mt-[0px]"
-            onClick={() => setColorsOpen(true)}
-            style={{
-              backgroundColor:
-                currentColor === "transparent" ? "#fff" : currentColor,
-              backgroundImage:
-                currentColor === "transparent"
-                  ? "linear-gradient(45deg, hsl(var(--muted)) 25%, transparent 25%, transparent 75%, hsl(var(--muted)) 75%, hsl(var(--muted))), linear-gradient(45deg, hsl(var(--muted)) 25%, transparent 25%, transparent 75%, hsl(var(--muted)) 75%, hsl(var(--muted)))"
-                  : "none",
-              backgroundSize: "8px 8px",
-              backgroundPosition: "0 0, 4px 4px",
-            }}
-            title="Click to change color"
-          />
-        </div>
-        
-        {/* Color & Brush Settings Sheet - Opens from Bottom Right */}
+        {/* Color & Brush Settings Sheet - Opens from Bottom */}
         <Sheet open={colorsOpen} onOpenChange={setColorsOpen}>
           <SheetContent side="bottom" className="h-[85vh] overflow-y-auto">
             <SheetHeader>
@@ -793,6 +774,25 @@ export default function PixelArtEditor() {
               {activeLayer?.alphaLock && " (Alpha Lock)"}
               {selection.active && " | Selection"}
             </span>
+          </div>
+          
+          {/* Color Preview Box on Right */}
+          <div className="flex-shrink-0">
+            <div
+              className="w-11 h-11 sm:w-12 sm:h-12 border-4 border-border flex-shrink-0 shadow-pixel cursor-pointer active:scale-95 sm:hover:scale-105 transition-transform pixel-button pixel-crisp"
+              onClick={() => setColorsOpen(true)}
+              style={{
+                backgroundColor:
+                  currentColor === "transparent" ? "#fff" : currentColor,
+                backgroundImage:
+                  currentColor === "transparent"
+                    ? "linear-gradient(45deg, hsl(var(--muted)) 25%, transparent 25%, transparent 75%, hsl(var(--muted)) 75%, hsl(var(--muted))), linear-gradient(45deg, hsl(var(--muted)) 25%, transparent 25%, transparent 75%, hsl(var(--muted)) 75%, hsl(var(--muted)))"
+                    : "none",
+                backgroundSize: "8px 8px",
+                backgroundPosition: "0 0, 4px 4px",
+              }}
+              title="Click to change color"
+            />
           </div>
         </div>
       </div>

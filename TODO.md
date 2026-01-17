@@ -598,6 +598,19 @@
   - [x] Sheet now opens from floating color box click in bottom right corner
   - [x] Cleaned up toolbar: removed empty space where Sheet was located
   - [x] All 97 files passed lint checks
+- [x] Step 48: Move color preview box to footer status bar (Completed)
+  - [x] Removed floating color selector from canvas bottom right (lines 708-725)
+  - [x] Removed absolute positioning and z-10 from canvas area
+  - [x] Added color preview box to footer status bar on the right side
+  - [x] Updated footer layout: ColorSelector (left) | Status Info (center) | Color Preview Box (right)
+  - [x] Maintained all color box styling: w-11 h-11 sm:w-12 sm:h-12, border-4, shadow-pixel
+  - [x] Preserved hover and active effects: hover:scale-105, active:scale-95
+  - [x] Kept onClick handler to open color settings sheet
+  - [x] Maintained transparent color checkerboard pattern display
+  - [x] Restored status info display in center with text-right alignment
+  - [x] Added flex-1 to status info for proper spacing between elements
+  - [x] Updated Sheet comment to "Opens from Bottom" (no longer bottom right specific)
+  - [x] All 97 files passed lint checks
 
 ## Features Implemented
 
