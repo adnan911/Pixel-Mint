@@ -771,25 +771,7 @@ export default function PixelArtEditor() {
       {/* Bottom Status Bar with Color Selector */}
       <div className="flex-shrink-0 border-t border-border bg-card px-2 sm:px-4 py-2">
         <div className="flex items-center justify-between gap-4">
-          {/* Status Info */}
-          <div className="flex-1 flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-            {/* Main Color Button */}
-            <button
-              className="h-8 w-8 rounded border-2 border-border hover:border-primary transition-colors flex-shrink-0"
-              style={{ backgroundColor: currentColor }}
-              aria-label="Current Color"
-              title={`Current Color: ${currentColor}`}
-            />
-            <span className="hidden sm:inline">
-              {brushMode !== "normal" && `${brushMode.charAt(0).toUpperCase() + brushMode.slice(1)}`}
-              {activeLayer && ` | ${activeLayer.name}`}
-              {activeLayer?.locked && " (Locked)"}
-              {activeLayer?.alphaLock && " (Alpha Lock)"}
-              {selection.active && " | Selection"}
-            </span>
-          </div>
-          
-          {/* Color Selector */}
+          {/* Color Selector on Left */}
           <div className="flex-shrink-0">
             <ColorSelector
               currentColor={currentColor}
@@ -797,6 +779,17 @@ export default function PixelArtEditor() {
               quickColors={quickColors}
               onQuickColorChange={handleQuickColorChange}
             />
+          </div>
+          
+          {/* Status Info on Right */}
+          <div className="flex-1 text-right text-xs sm:text-sm text-muted-foreground">
+            <span className="hidden sm:inline">
+              {brushMode !== "normal" && `${brushMode.charAt(0).toUpperCase() + brushMode.slice(1)}`}
+              {activeLayer && ` | ${activeLayer.name}`}
+              {activeLayer?.locked && " (Locked)"}
+              {activeLayer?.alphaLock && " (Alpha Lock)"}
+              {selection.active && " | Selection"}
+            </span>
           </div>
         </div>
       </div>
