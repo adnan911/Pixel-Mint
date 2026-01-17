@@ -52,7 +52,7 @@ export default function WelcomePage() {
                 <div className="absolute inset-0 bg-primary/20 blur-xl animate-pulse" />
                 <div className="relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 xl:w-24 xl:h-24 animate-bounce-slow">
                   <img 
-                    src="https://miaoda-edit-image.s3cdn.medo.dev/8ydy3wce8yrl/IMG-8zqfbxpjfzs8.png" 
+                    src="/images/logo/logo-icon.svg" 
                     alt="Pixel Mint Logo" 
                     className="w-full h-full object-contain"
                   />
