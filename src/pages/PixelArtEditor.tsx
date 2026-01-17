@@ -772,13 +772,21 @@ export default function PixelArtEditor() {
       <div className="flex-shrink-0 border-t border-border bg-card px-2 sm:px-4 py-2">
         <div className="flex items-center justify-between gap-4">
           {/* Status Info */}
-          <div className="flex-1 text-xs sm:text-sm text-muted-foreground">
-            <span className="font-medium text-foreground capitalize">{currentTool}</span>
-            {brushMode !== "normal" && ` | ${brushMode.charAt(0).toUpperCase() + brushMode.slice(1)}`}
-            {activeLayer && <span className="hidden sm:inline"> | {activeLayer.name}</span>}
-            {activeLayer?.locked && <span className="hidden sm:inline"> (Locked)</span>}
-            {activeLayer?.alphaLock && <span className="hidden sm:inline"> (Alpha Lock)</span>}
-            {selection.active && " | Selection"}
+          <div className="flex-1 flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+            {/* Main Color Button */}
+            <button
+              className="h-8 w-8 rounded border-2 border-border hover:border-primary transition-colors flex-shrink-0"
+              style={{ backgroundColor: currentColor }}
+              aria-label="Current Color"
+              title={`Current Color: ${currentColor}`}
+            />
+            <span className="hidden sm:inline">
+              {brushMode !== "normal" && `${brushMode.charAt(0).toUpperCase() + brushMode.slice(1)}`}
+              {activeLayer && ` | ${activeLayer.name}`}
+              {activeLayer?.locked && " (Locked)"}
+              {activeLayer?.alphaLock && " (Alpha Lock)"}
+              {selection.active && " | Selection"}
+            </span>
           </div>
           
           {/* Color Selector */}

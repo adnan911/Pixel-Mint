@@ -108,7 +108,7 @@ export default function WelcomePage() {
       </div>
       {/* Canvas Size Selection Dialog */}
       <Dialog open={showSizeDialog} onOpenChange={setShowSizeDialog}>
-        <DialogContent className="pixel-card border-border shadow-pixel max-w-sm mx-5 border-[5px] border-solid border-[rgb(20,20,82)]">
+        <DialogContent className="pixel-card shadow-pixel max-w-sm mx-5 border-[5px] border-solid border-[rgb(20,20,82)] ml-[0px] mr-[0px]">
           <DialogHeader>
             <DialogTitle className="font-pixel text-base sm:text-lg text-primary text-center leading-tight">
               CHOOSE CANVAS SIZE

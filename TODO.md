@@ -552,6 +552,18 @@
   - [x] Maintained mx-5 class for consistent 20px margins on left and right sides
   - [x] Kept DialogDescription removed by user
   - [x] All 97 files passed lint checks
+- [x] Step 44: Replace tool text with main color button in status bar (Completed)
+  - [x] Removed "pencil" text from status bar left side
+  - [x] Added main color button (32px) in status bar left side showing current color
+  - [x] Styled color button with h-8 w-8 rounded border-2 border-border
+  - [x] Added hover:border-primary transition for visual feedback
+  - [x] Added aria-label and title attributes for accessibility
+  - [x] Set backgroundColor style to currentColor for live color display
+  - [x] Changed status info container to flex layout with items-center gap-2
+  - [x] Wrapped status text in span with hidden sm:inline for responsive display
+  - [x] Maintained all status info: brush mode, layer name, locked state, alpha lock, selection
+  - [x] Added flex-shrink-0 to color button to prevent compression
+  - [x] All 97 files passed lint checks
 
 ## Features Implemented
 
