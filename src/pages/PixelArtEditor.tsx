@@ -516,24 +516,8 @@ export default function PixelArtEditor() {
         <div className="px-2 sm:px-4 py-2 sm:py-3 ml-[5px] mr-[10px] mt-[0px]">
           {/* Mobile: Stacked Layout, Desktop: Single Row */}
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
-            {/* Row 1 (Mobile) / Left (Desktop): Color + Drawing Tools */}
+            {/* Row 1 (Mobile) / Left (Desktop): Drawing Tools */}
             <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-3">
-              {/* Color Selector */}
-              <div
-                className="w-11 h-11 sm:w-12 sm:h-12 border-4 border-border flex-shrink-0 shadow-pixel cursor-pointer active:scale-95 sm:hover:scale-105 transition-transform pixel-button pixel-crisp"
-                onClick={() => setColorsOpen(true)}
-                style={{
-                  backgroundColor:
-                    currentColor === "transparent" ? "#fff" : currentColor,
-                  backgroundImage:
-                    currentColor === "transparent"
-                      ? "linear-gradient(45deg, hsl(var(--muted)) 25%, transparent 25%, transparent 75%, hsl(var(--muted)) 75%, hsl(var(--muted))), linear-gradient(45deg, hsl(var(--muted)) 25%, transparent 25%, transparent 75%, hsl(var(--muted)) 75%, hsl(var(--muted)))"
-                      : "none",
-                  backgroundSize: "8px 8px",
-                  backgroundPosition: "0 0, 4px 4px",
-                }}
-                title="Click to change color"
-              />
               
               <Sheet open={colorsOpen} onOpenChange={setColorsOpen}>
                 <SheetContent side="bottom" className="h-[85vh] overflow-y-auto">
@@ -749,8 +733,8 @@ export default function PixelArtEditor() {
           </div>
         </div>
       </div>
-      {/* Canvas Area */}
-      <div className="flex-1 flex items-center justify-center overflow-hidden p-2 sm:p-4 @container border-4 border-border">
+      {/* Canvas Area with Floating Color Selector */}
+      <div className="flex-1 flex items-center justify-center overflow-hidden p-2 sm:p-4 @container border-4 border-border relative">
         <div className="w-full h-full flex items-center justify-center">
           <EnhancedPixelCanvas
             canvasGrid={canvasGrid}
@@ -765,6 +749,25 @@ export default function PixelArtEditor() {
             onColorPick={handleColorPick}
             onSelectionChange={setSelection}
             onPanChange={setPan}
+          />
+        </div>
+        
+        {/* Floating Color Selector - Bottom Right */}
+        <div className="absolute bottom-4 right-4 z-10">
+          <div
+            className="w-11 h-11 sm:w-12 sm:h-12 border-4 border-border flex-shrink-0 shadow-pixel cursor-pointer active:scale-95 sm:hover:scale-105 transition-transform pixel-button pixel-crisp"
+            onClick={() => setColorsOpen(true)}
+            style={{
+              backgroundColor:
+                currentColor === "transparent" ? "#fff" : currentColor,
+              backgroundImage:
+                currentColor === "transparent"
+                  ? "linear-gradient(45deg, hsl(var(--muted)) 25%, transparent 25%, transparent 75%, hsl(var(--muted)) 75%, hsl(var(--muted))), linear-gradient(45deg, hsl(var(--muted)) 25%, transparent 25%, transparent 75%, hsl(var(--muted)) 75%, hsl(var(--muted)))"
+                  : "none",
+              backgroundSize: "8px 8px",
+              backgroundPosition: "0 0, 4px 4px",
+            }}
+            title="Click to change color"
           />
         </div>
       </div>
