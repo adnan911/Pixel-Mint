@@ -631,6 +631,24 @@
   - [x] Updated Sheet comment to "Color & Palette Settings Sheet"
   - [x] Brush mode now accessible directly from toolbar near pencil/shapes icons
   - [x] All 97 files passed lint checks
+- [x] Step 50: Fix brush mode functionality and reduce dropdown spacing (Completed)
+  - [x] Added BrushMode and DitherPattern type imports to PixelCanvas component
+  - [x] Added brushMode and ditherPattern optional props to EnhancedPixelCanvasProps interface
+  - [x] Imported shiftHue and getRandomColor utility functions from color-utils
+  - [x] Added Bayer dither matrices: BAYER_2X2, BAYER_4X4, BAYER_8X8 for dither mode
+  - [x] Added rainbowHueShift state to track hue rotation for rainbow mode
+  - [x] Created getBrushColor helper function to apply brush mode effects
+  - [x] Implemented rainbow mode: shifts hue by 10 degrees per pixel using shiftHue
+  - [x] Implemented random mode: selects random color from 8-color palette
+  - [x] Implemented dither mode: uses Bayer matrix threshold to create dithering pattern
+  - [x] Updated handleDraw function to use getBrushColor for pencil tool
+  - [x] Added rainbow hue shift increment on each pixel draw
+  - [x] Passed brushMode and ditherPattern props from PixelArtEditor to EnhancedPixelCanvas
+  - [x] Reduced dropdown menu item spacing from gap-0.5 to gap-0 (no gap)
+  - [x] Changed description text size from text-xs to text-[10px] for tighter spacing
+  - [x] Added leading-tight to description text for reduced line height
+  - [x] All 97 files passed lint checks
+  - [x] Brush modes now fully functional: Normal, Rainbow, Random, and Dither all working
 
 ## Features Implemented
 

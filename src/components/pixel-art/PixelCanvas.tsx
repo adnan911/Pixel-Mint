@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { usePixelCanvas } from "@/hooks/use-pixel-canvas";
-import type { CanvasGrid, Tool, Color, Point, Selection, FillMode } from "@/types/pixel-art";
+import type { CanvasGrid, Tool, Color, Point, Selection, FillMode, BrushMode, DitherPattern } from "@/types/pixel-art";
 import {
   floodFill,
   globalFill,
@@ -9,6 +9,7 @@ import {
   drawRectangle,
   isPointInPolygon,
 } from "@/utils/canvas-utils";
+import { shiftHue, getRandomColor } from "@/utils/color-utils";
 
 interface EnhancedPixelCanvasProps {
   canvasGrid: CanvasGrid;
@@ -19,6 +20,8 @@ interface EnhancedPixelCanvasProps {
   selection: Selection;
   zoom: number;
   pan: Point;
+  brushMode?: BrushMode;
+  ditherPattern?: DitherPattern;
   onPixelChange: (newGrid: CanvasGrid) => void;
   onColorPick: (color: Color) => void;
   onSelectionChange: (selection: Selection) => void;
@@ -26,6 +29,30 @@ interface EnhancedPixelCanvasProps {
 }
 
 const GRID_SIZE = 32;
+
+// Bayer dither matrices
+const BAYER_2X2 = [
+  [0, 2],
+  [3, 1],
+];
+
+const BAYER_4X4 = [
+  [0, 8, 2, 10],
+  [12, 4, 14, 6],
+  [3, 11, 1, 9],
+  [15, 7, 13, 5],
+];
+
+const BAYER_8X8 = [
+  [0, 32, 8, 40, 2, 34, 10, 42],
+  [48, 16, 56, 24, 50, 18, 58, 26],
+  [12, 44, 4, 36, 14, 46, 6, 38],
+  [60, 28, 52, 20, 62, 30, 54, 22],
+  [3, 35, 11, 43, 1, 33, 9, 41],
+  [51, 19, 59, 27, 49, 17, 57, 25],
+  [15, 47, 7, 39, 13, 45, 5, 37],
+  [63, 31, 55, 23, 61, 29, 53, 21],
+];
 
 export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
   canvasGrid,
@@ -36,6 +63,8 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
   selection,
   zoom,
   pan,
+  brushMode = "normal",
+  ditherPattern = "bayer4x4",
   onPixelChange,
   onColorPick,
   onSelectionChange,
@@ -47,12 +76,47 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
   const [previewGrid, setPreviewGrid] = useState<CanvasGrid | null>(null);
   const [moveOffset, setMoveOffset] = useState<Point | null>(null);
   const [endPoint, setEndPoint] = useState<Point | null>(null);
+  const [rainbowHueShift, setRainbowHueShift] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const overlayCanvasRef = useRef<HTMLCanvasElement>(null);
 
   // Get actual grid dimensions from canvasGrid
   const gridHeight = canvasGrid.length;
   const gridWidth = gridHeight > 0 ? canvasGrid[0].length : 0;
+
+  // Helper function to get brush color based on mode
+  const getBrushColor = (x: number, y: number, baseColor: Color): Color => {
+    if (baseColor === "transparent") return baseColor;
+    
+    switch (brushMode) {
+      case "rainbow":
+        // Shift hue by 10 degrees per pixel
+        return shiftHue(baseColor, rainbowHueShift);
+      
+      case "random":
+        // Get random color from a predefined palette
+        const paletteColors = [
+          "#FF0000", "#00FF00", "#0000FF", "#FFFF00", 
+          "#FF00FF", "#00FFFF", "#FFA500", "#800080"
+        ];
+        return getRandomColor(paletteColors);
+      
+      case "dither":
+        // Apply dither pattern
+        const matrix = ditherPattern === "bayer2x2" ? BAYER_2X2 :
+                      ditherPattern === "bayer8x8" ? BAYER_8X8 : BAYER_4X4;
+        const matrixSize = matrix.length;
+        const threshold = matrix[y % matrixSize][x % matrixSize];
+        const maxThreshold = matrixSize * matrixSize;
+        
+        // Use threshold to determine if pixel should be drawn
+        return (threshold / maxThreshold) < 0.5 ? baseColor : "transparent";
+      
+      case "normal":
+      default:
+        return baseColor;
+    }
+  };
 
   const canvasRef = usePixelCanvas({
     canvasGrid: previewGrid || canvasGrid,
@@ -213,7 +277,14 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
 
     switch (currentTool) {
       case "pencil":
-        newGrid[coords.y][coords.x] = currentColor;
+        const brushColor = getBrushColor(coords.x, coords.y, currentColor);
+        newGrid[coords.y][coords.x] = brushColor;
+        
+        // Increment rainbow hue shift for next pixel
+        if (brushMode === "rainbow") {
+          setRainbowHueShift((prev) => (prev + 10) % 360);
+        }
+        
         onPixelChange(newGrid);
         break;
       case "eraser":

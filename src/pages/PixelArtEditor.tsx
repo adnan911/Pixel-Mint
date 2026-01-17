@@ -703,6 +703,8 @@ export default function PixelArtEditor() {
             selection={selection}
             zoom={zoom}
             pan={pan}
+            brushMode={brushMode}
+            ditherPattern={ditherPattern}
             onPixelChange={handlePixelChange}
             onColorPick={handleColorPick}
             onSelectionChange={setSelection}

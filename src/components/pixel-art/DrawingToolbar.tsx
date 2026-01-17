@@ -211,10 +211,10 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
                 <DropdownMenuItem
                   key={mode.id}
                   onClick={() => onBrushModeChange(mode.id)}
-                  className="flex flex-col items-start gap-0.5 cursor-pointer"
+                  className="flex flex-col items-start gap-0 cursor-pointer"
                 >
                   <span className="font-medium">{mode.label}</span>
-                  <span className="text-xs text-muted-foreground">{mode.description}</span>
+                  <span className="text-[10px] text-muted-foreground leading-tight">{mode.description}</span>
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
