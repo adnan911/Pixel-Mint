@@ -731,6 +731,21 @@
   - [x] Dialog positioned before closing div tags in component
   - [x] All 97 files passed lint checks
   - [x] Export workflow: Click EXPORT → Preview Dialog → Download or Cancel
+- [x] Step 55: Update welcome page logo and add text shadow (Completed)
+  - [x] Replaced Palette icon with custom pixel mint logo image
+  - [x] Logo image URL: https://miaoda-edit-image.s3cdn.medo.dev/8ydy3wce8yrl/IMG-8zqfbxpjfzs8.png
+  - [x] Removed bg-primary, text-primary-foreground, pixel-border-primary, and shadow-pixel classes from logo container
+  - [x] Logo container now uses simple animate-bounce-slow animation
+  - [x] Image uses w-full h-full object-contain for proper sizing
+  - [x] Added alt text: "Pixel Mint Logo" for accessibility
+  - [x] Added black text shadow to "PIXEL MINT" heading
+  - [x] Text shadow uses layered effect: 2px 2px 0px #000000 (solid black), 4px 4px 0px rgba(0,0,0,0.3) (soft shadow)
+  - [x] Text shadow applied via inline style object for precise control
+  - [x] Removed unnecessary border and background classes from h1 element
+  - [x] Cleaned up h1 className to essential styles only
+  - [x] Maintained font-pixel, pixel-heading, text-primary, and animate-pixel-glow classes
+  - [x] Logo maintains responsive sizing: w-16 h-16 sm:w-20 sm:h-20 xl:w-24 xl:h-24
+  - [x] All 97 files passed lint checks
 
 ## Features Implemented
 

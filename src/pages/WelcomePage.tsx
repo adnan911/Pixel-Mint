@@ -50,13 +50,24 @@ export default function WelcomePage() {
             <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8">
               <div className="relative">
                 <div className="absolute inset-0 bg-primary/20 blur-xl animate-pulse" />
-                <div className="relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 xl:w-24 xl:h-24 bg-primary text-primary-foreground pixel-border-primary shadow-pixel animate-bounce-slow">
-                  <Palette className="h-8 w-8 sm:h-10 sm:w-10 xl:h-12 xl:w-12" />
+                <div className="relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 xl:w-24 xl:h-24 animate-bounce-slow">
+                  <img 
+                    src="https://miaoda-edit-image.s3cdn.medo.dev/8ydy3wce8yrl/IMG-8zqfbxpjfzs8.png" 
+                    alt="Pixel Mint Logo" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </div>
             </div>
             
-            <h1 className="sm:text-6xl xl:text-7xl font-pixel pixel-heading text-primary animate-pixel-glow px-2 border-[0px] text-[32px] border-solid border-[rgb(20,20,82)]">{"PIXEL MINT"}</h1>
+            <h1 
+              className="sm:text-6xl xl:text-7xl font-pixel pixel-heading text-primary animate-pixel-glow px-2 text-[32px]"
+              style={{
+                textShadow: "2px 2px 0px #000000, 4px 4px 0px rgba(0,0,0,0.3)"
+              }}
+            >
+              PIXEL MINT
+            </h1>
             
             <p className="sm:text-lg xl:text-xl text-muted-foreground font-retro max-w-2xl mx-auto animate-fade-in-delay px-2 bg-[#8db9d800] bg-none text-[20px] border-solid border-[rgb(20,20,82)] border-[0px] border-[rgb(20,20,82)]">
               Create stunning pixel art with professional tools and effects
