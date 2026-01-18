@@ -45,15 +45,15 @@ export default function WelcomePage() {
   const getThemeLabel = () => {
     switch (currentTheme) {
       case "default":
-        return "Theme: Modern";
+        return "Theme: Coffee";
       case "retro":
-        return "Theme: Retro";
+        return "Theme: Based";
       case "candy":
         return "Theme: Candy";
       case "dark":
         return "Theme: Dark";
       default:
-        return "Theme: Modern";
+        return "Theme: Coffee";
     }
   };
 
