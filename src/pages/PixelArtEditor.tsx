@@ -45,7 +45,7 @@ import type {
   DitherPattern,
   PencilSize,
 } from "@/types/pixel-art";
-import { Palette, Settings, Undo2, Redo2, Layers, Download, Maximize2, FlipHorizontal2, RotateCw, FlipVertical2, Grid3x3, Trash2, ZoomIn, ZoomOut, Maximize, X, Plus } from "lucide-react";
+import { Palette, Settings, Undo2, Redo2, Layers, Download, Maximize2, FlipHorizontal2, RotateCw, FlipVertical2, Grid3x3, Trash2, ZoomIn, ZoomOut, Maximize, X, Plus, Ruler } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -93,11 +93,13 @@ export default function PixelArtEditor() {
   const [currentTool, setCurrentTool] = useState<Tool>("pencil");
   const [currentColor, setCurrentColor] = useState<Color>("#000000");
   const [showGrid, setShowGrid] = useState(true);
+  const [showRuler, setShowRuler] = useState(false);
   const [fillMode, setFillMode] = useState<FillMode>("contiguous");
   const [brushMode, setBrushMode] = useState<BrushMode>("normal");
   const [ditherPattern, setDitherPattern] = useState<DitherPattern>("bayer4x4");
   const [pencilSize, setPencilSize] = useState<PencilSize>(1);
   const [selection, setSelection] = useState<Selection>({ active: false, points: [] });
+  const [currentFont, setCurrentFont] = useState("jersey-10");
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [clipboard, setClipboard] = useState<Clipboard | null>(null);
@@ -583,6 +585,8 @@ export default function PixelArtEditor() {
                   onBrushModeChange={setBrushMode}
                   pencilSize={pencilSize}
                   onPencilSizeChange={setPencilSize}
+                  currentFont={currentFont}
+                  onFontChange={setCurrentFont}
                 />
               </div>
 
@@ -717,6 +721,10 @@ export default function PixelArtEditor() {
                       <Grid3x3 className="mr-2 h-5 w-5" />
                       <span>{showGrid ? "Hide Grid" : "Show Grid"}</span>
                     </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => setShowRuler(!showRuler)} className="cursor-pointer font-retro text-base py-3 bg-[#8867eb03] bg-none">
+                      <Ruler className="mr-2 h-5 w-5" />
+                      <span>{showRuler ? "Hide Ruler" : "Show Ruler"}</span>
+                    </DropdownMenuItem>
                     <DropdownMenuSeparator className="bg-border h-[2px]" />
                     <DropdownMenuItem
                       onClick={handleClear}
@@ -740,6 +748,7 @@ export default function PixelArtEditor() {
             currentTool={currentTool}
             currentColor={currentColor}
             showGrid={showGrid}
+            showRuler={showRuler}
             fillMode={fillMode}
             selection={selection}
             zoom={zoom}
@@ -747,6 +756,7 @@ export default function PixelArtEditor() {
             brushMode={brushMode}
             ditherPattern={ditherPattern}
             pencilSize={pencilSize}
+            currentFont={currentFont}
             onPixelChange={handlePixelChange}
             onColorPick={handleColorPick}
             onSelectionChange={setSelection}

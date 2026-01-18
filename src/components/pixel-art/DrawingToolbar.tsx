@@ -18,8 +18,10 @@ import {
   Shapes,
   ChevronDown,
   Paintbrush,
+  Type,
 } from "lucide-react";
 import type { Tool, BrushMode, PencilSize } from "@/types/pixel-art";
+import { FontSelector, PIXEL_FONTS } from "./FontSelector";
 
 interface DrawingToolbarProps {
   currentTool: Tool;
@@ -28,6 +30,8 @@ interface DrawingToolbarProps {
   onBrushModeChange?: (mode: BrushMode) => void;
   pencilSize?: PencilSize;
   onPencilSizeChange?: (size: PencilSize) => void;
+  currentFont?: string;
+  onFontChange?: (font: string) => void;
 }
 
 const drawingTools: Array<{
@@ -53,6 +57,12 @@ const drawingTools: Array<{
       icon: <Pipette className="h-5 w-5" />,
       label: "Eyedropper",
       shortcut: "I",
+    },
+    {
+      id: "text",
+      icon: <Type className="h-5 w-5" />,
+      label: "Text Tool",
+      shortcut: "T",
     },
   ];
 
@@ -133,6 +143,8 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
   onBrushModeChange,
   pencilSize = 1,
   onPencilSizeChange,
+  currentFont = "jersey-10",
+  onFontChange,
 }) => {
   // Get current shape tool info
   const currentShapeTool = shapeTools.find((tool) => tool.id === currentTool);
@@ -144,26 +156,77 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
   return (
     <TooltipProvider>
       <div className="flex gap-1.5 justify-center items-center border-[2px] border-solid border-[rgb(20,20,82)]">
-        {drawingTools.map((tool) => (
-          <Tooltip key={tool.id}>
-            <TooltipTrigger asChild>
-              <Button
-                variant={currentTool === tool.id ? "default" : "outline"}
-                size="icon"
-                onClick={() => onToolChange(tool.id)}
-                className="h-11 w-11"
-                aria-label={tool.label}
-              >
-                {tool.icon}
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent side="top">
-              <p>
-                {tool.label} ({tool.shortcut})
-              </p>
-            </TooltipContent>
-          </Tooltip>
-        ))}
+        {/* Font Selector for Text Tool */}
+
+        {drawingTools.map((tool) => {
+          if (tool.id === "text") {
+            // Special handling for Text Tool Dropdown
+            return (
+              <DropdownMenu key={tool.id}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <DropdownMenuTrigger asChild>
+                      <Button
+                        variant={currentTool === "text" ? "default" : "outline"}
+                        size="icon"
+                        className="h-11 w-11 relative"
+                        aria-label="Text Tool"
+                      >
+                        {tool.icon}
+                        <ChevronDown className="h-3 w-3 absolute bottom-1 right-1" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                  </TooltipTrigger>
+                  <TooltipContent side="top">
+                    <p>Text Tool ({tool.shortcut}) {currentFont ? `- ${PIXEL_FONTS.find(f => f.id === currentFont)?.name}` : ""}</p>
+                  </TooltipContent>
+                </Tooltip>
+                <DropdownMenuContent align="center" className="w-48 pixel-card border-4 border-border font-retro">
+                  <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground font-pixel">
+                    SELECT FONT
+                  </div>
+                  {onFontChange && PIXEL_FONTS.map((font) => (
+                    <DropdownMenuItem
+                      key={font.id}
+                      onClick={() => {
+                        onToolChange("text");
+                        onFontChange(font.id);
+                      }}
+                      className="flex items-center gap-2 cursor-pointer py-2"
+                      style={{ fontFamily: font.family }}
+                    >
+                      <span>{font.name}</span>
+                      {currentFont === font.id && (
+                        <span className="ml-auto text-primary">✓</span>
+                      )}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            );
+          }
+
+          return (
+            <Tooltip key={tool.id}>
+              <TooltipTrigger asChild>
+                <Button
+                  variant={currentTool === tool.id ? "default" : "outline"}
+                  size="icon"
+                  onClick={() => onToolChange(tool.id)}
+                  className="h-11 w-11"
+                  aria-label={tool.label}
+                >
+                  {tool.icon}
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="top">
+                <p>
+                  {tool.label} ({tool.shortcut})
+                </p>
+              </TooltipContent>
+            </Tooltip>
+          )
+        })}
 
         {/* Shapes Dropdown */}
         <DropdownMenu>

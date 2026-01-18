@@ -6,14 +6,15 @@ export type Pixel = Color;
 
 export type CanvasGrid = Pixel[][]; // [y][x] = color
 
-export type Tool = 
-  | "pencil" 
-  | "eraser" 
-  | "fill" 
+export type Tool =
+  | "pencil"
+  | "eraser"
+  | "fill"
   | "eyedropper"
   | "line"
   | "circle"
-  | "square";
+  | "square"
+  | "text";
 
 export type FillMode = "contiguous" | "global";
 
