@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useGesture } from "@use-gesture/react";
 import { EnhancedPixelCanvas } from "@/components/pixel-art/PixelCanvas";
+import { MiniMap } from "@/components/pixel-art/MiniMap";
 import { DrawingToolbar } from "@/components/pixel-art/DrawingToolbar";
 import { ColorPicker } from "@/components/pixel-art/ColorPicker";
 
@@ -102,6 +104,49 @@ export default function PixelArtEditor() {
   const [currentFont, setCurrentFont] = useState("jersey-10");
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const [containerDimensions, setContainerDimensions] = useState({ width: 0, height: 0 });
+
+  // Update container dimensions on resize
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        setContainerDimensions({
+          width: containerRef.current.clientWidth,
+          height: containerRef.current.clientHeight
+        });
+      }
+    };
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
+
+  useGesture({
+    // onDrag removed to lock canvas. Panning is now only via MiniMap or Wheel.
+    // onDrag: ({ offset: [dx, dy], event }) => { ... },
+    onPinch: ({ offset: [d] }) => {
+      // d is the zoom factor
+      setZoom(d);
+    },
+    onWheel: ({ event, offset: [,], ctrlKey }) => {
+      if (ctrlKey) {
+        // Zoom
+        // useGesture handles pinch as wheel with ctrl on trackpads usually, 
+        // but we might need manual handling if generic wheel
+        const newZoom = Math.max(0.5, Math.min(zoom - event.deltaY * 0.01, 8));
+        setZoom(newZoom);
+      } else {
+        // Pan
+        setPan(p => ({ x: p.x - event.deltaX, y: p.y - event.deltaY }));
+      }
+    }
+  }, {
+    target: containerRef,
+    drag: { from: () => [pan.x, pan.y], filterTaps: true, modifierKey: undefined },
+    pinch: { scaleBounds: { min: 0.5, max: 8 }, from: () => [zoom, 0] },
+    wheel: { eventOptions: { passive: false } } // Prevent default browser zoom
+  });
   const [clipboard, setClipboard] = useState<Clipboard | null>(null);
   const [colorsOpen, setColorsOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
@@ -741,8 +786,15 @@ export default function PixelArtEditor() {
         </div>
       </div>
       {/* Canvas Area with Floating Color Selector */}
-      <div className="flex-1 flex items-center justify-center overflow-hidden p-2 sm:p-4 @container border-4 border-border relative">
-        <div className="w-full h-full flex items-center justify-center">
+      <div
+        ref={containerRef}
+        className="flex-1 flex items-center justify-center overflow-hidden p-2 sm:p-4 @container border-4 border-border relative touch-none"
+        style={{ touchAction: 'none' }}
+      >
+        <div
+          className="w-full h-full flex items-center justify-center"
+          style={{ transform: `translate(${pan.x}px, ${pan.y}px)` }}
+        >
           <EnhancedPixelCanvas
             canvasGrid={canvasGrid}
             currentTool={currentTool}
@@ -761,6 +813,18 @@ export default function PixelArtEditor() {
             onColorPick={handleColorPick}
             onSelectionChange={setSelection}
             onPanChange={setPan}
+          />
+        </div>
+
+        {/* Navigation MiniMap */}
+        <div className="absolute bottom-4 right-4 z-40 hidden sm:block opacity-90 hover:opacity-100 transition-opacity">
+          <MiniMap
+            grid={canvasGrid}
+            zoom={zoom}
+            pan={pan}
+            containerDimensions={containerDimensions}
+            onPanChange={(newPan) => setPan(newPan)}
+            className="w-32 h-32"
           />
         </div>
 

@@ -349,16 +349,23 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
 
   // Mouse/Touch Handlers
   const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    e.stopPropagation();
     e.preventDefault();
     handleStart(e.clientX, e.clientY);
   };
   const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => handleMove(e.clientX, e.clientY);
   const handleMouseUp = handleEnd;
   const handleTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    if (e.touches.length > 1) return; // Allow gestures pass through
+    e.stopPropagation();
     e.preventDefault();
     if (e.touches.length > 0) handleStart(e.touches[0].clientX, e.touches[0].clientY);
   };
   const handleTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
+    if (e.touches.length > 1) return;
+    // e.stopPropagation can't be used with passive events usually, but React events are synthetic.
+    // However, we want to prevent the gesture drag.
+    e.stopPropagation();
     e.preventDefault();
     if (e.touches.length > 0) handleMove(e.touches[0].clientX, e.touches[0].clientY);
   };

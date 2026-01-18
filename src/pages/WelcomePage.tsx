@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
+
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -13,9 +13,10 @@ import { Palette, Sparkles, Grid3x3, Zap } from "lucide-react";
 
 const CANVAS_SIZES = [
   { size: 16, label: "16×16", description: "Small" },
+  { size: 32, label: "32×32", description: "Medium" },
   { size: 64, label: "64×64", description: "Large" },
   { size: 128, label: "128×128", description: "XL" },
-  { size: 256, label: "256×256", description: "XXL" },
+
 ];
 
 export default function WelcomePage() {
