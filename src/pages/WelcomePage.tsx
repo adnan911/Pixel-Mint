@@ -37,6 +37,7 @@ export default function WelcomePage() {
     setCurrentTheme((prev) => {
       if (prev === "default") return "retro";
       if (prev === "retro") return "candy";
+      if (prev === "candy") return "dark";
       return "default";
     });
   };
@@ -49,6 +50,8 @@ export default function WelcomePage() {
         return "Theme: Retro";
       case "candy":
         return "Theme: Candy";
+      case "dark":
+        return "Theme: Dark";
       default:
         return "Theme: Modern";
     }
