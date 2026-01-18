@@ -47,7 +47,7 @@ import type {
   DitherPattern,
   PencilSize,
 } from "@/types/pixel-art";
-import { Palette, Settings, Undo2, Redo2, Layers, Download, Maximize2, FlipHorizontal2, RotateCw, FlipVertical2, Grid3x3, Trash2, ZoomIn, ZoomOut, Maximize, X, Plus, Ruler } from "lucide-react";
+import { Palette, Settings, Undo2, Redo2, Layers, Download, Maximize2, FlipHorizontal2, RotateCw, FlipVertical2, Grid3x3, Trash2, ZoomIn, ZoomOut, Maximize, X, Plus, Ruler, Map } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -96,6 +96,7 @@ export default function PixelArtEditor() {
   const [currentColor, setCurrentColor] = useState<Color>("#000000");
   const [showGrid, setShowGrid] = useState(true);
   const [showRuler, setShowRuler] = useState(false);
+  const [showMiniMap, setShowMiniMap] = useState(true);
   const [fillMode, setFillMode] = useState<FillMode>("contiguous");
   const [brushMode, setBrushMode] = useState<BrushMode>("normal");
   const [ditherPattern, setDitherPattern] = useState<DitherPattern>("bayer4x4");
@@ -770,6 +771,10 @@ export default function PixelArtEditor() {
                       <Ruler className="mr-2 h-5 w-5" />
                       <span>{showRuler ? "Hide Ruler" : "Show Ruler"}</span>
                     </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => setShowMiniMap(!showMiniMap)} className="cursor-pointer font-retro text-base py-3 bg-[#8867eb03] bg-none">
+                      <Map className="mr-2 h-5 w-5" />
+                      <span>{showMiniMap ? "Hide MiniMap" : "Show MiniMap"}</span>
+                    </DropdownMenuItem>
                     <DropdownMenuSeparator className="bg-border h-[2px]" />
                     <DropdownMenuItem
                       onClick={handleClear}
@@ -816,17 +821,20 @@ export default function PixelArtEditor() {
           />
         </div>
 
+
         {/* Navigation MiniMap */}
-        <div className="absolute bottom-4 right-4 z-40 hidden sm:block opacity-90 hover:opacity-100 transition-opacity">
-          <MiniMap
-            grid={canvasGrid}
-            zoom={zoom}
-            pan={pan}
-            containerDimensions={containerDimensions}
-            onPanChange={(newPan) => setPan(newPan)}
-            className="w-32 h-32"
-          />
-        </div>
+        {showMiniMap && (
+          <div className="absolute bottom-4 right-4 z-40 block opacity-90 hover:opacity-100 transition-opacity">
+            <MiniMap
+              grid={canvasGrid}
+              zoom={zoom}
+              pan={pan}
+              containerDimensions={containerDimensions}
+              onPanChange={(newPan) => setPan(newPan)}
+              className="w-24 h-24 sm:w-32 sm:h-32"
+            />
+          </div>
+        )}
 
         {/* Color & Palette Settings Sheet - Opens from Bottom */}
         <Sheet open={colorsOpen} onOpenChange={setColorsOpen}>
