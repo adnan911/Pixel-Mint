@@ -1,6 +1,7 @@
 {
-  "name": "miaoda-react-admin",
-  "version": "0.0.1",
+  "name": "pixel-mint",
+  "version": "1.0.0",
+  "author": "Adnan",
   "type": "module",
   "scripts": {
     "dev": "vite",
