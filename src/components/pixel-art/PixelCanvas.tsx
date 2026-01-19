@@ -29,7 +29,10 @@ interface EnhancedPixelCanvasProps {
   onColorPick: (color: Color) => void;
   onSelectionChange: (selection: Selection) => void;
   onPanChange: (pan: Point) => void;
+  currentStamp?: { width: number; height: number; data: CanvasGrid } | null;
+  onCanvasInteract?: () => void;
 }
+
 
 // Bayer dither matrices
 const BAYER_2X2 = [
@@ -70,10 +73,13 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
   currentFont = "jersey-10",
   onPixelChange,
   onColorPick,
+  currentStamp,
+  onCanvasInteract,
 }) => {
   const [isDrawing, setIsDrawing] = useState(false);
   const [pixelSize, setPixelSize] = useState(16);
   const [startPoint, setStartPoint] = useState<Point | null>(null);
+  const [hoverPoint, setHoverPoint] = useState<Point | null>(null);
   const [previewGrid, setPreviewGrid] = useState<CanvasGrid | null>(null);
   const [rainbowHueShift, setRainbowHueShift] = useState(0);
 
@@ -246,13 +252,35 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
   };
 
   const handleStart = (clientX: number, clientY: number) => {
+    onCanvasInteract?.();
+
     if (activeText && currentTool === "text") {
       commitText();
       return;
     }
 
+
     const coords = getPixelCoords(clientX, clientY);
     if (!coords) return;
+
+    if (currentTool === "stamp" && currentStamp) {
+      // Commit stamp
+      const newGrid = canvasGrid.map(row => [...row]);
+      for (let y = 0; y < currentStamp.height; y++) {
+        for (let x = 0; x < currentStamp.width; x++) {
+          const color = currentStamp.data[y][x];
+          if (color !== "transparent") {
+            const gridX = coords.x + x - Math.floor(currentStamp.width / 2);
+            const gridY = coords.y + y - Math.floor(currentStamp.height / 2);
+            if (gridX >= 0 && gridX < gridWidth && gridY >= 0 && gridY < gridHeight) {
+              newGrid[gridY][gridX] = color;
+            }
+          }
+        }
+      }
+      onPixelChange(newGrid);
+      return;
+    }
 
     if (currentTool === "text") {
       setActiveText({
@@ -292,8 +320,10 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
   };
 
   const handleMove = (clientX: number, clientY: number) => {
-    if (!isDrawing || !startPoint) return;
     const coords = getPixelCoords(clientX, clientY);
+    setHoverPoint(coords);
+
+    if (!isDrawing || !startPoint) return;
     if (!coords) return;
 
     switch (currentTool) {
@@ -561,6 +591,28 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
                 padding: "2px 4px",
               }}
             />
+          </div>
+        )}
+
+        {/* Stamp Preview */}
+        {currentTool === "stamp" && currentStamp && hoverPoint && (
+          <div
+            className="absolute pointer-events-none opacity-50"
+            style={{
+              left: (hoverPoint.x - Math.floor(currentStamp.width / 2)) * actualPixelSize,
+              top: (hoverPoint.y - Math.floor(currentStamp.height / 2)) * actualPixelSize,
+              width: currentStamp.width * actualPixelSize,
+              height: currentStamp.height * actualPixelSize,
+              display: "grid",
+              gridTemplateColumns: `repeat(${currentStamp.width}, 1fr)`,
+            }}
+          >
+            {currentStamp.data.flat().map((color, i) => (
+              <div
+                key={i}
+                style={{ backgroundColor: color === "transparent" ? "transparent" : color }}
+              />
+            ))}
           </div>
         )}
       </div>

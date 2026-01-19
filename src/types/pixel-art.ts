@@ -14,7 +14,8 @@ export type Tool =
   | "line"
   | "circle"
   | "square"
-  | "text";
+  | "text"
+  | "stamp";
 
 export type FillMode = "contiguous" | "global";
 

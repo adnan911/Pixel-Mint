@@ -19,6 +19,7 @@ import {
   ChevronDown,
   Paintbrush,
   Type,
+  Stamp,
 } from "lucide-react";
 import type { Tool, BrushMode, PencilSize } from "@/types/pixel-art";
 import { FontSelector, PIXEL_FONTS } from "./FontSelector";
@@ -63,6 +64,12 @@ const drawingTools: Array<{
       icon: <Type className="h-5 w-5" />,
       label: "Text Tool",
       shortcut: "T",
+    },
+    {
+      id: "stamp",
+      icon: <Stamp className="h-5 w-5" />,
+      label: "Stamp Tool",
+      shortcut: "S",
     },
   ];
 

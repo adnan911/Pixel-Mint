@@ -12,6 +12,8 @@ import { LayerPanel } from "@/components/pixel-art/LayerPanel";
 import { PaletteManager } from "@/components/pixel-art/PaletteManager";
 import { BrushModeSelector } from "@/components/pixel-art/BrushModeSelector";
 import { CanvasSizeSettings } from "@/components/pixel-art/CanvasSizeSettings";
+import { StampSelector } from "@/components/pixel-art/StampSelector";
+import { PREMADE_STAMPS, Stamp } from "@/data/stamps";
 import { useHistory } from "@/hooks/use-history";
 import { useKeyboardShortcuts } from "@/hooks/use-keyboard-shortcuts";
 import {
@@ -103,6 +105,7 @@ export default function PixelArtEditor() {
   const [pencilSize, setPencilSize] = useState<PencilSize>(1);
   const [selection, setSelection] = useState<Selection>({ active: false, points: [] });
   const [currentFont, setCurrentFont] = useState("jersey-10");
+  const [activeStamp, setActiveStamp] = useState<Stamp>(PREMADE_STAMPS[0]);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -156,6 +159,7 @@ export default function PixelArtEditor() {
   const [canvasSizeOpen, setCanvasSizeOpen] = useState(false);
   const [exportPreviewOpen, setExportPreviewOpen] = useState(false);
   const [exportPreviewUrl, setExportPreviewUrl] = useState<string | null>(null);
+  const [isStampSelectorOpen, setIsStampSelectorOpen] = useState(false);
 
   // Footer quick colors - independent from palette system
   // 4 slots, null means empty
@@ -250,9 +254,22 @@ export default function PixelArtEditor() {
 
   const handleColorPick = (color: Color) => {
     setCurrentColor(color);
-    setCurrentTool("pencil");
   };
 
+  const handleToolChange = (newTool: Tool) => {
+    // If clicking stamp tool again, toggle selector
+    if (newTool === "stamp" && currentTool === "stamp") {
+      setIsStampSelectorOpen(prev => !prev);
+    } else if (newTool === "stamp") {
+      // If switching TO stamp tool, open selector
+      setIsStampSelectorOpen(true);
+    } else {
+      // If switching AWAY from stamp tool, close selector
+      setIsStampSelectorOpen(false);
+    }
+
+    setCurrentTool(newTool);
+  };
 
 
   // Footer color handlers - independent from palette system
@@ -493,7 +510,7 @@ export default function PixelArtEditor() {
   };
 
   useKeyboardShortcuts({
-    onToolChange: setCurrentTool,
+    onToolChange: handleToolChange, // Use the new handler
     onUndo: undo,
     onRedo: redo,
     onToggleGrid: handleToggleGrid,
@@ -626,7 +643,7 @@ export default function PixelArtEditor() {
               <div className="flex-1 overflow-x-auto sm:overflow-visible">
                 <DrawingToolbar
                   currentTool={currentTool}
-                  onToolChange={setCurrentTool}
+                  onToolChange={handleToolChange} // Use the new handler
                   brushMode={brushMode}
                   onBrushModeChange={setBrushMode}
                   pencilSize={pencilSize}
@@ -704,10 +721,8 @@ export default function PixelArtEditor() {
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
-              </div>
 
-              {/* Action Buttons */}
-              <div className="flex items-center gap-1">
+                {/* Action Buttons */}
 
 
                 <Sheet open={layersOpen} onOpenChange={setLayersOpen}>
@@ -796,6 +811,16 @@ export default function PixelArtEditor() {
         className="flex-1 flex items-center justify-center overflow-hidden p-2 sm:p-4 @container border-4 border-border relative touch-none"
         style={{ touchAction: 'none' }}
       >
+        {/* Stamp Selector Panel */}
+        {currentTool === "stamp" && isStampSelectorOpen && (
+          <div className="absolute left-2 top-2 bottom-2 z-20">
+            <StampSelector
+              onSelectStamp={setActiveStamp}
+              selectedStampId={activeStamp?.id}
+            />
+          </div>
+        )}
+
         <div
           className="w-full h-full flex items-center justify-center"
           style={{ transform: `translate(${pan.x}px, ${pan.y}px)` }}
@@ -818,6 +843,8 @@ export default function PixelArtEditor() {
             onColorPick={handleColorPick}
             onSelectionChange={setSelection}
             onPanChange={setPan}
+            currentStamp={activeStamp}
+            onCanvasInteract={() => setIsStampSelectorOpen(false)}
           />
         </div>
 
