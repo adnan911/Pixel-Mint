@@ -17,7 +17,8 @@ import { exportCanvasToPNG } from "@/utils/canvas-utils";
 
 interface ControlsProps {
   canvasGrid: CanvasGrid;
-  canvasSize: number;
+  canvasWidth: number;
+  canvasHeight: number;
   showGrid: boolean;
   canUndo: boolean;
   canRedo: boolean;
@@ -29,13 +30,14 @@ interface ControlsProps {
 
 export const Controls: React.FC<ControlsProps> = ({
   canvasGrid,
-  canvasSize,
+  canvasWidth,
+  canvasHeight,
   showGrid,
   onClear,
   onToggleGrid,
 }) => {
   const handleExport = () => {
-    exportCanvasToPNG(canvasGrid, canvasSize);
+    exportCanvasToPNG(canvasGrid, canvasWidth, canvasHeight);
   };
 
   return (
@@ -84,7 +86,7 @@ export const Controls: React.FC<ControlsProps> = ({
 
       {/* Info */}
       <div className="text-sm text-muted-foreground mt-2 p-3 bg-muted rounded-lg">
-        <p className="font-medium">Canvas: {canvasSize}×{canvasSize}</p>
+        <p className="font-medium">Canvas: {canvasWidth}×{canvasHeight}</p>
         <p className="text-xs mt-2 leading-relaxed">
           <strong>Shortcuts:</strong> P (pencil), E (eraser), F (fill), I (eyedropper), G (grid)
         </p>

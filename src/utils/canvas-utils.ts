@@ -168,10 +168,12 @@ export const floodFill = (
   startY: number,
   newColor: Color
 ): CanvasGrid => {
-  const gridSize = grid.length;
-  const targetColor = grid[startY][startX];
+  const gridHeight = grid.length;
+  const gridWidth = grid[0]?.length || 0;
+  const targetColor = grid[startY]?.[startX];
 
   if (targetColor === newColor) return grid;
+  if (targetColor === undefined) return grid;
 
   const newGrid = grid.map((row) => [...row]);
   const stack: [number, number][] = [[startX, startY]];
@@ -179,7 +181,7 @@ export const floodFill = (
   while (stack.length > 0) {
     const [x, y] = stack.pop()!;
 
-    if (x < 0 || x >= gridSize || y < 0 || y >= gridSize) continue;
+    if (x < 0 || x >= gridWidth || y < 0 || y >= gridHeight) continue;
     if (newGrid[y][x] !== targetColor) continue;
 
     newGrid[y][x] = newColor;
@@ -210,14 +212,18 @@ export const globalFill = (
 
 /**
  * Rotate canvas 90 degrees clockwise
+ * Note: For non-square canvases, this swaps width and height
  */
 export const rotateClockwise = (grid: CanvasGrid): CanvasGrid => {
-  const size = grid.length;
-  const newGrid = createEmptyCanvas(size);
+  const height = grid.length;
+  const width = grid[0]?.length || 0;
 
-  for (let y = 0; y < size; y++) {
-    for (let x = 0; x < size; x++) {
-      newGrid[x][size - 1 - y] = grid[y][x];
+  // After 90° clockwise rotation: new width = old height, new height = old width
+  const newGrid = createEmptyCanvas(height, width);
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      newGrid[x][height - 1 - y] = grid[y][x];
     }
   }
 
@@ -343,11 +349,12 @@ export const isPointInPolygon = (point: Point, polygon: Point[]): boolean => {
  */
 export const exportCanvasToPNG = (
   canvasGrid: CanvasGrid,
-  gridSize: number
+  width: number,
+  height: number
 ): void => {
   const canvas = document.createElement("canvas");
-  canvas.width = gridSize;
-  canvas.height = gridSize;
+  canvas.width = width;
+  canvas.height = height;
   const ctx = canvas.getContext("2d");
 
   if (!ctx) {
@@ -355,10 +362,10 @@ export const exportCanvasToPNG = (
     return;
   }
 
-  for (let y = 0; y < gridSize; y++) {
-    for (let x = 0; x < gridSize; x++) {
-      const color = canvasGrid[y][x];
-      if (color !== "transparent") {
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const color = canvasGrid[y]?.[x];
+      if (color && color !== "transparent") {
         ctx.fillStyle = color;
         ctx.fillRect(x, y, 1, 1);
       }

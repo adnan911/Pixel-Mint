@@ -1,0 +1,913 @@
+
+    {
+        id: "user_stamp_1",
+        name: "Error Windows",
+        category: "Imported",
+        width: 2,
+        height: 2,
+        data: createGrid(2, 2, [
+            { x: 0, y: 0, color: "#606060" }, { x: 1, y: 0, color: "#C2C2C2" }, { x: 0, y: 1, color: "#D9D9D9" }
+        ])
+    },
+
+    {
+        id: "user_stamp_2",
+        name: "Star (Yellow)",
+        category: "Imported",
+        width: 3,
+        height: 3,
+        data: createGrid(3, 3, [
+            { x: 0, y: 0, color: "#EAEAEA" }, { x: 1, y: 0, color: "#9A9A9A" }, { x: 2, y: 0, color: "#484848" }, { x: 2, y: 1, color: "#A1A1A1" }, { x: 2, y: 2, color: "#E7E7E7" }
+        ])
+    },
+
+    {
+        id: "user_stamp_3",
+        name: "Puffy Cloud",
+        category: "Imported",
+        width: 16,
+        height: 13,
+        data: createGrid(16, 13, [
+            { x: 0, y: 0, color: "#505050" }, { x: 1, y: 0, color: "#F1F1F1" }, { x: 0, y: 1, color: "#ECECEC" }
+        ])
+    },
+
+    {
+        id: "user_stamp_4",
+        name: "Halloween Skull",
+        category: "Imported",
+        width: 2,
+        height: 2,
+        data: createGrid(2, 2, [
+            { x: 0, y: 0, color: "#B5B5B5" }, { x: 1, y: 0, color: "#585858" }, { x: 1, y: 1, color: "#C6C6C6" }
+        ])
+    },
+
+    {
+        id: "user_stamp_7",
+        name: "Cloud",
+        category: "Imported",
+        width: 16,
+        height: 12,
+        data: createGrid(16, 12, [
+            { x: 0, y: 0, color: "#3F3F3F" }, { x: 1, y: 0, color: "#E2E2E2" }, { x: 0, y: 1, color: "#E2E2E2" }, { x: 12, y: 7, color: "#000000" }, { x: 13, y: 7, color: "#000000" }, { x: 14, y: 7, color: "#000000" }, { x: 15, y: 7, color: "#000000" }, { x: 12, y: 8, color: "#000000" }, { x: 13, y: 8, color: "#000000" }, { x: 14, y: 8, color: "#000000" }, { x: 15, y: 8, color: "#000000" }, { x: 10, y: 9, color: "#5F5F5F" }, { x: 11, y: 9, color: "#000000" }, { x: 12, y: 9, color: "#FFC107" }, { x: 13, y: 9, color: "#FFC107" }, { x: 14, y: 9, color: "#FFEB3B" }, { x: 15, y: 9, color: "#FFEB3B" }, { x: 10, y: 10, color: "#5F5F5F" }, { x: 11, y: 10, color: "#000000" }, { x: 12, y: 10, color: "#FFC107" }, { x: 13, y: 10, color: "#FFC107" }, { x: 14, y: 10, color: "#FFEB3B" }, { x: 15, y: 10, color: "#FFEB3B" }, { x: 8, y: 11, color: "#646464" }, { x: 9, y: 11, color: "#000000" }, { x: 10, y: 11, color: "#A07904" }, { x: 11, y: 11, color: "#FFC107" }, { x: 12, y: 11, color: "#FFC107" }, { x: 13, y: 11, color: "#FFC107" }, { x: 14, y: 11, color: "#FFC107" }, { x: 15, y: 11, color: "#FFC107" }
+        ])
+    },
+
+    {
+        id: "user_stamp_8",
+        name: "Car",
+        category: "Imported",
+        width: 16,
+        height: 13,
+        data: createGrid(16, 13, [
+            { x: 0, y: 8, color: "#000000" }, { x: 1, y: 8, color: "#C0C0C0" }, { x: 0, y: 9, color: "#000000" }, { x: 1, y: 9, color: "#C0C0C0" }, { x: 0, y: 10, color: "#FFEB3B" }, { x: 1, y: 10, color: "#3F3A0F" }, { x: 2, y: 10, color: "#000000" }, { x: 3, y: 10, color: "#C5C5C5" }, { x: 0, y: 11, color: "#FFEB3B" }, { x: 1, y: 11, color: "#3F3A0F" }, { x: 2, y: 11, color: "#000000" }, { x: 3, y: 11, color: "#C5C5C5" }, { x: 0, y: 12, color: "#FFC107" }, { x: 1, y: 12, color: "#FFE12E" }, { x: 2, y: 12, color: "#FFEB3B" }, { x: 3, y: 12, color: "#3A350D" }, { x: 4, y: 12, color: "#000000" }, { x: 5, y: 12, color: "#000000" }
+        ])
+    },
+
+    {
+        id: "user_stamp_9",
+        name: "Earth",
+        category: "Imported",
+        width: 13,
+        height: 16,
+        data: createGrid(13, 16, [
+            { x: 8, y: 0, color: "#E6E6E6" }, { x: 9, y: 0, color: "#9A9A9A" }, { x: 10, y: 0, color: "#F9F9F9" }, { x: 11, y: 0, color: "#A8A8A8" }, { x: 12, y: 0, color: "#C6C6C6" }, { x: 8, y: 1, color: "#797979" }, { x: 9, y: 1, color: "#B9B9B9" }, { x: 10, y: 1, color: "#E6E6E6" }, { x: 11, y: 1, color: "#A2A2A2" }, { x: 12, y: 1, color: "#ABABAB" }, { x: 8, y: 2, color: "#494949" }, { x: 9, y: 2, color: "#717171" }, { x: 10, y: 2, color: "#D3D3D3" }, { x: 11, y: 2, color: "#DFDFDF" }, { x: 12, y: 2, color: "#AEAEAE" }, { x: 8, y: 3, color: "#A0A0A0" }, { x: 9, y: 3, color: "#8D8D8D" }, { x: 10, y: 3, color: "#EDEDED" }, { x: 11, y: 3, color: "#DFDFDF" }, { x: 12, y: 3, color: "#AEAEAE" }, { x: 0, y: 15, color: "#E4E4E4" }
+        ])
+    },
+
+    {
+        id: "user_stamp_10",
+        name: "Ducky",
+        category: "Imported",
+        width: 16,
+        height: 10,
+        data: createGrid(16, 10, [
+            { x: 0, y: 0, color: "#F9F9F9" }, { x: 4, y: 0, color: "#EDEDED" }, { x: 0, y: 1, color: "#ECECEC" }, { x: 1, y: 1, color: "#8F8F8F" }, { x: 2, y: 1, color: "#9C9C9C" }, { x: 3, y: 1, color: "#707070" }, { x: 4, y: 1, color: "#818181" }, { x: 5, y: 1, color: "#919191" }, { x: 6, y: 1, color: "#B5B5B5" }, { x: 7, y: 1, color: "#E6E6E6" }, { x: 8, y: 1, color: "#F6F6F6" }, { x: 9, y: 1, color: "#B8B8B8" }, { x: 10, y: 1, color: "#A4A4A4" }, { x: 0, y: 2, color: "#EFEFEF" }, { x: 1, y: 2, color: "#969696" }, { x: 2, y: 2, color: "#B9B9B9" }, { x: 3, y: 2, color: "#808080" }, { x: 4, y: 2, color: "#919191" }, { x: 5, y: 2, color: "#BDBDBD" }, { x: 6, y: 2, color: "#939393" }, { x: 7, y: 2, color: "#6E6E6E" }, { x: 8, y: 2, color: "#666666" }, { x: 9, y: 2, color: "#D8D8D8" }, { x: 10, y: 2, color: "#B7B7B7" }
+        ])
+    },
+
+    {
+        id: "user_stamp_11",
+        name: "Sacrificial Katana",
+        category: "Imported",
+        width: 8,
+        height: 16,
+        data: createGrid(8, 16, [
+            { x: 7, y: 0, color: "#B6CAAF" }
+        ])
+    },
+
+    {
+        id: "user_stamp_12",
+        name: "Windows 10 Computer",
+        category: "Imported",
+        width: 16,
+        height: 14,
+        data: createGrid(16, 14, [
+            { x: 0, y: 0, color: "#D2D2D2" }
+        ])
+    },
+
+    {
+        id: "user_stamp_13",
+        name: "Halloween Ghost",
+        category: "Imported",
+        width: 16,
+        height: 5,
+        data: createGrid(16, 5, [
+            { x: 4, y: 0, color: "#ECECEC" }, { x: 5, y: 0, color: "#F7F7F7" }, { x: 15, y: 0, color: "#E7E7E7" }, { x: 4, y: 1, color: "#999999" }, { x: 5, y: 1, color: "#D4D4D4" }, { x: 15, y: 1, color: "#7D7D7D" }, { x: 0, y: 2, color: "#F0F0F0" }, { x: 1, y: 2, color: "#989898" }, { x: 2, y: 2, color: "#D5D5D5" }, { x: 3, y: 2, color: "#979797" }, { x: 4, y: 2, color: "#999999" }, { x: 5, y: 2, color: "#D4D4D4" }, { x: 6, y: 2, color: "#848484" }, { x: 7, y: 2, color: "#CBCBCB" }, { x: 8, y: 2, color: "#929292" }, { x: 9, y: 2, color: "#B0B0B0" }, { x: 10, y: 2, color: "#BABABA" }, { x: 11, y: 2, color: "#ADADAD" }, { x: 12, y: 2, color: "#888888" }, { x: 13, y: 2, color: "#919191" }, { x: 14, y: 2, color: "#BFBFBF" }, { x: 15, y: 2, color: "#616161" }, { x: 0, y: 3, color: "#CECECE" }, { x: 1, y: 3, color: "#969696" }, { x: 4, y: 3, color: "#999999" }, { x: 5, y: 3, color: "#D4D4D4" }, { x: 6, y: 3, color: "#B5B5B5" }, { x: 8, y: 3, color: "#727272" }, { x: 9, y: 3, color: "#B0B0B0" }, { x: 10, y: 3, color: "#BABABA" }, { x: 11, y: 3, color: "#ADADAD" }, { x: 12, y: 3, color: "#868686" }, { x: 13, y: 3, color: "#A1A1A1" }, { x: 14, y: 3, color: "#F8F8F8" }, { x: 15, y: 3, color: "#7D7D7D" }, { x: 0, y: 4, color: "#F8F8F8" }, { x: 1, y: 4, color: "#B3B3B3" }, { x: 2, y: 4, color: "#878787" }, { x: 3, y: 4, color: "#989898" }, { x: 4, y: 4, color: "#999999" }, { x: 5, y: 4, color: "#D4D4D4" }, { x: 6, y: 4, color: "#929292" }, { x: 7, y: 4, color: "#878787" }, { x: 8, y: 4, color: "#B7B7B7" }, { x: 9, y: 4, color: "#CDCDCD" }, { x: 10, y: 4, color: "#7D7D7D" }, { x: 11, y: 4, color: "#797979" }, { x: 12, y: 4, color: "#888888" }, { x: 13, y: 4, color: "#9F9F9F" }, { x: 14, y: 4, color: "#808080" }, { x: 15, y: 4, color: "#696969" }
+        ])
+    },
+
+    {
+        id: "user_stamp_14",
+        name: "Mountain",
+        category: "Imported",
+        width: 15,
+        height: 7,
+        data: createGrid(15, 7, [
+            { x: 1, y: 0, color: "#CACACA" }, { x: 2, y: 0, color: "#919191" }, { x: 3, y: 0, color: "#929292" }, { x: 4, y: 0, color: "#D6D6D6" }, { x: 6, y: 0, color: "#D6D6D6" }, { x: 7, y: 0, color: "#999999" }, { x: 8, y: 0, color: "#909090" }, { x: 9, y: 0, color: "#C8C8C8" }, { x: 10, y: 0, color: "#F9F9F9" }, { x: 11, y: 0, color: "#C3C3C3" }, { x: 12, y: 0, color: "#AEAEAE" }, { x: 13, y: 0, color: "#9B9B9B" }, { x: 14, y: 0, color: "#EEEEEE" }, { x: 0, y: 1, color: "#DADADA" }, { x: 1, y: 1, color: "#919191" }, { x: 2, y: 1, color: "#C8C8C8" }, { x: 3, y: 1, color: "#C9C9C9" }, { x: 4, y: 1, color: "#8D8D8D" }, { x: 5, y: 1, color: "#D4D4D4" }, { x: 6, y: 1, color: "#9B9B9B" }, { x: 7, y: 1, color: "#C6C6C6" }, { x: 8, y: 1, color: "#C9C9C9" }, { x: 9, y: 1, color: "#898989" }, { x: 10, y: 1, color: "#DCDCDC" }, { x: 11, y: 1, color: "#959595" }, { x: 12, y: 1, color: "#8F8F8F" }, { x: 13, y: 1, color: "#DADADA" }, { x: 14, y: 1, color: "#F9F9F9" }, { x: 0, y: 2, color: "#BABABA" }, { x: 1, y: 2, color: "#B1B1B1" }, { x: 2, y: 2, color: "#F9F9F9" }, { x: 8, y: 2, color: "#F5F5F5" }, { x: 9, y: 2, color: "#898989" }, { x: 10, y: 2, color: "#CACACA" }, { x: 11, y: 2, color: "#9C9C9C" }, { x: 12, y: 2, color: "#CBCBCB" }, { x: 0, y: 3, color: "#AFAFAF" }, { x: 1, y: 3, color: "#ACACAC" }, { x: 2, y: 3, color: "#F9F9F9" }, { x: 5, y: 3, color: "#F3F3F3" }, { x: 6, y: 3, color: "#A8A8A8" }, { x: 7, y: 3, color: "#727272" }, { x: 8, y: 3, color: "#707070" }, { x: 9, y: 3, color: "#636363" }, { x: 10, y: 3, color: "#CACACA" }, { x: 11, y: 3, color: "#9C9C9C" }, { x: 12, y: 3, color: "#CBCBCB" }, { x: 0, y: 4, color: "#C4C4C4" }, { x: 1, y: 4, color: "#A2A2A2" }, { x: 2, y: 4, color: "#F2F2F2" }, { x: 3, y: 4, color: "#F6F6F6" }, { x: 4, y: 4, color: "#CCCCCC" }, { x: 5, y: 4, color: "#CCCCCC" }, { x: 6, y: 4, color: "#898989" }, { x: 7, y: 4, color: "#E9E9E9" }, { x: 8, y: 4, color: "#ECECEC" }, { x: 9, y: 4, color: "#808080" }, { x: 10, y: 4, color: "#CACACA" }, { x: 11, y: 4, color: "#9C9C9C" }, { x: 12, y: 4, color: "#CBCBCB" }, { x: 0, y: 5, color: "#EAEAEA" }, { x: 1, y: 5, color: "#9C9C9C" }, { x: 2, y: 5, color: "#858585" }, { x: 3, y: 5, color: "#878787" }, { x: 4, y: 5, color: "#A9A9A9" }, { x: 5, y: 5, color: "#E0E0E0" }, { x: 6, y: 5, color: "#949494" }, { x: 7, y: 5, color: "#7F7F7F" }, { x: 8, y: 5, color: "#8C8C8C" }, { x: 9, y: 5, color: "#787878" }, { x: 10, y: 5, color: "#C3C3C3" }, { x: 11, y: 5, color: "#9C9C9C" }, { x: 12, y: 5, color: "#CBCBCB" }, { x: 1, y: 6, color: "#EFEFEF" }, { x: 2, y: 6, color: "#DDDDDD" }, { x: 3, y: 6, color: "#DEDEDE" }, { x: 4, y: 6, color: "#F3F3F3" }, { x: 6, y: 6, color: "#EDEDED" }, { x: 7, y: 6, color: "#DBDBDB" }, { x: 8, y: 6, color: "#E0E0E0" }, { x: 9, y: 6, color: "#E7E7E7" }, { x: 10, y: 6, color: "#F3F3F3" }, { x: 11, y: 6, color: "#EDEDED" }, { x: 12, y: 6, color: "#F6F6F6" }
+        ])
+    },
+
+    {
+        id: "user_stamp_15",
+        name: "Hat",
+        category: "Imported",
+        width: 11,
+        height: 16,
+        data: createGrid(11, 16, [
+            { x: 8, y: 0, color: "#595959" }, { x: 9, y: 0, color: "#000000" }, { x: 10, y: 0, color: "#000000" }, { x: 8, y: 1, color: "#595959" }, { x: 9, y: 1, color: "#000000" }, { x: 10, y: 1, color: "#000000" }, { x: 10, y: 2, color: "#000000" }, { x: 8, y: 3, color: "#595959" }, { x: 9, y: 3, color: "#000000" }, { x: 10, y: 3, color: "#FF7043" }, { x: 9, y: 8, color: "#7A7A7A" }, { x: 9, y: 9, color: "#E9E9E9" }, { x: 10, y: 9, color: "#D0D0D0" }, { x: 9, y: 10, color: "#DADADA" }
+        ])
+    },
+
+    {
+        id: "user_stamp_16",
+        name: "Master Hand",
+        category: "Imported",
+        width: 9,
+        height: 16,
+        data: createGrid(9, 16, [
+            { x: 0, y: 0, color: "#000000" }, { x: 1, y: 0, color: "#000000" }, { x: 2, y: 0, color: "#BF360C" }, { x: 3, y: 0, color: "#280B02" }, { x: 4, y: 0, color: "#000000" }, { x: 5, y: 0, color: "#A1A1A1" }, { x: 0, y: 1, color: "#000000" }, { x: 1, y: 1, color: "#000000" }, { x: 2, y: 1, color: "#BF360C" }, { x: 3, y: 1, color: "#280B02" }, { x: 4, y: 1, color: "#000000" }, { x: 5, y: 1, color: "#A1A1A1" }, { x: 1, y: 2, color: "#000000" }, { x: 2, y: 2, color: "#FF7043" }, { x: 3, y: 2, color: "#35170E" }, { x: 4, y: 2, color: "#000000" }, { x: 0, y: 3, color: "#000000" }, { x: 1, y: 3, color: "#FF7043" }, { x: 2, y: 3, color: "#FF5722" }, { x: 3, y: 3, color: "#FF5722" }, { x: 4, y: 3, color: "#FF5722" }, { x: 5, y: 3, color: "#A1A1A1" }, { x: 1, y: 9, color: "#979797" }, { x: 0, y: 10, color: "#E9E9E9" }, { x: 1, y: 10, color: "#F5F5F5" }
+        ])
+    },
+
+    {
+        id: "user_stamp_17",
+        name: "Ring",
+        category: "Imported",
+        width: 4,
+        height: 16,
+        data: createGrid(4, 16, [
+            { x: 0, y: 0, color: "#979797" }, { x: 3, y: 15, color: "#513C38" }
+        ])
+    },
+
+    {
+        id: "user_stamp_18",
+        name: "Eyeball",
+        category: "Imported",
+        width: 8,
+        height: 16,
+        data: createGrid(8, 16, [
+            { x: 5, y: 3, color: "#41FFFF" }, { x: 5, y: 4, color: "#18FFFF" }, { x: 6, y: 4, color: "#2B1900" }, { x: 4, y: 5, color: "#00B8D4" }, { x: 5, y: 5, color: "#2B1900" }, { x: 6, y: 5, color: "#2B1900" }, { x: 2, y: 6, color: "#E9FDFF" }, { x: 3, y: 6, color: "#7BFFFF" }, { x: 4, y: 6, color: "#2F1F08" }, { x: 5, y: 6, color: "#08E5F1" }, { x: 6, y: 6, color: "#3D2D16" }, { x: 1, y: 7, color: "#00F2FF" }, { x: 2, y: 7, color: "#00B8D4" }, { x: 3, y: 7, color: "#18FFFF" }, { x: 4, y: 7, color: "#00F2FF" }, { x: 5, y: 7, color: "#2B1900" }, { x: 1, y: 8, color: "#ABF2F6" }, { x: 2, y: 8, color: "#0EABAB" }, { x: 3, y: 8, color: "#3E8D91" }, { x: 4, y: 8, color: "#716454" }, { x: 0, y: 9, color: "#00D9E5" }, { x: 1, y: 9, color: "#00D9E5" }, { x: 2, y: 9, color: "#5C5C5C" }, { x: 3, y: 9, color: "#5C5C5C" }, { x: 0, y: 10, color: "#00F2FF" }, { x: 1, y: 10, color: "#5C5C5C" }, { x: 2, y: 10, color: "#5C5C5C" }, { x: 0, y: 11, color: "#525252" }, { x: 1, y: 11, color: "#5C5C5C" }, { x: 0, y: 12, color: "#525252" }
+        ])
+    },
+
+    {
+        id: "user_stamp_19",
+        name: "Halloween Pumpkin",
+        category: "Imported",
+        width: 5,
+        height: 16,
+        data: createGrid(5, 16, [
+            { x: 0, y: 0, color: "#787878" }, { x: 3, y: 8, color: "#131326" }, { x: 4, y: 8, color: "#131326" }, { x: 4, y: 9, color: "#E0E0E0" }, { x: 4, y: 10, color: "#F5F5F5" }
+        ])
+    },
+
+    {
+        id: "user_stamp_20",
+        name: "Tree",
+        category: "Imported",
+        width: 7,
+        height: 16,
+        data: createGrid(7, 16, [
+            { x: 0, y: 6, color: "#D5D5D8" }, { x: 1, y: 6, color: "#C3C3C8" }, { x: 0, y: 7, color: "#EFEFEF" }, { x: 1, y: 7, color: "#555563" }, { x: 0, y: 8, color: "#F5F5F5" }, { x: 1, y: 8, color: "#565663" }, { x: 2, y: 8, color: "#BEBEC4" }, { x: 0, y: 9, color: "#EEEEEE" }, { x: 2, y: 9, color: "#F5F5F5" }, { x: 0, y: 10, color: "#F5F5F5" }, { x: 1, y: 10, color: "#E0E0E0" }, { x: 2, y: 10, color: "#F5F5F5" }, { x: 0, y: 11, color: "#E5E5E5" }, { x: 1, y: 11, color: "#EEEEEE" }, { x: 2, y: 11, color: "#73737E" }, { x: 0, y: 12, color: "#F5F5F5" }, { x: 1, y: 12, color: "#EEEEEE" }, { x: 0, y: 13, color: "#F5F5F5" }, { x: 1, y: 13, color: "#B9B9BF" }, { x: 0, y: 14, color: "#EEEEEE" }, { x: 1, y: 14, color: "#B9B9BF" }, { x: 0, y: 15, color: "#EEEEEE" }
+        ])
+    },
+
+    {
+        id: "user_stamp_21",
+        name: "Pine Tree",
+        category: "Imported",
+        width: 12,
+        height: 16,
+        data: createGrid(12, 16, [
+            { x: 3, y: 0, color: "#FBEBC6" }, { x: 4, y: 0, color: "#FFFFC5" }, { x: 5, y: 0, color: "#FFFFC5" }, { x: 6, y: 0, color: "#FFFFC5" }, { x: 7, y: 0, color: "#FBEDC6" }, { x: 8, y: 0, color: "#FBEBC6" }, { x: 9, y: 0, color: "#FBEBC6" }, { x: 3, y: 1, color: "#EDA807" }, { x: 4, y: 1, color: "#FFFF00" }, { x: 5, y: 1, color: "#FFFF00" }, { x: 6, y: 1, color: "#FFFF00" }, { x: 7, y: 1, color: "#EFB204" }, { x: 8, y: 1, color: "#EDA705" }, { x: 9, y: 1, color: "#EDA705" }, { x: 1, y: 2, color: "#EEAB12" }, { x: 2, y: 2, color: "#FFFD00" }, { x: 3, y: 2, color: "#FFF8DF" }, { x: 4, y: 2, color: "#FFF8E1" }, { x: 5, y: 2, color: "#FFF8E1" }, { x: 6, y: 2, color: "#FFF8E1" }, { x: 7, y: 2, color: "#FFF8E1" }, { x: 8, y: 2, color: "#FFF8E1" }, { x: 9, y: 2, color: "#FFF8E1" }, { x: 10, y: 2, color: "#FFFF00" }, { x: 11, y: 2, color: "#EDA705" }, { x: 0, y: 3, color: "#EDA705" }, { x: 1, y: 3, color: "#FEF4D6" }, { x: 2, y: 3, color: "#FFF8E1" }, { x: 3, y: 3, color: "#FFFF02" }, { x: 4, y: 3, color: "#EDA705" }, { x: 5, y: 3, color: "#EDA705" }, { x: 6, y: 3, color: "#EDA705" }, { x: 7, y: 3, color: "#E39E05" }, { x: 8, y: 3, color: "#EDA705" }, { x: 9, y: 3, color: "#EDA705" }, { x: 10, y: 3, color: "#FFFF00" }, { x: 11, y: 3, color: "#FFFF00" }, { x: 0, y: 4, color: "#FFFF00" }, { x: 1, y: 4, color: "#FFF8D6" }, { x: 2, y: 4, color: "#EDA90B" }, { x: 3, y: 4, color: "#9F6106" }, { x: 8, y: 4, color: "#74501F" }, { x: 9, y: 4, color: "#633B03" }, { x: 10, y: 4, color: "#EDA705" }, { x: 11, y: 4, color: "#FFFF00" }, { x: 0, y: 5, color: "#FFF8E1" }, { x: 1, y: 5, color: "#FFFF0B" }, { x: 2, y: 5, color: "#674003" }, { x: 10, y: 5, color: "#633B03" }, { x: 11, y: 5, color: "#EDA705" }, { x: 0, y: 6, color: "#FFFF00" }, { x: 1, y: 6, color: "#EEAB05" }, { x: 2, y: 6, color: "#FFFDF8" }, { x: 11, y: 6, color: "#EDA705" }, { x: 0, y: 7, color: "#FFFF00" }, { x: 1, y: 7, color: "#FFFFF2" }, { x: 11, y: 7, color: "#9E6106" }, { x: 0, y: 8, color: "#EDA705" }, { x: 1, y: 8, color: "#FEFBF2" }, { x: 0, y: 9, color: "#EDA705" }, { x: 1, y: 9, color: "#FEFBF2" }, { x: 0, y: 10, color: "#FFFF00" }, { x: 1, y: 10, color: "#FFFFF2" }, { x: 11, y: 10, color: "#EDA705" }, { x: 0, y: 11, color: "#FFFF00" }, { x: 1, y: 11, color: "#FFFF00" }, { x: 2, y: 11, color: "#FFFFF8" }, { x: 11, y: 11, color: "#FFFF00" }, { x: 0, y: 12, color: "#EDA705" }, { x: 1, y: 12, color: "#FEFB00" }, { x: 2, y: 12, color: "#FFFF00" }, { x: 10, y: 12, color: "#FFFF00" }, { x: 11, y: 12, color: "#FFF8E1" }, { x: 0, y: 13, color: "#9E6106" }, { x: 1, y: 13, color: "#E9A305" }, { x: 2, y: 13, color: "#FFF6DB" }, { x: 3, y: 13, color: "#FFFF02" }, { x: 8, y: 13, color: "#FFF9E4" }, { x: 9, y: 13, color: "#FFF8E1" }, { x: 10, y: 13, color: "#FFF8E1" }, { x: 11, y: 13, color: "#FFFF00" }, { x: 0, y: 14, color: "#995E06" }, { x: 1, y: 14, color: "#E29E05" }, { x: 2, y: 14, color: "#FDEFC9" }, { x: 3, y: 14, color: "#FFFF02" }, { x: 8, y: 14, color: "#FFF9E6" }, { x: 9, y: 14, color: "#FFF9E4" }, { x: 10, y: 14, color: "#FDF1CE" }, { x: 11, y: 14, color: "#F7F100" }, { x: 1, y: 15, color: "#6B4510" }, { x: 2, y: 15, color: "#633B03" }, { x: 3, y: 15, color: "#9E6106" }, { x: 4, y: 15, color: "#9E6106" }, { x: 5, y: 15, color: "#9E6106" }, { x: 6, y: 15, color: "#EDA705" }, { x: 7, y: 15, color: "#EDA705" }, { x: 8, y: 15, color: "#A76906" }, { x: 9, y: 15, color: "#9E6106" }, { x: 10, y: 15, color: "#633B03" }, { x: 11, y: 15, color: "#633B03" }
+        ])
+    },
+
+    {
+        id: "user_stamp_22",
+        name: "Halloween Spider",
+        category: "Imported",
+        width: 8,
+        height: 16,
+        data: createGrid(8, 16, [
+            { x: 3, y: 0, color: "#292929" }, { x: 4, y: 0, color: "#292929" }, { x: 5, y: 0, color: "#292929" }, { x: 6, y: 0, color: "#292929" }, { x: 1, y: 1, color: "#000000" }, { x: 2, y: 1, color: "#000000" }, { x: 7, y: 1, color: "#000000" }, { x: 0, y: 2, color: "#797979" }, { x: 0, y: 3, color: "#F6F1F1" }, { x: 2, y: 3, color: "#FDE7E6" }, { x: 0, y: 4, color: "#F9D6D4" }, { x: 0, y: 5, color: "#F3F3F3" }, { x: 7, y: 7, color: "#6A251F" }, { x: 6, y: 8, color: "#F0E9E8" }, { x: 7, y: 8, color: "#641C16" }, { x: 6, y: 9, color: "#F0E9E8" }, { x: 7, y: 9, color: "#641C16" }, { x: 6, y: 10, color: "#F9F6F6" }, { x: 7, y: 10, color: "#641C16" }, { x: 7, y: 11, color: "#641C16" }, { x: 0, y: 12, color: "#FEF5F4" }, { x: 0, y: 13, color: "#F4EDED" }, { x: 0, y: 14, color: "#EEEEEE" }, { x: 2, y: 14, color: "#FCD0CD" }, { x: 0, y: 15, color: "#000000" }, { x: 1, y: 15, color: "#EEEEEE" }, { x: 2, y: 15, color: "#EEEEEE" }, { x: 3, y: 15, color: "#F7F7F7" }, { x: 4, y: 15, color: "#FCD0CD" }
+        ])
+    },
+
+    {
+        id: "user_stamp_23",
+        name: "Grass",
+        category: "Imported",
+        width: 7,
+        height: 16,
+        data: createGrid(7, 16, [
+            { x: 0, y: 0, color: "#565656" }, { x: 6, y: 4, color: "#D9F9A5" }, { x: 5, y: 5, color: "#8FDC3E" }, { x: 6, y: 5, color: "#2B854B" }, { x: 4, y: 6, color: "#52A745" }, { x: 5, y: 6, color: "#8EDA3B" }, { x: 6, y: 6, color: "#5DB043" }, { x: 4, y: 7, color: "#7ABD45" }, { x: 5, y: 7, color: "#339054" }, { x: 6, y: 7, color: "#2B854B" }, { x: 3, y: 8, color: "#A5E264" }, { x: 4, y: 8, color: "#7FCE3F" }, { x: 5, y: 8, color: "#A2E257" }, { x: 6, y: 8, color: "#4BA34D" }, { x: 3, y: 9, color: "#429947" }, { x: 4, y: 9, color: "#2F884A" }, { x: 5, y: 9, color: "#2F894B" }, { x: 6, y: 9, color: "#2F884A" }, { x: 3, y: 10, color: "#50636D" }, { x: 4, y: 10, color: "#264D4A" }, { x: 5, y: 10, color: "#223A47" }, { x: 6, y: 10, color: "#4C1A3A" }, { x: 4, y: 11, color: "#D8DCDF" }, { x: 5, y: 11, color: "#50636D" }, { x: 6, y: 11, color: "#50636D" }, { x: 6, y: 14, color: "#B3E67B" }, { x: 6, y: 15, color: "#339054" }
+        ])
+    },
+
+    {
+        id: "user_stamp_24",
+        name: "Cat",
+        category: "Imported",
+        width: 6,
+        height: 16,
+        data: createGrid(6, 16, [
+            { x: 0, y: 4, color: "#2E894E" }, { x: 1, y: 4, color: "#223A47" }, { x: 0, y: 5, color: "#2D884D" }, { x: 1, y: 5, color: "#29714A" }, { x: 2, y: 5, color: "#2B854B" }, { x: 0, y: 6, color: "#223A47" }, { x: 1, y: 6, color: "#276049" }, { x: 2, y: 6, color: "#223A47" }, { x: 0, y: 7, color: "#6FC347" }, { x: 1, y: 7, color: "#8EDA3B" }, { x: 2, y: 7, color: "#2B854B" }, { x: 3, y: 7, color: "#223A47" }, { x: 0, y: 8, color: "#76C641" }, { x: 1, y: 8, color: "#4BA34D" }, { x: 2, y: 8, color: "#339054" }, { x: 3, y: 8, color: "#2F7951" }, { x: 0, y: 9, color: "#4EA449" }, { x: 1, y: 9, color: "#339054" }, { x: 2, y: 9, color: "#339054" }, { x: 3, y: 9, color: "#223D47" }, { x: 4, y: 9, color: "#223A47" }, { x: 0, y: 10, color: "#223A47" }, { x: 1, y: 10, color: "#223A47" }, { x: 2, y: 10, color: "#223A47" }, { x: 3, y: 10, color: "#2B854B" }, { x: 0, y: 11, color: "#714963" }, { x: 1, y: 11, color: "#50636D" }, { x: 2, y: 11, color: "#223A47" }, { x: 0, y: 12, color: "#883946" }, { x: 0, y: 15, color: "#8EDA3B" }
+        ])
+    },
+
+    {
+        id: "user_stamp_25",
+        name: "Sun",
+        category: "Imported",
+        width: 2,
+        height: 2,
+        data: createGrid(2, 2, [
+            { x: 0, y: 0, color: "#D7D7D7" }, { x: 0, y: 1, color: "#585858" }, { x: 1, y: 1, color: "#BEBEBE" }
+        ])
+    },
+
+    {
+        id: "user_stamp_26",
+        name: "Snowflake",
+        category: "Imported",
+        width: 3,
+        height: 3,
+        data: createGrid(3, 3, [
+            { x: 2, y: 0, color: "#E5E5E5" }, { x: 2, y: 1, color: "#9C9C9C" }, { x: 0, y: 2, color: "#E8E8E8" }, { x: 1, y: 2, color: "#939393" }, { x: 2, y: 2, color: "#434343" }
+        ])
+    },
+
+    {
+        id: "user_stamp_27",
+        name: "Gold Coin",
+        category: "Imported",
+        width: 2,
+        height: 3,
+        data: createGrid(2, 3, [
+            { x: 0, y: 0, color: "#EAEAEA" }, { x: 0, y: 1, color: "#B0B0B0" }, { x: 0, y: 2, color: "#4A4A4A" }, { x: 1, y: 2, color: "#A1A1A1" }
+        ])
+    },
+
+    {
+        id: "user_stamp_28",
+        name: "Palm Trees",
+        category: "Imported",
+        width: 2,
+        height: 2,
+        data: createGrid(2, 2, [
+            { x: 1, y: 0, color: "#C3C3C3" }, { x: 0, y: 1, color: "#AFAFAF" }, { x: 1, y: 1, color: "#515151" }
+        ])
+    },
+
+    {
+        id: "user_stamp_29",
+        name: "Santa Hat",
+        category: "Imported",
+        width: 5,
+        height: 2,
+        data: createGrid(5, 2, [
+            { x: 0, y: 0, color: "#D4D4D4" }, { x: 1, y: 0, color: "#BBBBBB" }, { x: 2, y: 0, color: "#C9C9C9" }, { x: 3, y: 0, color: "#979797" }, { x: 4, y: 0, color: "#BABABA" }, { x: 0, y: 1, color: "#F1F1F1" }, { x: 1, y: 1, color: "#AAAAAA" }, { x: 2, y: 1, color: "#969696" }, { x: 3, y: 1, color: "#B4B4B4" }, { x: 4, y: 1, color: "#F0F0F0" }
+        ])
+    },
+
+    {
+        id: "user_stamp_30",
+        name: "Wooden Plank",
+        category: "Imported",
+        width: 3,
+        height: 2,
+        data: createGrid(3, 2, [
+            { x: 0, y: 0, color: "#E4E4E4" }, { x: 1, y: 0, color: "#AAAAAA" }, { x: 2, y: 0, color: "#A8A8A8" }, { x: 0, y: 1, color: "#C5C5C5" }, { x: 1, y: 1, color: "#A0A0A0" }, { x: 2, y: 1, color: "#EDEDED" }
+        ])
+    },
+
+    {
+        id: "user_stamp_31",
+        name: "Heart (Pink)",
+        category: "Imported",
+        width: 3,
+        height: 3,
+        data: createGrid(3, 3, [
+            { x: 0, y: 0, color: "#DFDFDF" }, { x: 0, y: 1, color: "#868686" }, { x: 0, y: 2, color: "#3B3B3B" }, { x: 1, y: 2, color: "#838383" }, { x: 2, y: 2, color: "#DFDFDF" }
+        ])
+    },
+
+    {
+        id: "user_stamp_32",
+        name: "Castle",
+        category: "Imported",
+        width: 1,
+        height: 1,
+        data: createGrid(1, 1, [
+            { x: 0, y: 0, color: "#C9C9C9" }
+        ])
+    },
+
+    {
+        id: "user_stamp_33",
+        name: "Moon",
+        category: "Imported",
+        width: 2,
+        height: 16,
+        data: createGrid(2, 16, [
+            { x: 0, y: 0, color: "#CDCDCD" }
+        ])
+    },
+
+    {
+        id: "user_stamp_34",
+        name: "Four Leaf Clover",
+        category: "Imported",
+        width: 5,
+        height: 16,
+        data: createGrid(5, 16, [
+            { x: 0, y: 2, color: "#2EB34F" }, { x: 0, y: 3, color: "#0B4019" }, { x: 0, y: 4, color: "#0B4019" }, { x: 1, y: 4, color: "#0B4019" }, { x: 0, y: 5, color: "#0B4019" }, { x: 1, y: 5, color: "#0B4019" }, { x: 2, y: 5, color: "#0B4019" }, { x: 0, y: 6, color: "#2EB34F" }, { x: 1, y: 6, color: "#2EB34F" }, { x: 2, y: 6, color: "#156E2E" }, { x: 0, y: 7, color: "#2EB34F" }, { x: 1, y: 7, color: "#156E2E" }, { x: 0, y: 8, color: "#2EB34F" }, { x: 1, y: 8, color: "#0B4019" }, { x: 2, y: 8, color: "#0B4019" }, { x: 0, y: 9, color: "#21140E" }, { x: 0, y: 10, color: "#382117" }, { x: 1, y: 13, color: "#F0F0F0" }, { x: 2, y: 13, color: "#636363" }
+        ])
+    },
+
+    {
+        id: "user_stamp_35",
+        name: "Brick",
+        category: "Imported",
+        width: 3,
+        height: 16,
+        data: createGrid(3, 16, [
+            { x: 0, y: 0, color: "#9F9F9F" }, { x: 2, y: 3, color: "#B8E7FC" }, { x: 2, y: 4, color: "#B3E5FC" }, { x: 2, y: 6, color: "#B3E5FC" }, { x: 1, y: 7, color: "#B3E5FC" }, { x: 2, y: 9, color: "#B3E5FC" }
+        ])
+    },
+
+    {
+        id: "user_stamp_36",
+        name: "St. Patrick's TopHat",
+        category: "Imported",
+        width: 3,
+        height: 16,
+        data: createGrid(3, 16, [
+            { x: 1, y: 4, color: "#B3E5FC" }, { x: 0, y: 5, color: "#B3E5FC" }, { x: 0, y: 6, color: "#B3E5FC" }, { x: 1, y: 6, color: "#B3E5FC" }, { x: 2, y: 7, color: "#B3E5FC" }, { x: 0, y: 8, color: "#B3E5FC" }, { x: 1, y: 9, color: "#B3E5FC" }, { x: 0, y: 13, color: "#464646" }
+        ])
+    },
+
+    {
+        id: "user_stamp_37",
+        name: "Basketball",
+        category: "Imported",
+        width: 8,
+        height: 15,
+        data: createGrid(8, 15, [
+            { x: 3, y: 0, color: "#FAF7EE" }, { x: 4, y: 0, color: "#FAF7EE" }, { x: 5, y: 0, color: "#FAF7EE" }, { x: 1, y: 1, color: "#B28604" }, { x: 2, y: 1, color: "#B28604" }, { x: 3, y: 1, color: "#FF9800" }, { x: 4, y: 1, color: "#FF9800" }, { x: 5, y: 1, color: "#FF9800" }, { x: 6, y: 1, color: "#B28604" }, { x: 7, y: 1, color: "#B28604" }, { x: 0, y: 2, color: "#B28604" }, { x: 1, y: 2, color: "#FFEB3B" }, { x: 2, y: 2, color: "#FFC107" }, { x: 3, y: 2, color: "#FFC107" }, { x: 4, y: 2, color: "#FFC107" }, { x: 5, y: 2, color: "#FFC107" }, { x: 6, y: 2, color: "#FF9800" }, { x: 7, y: 2, color: "#FF9800" }, { x: 0, y: 3, color: "#FFEB3B" }, { x: 1, y: 3, color: "#FFC107" }, { x: 2, y: 3, color: "#FFC107" }, { x: 3, y: 3, color: "#FFEB3B" }, { x: 4, y: 3, color: "#FF9800" }, { x: 5, y: 3, color: "#FFC107" }, { x: 6, y: 3, color: "#FFC107" }, { x: 7, y: 3, color: "#FFC107" }, { x: 0, y: 4, color: "#FFC107" }, { x: 1, y: 4, color: "#FFC107" }, { x: 2, y: 4, color: "#FFC107" }, { x: 3, y: 4, color: "#FFEB3B" }, { x: 4, y: 4, color: "#FF9800" }, { x: 5, y: 4, color: "#FFC107" }, { x: 6, y: 4, color: "#FFC107" }, { x: 7, y: 4, color: "#FFC107" }, { x: 0, y: 5, color: "#FFC107" }, { x: 1, y: 5, color: "#FFC107" }, { x: 2, y: 5, color: "#FFC107" }, { x: 3, y: 5, color: "#FFEB3B" }, { x: 4, y: 5, color: "#FF9800" }, { x: 5, y: 5, color: "#FFC107" }, { x: 6, y: 5, color: "#FFC107" }, { x: 7, y: 5, color: "#FFC107" }, { x: 0, y: 6, color: "#FFC107" }, { x: 1, y: 6, color: "#FFC107" }, { x: 2, y: 6, color: "#FFC107" }, { x: 3, y: 6, color: "#FFEB3B" }, { x: 4, y: 6, color: "#FF9800" }, { x: 5, y: 6, color: "#FFC107" }, { x: 6, y: 6, color: "#FFC107" }, { x: 7, y: 6, color: "#FFC107" }, { x: 0, y: 7, color: "#FFC107" }, { x: 1, y: 7, color: "#FFC107" }, { x: 2, y: 7, color: "#FFC107" }, { x: 3, y: 7, color: "#FFEB3B" }, { x: 4, y: 7, color: "#FF9800" }, { x: 5, y: 7, color: "#FFC107" }, { x: 6, y: 7, color: "#FFC107" }, { x: 7, y: 7, color: "#FFC107" }, { x: 0, y: 8, color: "#FF9800" }, { x: 1, y: 8, color: "#FFC107" }, { x: 2, y: 8, color: "#FFC107" }, { x: 3, y: 8, color: "#FFEB3B" }, { x: 4, y: 8, color: "#FF9800" }, { x: 5, y: 8, color: "#FFC107" }, { x: 6, y: 8, color: "#FFC107" }, { x: 7, y: 8, color: "#FFC107" }, { x: 0, y: 9, color: "#B28604" }, { x: 1, y: 9, color: "#FF9800" }, { x: 2, y: 9, color: "#FF9800" }, { x: 3, y: 9, color: "#FFC107" }, { x: 4, y: 9, color: "#FFC107" }, { x: 5, y: 9, color: "#FFC107" }, { x: 6, y: 9, color: "#FF9800" }, { x: 7, y: 9, color: "#FF9800" }, { x: 1, y: 10, color: "#FBF8F1" }, { x: 2, y: 10, color: "#FBF8F1" }, { x: 3, y: 10, color: "#B68704" }, { x: 4, y: 10, color: "#B68704" }, { x: 5, y: 10, color: "#B68704" }, { x: 6, y: 10, color: "#FBF8F1" }, { x: 7, y: 10, color: "#FBF8F1" }, { x: 2, y: 14, color: "#B1B1B1" }, { x: 3, y: 14, color: "#C6C6C6" }, { x: 5, y: 14, color: "#CECECE" }, { x: 6, y: 14, color: "#AEAEAE" }
+        ])
+    },
+
+    {
+        id: "user_stamp_38",
+        name: "Portal",
+        category: "Imported",
+        width: 5,
+        height: 16,
+        data: createGrid(5, 16, [
+            { x: 0, y: 0, color: "#000000" }, { x: 0, y: 1, color: "#959595" }, { x: 1, y: 1, color: "#A0A0A0" }, { x: 2, y: 1, color: "#A5A5A5" }, { x: 1, y: 2, color: "#000000" }, { x: 2, y: 2, color: "#000000" }, { x: 0, y: 3, color: "#E5E5E5" }, { x: 1, y: 3, color: "#070707" }, { x: 2, y: 3, color: "#DEDEDE" }, { x: 3, y: 3, color: "#212121" }, { x: 0, y: 4, color: "#C9C9C9" }, { x: 4, y: 4, color: "#474747" }, { x: 3, y: 5, color: "#000000" }, { x: 4, y: 5, color: "#000000" }, { x: 3, y: 6, color: "#000000" }, { x: 4, y: 6, color: "#9B9B9B" }, { x: 1, y: 7, color: "#383838" }, { x: 4, y: 7, color: "#383838" }, { x: 1, y: 8, color: "#000000" }, { x: 1, y: 9, color: "#C7C7C7" }, { x: 3, y: 9, color: "#000000" }, { x: 2, y: 10, color: "#505050" }, { x: 3, y: 10, color: "#000000" }, { x: 2, y: 11, color: "#000000" }, { x: 3, y: 11, color: "#000000" }, { x: 3, y: 12, color: "#000000" }, { x: 4, y: 12, color: "#808080" }, { x: 0, y: 15, color: "#D6D6D6" }, { x: 2, y: 15, color: "#E5E5E5" }, { x: 3, y: 15, color: "#E5E5E5" }, { x: 4, y: 15, color: "#F8F8F8" }
+        ])
+    },
+
+    {
+        id: "user_stamp_39",
+        name: "Normal Pokeball",
+        category: "Imported",
+        width: 4,
+        height: 16,
+        data: createGrid(4, 16, [
+            { x: 0, y: 0, color: "#6E6E6E" }, { x: 1, y: 2, color: "#E6C89B" }, { x: 2, y: 2, color: "#F5DBAE" }, { x: 3, y: 2, color: "#F5DBB0" }, { x: 1, y: 3, color: "#BD8F44" }, { x: 2, y: 3, color: "#D3AC6B" }, { x: 3, y: 3, color: "#D6B175" }, { x: 1, y: 4, color: "#BD8F44" }, { x: 2, y: 4, color: "#CFA35B" }, { x: 3, y: 4, color: "#CFA35B" }, { x: 1, y: 5, color: "#D4A257" }, { x: 2, y: 5, color: "#EBC178" }, { x: 3, y: 5, color: "#CFA35B" }, { x: 1, y: 6, color: "#AD7D30" }, { x: 2, y: 6, color: "#CFA35B" }, { x: 3, y: 6, color: "#CFA35B" }, { x: 1, y: 7, color: "#D4A257" }, { x: 2, y: 7, color: "#C89B52" }, { x: 3, y: 7, color: "#F0C87F" }, { x: 1, y: 8, color: "#B9893C" }, { x: 2, y: 8, color: "#D6AA62" }, { x: 3, y: 8, color: "#F0C884" }, { x: 1, y: 9, color: "#D4A257" }, { x: 2, y: 9, color: "#E4BA72" }, { x: 3, y: 9, color: "#F0C887" }, { x: 1, y: 10, color: "#D4A257" }, { x: 2, y: 10, color: "#EBC178" }, { x: 3, y: 10, color: "#F0C87F" }, { x: 2, y: 13, color: "#878787" }
+        ])
+    },
+
+    {
+        id: "user_stamp_40",
+        name: "Grass Block",
+        category: "Imported",
+        width: 4,
+        height: 15,
+        data: createGrid(4, 15, [
+            { x: 0, y: 0, color: "#F2D6A6" }, { x: 1, y: 0, color: "#F2D6A6" }, { x: 2, y: 0, color: "#F2D6A6" }, { x: 3, y: 0, color: "#E3C290" }, { x: 0, y: 1, color: "#F0C87F" }, { x: 1, y: 1, color: "#EBC178" }, { x: 2, y: 1, color: "#EBC178" }, { x: 3, y: 1, color: "#D9AC68" }, { x: 0, y: 2, color: "#F0C87F" }, { x: 1, y: 2, color: "#F0C87F" }, { x: 2, y: 2, color: "#EBC178" }, { x: 3, y: 2, color: "#D9AC68" }, { x: 0, y: 3, color: "#E7BE76" }, { x: 1, y: 3, color: "#E4B970" }, { x: 2, y: 3, color: "#E4B970" }, { x: 3, y: 3, color: "#D2A45F" }, { x: 0, y: 4, color: "#F7D18F" }, { x: 1, y: 4, color: "#EBC178" }, { x: 2, y: 4, color: "#CFA35B" }, { x: 3, y: 4, color: "#BD8F44" }, { x: 0, y: 5, color: "#DAAF67" }, { x: 1, y: 5, color: "#CFA35E" }, { x: 2, y: 5, color: "#CFA35E" }, { x: 3, y: 5, color: "#C89B52" }, { x: 0, y: 6, color: "#F7D18F" }, { x: 1, y: 6, color: "#F0C87F" }, { x: 2, y: 6, color: "#F0C87F" }, { x: 3, y: 6, color: "#D9AC68" }, { x: 0, y: 7, color: "#F7D18F" }, { x: 1, y: 7, color: "#EBC178" }, { x: 2, y: 7, color: "#EBC178" }, { x: 3, y: 7, color: "#BD8F44" }, { x: 0, y: 8, color: "#DCB26C" }, { x: 1, y: 8, color: "#D8AD64" }, { x: 2, y: 8, color: "#CEA25C" }, { x: 3, y: 8, color: "#C69850" }, { x: 0, y: 9, color: "#F7D18F" }, { x: 1, y: 9, color: "#EBC178" }, { x: 2, y: 9, color: "#D9AC68" }, { x: 3, y: 9, color: "#D9AC68" }, { x: 0, y: 10, color: "#E5BC77" }, { x: 1, y: 10, color: "#F4CD88" }, { x: 2, y: 10, color: "#DEB46D" }, { x: 3, y: 10, color: "#CA9C55" }, { x: 0, y: 11, color: "#CFA35B" }, { x: 1, y: 11, color: "#CFA35B" }, { x: 2, y: 11, color: "#CFA35B" }, { x: 3, y: 11, color: "#BD8F44" }, { x: 0, y: 14, color: "#ACACAC" }, { x: 2, y: 14, color: "#D3D3D3" }
+        ])
+    },
+
+    {
+        id: "user_stamp_41",
+        name: "Halloween Hand",
+        category: "Imported",
+        width: 14,
+        height: 16,
+        data: createGrid(14, 16, [
+            { x: 0, y: 0, color: "#5A5A5A" }, { x: 1, y: 0, color: "#F0F0F0" }, { x: 2, y: 0, color: "#F4F4F4" }, { x: 3, y: 0, color: "#F4F4F4" }, { x: 4, y: 0, color: "#F4F4F4" }, { x: 5, y: 0, color: "#F4F4F4" }, { x: 6, y: 0, color: "#F4F4F4" }, { x: 7, y: 0, color: "#F4F4F4" }, { x: 8, y: 0, color: "#F4F4F4" }, { x: 9, y: 0, color: "#F4F4F4" }, { x: 10, y: 0, color: "#F4F4F4" }, { x: 11, y: 0, color: "#F4F4F4" }, { x: 12, y: 0, color: "#F4F4F4" }, { x: 13, y: 0, color: "#F4F4F4" }, { x: 8, y: 12, color: "#880E4F" }, { x: 9, y: 12, color: "#880E4F" }, { x: 10, y: 12, color: "#880E4F" }, { x: 11, y: 12, color: "#880E4F" }, { x: 12, y: 12, color: "#880E4F" }, { x: 13, y: 12, color: "#880E4F" }, { x: 8, y: 13, color: "#880E4F" }, { x: 9, y: 13, color: "#880E4F" }, { x: 10, y: 13, color: "#880E4F" }, { x: 11, y: 13, color: "#880E4F" }, { x: 12, y: 13, color: "#880E4F" }, { x: 13, y: 13, color: "#880E4F" }, { x: 8, y: 14, color: "#880E4F" }, { x: 9, y: 14, color: "#880E4F" }, { x: 10, y: 14, color: "#880E4F" }, { x: 11, y: 14, color: "#880E4F" }, { x: 12, y: 14, color: "#880E4F" }, { x: 13, y: 14, color: "#880E4F" }, { x: 8, y: 15, color: "#880E4F" }, { x: 9, y: 15, color: "#880E4F" }, { x: 10, y: 15, color: "#880E4F" }, { x: 11, y: 15, color: "#880E4F" }, { x: 12, y: 15, color: "#880E4F" }, { x: 13, y: 15, color: "#880E4F" }
+        ])
+    },
+
+    {
+        id: "user_stamp_42",
+        name: "Lil Dogo",
+        category: "Imported",
+        width: 15,
+        height: 16,
+        data: createGrid(15, 16, [
+            { x: 0, y: 0, color: "#F4F4F4" }, { x: 1, y: 0, color: "#F4F4F4" }, { x: 2, y: 0, color: "#F4F4F4" }, { x: 3, y: 0, color: "#F4F4F4" }, { x: 4, y: 0, color: "#F4F4F4" }, { x: 5, y: 0, color: "#F4F4F4" }, { x: 6, y: 0, color: "#F4F4F4" }, { x: 7, y: 0, color: "#F4F4F4" }, { x: 8, y: 0, color: "#F4F4F4" }, { x: 9, y: 0, color: "#F4F4F4" }, { x: 10, y: 0, color: "#F4F4F4" }, { x: 11, y: 0, color: "#F4F4F4" }, { x: 12, y: 0, color: "#F4F4F4" }, { x: 13, y: 0, color: "#F4F4F4" }, { x: 14, y: 0, color: "#AFAFAF" }, { x: 0, y: 12, color: "#880E4F" }, { x: 1, y: 12, color: "#880E4F" }, { x: 2, y: 12, color: "#880E4F" }, { x: 3, y: 12, color: "#880E4F" }, { x: 4, y: 12, color: "#880E4F" }, { x: 5, y: 12, color: "#880E4F" }, { x: 6, y: 12, color: "#880E4F" }, { x: 0, y: 13, color: "#880E4F" }, { x: 1, y: 13, color: "#880E4F" }, { x: 2, y: 13, color: "#880E4F" }, { x: 3, y: 13, color: "#880E4F" }, { x: 4, y: 13, color: "#880E4F" }, { x: 5, y: 13, color: "#880E4F" }, { x: 6, y: 13, color: "#880E4F" }, { x: 0, y: 14, color: "#880E4F" }, { x: 1, y: 14, color: "#880E4F" }, { x: 2, y: 14, color: "#880E4F" }, { x: 3, y: 14, color: "#880E4F" }, { x: 4, y: 14, color: "#880E4F" }, { x: 5, y: 14, color: "#880E4F" }, { x: 6, y: 14, color: "#880E4F" }, { x: 0, y: 15, color: "#880E4F" }, { x: 1, y: 15, color: "#880E4F" }, { x: 2, y: 15, color: "#880E4F" }, { x: 3, y: 15, color: "#880E4F" }, { x: 4, y: 15, color: "#880E4F" }, { x: 5, y: 15, color: "#880E4F" }, { x: 6, y: 15, color: "#880E4F" }
+        ])
+    },
+
+    {
+        id: "user_stamp_43",
+        name: "Heart Bar",
+        category: "Imported",
+        width: 6,
+        height: 12,
+        data: createGrid(6, 12, [
+            { x: 1, y: 0, color: "#EDEDED" }, { x: 2, y: 0, color: "#3D3D3D" }, { x: 3, y: 0, color: "#DADADA" }, { x: 4, y: 0, color: "#DADADA" }, { x: 5, y: 0, color: "#DADADA" }, { x: 1, y: 1, color: "#EDEDED" }, { x: 2, y: 1, color: "#000000" }, { x: 3, y: 1, color: "#000000" }, { x: 4, y: 1, color: "#000000" }, { x: 5, y: 1, color: "#535353" }, { x: 1, y: 2, color: "#F7F7F7" }, { x: 2, y: 2, color: "#8F8F8F" }, { x: 3, y: 2, color: "#8F8F8F" }, { x: 4, y: 2, color: "#8F8F8F" }, { x: 5, y: 2, color: "#F5F5F5" }, { x: 1, y: 7, color: "#6E6E6E" }, { x: 1, y: 8, color: "#121212" }, { x: 1, y: 9, color: "#000000" }, { x: 2, y: 9, color: "#474747" }, { x: 0, y: 10, color: "#CACACA" }, { x: 1, y: 10, color: "#000000" }, { x: 2, y: 10, color: "#474747" }, { x: 0, y: 11, color: "#242424" }, { x: 1, y: 11, color: "#000000" }, { x: 2, y: 11, color: "#272727" }, { x: 3, y: 11, color: "#C4C4C4" }
+        ])
+    },
+
+    {
+        id: "user_stamp_44",
+        name: "Star (Blue)",
+        category: "Imported",
+        width: 12,
+        height: 16,
+        data: createGrid(12, 16, [
+            { x: 0, y: 0, color: "#535353" }, { x: 1, y: 0, color: "#EFEFEF" }, { x: 2, y: 0, color: "#F4F4F4" }, { x: 3, y: 0, color: "#F4F4F4" }, { x: 4, y: 0, color: "#F4F4F4" }, { x: 5, y: 0, color: "#F4F4F4" }, { x: 6, y: 0, color: "#F4F4F4" }, { x: 7, y: 0, color: "#F4F4F4" }, { x: 8, y: 0, color: "#F4F4F4" }, { x: 9, y: 0, color: "#F4F4F4" }, { x: 10, y: 0, color: "#F4F4F4" }, { x: 11, y: 0, color: "#F4F4F4" }, { x: 0, y: 1, color: "#F8F8F8" }, { x: 10, y: 14, color: "#8D8D8D" }, { x: 11, y: 14, color: "#8D8D8D" }, { x: 10, y: 15, color: "#757575" }, { x: 11, y: 15, color: "#757575" }
+        ])
+    },
+
+    {
+        id: "user_stamp_45",
+        name: "Grass Patch",
+        category: "Imported",
+        width: 12,
+        height: 16,
+        data: createGrid(12, 16, [
+            { x: 0, y: 0, color: "#F4F4F4" }, { x: 1, y: 0, color: "#F4F4F4" }, { x: 2, y: 0, color: "#F4F4F4" }, { x: 3, y: 0, color: "#F4F4F4" }, { x: 4, y: 0, color: "#F4F4F4" }, { x: 5, y: 0, color: "#F4F4F4" }, { x: 6, y: 0, color: "#F4F4F4" }, { x: 7, y: 0, color: "#F4F4F4" }, { x: 8, y: 0, color: "#F4F4F4" }, { x: 9, y: 0, color: "#F4F4F4" }, { x: 10, y: 0, color: "#F4F4F4" }, { x: 11, y: 0, color: "#EFEFEF" }, { x: 0, y: 13, color: "#9E9E9E" }, { x: 0, y: 14, color: "#9E9E9E" }, { x: 1, y: 14, color: "#AFAFAF" }, { x: 2, y: 14, color: "#AFAFAF" }, { x: 0, y: 15, color: "#9E9E9E" }, { x: 1, y: 15, color: "#9E9E9E" }, { x: 2, y: 15, color: "#9E9E9E" }
+        ])
+    },
+
+    {
+        id: "user_stamp_46",
+        name: "Halloween Bat",
+        category: "Imported",
+        width: 12,
+        height: 16,
+        data: createGrid(12, 16, [
+            { x: 0, y: 0, color: "#F4F4F4" }, { x: 1, y: 0, color: "#F4F4F4" }, { x: 2, y: 0, color: "#F4F4F4" }, { x: 3, y: 0, color: "#F4F4F4" }, { x: 4, y: 0, color: "#F4F4F4" }, { x: 5, y: 0, color: "#F4F4F4" }, { x: 6, y: 0, color: "#F4F4F4" }, { x: 7, y: 0, color: "#F4F4F4" }, { x: 8, y: 0, color: "#F4F4F4" }, { x: 9, y: 0, color: "#F4F4F4" }, { x: 10, y: 0, color: "#F4F4F4" }, { x: 11, y: 0, color: "#979797" }, { x: 0, y: 15, color: "#000000" }, { x: 1, y: 15, color: "#000000" }, { x: 2, y: 15, color: "#000000" }, { x: 3, y: 15, color: "#000000" }, { x: 4, y: 15, color: "#000000" }, { x: 5, y: 15, color: "#000000" }
+        ])
+    },
+
+    {
+        id: "user_stamp_47",
+        name: "Minecraft Alex",
+        category: "Imported",
+        width: 14,
+        height: 16,
+        data: createGrid(14, 16, [
+            { x: 0, y: 0, color: "#F4F4F4" }, { x: 1, y: 0, color: "#F4F4F4" }, { x: 2, y: 0, color: "#F4F4F4" }, { x: 3, y: 0, color: "#F4F4F4" }, { x: 4, y: 0, color: "#F4F4F4" }, { x: 5, y: 0, color: "#F4F4F4" }, { x: 6, y: 0, color: "#F4F4F4" }, { x: 7, y: 0, color: "#F4F4F4" }, { x: 8, y: 0, color: "#F4F4F4" }, { x: 9, y: 0, color: "#F4F4F4" }, { x: 10, y: 0, color: "#F4F4F4" }, { x: 11, y: 0, color: "#F4F4F4" }, { x: 12, y: 0, color: "#F4F4F4" }, { x: 13, y: 0, color: "#939393" }, { x: 0, y: 13, color: "#000000" }, { x: 1, y: 13, color: "#000000" }, { x: 2, y: 13, color: "#C5C5C5" }, { x: 0, y: 14, color: "#263A49" }, { x: 1, y: 14, color: "#000000" }, { x: 2, y: 14, color: "#232323" }, { x: 3, y: 14, color: "#2D2D2D" }, { x: 4, y: 14, color: "#ADADAD" }, { x: 0, y: 15, color: "#2E4659" }, { x: 1, y: 15, color: "#0B1116" }, { x: 2, y: 15, color: "#0B1116" }, { x: 3, y: 15, color: "#090E11" }, { x: 4, y: 15, color: "#9C9C9C" }
+        ])
+    },
+
+    {
+        id: "user_stamp_48",
+        name: "Capybara",
+        category: "Imported",
+        width: 10,
+        height: 16,
+        data: createGrid(10, 16, [
+            { x: 0, y: 0, color: "#4E4E4E" }, { x: 1, y: 0, color: "#EEEEEE" }, { x: 2, y: 0, color: "#F4F4F4" }, { x: 3, y: 0, color: "#F4F4F4" }, { x: 4, y: 0, color: "#F4F4F4" }, { x: 5, y: 0, color: "#F4F4F4" }, { x: 6, y: 0, color: "#F4F4F4" }, { x: 7, y: 0, color: "#F4F4F4" }, { x: 8, y: 0, color: "#F4F4F4" }, { x: 9, y: 0, color: "#F4F4F4" }, { x: 0, y: 1, color: "#F2F2F2" }, { x: 9, y: 15, color: "#FDDFC1" }
+        ])
+    },
+
+    {
+        id: "user_stamp_49",
+        name: "Dirt Block",
+        category: "Imported",
+        width: 11,
+        height: 16,
+        data: createGrid(11, 16, [
+            { x: 0, y: 0, color: "#F4F4F4" }, { x: 1, y: 0, color: "#F4F4F4" }, { x: 2, y: 0, color: "#F4F4F4" }, { x: 3, y: 0, color: "#F4F4F4" }, { x: 4, y: 0, color: "#F4F4F4" }, { x: 5, y: 0, color: "#F4F4F4" }, { x: 6, y: 0, color: "#F4F4F4" }, { x: 7, y: 0, color: "#F4F4F4" }, { x: 8, y: 0, color: "#F4F4F4" }, { x: 9, y: 0, color: "#F1F1F1" }, { x: 10, y: 0, color: "#6C6C6C" }, { x: 0, y: 15, color: "#F57C00" }, { x: 1, y: 15, color: "#FDDFC1" }
+        ])
+    },
+
+    {
+        id: "user_stamp_50",
+        name: "Tree (Small)",
+        category: "Imported",
+        width: 16,
+        height: 15,
+        data: createGrid(16, 15, [
+            { x: 0, y: 0, color: "#656565" }, { x: 1, y: 0, color: "#F1F1F1" }, { x: 2, y: 0, color: "#F4F4F4" }, { x: 3, y: 0, color: "#F4F4F4" }, { x: 4, y: 0, color: "#F4F4F4" }, { x: 5, y: 0, color: "#F4F4F4" }, { x: 6, y: 0, color: "#F4F4F4" }, { x: 7, y: 0, color: "#F4F4F4" }, { x: 8, y: 0, color: "#F4F4F4" }, { x: 9, y: 0, color: "#F4F4F4" }, { x: 10, y: 0, color: "#F4F4F4" }, { x: 11, y: 0, color: "#F4F4F4" }, { x: 12, y: 0, color: "#F4F4F4" }, { x: 13, y: 0, color: "#F4F4F4" }, { x: 14, y: 0, color: "#F4F4F4" }, { x: 15, y: 0, color: "#F4F4F4" }, { x: 12, y: 11, color: "#79AFAC" }, { x: 13, y: 11, color: "#79AFAC" }, { x: 14, y: 11, color: "#79AFAC" }, { x: 15, y: 11, color: "#79AFAC" }, { x: 12, y: 12, color: "#529894" }, { x: 13, y: 12, color: "#529894" }, { x: 14, y: 12, color: "#529894" }, { x: 15, y: 12, color: "#529894" }, { x: 9, y: 13, color: "#F3F8F8" }, { x: 10, y: 13, color: "#95C0BD" }, { x: 11, y: 13, color: "#95C0BD" }, { x: 12, y: 13, color: "#529894" }, { x: 13, y: 13, color: "#529894" }, { x: 14, y: 13, color: "#529894" }, { x: 15, y: 13, color: "#529894" }, { x: 9, y: 14, color: "#EDF4F4" }, { x: 10, y: 14, color: "#529894" }, { x: 11, y: 14, color: "#529894" }, { x: 12, y: 14, color: "#529894" }, { x: 13, y: 14, color: "#529894" }, { x: 14, y: 14, color: "#529894" }, { x: 15, y: 14, color: "#529894" }
+        ])
+    },
+
+    {
+        id: "user_stamp_51",
+        name: "Karis Li Duck",
+        category: "Imported",
+        width: 16,
+        height: 11,
+        data: createGrid(16, 11, [
+            { x: 0, y: 0, color: "#585858" }, { x: 1, y: 0, color: "#F0F0F0" }, { x: 2, y: 0, color: "#F4F4F4" }, { x: 3, y: 0, color: "#F4F4F4" }, { x: 4, y: 0, color: "#F4F4F4" }, { x: 5, y: 0, color: "#F4F4F4" }, { x: 6, y: 0, color: "#F4F4F4" }, { x: 7, y: 0, color: "#F4F4F4" }, { x: 8, y: 0, color: "#F4F4F4" }, { x: 9, y: 0, color: "#F4F4F4" }, { x: 10, y: 0, color: "#F4F4F4" }, { x: 11, y: 0, color: "#F4F4F4" }, { x: 12, y: 0, color: "#F4F4F4" }, { x: 13, y: 0, color: "#F4F4F4" }, { x: 14, y: 0, color: "#F4F4F4" }, { x: 15, y: 0, color: "#F4F4F4" }, { x: 3, y: 7, color: "#74B44A" }, { x: 4, y: 7, color: "#74B44A" }, { x: 5, y: 7, color: "#76B64C" }, { x: 6, y: 7, color: "#74B44A" }, { x: 7, y: 7, color: "#73B349" }, { x: 8, y: 7, color: "#66A63C" }, { x: 9, y: 7, color: "#66A63C" }, { x: 10, y: 7, color: "#66A63C" }, { x: 11, y: 7, color: "#6AAA40" }, { x: 12, y: 7, color: "#6FAF45" }, { x: 13, y: 7, color: "#5F9F35" }, { x: 14, y: 7, color: "#5F9F35" }, { x: 15, y: 7, color: "#6CAC42" }, { x: 3, y: 8, color: "#74B44A" }, { x: 4, y: 8, color: "#74B44A" }, { x: 5, y: 8, color: "#76B64C" }, { x: 6, y: 8, color: "#74B44A" }, { x: 7, y: 8, color: "#73B349" }, { x: 8, y: 8, color: "#66A63C" }, { x: 9, y: 8, color: "#66A63C" }, { x: 10, y: 8, color: "#66A63C" }, { x: 11, y: 8, color: "#6AAA40" }, { x: 12, y: 8, color: "#6FAF45" }, { x: 13, y: 8, color: "#5F9F35" }, { x: 14, y: 8, color: "#5F9F35" }, { x: 15, y: 8, color: "#6CAC42" }, { x: 3, y: 9, color: "#75B54B" }, { x: 4, y: 9, color: "#75B54B" }, { x: 5, y: 9, color: "#6CAC42" }, { x: 6, y: 9, color: "#7CB34E" }, { x: 7, y: 9, color: "#8AB95A" }, { x: 8, y: 9, color: "#81B051" }, { x: 9, y: 9, color: "#81B051" }, { x: 10, y: 9, color: "#83B253" }, { x: 11, y: 9, color: "#707D40" }, { x: 12, y: 9, color: "#593D29" }, { x: 13, y: 9, color: "#68A83E" }, { x: 14, y: 9, color: "#68A83E" }, { x: 15, y: 9, color: "#62A238" }, { x: 3, y: 10, color: "#8DBC5D" }, { x: 4, y: 10, color: "#8DBC5D" }, { x: 5, y: 10, color: "#593D29" }, { x: 6, y: 10, color: "#7C864C" }, { x: 7, y: 10, color: "#9CCA6C" }, { x: 8, y: 10, color: "#64A43A" }, { x: 9, y: 10, color: "#64A43A" }, { x: 10, y: 10, color: "#69A93F" }, { x: 11, y: 10, color: "#627835" }, { x: 12, y: 10, color: "#593D29" }, { x: 13, y: 10, color: "#70B046" }, { x: 14, y: 10, color: "#70B046" }, { x: 15, y: 10, color: "#593D29" }
+        ])
+    },
+
+    {
+        id: "user_stamp_52",
+        name: "Sword Of Darkness",
+        category: "Imported",
+        width: 16,
+        height: 13,
+        data: createGrid(16, 13, [
+            { x: 0, y: 0, color: "#F4F4F4" }, { x: 1, y: 0, color: "#F4F4F4" }, { x: 2, y: 0, color: "#F4F4F4" }, { x: 3, y: 0, color: "#F4F4F4" }, { x: 4, y: 0, color: "#F4F4F4" }, { x: 5, y: 0, color: "#F4F4F4" }, { x: 6, y: 0, color: "#F4F4F4" }, { x: 7, y: 0, color: "#F4F4F4" }, { x: 8, y: 0, color: "#F4F4F4" }, { x: 9, y: 0, color: "#F4F4F4" }, { x: 10, y: 0, color: "#F4F4F4" }, { x: 11, y: 0, color: "#F4F4F4" }, { x: 12, y: 0, color: "#F4F4F4" }, { x: 13, y: 0, color: "#F4F4F4" }, { x: 14, y: 0, color: "#F4F4F4" }, { x: 15, y: 0, color: "#EEEEEE" }, { x: 0, y: 8, color: "#7FBB58" }, { x: 1, y: 8, color: "#77B350" }, { x: 2, y: 8, color: "#74B04D" }, { x: 3, y: 8, color: "#72AE4B" }, { x: 4, y: 8, color: "#71AD4A" }, { x: 5, y: 8, color: "#73AE4B" }, { x: 6, y: 8, color: "#73AF4C" }, { x: 7, y: 8, color: "#6DA845" }, { x: 8, y: 8, color: "#6BA744" }, { x: 9, y: 8, color: "#609C39" }, { x: 10, y: 8, color: "#5C9734" }, { x: 11, y: 8, color: "#70AC49" }, { x: 12, y: 8, color: "#77B24F" }, { x: 13, y: 8, color: "#E3EFDB" }, { x: 0, y: 9, color: "#76B64C" }, { x: 1, y: 9, color: "#6EAE43" }, { x: 2, y: 9, color: "#6AAA40" }, { x: 3, y: 9, color: "#68A83E" }, { x: 4, y: 9, color: "#67A73D" }, { x: 5, y: 9, color: "#69A93F" }, { x: 6, y: 9, color: "#69A93F" }, { x: 7, y: 9, color: "#62A238" }, { x: 8, y: 9, color: "#61A137" }, { x: 9, y: 9, color: "#55952B" }, { x: 10, y: 9, color: "#509026" }, { x: 11, y: 9, color: "#66A63C" }, { x: 12, y: 9, color: "#6DAD43" }, { x: 13, y: 9, color: "#E1EED9" }, { x: 0, y: 10, color: "#92C263" }, { x: 1, y: 10, color: "#90C060" }, { x: 2, y: 10, color: "#8FBF60" }, { x: 3, y: 10, color: "#7AB64E" }, { x: 4, y: 10, color: "#73B349" }, { x: 5, y: 10, color: "#65A53B" }, { x: 6, y: 10, color: "#61A137" }, { x: 7, y: 10, color: "#6AAA40" }, { x: 8, y: 10, color: "#6CAC42" }, { x: 9, y: 10, color: "#68A83E" }, { x: 10, y: 10, color: "#67A73D" }, { x: 11, y: 10, color: "#6AAA40" }, { x: 12, y: 10, color: "#6BAB41" }, { x: 13, y: 10, color: "#E1EED8" }, { x: 0, y: 11, color: "#93C263" }, { x: 1, y: 11, color: "#91C061" }, { x: 2, y: 11, color: "#90BF60" }, { x: 3, y: 11, color: "#7AB64F" }, { x: 4, y: 11, color: "#73B349" }, { x: 5, y: 11, color: "#64A43A" }, { x: 6, y: 11, color: "#61A137" }, { x: 7, y: 11, color: "#6AAA40" }, { x: 8, y: 11, color: "#6CAC42" }, { x: 9, y: 11, color: "#68A83F" }, { x: 10, y: 11, color: "#67A73D" }, { x: 11, y: 11, color: "#6AAA40" }, { x: 12, y: 11, color: "#6BAB41" }, { x: 13, y: 11, color: "#E1EED8" }, { x: 0, y: 12, color: "#7FBF55" }, { x: 1, y: 12, color: "#8CC05E" }, { x: 2, y: 12, color: "#92C162" }, { x: 3, y: 12, color: "#96C466" }, { x: 4, y: 12, color: "#97C567" }, { x: 5, y: 12, color: "#655835" }, { x: 6, y: 12, color: "#593D29" }, { x: 7, y: 12, color: "#578A2C" }, { x: 8, y: 12, color: "#57972D" }, { x: 9, y: 12, color: "#5D9D33" }, { x: 10, y: 12, color: "#60A036" }, { x: 11, y: 12, color: "#5B562C" }, { x: 12, y: 12, color: "#593D29" }, { x: 13, y: 12, color: "#DDD8D3" }
+        ])
+    },
+
+    {
+        id: "user_stamp_53",
+        name: "Fireball",
+        category: "Imported",
+        width: 11,
+        height: 16,
+        data: createGrid(11, 16, [
+            { x: 0, y: 0, color: "#E6DCE1" }, { x: 1, y: 0, color: "#520D32" }, { x: 2, y: 0, color: "#520D32" }, { x: 3, y: 0, color: "#520D32" }, { x: 4, y: 0, color: "#520D32" }, { x: 5, y: 0, color: "#520D32" }, { x: 6, y: 0, color: "#520D32" }, { x: 7, y: 0, color: "#520D32" }, { x: 8, y: 0, color: "#560D34" }, { x: 9, y: 0, color: "#C51162" }, { x: 10, y: 0, color: "#C51162" }, { x: 0, y: 1, color: "#E6DCE1" }, { x: 1, y: 1, color: "#520D32" }, { x: 2, y: 1, color: "#520D32" }, { x: 3, y: 1, color: "#520D32" }, { x: 4, y: 1, color: "#520D32" }, { x: 5, y: 1, color: "#520D32" }, { x: 6, y: 1, color: "#520D32" }, { x: 7, y: 1, color: "#520D32" }, { x: 8, y: 1, color: "#560D34" }, { x: 9, y: 1, color: "#C51162" }, { x: 10, y: 1, color: "#C51162" }, { x: 0, y: 2, color: "#E6DCE1" }, { x: 1, y: 2, color: "#520D32" }, { x: 2, y: 2, color: "#520D32" }, { x: 3, y: 2, color: "#520D32" }, { x: 4, y: 2, color: "#520D32" }, { x: 5, y: 2, color: "#520D32" }, { x: 6, y: 2, color: "#520D32" }, { x: 7, y: 2, color: "#520D32" }, { x: 8, y: 2, color: "#560D34" }, { x: 9, y: 2, color: "#C51162" }, { x: 10, y: 2, color: "#C51162" }, { x: 0, y: 3, color: "#E6DCE1" }, { x: 1, y: 3, color: "#520D32" }, { x: 2, y: 3, color: "#520D32" }, { x: 3, y: 3, color: "#520D32" }, { x: 4, y: 3, color: "#520D32" }, { x: 5, y: 3, color: "#520D32" }, { x: 6, y: 3, color: "#520D32" }, { x: 7, y: 3, color: "#520D32" }, { x: 8, y: 3, color: "#560D34" }, { x: 9, y: 3, color: "#C51162" }, { x: 10, y: 3, color: "#C51162" }, { x: 0, y: 4, color: "#E6DCE1" }, { x: 1, y: 4, color: "#520D32" }, { x: 2, y: 4, color: "#520D32" }, { x: 3, y: 4, color: "#520D32" }, { x: 4, y: 4, color: "#520D32" }, { x: 5, y: 4, color: "#520D32" }, { x: 6, y: 4, color: "#520D32" }, { x: 7, y: 4, color: "#520D32" }, { x: 8, y: 4, color: "#560D34" }, { x: 9, y: 4, color: "#C51162" }, { x: 10, y: 4, color: "#C51162" }, { x: 0, y: 5, color: "#E6DCE1" }, { x: 1, y: 5, color: "#520D32" }, { x: 2, y: 5, color: "#520D32" }, { x: 3, y: 5, color: "#520D32" }, { x: 4, y: 5, color: "#520D32" }, { x: 5, y: 5, color: "#520D32" }, { x: 6, y: 5, color: "#520D32" }, { x: 7, y: 5, color: "#520D32" }, { x: 8, y: 5, color: "#560D34" }, { x: 9, y: 5, color: "#C51162" }, { x: 10, y: 5, color: "#C51162" }, { x: 0, y: 6, color: "#E6DCE1" }, { x: 1, y: 6, color: "#520D32" }, { x: 2, y: 6, color: "#520D32" }, { x: 3, y: 6, color: "#520D32" }, { x: 4, y: 6, color: "#520D32" }, { x: 5, y: 6, color: "#520D32" }, { x: 6, y: 6, color: "#520D32" }, { x: 7, y: 6, color: "#520D32" }, { x: 8, y: 6, color: "#560D34" }, { x: 9, y: 6, color: "#C51162" }, { x: 10, y: 6, color: "#C51162" }, { x: 0, y: 7, color: "#E6DCE1" }, { x: 1, y: 7, color: "#520D32" }, { x: 2, y: 7, color: "#520D32" }, { x: 3, y: 7, color: "#520D32" }, { x: 4, y: 7, color: "#520D32" }, { x: 5, y: 7, color: "#520D32" }, { x: 6, y: 7, color: "#520D32" }, { x: 7, y: 7, color: "#520D32" }, { x: 8, y: 7, color: "#560D34" }, { x: 9, y: 7, color: "#C51162" }, { x: 10, y: 7, color: "#C51162" }, { x: 8, y: 8, color: "#F9F6F8" }, { x: 9, y: 8, color: "#520D32" }, { x: 10, y: 8, color: "#520D32" }, { x: 8, y: 9, color: "#F9F6F8" }, { x: 9, y: 9, color: "#520D32" }, { x: 10, y: 9, color: "#520D32" }, { x: 8, y: 10, color: "#F9F6F8" }, { x: 9, y: 10, color: "#520D32" }, { x: 10, y: 10, color: "#520D32" }, { x: 8, y: 11, color: "#F9F6F8" }, { x: 9, y: 11, color: "#520D32" }, { x: 10, y: 11, color: "#520D32" }, { x: 8, y: 12, color: "#F9F6F8" }, { x: 9, y: 12, color: "#520D32" }, { x: 10, y: 12, color: "#520D32" }, { x: 8, y: 13, color: "#F9F6F8" }, { x: 9, y: 13, color: "#520D32" }, { x: 10, y: 13, color: "#520D32" }, { x: 8, y: 14, color: "#F9F6F8" }, { x: 9, y: 14, color: "#520D32" }, { x: 10, y: 14, color: "#520D32" }, { x: 8, y: 15, color: "#F9F6F8" }, { x: 9, y: 15, color: "#520D32" }, { x: 10, y: 15, color: "#520D32" }
+        ])
+    },
+
+    {
+        id: "user_stamp_54",
+        name: "House",
+        category: "Imported",
+        width: 5,
+        height: 16,
+        data: createGrid(5, 16, [
+            { x: 0, y: 0, color: "#C51162" }, { x: 1, y: 0, color: "#520D32" }, { x: 2, y: 0, color: "#520D32" }, { x: 0, y: 1, color: "#C51162" }, { x: 1, y: 1, color: "#520D32" }, { x: 2, y: 1, color: "#520D32" }, { x: 0, y: 2, color: "#520D32" }, { x: 0, y: 3, color: "#520D32" }
+        ])
+    },
+
+    {
+        id: "user_stamp_55",
+        name: "Christmas Tree",
+        category: "Imported",
+        width: 13,
+        height: 16,
+        data: createGrid(13, 16, [
+            { x: 1, y: 0, color: "#000000" }, { x: 2, y: 0, color: "#000000" }, { x: 3, y: 0, color: "#000000" }, { x: 4, y: 0, color: "#000000" }, { x: 5, y: 0, color: "#000000" }, { x: 6, y: 0, color: "#000000" }, { x: 7, y: 0, color: "#000000" }, { x: 8, y: 0, color: "#000000" }, { x: 9, y: 0, color: "#000000" }, { x: 10, y: 0, color: "#E0E0E0" }, { x: 11, y: 0, color: "#000000" }, { x: 12, y: 0, color: "#000000" }, { x: 1, y: 1, color: "#000000" }, { x: 2, y: 1, color: "#888888" }, { x: 3, y: 1, color: "#000000" }, { x: 4, y: 1, color: "#000000" }, { x: 5, y: 1, color: "#000000" }, { x: 6, y: 1, color: "#000000" }, { x: 7, y: 1, color: "#000000" }, { x: 8, y: 1, color: "#000000" }, { x: 9, y: 1, color: "#000000" }, { x: 10, y: 1, color: "#000000" }, { x: 11, y: 1, color: "#000000" }, { x: 12, y: 1, color: "#000000" }, { x: 1, y: 2, color: "#000000" }, { x: 2, y: 2, color: "#B5B5B5" }, { x: 3, y: 2, color: "#000000" }, { x: 4, y: 2, color: "#000000" }, { x: 5, y: 2, color: "#000000" }, { x: 6, y: 2, color: "#000000" }, { x: 7, y: 2, color: "#000000" }, { x: 10, y: 2, color: "#000000" }, { x: 11, y: 2, color: "#000000" }, { x: 12, y: 2, color: "#000000" }, { x: 0, y: 3, color: "#2B2B2B" }, { x: 1, y: 3, color: "#000000" }, { x: 2, y: 3, color: "#000000" }, { x: 3, y: 3, color: "#000000" }, { x: 4, y: 3, color: "#000000" }, { x: 5, y: 3, color: "#000000" }, { x: 6, y: 3, color: "#000000" }, { x: 7, y: 3, color: "#000000" }, { x: 8, y: 3, color: "#000000" }, { x: 9, y: 3, color: "#000000" }, { x: 10, y: 3, color: "#000000" }, { x: 11, y: 3, color: "#000000" }, { x: 12, y: 3, color: "#000000" }, { x: 0, y: 4, color: "#8E8E8E" }, { x: 1, y: 4, color: "#464646" }, { x: 2, y: 4, color: "#323232" }, { x: 3, y: 4, color: "#000000" }, { x: 4, y: 4, color: "#000000" }, { x: 5, y: 4, color: "#000000" }, { x: 6, y: 4, color: "#000000" }, { x: 7, y: 4, color: "#000000" }, { x: 8, y: 4, color: "#000000" }, { x: 9, y: 4, color: "#000000" }, { x: 10, y: 4, color: "#000000" }, { x: 11, y: 4, color: "#464646" }, { x: 12, y: 4, color: "#464646" }, { x: 0, y: 5, color: "#000000" }, { x: 1, y: 5, color: "#000000" }, { x: 2, y: 5, color: "#000000" }, { x: 3, y: 5, color: "#000000" }, { x: 4, y: 5, color: "#000000" }, { x: 5, y: 5, color: "#000000" }, { x: 6, y: 5, color: "#000000" }, { x: 7, y: 5, color: "#000000" }, { x: 8, y: 5, color: "#000000" }, { x: 9, y: 5, color: "#000000" }, { x: 10, y: 5, color: "#000000" }, { x: 11, y: 5, color: "#000000" }, { x: 12, y: 5, color: "#000000" }, { x: 0, y: 6, color: "#5F5F5F" }, { x: 1, y: 6, color: "#000000" }, { x: 2, y: 6, color: "#000000" }, { x: 3, y: 6, color: "#000000" }, { x: 4, y: 6, color: "#000000" }, { x: 5, y: 6, color: "#000000" }, { x: 6, y: 6, color: "#000000" }, { x: 7, y: 6, color: "#000000" }, { x: 8, y: 6, color: "#000000" }, { x: 9, y: 6, color: "#000000" }, { x: 10, y: 6, color: "#000000" }, { x: 11, y: 6, color: "#000000" }, { x: 12, y: 6, color: "#000000" }, { x: 0, y: 7, color: "#000000" }, { x: 1, y: 7, color: "#000000" }, { x: 2, y: 7, color: "#000000" }, { x: 3, y: 7, color: "#000000" }, { x: 4, y: 7, color: "#000000" }, { x: 5, y: 7, color: "#040404" }, { x: 8, y: 7, color: "#000000" }, { x: 9, y: 7, color: "#000000" }, { x: 10, y: 7, color: "#000000" }, { x: 11, y: 7, color: "#000000" }, { x: 12, y: 7, color: "#000000" }, { x: 0, y: 8, color: "#000000" }, { x: 1, y: 8, color: "#000000" }, { x: 2, y: 8, color: "#000000" }, { x: 3, y: 8, color: "#000000" }, { x: 4, y: 8, color: "#000000" }, { x: 8, y: 8, color: "#000000" }, { x: 9, y: 8, color: "#000000" }, { x: 10, y: 8, color: "#000000" }, { x: 11, y: 8, color: "#000000" }, { x: 12, y: 8, color: "#000000" }, { x: 0, y: 9, color: "#000000" }, { x: 1, y: 9, color: "#000000" }, { x: 2, y: 9, color: "#000000" }, { x: 3, y: 9, color: "#000000" }, { x: 4, y: 9, color: "#000000" }, { x: 8, y: 9, color: "#000000" }, { x: 9, y: 9, color: "#000000" }, { x: 10, y: 9, color: "#000000" }, { x: 11, y: 9, color: "#000000" }, { x: 12, y: 9, color: "#000000" }, { x: 4, y: 14, color: "#828282" }, { x: 8, y: 14, color: "#C2C2C2" }, { x: 3, y: 15, color: "#E3E3E3" }, { x: 5, y: 15, color: "#A4A4A4" }, { x: 6, y: 15, color: "#969696" }, { x: 7, y: 15, color: "#F7F7F7" }, { x: 8, y: 15, color: "#A4A4A4" }, { x: 9, y: 15, color: "#959595" }
+        ])
+    },
+
+    {
+        id: "user_stamp_56",
+        name: "Axe",
+        category: "Imported",
+        width: 4,
+        height: 16,
+        data: createGrid(4, 16, [
+            { x: 2, y: 0, color: "#757575" }, { x: 3, y: 0, color: "#616161" }, { x: 2, y: 1, color: "#757575" }, { x: 3, y: 1, color: "#616161" }, { x: 2, y: 2, color: "#9E9E9E" }, { x: 3, y: 2, color: "#757575" }, { x: 2, y: 3, color: "#9E9E9E" }, { x: 3, y: 3, color: "#757575" }, { x: 3, y: 4, color: "#9E9E9E" }, { x: 3, y: 5, color: "#D6D6D6" }
+        ])
+    },
+
+    {
+        id: "user_stamp_57",
+        name: "Simple Planet",
+        category: "Imported",
+        width: 4,
+        height: 16,
+        data: createGrid(4, 16, [
+            { x: 0, y: 0, color: "#9E9E9E" }, { x: 1, y: 0, color: "#757575" }, { x: 2, y: 0, color: "#757575" }, { x: 0, y: 1, color: "#9E9E9E" }, { x: 1, y: 1, color: "#757575" }, { x: 2, y: 1, color: "#757575" }, { x: 0, y: 2, color: "#9E9E9E" }, { x: 1, y: 2, color: "#9E9E9E" }, { x: 2, y: 2, color: "#9E9E9E" }, { x: 0, y: 3, color: "#BDBDBD" }, { x: 1, y: 3, color: "#9E9E9E" }, { x: 2, y: 3, color: "#9E9E9E" }, { x: 0, y: 4, color: "#9E9E9E" }, { x: 1, y: 4, color: "#9E9E9E" }, { x: 0, y: 5, color: "#9E9E9E" }, { x: 1, y: 5, color: "#D6D6D6" }, { x: 0, y: 6, color: "#EFEFEF" }
+        ])
+    },
+
+    {
+        id: "user_stamp_58",
+        name: "Sun Blade",
+        category: "Imported",
+        width: 4,
+        height: 16,
+        data: createGrid(4, 16, [
+            { x: 0, y: 0, color: "#000000" }, { x: 1, y: 0, color: "#000000" }, { x: 2, y: 0, color: "#000000" }, { x: 0, y: 1, color: "#000000" }, { x: 0, y: 2, color: "#000000" }, { x: 1, y: 2, color: "#000000" }, { x: 0, y: 3, color: "#3A8243" }, { x: 1, y: 3, color: "#000000" }, { x: 0, y: 4, color: "#317545" }, { x: 1, y: 4, color: "#000000" }, { x: 0, y: 5, color: "#000000" }, { x: 1, y: 5, color: "#000000" }, { x: 0, y: 11, color: "#D7D7D7" }, { x: 1, y: 11, color: "#6B6B6B" }, { x: 2, y: 11, color: "#F7F7F7" }
+        ])
+    },
+
+    {
+        id: "user_stamp_59",
+        name: "Water Texture",
+        category: "Imported",
+        width: 5,
+        height: 16,
+        data: createGrid(5, 16, [
+            { x: 0, y: 0, color: "#0D171F" }, { x: 1, y: 0, color: "#000000" }, { x: 0, y: 1, color: "#0D171F" }, { x: 1, y: 1, color: "#2E4659" }, { x: 2, y: 1, color: "#2E4659" }, { x: 3, y: 1, color: "#000000" }, { x: 0, y: 2, color: "#4CAF50" }, { x: 1, y: 2, color: "#0D171F" }, { x: 2, y: 2, color: "#273C4C" }, { x: 3, y: 2, color: "#273C4C" }, { x: 0, y: 3, color: "#0D171F" }, { x: 1, y: 3, color: "#0D171F" }, { x: 2, y: 3, color: "#0D171F" }, { x: 3, y: 3, color: "#0D171F" }, { x: 0, y: 4, color: "#0D171F" }, { x: 1, y: 4, color: "#0D171F" }, { x: 2, y: 4, color: "#0D171F" }, { x: 3, y: 4, color: "#000000" }, { x: 0, y: 5, color: "#0D171F" }, { x: 1, y: 5, color: "#000000" }, { x: 0, y: 11, color: "#CECECE" }, { x: 2, y: 11, color: "#EBEBEB" }, { x: 3, y: 11, color: "#EDEDED" }
+        ])
+    },
+
+    {
+        id: "user_stamp_60",
+        name: "Boball?",
+        category: "Imported",
+        width: 3,
+        height: 16,
+        data: createGrid(3, 16, [
+            { x: 1, y: 0, color: "#FDE8D3" }, { x: 2, y: 0, color: "#0B0500" }, { x: 1, y: 1, color: "#FDE8D3" }, { x: 2, y: 1, color: "#F57C00" }, { x: 2, y: 2, color: "#F57C00" }, { x: 2, y: 3, color: "#F97700" }, { x: 2, y: 4, color: "#FFA15C" }
+        ])
+    },
+
+    {
+        id: "user_stamp_61",
+        name: "Internet User",
+        category: "Imported",
+        width: 4,
+        height: 16,
+        data: createGrid(4, 16, [
+            { x: 0, y: 0, color: "#F57C00" }, { x: 1, y: 0, color: "#F57C00" }, { x: 2, y: 0, color: "#FF6D00" }, { x: 0, y: 1, color: "#F57C00" }, { x: 1, y: 1, color: "#F67A00" }, { x: 2, y: 1, color: "#FF6D00" }, { x: 0, y: 2, color: "#F57C00" }, { x: 1, y: 2, color: "#FF6D00" }, { x: 2, y: 2, color: "#FF6D00" }, { x: 0, y: 3, color: "#FF6D00" }, { x: 1, y: 3, color: "#FF6D00" }, { x: 0, y: 4, color: "#FF6D00" }, { x: 1, y: 4, color: "#FF6D00" }, { x: 0, y: 5, color: "#000000" }
+        ])
+    },
+
+    {
+        id: "user_stamp_62",
+        name: "Tree (Large)",
+        category: "Imported",
+        width: 6,
+        height: 16,
+        data: createGrid(6, 16, [
+            { x: 0, y: 0, color: "#839FAA" }, { x: 1, y: 0, color: "#2C5C6E" }, { x: 2, y: 0, color: "#2C5C6E" }, { x: 3, y: 0, color: "#7FBD8E" }, { x: 4, y: 0, color: "#529894" }, { x: 5, y: 0, color: "#529894" }, { x: 0, y: 1, color: "#839FAA" }, { x: 1, y: 1, color: "#294E65" }, { x: 2, y: 1, color: "#2C5C6E" }, { x: 3, y: 1, color: "#7FBD8E" }, { x: 4, y: 1, color: "#7FBD8E" }, { x: 5, y: 1, color: "#529894" }, { x: 0, y: 2, color: "#808C9E" }, { x: 1, y: 2, color: "#263A5A" }, { x: 2, y: 2, color: "#263A5A" }, { x: 3, y: 2, color: "#2C5C6E" }, { x: 4, y: 2, color: "#7FBD8E" }, { x: 5, y: 2, color: "#529894" }, { x: 0, y: 3, color: "#808C9E" }, { x: 1, y: 3, color: "#263A5A" }, { x: 2, y: 3, color: "#263A5A" }, { x: 3, y: 3, color: "#263A5A" }, { x: 4, y: 3, color: "#7FBD8E" }, { x: 5, y: 3, color: "#529894" }, { x: 1, y: 4, color: "#A3ABB9" }, { x: 2, y: 4, color: "#263A5A" }, { x: 3, y: 4, color: "#263A5A" }, { x: 4, y: 4, color: "#7FBD8E" }, { x: 5, y: 4, color: "#7FBD8E" }, { x: 1, y: 5, color: "#A3ABB9" }, { x: 2, y: 5, color: "#263A5A" }, { x: 3, y: 5, color: "#242A46" }, { x: 4, y: 5, color: "#242A46" }, { x: 5, y: 5, color: "#7FBD8E" }, { x: 2, y: 6, color: "#263A5A" }, { x: 3, y: 6, color: "#242A46" }, { x: 4, y: 6, color: "#242A46" }, { x: 5, y: 6, color: "#242A46" }, { x: 3, y: 7, color: "#263A5A" }, { x: 4, y: 7, color: "#242A46" }, { x: 5, y: 7, color: "#242A46" }, { x: 4, y: 8, color: "#242A46" }, { x: 5, y: 8, color: "#242A46" }, { x: 5, y: 14, color: "#DCDCDC" }, { x: 5, y: 15, color: "#CCCCCC" }
+        ])
+    },
+
+    {
+        id: "user_stamp_63",
+        name: "Burger",
+        category: "Imported",
+        width: 9,
+        height: 16,
+        data: createGrid(9, 16, [
+            { x: 0, y: 0, color: "#D3C2B3" }, { x: 1, y: 0, color: "#966C4A" }, { x: 2, y: 0, color: "#79553A" }, { x: 3, y: 0, color: "#79553A" }, { x: 4, y: 0, color: "#966C4A" }, { x: 5, y: 0, color: "#79553A" }, { x: 6, y: 0, color: "#966C4A" }, { x: 7, y: 0, color: "#79553A" }, { x: 8, y: 0, color: "#674830" }, { x: 0, y: 1, color: "#D3C2B3" }, { x: 1, y: 1, color: "#966C4A" }, { x: 2, y: 1, color: "#79553A" }, { x: 3, y: 1, color: "#79553A" }, { x: 4, y: 1, color: "#966C4A" }, { x: 5, y: 1, color: "#79553A" }, { x: 6, y: 1, color: "#966C4A" }, { x: 7, y: 1, color: "#79553A" }, { x: 8, y: 1, color: "#674830" }, { x: 0, y: 2, color: "#C7B8AD" }, { x: 1, y: 2, color: "#79553A" }, { x: 2, y: 2, color: "#966C4A" }, { x: 3, y: 2, color: "#593D29" }, { x: 4, y: 2, color: "#79553A" }, { x: 5, y: 2, color: "#79553A" }, { x: 6, y: 2, color: "#593D29" }, { x: 7, y: 2, color: "#593D29" }, { x: 8, y: 2, color: "#6B4A32" }, { x: 0, y: 3, color: "#C7B8AD" }, { x: 1, y: 3, color: "#79553A" }, { x: 2, y: 3, color: "#966C4A" }, { x: 3, y: 3, color: "#79553A" }, { x: 4, y: 3, color: "#B9855C" }, { x: 5, y: 3, color: "#B9855C" }, { x: 6, y: 3, color: "#79553A" }, { x: 7, y: 3, color: "#B9855C" }, { x: 8, y: 3, color: "#A57752" }, { x: 0, y: 4, color: "#D3C2B3" }, { x: 1, y: 4, color: "#966C4A" }, { x: 2, y: 4, color: "#79553A" }, { x: 3, y: 4, color: "#79553A" }, { x: 4, y: 4, color: "#966C4A" }, { x: 5, y: 4, color: "#966C4A" }, { x: 6, y: 4, color: "#B9855C" }, { x: 7, y: 4, color: "#79553A" }, { x: 8, y: 4, color: "#896243" }, { x: 0, y: 5, color: "#D2C0B3" }, { x: 1, y: 5, color: "#936948" }, { x: 2, y: 5, color: "#755238" }, { x: 3, y: 5, color: "#7C583C" }, { x: 4, y: 5, color: "#936948" }, { x: 5, y: 5, color: "#966C4A" }, { x: 6, y: 5, color: "#B5825A" }, { x: 7, y: 5, color: "#805A3E" }, { x: 8, y: 5, color: "#8B6344" }, { x: 0, y: 6, color: "#C7B8AD" }, { x: 1, y: 6, color: "#79553A" }, { x: 2, y: 6, color: "#593D29" }, { x: 3, y: 6, color: "#966C4A" }, { x: 4, y: 6, color: "#79553A" }, { x: 5, y: 6, color: "#966C4A" }, { x: 6, y: 6, color: "#966C4A" }, { x: 7, y: 6, color: "#B9855C" }, { x: 8, y: 6, color: "#956A49" }, { x: 0, y: 7, color: "#C7B8AD" }, { x: 1, y: 7, color: "#79553A" }, { x: 2, y: 7, color: "#966C4A" }, { x: 3, y: 7, color: "#79553A" }, { x: 4, y: 7, color: "#79553A" }, { x: 5, y: 7, color: "#745844" }, { x: 6, y: 7, color: "#79553A" }, { x: 7, y: 7, color: "#966C4A" }, { x: 8, y: 7, color: "#966C4A" }, { x: 0, y: 8, color: "#D3C2B3" }, { x: 1, y: 8, color: "#966C4A" }, { x: 2, y: 8, color: "#79553A" }, { x: 3, y: 8, color: "#593D29" }, { x: 4, y: 8, color: "#B9855C" }, { x: 5, y: 8, color: "#79553A" }, { x: 6, y: 8, color: "#593D29" }, { x: 7, y: 8, color: "#79553A" }, { x: 8, y: 8, color: "#674830" }, { x: 0, y: 9, color: "#D3C2B3" }, { x: 1, y: 9, color: "#966C4A" }, { x: 2, y: 9, color: "#79553A" }, { x: 3, y: 9, color: "#B9855C" }, { x: 4, y: 9, color: "#966C4A" }, { x: 5, y: 9, color: "#966C4A" }, { x: 6, y: 9, color: "#79553A" }, { x: 7, y: 9, color: "#878787" }, { x: 8, y: 9, color: "#7F6B5C" }, { x: 4, y: 14, color: "#828282" }, { x: 3, y: 15, color: "#E4E4E4" }, { x: 4, y: 15, color: "#9C9C9C" }, { x: 5, y: 15, color: "#B6B6B6" }, { x: 6, y: 15, color: "#9A9A9A" }, { x: 7, y: 15, color: "#939393" }, { x: 8, y: 15, color: "#BBBBBB" }
+        ])
+    },
+
+    {
+        id: "user_stamp_64",
+        name: "Katana",
+        category: "Imported",
+        width: 7,
+        height: 16,
+        data: createGrid(7, 16, [
+            { x: 0, y: 0, color: "#966C4A" }, { x: 1, y: 0, color: "#966C4A" }, { x: 2, y: 0, color: "#79553A" }, { x: 3, y: 0, color: "#79553A" }, { x: 4, y: 0, color: "#593D29" }, { x: 5, y: 0, color: "#79553A" }, { x: 0, y: 1, color: "#79553A" }, { x: 1, y: 1, color: "#79553A" }, { x: 2, y: 1, color: "#79553A" }, { x: 3, y: 1, color: "#B9855C" }, { x: 4, y: 1, color: "#79553A" }, { x: 5, y: 1, color: "#966C4A" }, { x: 0, y: 2, color: "#B9855C" }, { x: 1, y: 2, color: "#B9855C" }, { x: 2, y: 2, color: "#593D29" }, { x: 3, y: 2, color: "#966C4A" }, { x: 4, y: 2, color: "#878787" }, { x: 5, y: 2, color: "#79553A" }, { x: 0, y: 3, color: "#966C4A" }, { x: 1, y: 3, color: "#966C4A" }, { x: 2, y: 3, color: "#79553A" }, { x: 3, y: 3, color: "#593D29" }, { x: 4, y: 3, color: "#79553A" }, { x: 5, y: 3, color: "#593D29" }, { x: 0, y: 4, color: "#79553A" }, { x: 1, y: 4, color: "#79553A" }, { x: 2, y: 4, color: "#79553A" }, { x: 3, y: 4, color: "#79553A" }, { x: 4, y: 4, color: "#B9855C" }, { x: 5, y: 4, color: "#B9855C" }, { x: 0, y: 5, color: "#593D29" }, { x: 1, y: 5, color: "#B9855C" }, { x: 2, y: 5, color: "#593D29" }, { x: 3, y: 5, color: "#79553A" }, { x: 4, y: 5, color: "#966C4A" }, { x: 5, y: 5, color: "#966C4A" }, { x: 0, y: 6, color: "#B9855C" }, { x: 1, y: 6, color: "#79553A" }, { x: 2, y: 6, color: "#966C4A" }, { x: 3, y: 6, color: "#79553A" }, { x: 4, y: 6, color: "#966C4A" }, { x: 5, y: 6, color: "#966C4A" }, { x: 0, y: 7, color: "#966C4A" }, { x: 1, y: 7, color: "#79553A" }, { x: 2, y: 7, color: "#79553A" }, { x: 3, y: 7, color: "#966C4A" }, { x: 4, y: 7, color: "#79553A" }, { x: 5, y: 7, color: "#593D29" }, { x: 0, y: 11, color: "#EFEFEF" }, { x: 3, y: 11, color: "#828282" }
+        ])
+    },
+
+    {
+        id: "user_stamp_65",
+        name: "House (Blue Roof)",
+        category: "Imported",
+        width: 5,
+        height: 16,
+        data: createGrid(5, 16, [
+            { x: 0, y: 0, color: "#676767" }, { x: 4, y: 15, color: "#5B3A28" }
+        ])
+    },
+
+    {
+        id: "user_stamp_66",
+        name: "Minecraft Character",
+        category: "Imported",
+        width: 5,
+        height: 16,
+        data: createGrid(5, 16, [
+            { x: 0, y: 6, color: "#454554" }, { x: 0, y: 7, color: "#99BF3B" }, { x: 0, y: 8, color: "#6F8C33" }, { x: 0, y: 15, color: "#996032" }, { x: 1, y: 15, color: "#4E3125" }
+        ])
+    },
+
+    {
+        id: "user_stamp_67",
+        name: "Duck",
+        category: "Imported",
+        width: 13,
+        height: 16,
+        data: createGrid(13, 16, [
+            { x: 4, y: 0, color: "#000000" }, { x: 5, y: 0, color: "#000000" }, { x: 6, y: 0, color: "#000000" }, { x: 0, y: 1, color: "#1C0F08" }, { x: 1, y: 1, color: "#E3E3E3" }, { x: 2, y: 1, color: "#1C0F08" }, { x: 3, y: 1, color: "#FD8947" }, { x: 4, y: 1, color: "#FD8947" }, { x: 5, y: 1, color: "#FD8947" }, { x: 6, y: 1, color: "#FD8947" }, { x: 7, y: 1, color: "#FD8947" }, { x: 8, y: 1, color: "#FD8947" }, { x: 9, y: 1, color: "#1C0F08" }, { x: 10, y: 1, color: "#E3E3E3" }, { x: 12, y: 1, color: "#E3E3E3" }, { x: 0, y: 2, color: "#BB4603" }, { x: 1, y: 2, color: "#FD8947" }, { x: 2, y: 2, color: "#FD8947" }, { x: 3, y: 2, color: "#FD8947" }, { x: 4, y: 2, color: "#FD8947" }, { x: 5, y: 2, color: "#FD8947" }, { x: 6, y: 2, color: "#FD8947" }, { x: 7, y: 2, color: "#FD8947" }, { x: 8, y: 2, color: "#FD8947" }, { x: 9, y: 2, color: "#FD8947" }, { x: 10, y: 2, color: "#96512A" }, { x: 11, y: 2, color: "#F08243" }, { x: 12, y: 2, color: "#FD8947" }, { x: 0, y: 3, color: "#FD8947" }, { x: 1, y: 3, color: "#351D0F" }, { x: 2, y: 3, color: "#363230" }, { x: 3, y: 3, color: "#351D0F" }, { x: 4, y: 3, color: "#351D0F" }, { x: 5, y: 3, color: "#FD8948" }, { x: 6, y: 3, color: "#FEECE2" }, { x: 7, y: 3, color: "#FD8947" }, { x: 8, y: 3, color: "#FD8947" }, { x: 9, y: 3, color: "#FD8947" }, { x: 10, y: 3, color: "#FD8947" }, { x: 11, y: 3, color: "#FD8947" }, { x: 12, y: 3, color: "#F78341" }, { x: 0, y: 4, color: "#FD8947" }, { x: 1, y: 4, color: "#A53E03" }, { x: 2, y: 4, color: "#983902" }, { x: 3, y: 4, color: "#FEAE80" }, { x: 4, y: 4, color: "#FEECE2" }, { x: 5, y: 4, color: "#050301" }, { x: 6, y: 4, color: "#FD8947" }, { x: 7, y: 4, color: "#B16032" }, { x: 8, y: 4, color: "#FD8947" }, { x: 9, y: 4, color: "#FD8947" }, { x: 10, y: 4, color: "#FD8947" }, { x: 11, y: 4, color: "#FD8947" }, { x: 12, y: 4, color: "#A73E03" }, { x: 0, y: 5, color: "#776F6A" }, { x: 1, y: 5, color: "#903602" }, { x: 2, y: 5, color: "#493225" }, { x: 3, y: 5, color: "#FEAE80" }, { x: 4, y: 5, color: "#FEECE2" }, { x: 5, y: 5, color: "#FEECE2" }, { x: 6, y: 5, color: "#8A5E45" }, { x: 7, y: 5, color: "#61431F" }, { x: 8, y: 5, color: "#FD8947" }, { x: 9, y: 5, color: "#FD8947" }, { x: 10, y: 5, color: "#FD8947" }, { x: 11, y: 5, color: "#FD8947" }, { x: 12, y: 5, color: "#CC5E1F" }, { x: 0, y: 6, color: "#FEAE80" }, { x: 1, y: 6, color: "#000000" }, { x: 2, y: 6, color: "#FEAE80" }, { x: 3, y: 6, color: "#FEAE80" }, { x: 4, y: 6, color: "#FEAE80" }, { x: 5, y: 6, color: "#FEAE80" }, { x: 6, y: 6, color: "#FEAE80" }, { x: 7, y: 6, color: "#FD8947" }, { x: 8, y: 6, color: "#FD8947" }, { x: 9, y: 6, color: "#FD8947" }, { x: 10, y: 6, color: "#FD8947" }, { x: 11, y: 6, color: "#FD8947" }, { x: 12, y: 6, color: "#FD8947" }, { x: 0, y: 7, color: "#1D040E" }, { x: 1, y: 7, color: "#1D040E" }, { x: 2, y: 7, color: "#1D040E" }, { x: 3, y: 7, color: "#FEAE80" }, { x: 4, y: 7, color: "#FEAE80" }, { x: 5, y: 7, color: "#FEAE80" }, { x: 6, y: 7, color: "#FEAE80" }, { x: 7, y: 7, color: "#FED2BA" }, { x: 8, y: 7, color: "#FD985E" }, { x: 9, y: 7, color: "#FD8947" }, { x: 10, y: 7, color: "#FD8947" }, { x: 11, y: 7, color: "#FD8947" }, { x: 12, y: 7, color: "#FD8947" }, { x: 0, y: 8, color: "#BB1850" }, { x: 1, y: 8, color: "#E91E63" }, { x: 2, y: 8, color: "#931B3F" }, { x: 3, y: 8, color: "#322E2C" }, { x: 4, y: 8, color: "#000000" }, { x: 5, y: 8, color: "#CD8D67" }, { x: 6, y: 8, color: "#FEAE80" }, { x: 7, y: 8, color: "#FEE8DC" }, { x: 8, y: 8, color: "#FEECE2" }, { x: 9, y: 8, color: "#FEECE2" }, { x: 10, y: 8, color: "#FD8947" }, { x: 11, y: 8, color: "#FD8947" }, { x: 12, y: 8, color: "#EA7634" }, { x: 0, y: 9, color: "#000000" }, { x: 1, y: 9, color: "#090604" }, { x: 2, y: 9, color: "#FEAE80" }, { x: 3, y: 9, color: "#FEAE80" }, { x: 4, y: 9, color: "#FEAE80" }, { x: 5, y: 9, color: "#FEAE80" }, { x: 6, y: 9, color: "#FEAE80" }, { x: 7, y: 9, color: "#FEAE80" }, { x: 8, y: 9, color: "#FEECE2" }, { x: 9, y: 9, color: "#FEECE2" }, { x: 10, y: 9, color: "#FEC3A2" }, { x: 11, y: 9, color: "#FD8C4C" }, { x: 12, y: 9, color: "#BB4603" }, { x: 0, y: 10, color: "#FEAE80" }, { x: 1, y: 10, color: "#FEAE80" }, { x: 2, y: 10, color: "#FEAE80" }, { x: 3, y: 10, color: "#FEAE80" }, { x: 4, y: 10, color: "#FEAE80" }, { x: 5, y: 10, color: "#FEAE80" }, { x: 6, y: 10, color: "#FEAE80" }, { x: 7, y: 10, color: "#FEAE80" }, { x: 8, y: 10, color: "#FEAE80" }, { x: 9, y: 10, color: "#FEB68C" }, { x: 10, y: 10, color: "#FEB68C" }, { x: 11, y: 10, color: "#FEAE80" }, { x: 12, y: 10, color: "#BB4603" }, { x: 0, y: 11, color: "#FEAE80" }, { x: 1, y: 11, color: "#000000" }, { x: 2, y: 11, color: "#FEAE80" }, { x: 3, y: 11, color: "#FEAE80" }, { x: 4, y: 11, color: "#FEAE80" }, { x: 5, y: 11, color: "#050302" }, { x: 6, y: 11, color: "#FEAE80" }, { x: 7, y: 11, color: "#FEAE80" }, { x: 8, y: 11, color: "#FEAE80" }, { x: 9, y: 11, color: "#FEAE80" }, { x: 10, y: 11, color: "#FEAE80" }, { x: 11, y: 11, color: "#FEAE80" }, { x: 12, y: 11, color: "#F7A372" }, { x: 0, y: 12, color: "#FEAE80" }, { x: 1, y: 12, color: "#FEAE80" }, { x: 2, y: 12, color: "#8D6047" }, { x: 3, y: 12, color: "#8D6047" }, { x: 4, y: 12, color: "#8D6047" }, { x: 5, y: 12, color: "#FEAE80" }, { x: 6, y: 12, color: "#FEAE80" }, { x: 7, y: 12, color: "#FEAE80" }, { x: 8, y: 12, color: "#FEAE80" }, { x: 9, y: 12, color: "#FEAE80" }, { x: 10, y: 12, color: "#FEAE80" }, { x: 11, y: 12, color: "#FEAE80" }, { x: 12, y: 12, color: "#FEAE80" }, { x: 0, y: 13, color: "#FEAE80" }, { x: 1, y: 13, color: "#FEAE80" }, { x: 2, y: 13, color: "#FEAE80" }, { x: 3, y: 13, color: "#FEAE80" }, { x: 4, y: 13, color: "#FEAE80" }, { x: 5, y: 13, color: "#FEAE80" }, { x: 6, y: 13, color: "#FEAE80" }, { x: 7, y: 13, color: "#FEAE80" }, { x: 8, y: 13, color: "#FEAE80" }, { x: 9, y: 13, color: "#FEAE80" }, { x: 10, y: 13, color: "#FEAE80" }, { x: 11, y: 13, color: "#FEAE80" }, { x: 12, y: 13, color: "#FEAE80" }, { x: 0, y: 14, color: "#FEAE80" }, { x: 1, y: 14, color: "#FEAE80" }, { x: 2, y: 14, color: "#FEAE80" }, { x: 3, y: 14, color: "#FEAE80" }, { x: 4, y: 14, color: "#FEAE80" }, { x: 5, y: 14, color: "#FEAE80" }, { x: 6, y: 14, color: "#FEAE80" }, { x: 7, y: 14, color: "#FEAE80" }, { x: 8, y: 14, color: "#FEAE80" }, { x: 9, y: 14, color: "#FEAE80" }, { x: 10, y: 14, color: "#FEAE80" }, { x: 11, y: 14, color: "#FEAE80" }, { x: 12, y: 14, color: "#FEAE80" }, { x: 0, y: 15, color: "#000000" }, { x: 1, y: 15, color: "#FEAE80" }, { x: 2, y: 15, color: "#FEAE80" }, { x: 3, y: 15, color: "#FEAE80" }, { x: 4, y: 15, color: "#FEAE80" }, { x: 5, y: 15, color: "#FEAE80" }, { x: 6, y: 15, color: "#FEAE80" }, { x: 7, y: 15, color: "#FEAE80" }, { x: 8, y: 15, color: "#FEAE80" }, { x: 9, y: 15, color: "#FEAE80" }, { x: 10, y: 15, color: "#FEAE80" }, { x: 11, y: 15, color: "#FEAE80" }, { x: 12, y: 15, color: "#FEAE80" }
+        ])
+    },
+
+    {
+        id: "user_stamp_68",
+        name: "Pipe",
+        category: "Imported",
+        width: 5,
+        height: 16,
+        data: createGrid(5, 16, [
+            { x: 0, y: 0, color: "#5F5F5F" }, { x: 4, y: 7, color: "#880E4F" }, { x: 2, y: 8, color: "#CD9AB5" }, { x: 3, y: 8, color: "#CD9AB5" }, { x: 4, y: 8, color: "#BA4263" }, { x: 2, y: 9, color: "#880E4F" }, { x: 3, y: 9, color: "#880E4F" }, { x: 4, y: 9, color: "#FF8A80" }, { x: 2, y: 10, color: "#880E4F" }, { x: 3, y: 10, color: "#880E4F" }, { x: 4, y: 10, color: "#FC7469" }, { x: 2, y: 11, color: "#880E4F" }, { x: 3, y: 11, color: "#880E4F" }, { x: 4, y: 11, color: "#F44336" }, { x: 2, y: 12, color: "#520D32" }, { x: 3, y: 12, color: "#520D32" }, { x: 4, y: 12, color: "#C51162" }, { x: 2, y: 13, color: "#520D32" }, { x: 3, y: 13, color: "#520D32" }, { x: 4, y: 13, color: "#C51162" }, { x: 4, y: 14, color: "#520D32" }, { x: 4, y: 15, color: "#520D32" }
+        ])
+    },
+
+    {
+        id: "user_stamp_69",
+        name: "Apple",
+        category: "Imported",
+        width: 5,
+        height: 16,
+        data: createGrid(5, 16, [
+            { x: 0, y: 7, color: "#880E4F" }, { x: 1, y: 7, color: "#880E4F" }, { x: 0, y: 8, color: "#BA4263" }, { x: 1, y: 8, color: "#BA4263" }, { x: 2, y: 8, color: "#CD9AB5" }, { x: 3, y: 8, color: "#CD9AB5" }, { x: 0, y: 9, color: "#FF8A80" }, { x: 1, y: 9, color: "#FF8A80" }, { x: 2, y: 9, color: "#880E4F" }, { x: 3, y: 9, color: "#880E4F" }, { x: 0, y: 10, color: "#ED6577" }, { x: 1, y: 10, color: "#ED6577" }, { x: 2, y: 10, color: "#880E4F" }, { x: 3, y: 10, color: "#880E4F" }, { x: 0, y: 11, color: "#C51162" }, { x: 1, y: 11, color: "#C51162" }, { x: 2, y: 11, color: "#880E4F" }, { x: 3, y: 11, color: "#880E4F" }, { x: 0, y: 12, color: "#C51162" }, { x: 1, y: 12, color: "#C51162" }, { x: 2, y: 12, color: "#520D32" }, { x: 3, y: 12, color: "#520D32" }, { x: 0, y: 13, color: "#C51162" }, { x: 1, y: 13, color: "#C51162" }, { x: 2, y: 13, color: "#520D32" }, { x: 3, y: 13, color: "#520D32" }, { x: 0, y: 14, color: "#520D32" }, { x: 1, y: 14, color: "#520D32" }, { x: 0, y: 15, color: "#520D32" }, { x: 1, y: 15, color: "#520D32" }
+        ])
+    },
+
+    {
+        id: "user_stamp_70",
+        name: "Tree (Pine)",
+        category: "Imported",
+        width: 7,
+        height: 16,
+        data: createGrid(7, 16, [
+            { x: 3, y: 7, color: "#B3B3F0" }, { x: 1, y: 8, color: "#EDEDFB" }, { x: 2, y: 8, color: "#CDCDF5" }, { x: 3, y: 8, color: "#6060E0" }, { x: 4, y: 8, color: "#CDCDF5" }, { x: 1, y: 9, color: "#C6C6F4" }, { x: 2, y: 9, color: "#6060E0" }, { x: 3, y: 9, color: "#6060E0" }, { x: 4, y: 9, color: "#6060E0" }, { x: 3, y: 10, color: "#6060E0" }, { x: 0, y: 14, color: "#6060E0" }, { x: 1, y: 14, color: "#9999EB" }, { x: 0, y: 15, color: "#6060E0" }, { x: 1, y: 15, color: "#9999EB" }
+        ])
+    },
+
+    {
+        id: "user_stamp_71",
+        name: "Earth (2nd)",
+        category: "Imported",
+        width: 6,
+        height: 16,
+        data: createGrid(6, 16, [
+            { x: 3, y: 6, color: "#51515F" }, { x: 4, y: 6, color: "#51515F" }, { x: 1, y: 7, color: "#6F6F7B" }, { x: 2, y: 7, color: "#363642" }, { x: 3, y: 7, color: "#33333C" }, { x: 4, y: 7, color: "#131326" }, { x: 1, y: 8, color: "#696963" }, { x: 2, y: 8, color: "#33333C" }, { x: 3, y: 8, color: "#33333C" }, { x: 0, y: 9, color: "#31313B" }, { x: 1, y: 9, color: "#262637" }, { x: 2, y: 9, color: "#33333C" }, { x: 3, y: 9, color: "#33333C" }, { x: 0, y: 10, color: "#2C2C3B" }, { x: 1, y: 10, color: "#7F7F72" }, { x: 2, y: 10, color: "#262637" }, { x: 3, y: 10, color: "#595959" }, { x: 4, y: 10, color: "#131326" }, { x: 0, y: 11, color: "#4A4A4F" }, { x: 1, y: 11, color: "#262637" }, { x: 2, y: 11, color: "#33333C" }, { x: 3, y: 11, color: "#33333C" }, { x: 4, y: 11, color: "#31313C" }, { x: 0, y: 12, color: "#262637" }, { x: 1, y: 12, color: "#595959" }, { x: 2, y: 12, color: "#33333C" }, { x: 3, y: 12, color: "#F3F3F4" }, { x: 0, y: 13, color: "#33333C" }, { x: 1, y: 13, color: "#30303B" }, { x: 2, y: 13, color: "#161629" }, { x: 0, y: 14, color: "#33333C" }, { x: 1, y: 14, color: "#33333C" }, { x: 2, y: 14, color: "#20202F" }, { x: 0, y: 15, color: "#33333C" }, { x: 1, y: 15, color: "#E7E7E9" }
+        ])
+    },
+
+    {
+        id: "user_stamp_72",
+        name: "Halloween Candy",
+        category: "Imported",
+        width: 2,
+        height: 2,
+        data: createGrid(2, 2, [
+            { x: 0, y: 0, color: "#585858" }, { x: 1, y: 0, color: "#BCBCBC" }, { x: 0, y: 1, color: "#D3D3D3" }
+        ])
+    },
+
+    {
+        id: "user_stamp_73",
+        name: "Shield",
+        category: "Imported",
+        width: 3,
+        height: 3,
+        data: createGrid(3, 3, [
+            { x: 0, y: 0, color: "#D9D9D9" }, { x: 1, y: 0, color: "#797979" }, { x: 2, y: 0, color: "#363636" }, { x: 2, y: 1, color: "#777777" }, { x: 2, y: 2, color: "#D9D9D9" }
+        ])
+    },
+
+    {
+        id: "user_stamp_74",
+        name: "TNT",
+        category: "Imported",
+        width: 8,
+        height: 16,
+        data: createGrid(8, 16, [
+            { x: 0, y: 0, color: "#727272" }, { x: 6, y: 7, color: "#A1A1A1" }, { x: 7, y: 7, color: "#000000" }, { x: 4, y: 8, color: "#000000" }, { x: 5, y: 8, color: "#000000" }, { x: 6, y: 8, color: "#29100B" }, { x: 7, y: 8, color: "#712D1E" }, { x: 3, y: 9, color: "#000000" }, { x: 4, y: 9, color: "#C68944" }, { x: 5, y: 9, color: "#C68944" }, { x: 6, y: 9, color: "#C68944" }, { x: 7, y: 9, color: "#C68944" }, { x: 2, y: 10, color: "#000000" }, { x: 3, y: 10, color: "#712D1E" }, { x: 4, y: 10, color: "#C68944" }, { x: 5, y: 10, color: "#712D1E" }, { x: 6, y: 10, color: "#904F2C" }, { x: 7, y: 10, color: "#C68944" }, { x: 2, y: 11, color: "#000000" }, { x: 3, y: 11, color: "#B26135" }, { x: 4, y: 11, color: "#712D1E" }, { x: 5, y: 11, color: "#C68944" }, { x: 6, y: 11, color: "#C68944" }, { x: 7, y: 11, color: "#C68944" }, { x: 2, y: 12, color: "#000000" }, { x: 3, y: 12, color: "#B26135" }, { x: 4, y: 12, color: "#712D1E" }, { x: 5, y: 12, color: "#C68944" }, { x: 6, y: 12, color: "#C68944" }, { x: 7, y: 12, color: "#C68944" }, { x: 2, y: 13, color: "#000000" }, { x: 3, y: 13, color: "#712D1E" }, { x: 4, y: 13, color: "#B26135" }, { x: 5, y: 13, color: "#712D1E" }, { x: 6, y: 13, color: "#712D1E" }, { x: 7, y: 13, color: "#712D1E" }, { x: 3, y: 14, color: "#000000" }, { x: 4, y: 14, color: "#B26135" }, { x: 5, y: 14, color: "#B26135" }, { x: 6, y: 14, color: "#B26135" }, { x: 7, y: 14, color: "#B26135" }, { x: 3, y: 15, color: "#161616" }, { x: 4, y: 15, color: "#A35930" }, { x: 5, y: 15, color: "#A35930" }, { x: 6, y: 15, color: "#A35930" }, { x: 7, y: 15, color: "#A35930" }
+        ])
+    },
+
+    {
+        id: "user_stamp_75",
+        name: "Fire",
+        category: "Imported",
+        width: 10,
+        height: 16,
+        data: createGrid(10, 16, [
+            { x: 0, y: 0, color: "#646464" }, { x: 7, y: 5, color: "#152E0B" }, { x: 7, y: 6, color: "#1A390F" }, { x: 8, y: 6, color: "#152D0A" }, { x: 9, y: 6, color: "#152D0B" }, { x: 4, y: 7, color: "#2F4925" }, { x: 5, y: 7, color: "#19390F" }, { x: 6, y: 7, color: "#152D0B" }, { x: 7, y: 7, color: "#18370F" }, { x: 8, y: 7, color: "#16300C" }, { x: 9, y: 7, color: "#18380F" }, { x: 4, y: 8, color: "#183A0F" }, { x: 5, y: 8, color: "#193A0F" }, { x: 6, y: 8, color: "#18390F" }, { x: 7, y: 8, color: "#18390F" }, { x: 8, y: 8, color: "#152C0A" }, { x: 9, y: 8, color: "#15290B" }, { x: 3, y: 9, color: "#18360E" }, { x: 4, y: 9, color: "#183B0F" }, { x: 5, y: 9, color: "#18390F" }, { x: 6, y: 9, color: "#18380F" }, { x: 7, y: 9, color: "#152C0B" }, { x: 8, y: 9, color: "#152B0B" }, { x: 9, y: 9, color: "#15290B" }, { x: 3, y: 10, color: "#607059" }, { x: 4, y: 10, color: "#1A3A0F" }, { x: 5, y: 10, color: "#18390F" }, { x: 6, y: 10, color: "#18390F" }, { x: 7, y: 10, color: "#152B0B" }, { x: 8, y: 10, color: "#18360F" }, { x: 9, y: 10, color: "#18370F" }, { x: 2, y: 11, color: "#465A3E" }, { x: 3, y: 11, color: "#193A0F" }, { x: 4, y: 11, color: "#19390F" }, { x: 5, y: 11, color: "#152D0B" }, { x: 6, y: 11, color: "#18370F" }, { x: 7, y: 11, color: "#19380F" }, { x: 8, y: 11, color: "#18370F" }, { x: 9, y: 11, color: "#152B0B" }, { x: 2, y: 12, color: "#3A4F32" }, { x: 3, y: 12, color: "#18370E" }, { x: 4, y: 12, color: "#193A0F" }, { x: 5, y: 12, color: "#152D0B" }, { x: 6, y: 12, color: "#152C0B" }, { x: 7, y: 12, color: "#183A0F" }, { x: 8, y: 12, color: "#18390F" }, { x: 9, y: 12, color: "#183A0F" }, { x: 2, y: 13, color: "#5C6E55" }, { x: 3, y: 13, color: "#193A0F" }, { x: 4, y: 13, color: "#17320D" }, { x: 5, y: 13, color: "#19380F" }, { x: 6, y: 13, color: "#152F0C" }, { x: 7, y: 13, color: "#18390F" }, { x: 8, y: 13, color: "#152E0C" }, { x: 9, y: 13, color: "#392C1F" }, { x: 3, y: 14, color: "#152F0B" }, { x: 4, y: 14, color: "#55664E" }, { x: 5, y: 14, color: "#19390F" }, { x: 6, y: 14, color: "#152F0A" }, { x: 7, y: 14, color: "#152C0B" }, { x: 8, y: 14, color: "#432E24" }, { x: 9, y: 14, color: "#442D23" }, { x: 4, y: 15, color: "#55674E" }, { x: 5, y: 15, color: "#19390F" }, { x: 6, y: 15, color: "#152D0B" }, { x: 9, y: 15, color: "#452F26" }
+        ])
+    },
+
+    {
+        id: "user_stamp_76",
+        name: "Frog",
+        category: "Imported",
+        width: 7,
+        height: 16,
+        data: createGrid(7, 16, [
+            { x: 0, y: 4, color: "#152D0A" }, { x: 1, y: 4, color: "#193B0F" }, { x: 0, y: 5, color: "#19390F" }, { x: 1, y: 5, color: "#193A0F" }, { x: 2, y: 5, color: "#17350D" }, { x: 3, y: 5, color: "#D3D8D1" }, { x: 0, y: 6, color: "#18370F" }, { x: 1, y: 6, color: "#18380E" }, { x: 2, y: 6, color: "#183B0F" }, { x: 3, y: 6, color: "#8C9987" }, { x: 0, y: 7, color: "#18370F" }, { x: 1, y: 7, color: "#18390F" }, { x: 2, y: 7, color: "#152D0B" }, { x: 3, y: 7, color: "#193B0F" }, { x: 4, y: 7, color: "#193C0F" }, { x: 5, y: 7, color: "#152F0B" }, { x: 0, y: 8, color: "#18390F" }, { x: 1, y: 8, color: "#16310C" }, { x: 2, y: 8, color: "#152D0B" }, { x: 3, y: 8, color: "#17310C" }, { x: 4, y: 8, color: "#E9EBE8" }, { x: 0, y: 9, color: "#18350E" }, { x: 1, y: 9, color: "#193A0F" }, { x: 2, y: 9, color: "#193A0F" }, { x: 3, y: 9, color: "#1A390F" }, { x: 4, y: 9, color: "#1A3B0F" }, { x: 5, y: 9, color: "#16300C" }, { x: 0, y: 10, color: "#152C0B" }, { x: 1, y: 10, color: "#18380F" }, { x: 2, y: 10, color: "#183A0F" }, { x: 3, y: 10, color: "#1A3B0F" }, { x: 4, y: 10, color: "#152E0B" }, { x: 5, y: 10, color: "#152E0B" }, { x: 0, y: 11, color: "#524238" }, { x: 1, y: 11, color: "#ABB3A7" }, { x: 2, y: 11, color: "#18340D" }, { x: 3, y: 11, color: "#5A6B52" }, { x: 4, y: 11, color: "#193B0F" }, { x: 5, y: 11, color: "#94A08F" }, { x: 0, y: 15, color: "#463028" }
+        ])
+    },
+
+    {
+        id: "user_stamp_77",
+        name: "Peashooter",
+        category: "Imported",
+        width: 10,
+        height: 16,
+        data: createGrid(10, 16, [
+            { x: 3, y: 0, color: "#DDDDE0" }, { x: 4, y: 0, color: "#131326" }, { x: 5, y: 0, color: "#3F2823" }, { x: 6, y: 0, color: "#3F2823" }, { x: 7, y: 0, color: "#593826" }, { x: 8, y: 0, color: "#543526" }, { x: 9, y: 0, color: "#664028" }, { x: 3, y: 1, color: "#F7F7F7" }, { x: 4, y: 1, color: "#C5C5CA" }, { x: 5, y: 1, color: "#3E2823" }, { x: 6, y: 1, color: "#3F2823" }, { x: 7, y: 1, color: "#432A23" }, { x: 8, y: 1, color: "#664028" }, { x: 9, y: 1, color: "#664028" }, { x: 5, y: 2, color: "#3F3F4F" }, { x: 6, y: 2, color: "#43435D" }, { x: 7, y: 2, color: "#474766" }, { x: 8, y: 2, color: "#422F31" }, { x: 9, y: 2, color: "#3F2823" }, { x: 8, y: 3, color: "#131326" }, { x: 9, y: 3, color: "#6D6DBF" }, { x: 0, y: 15, color: "#DEDEDE" }, { x: 1, y: 15, color: "#818181" }, { x: 3, y: 15, color: "#A1A1A1" }, { x: 7, y: 15, color: "#F3F3F3" }, { x: 8, y: 15, color: "#EBEBEB" }, { x: 9, y: 15, color: "#A3A3A3" }
+        ])
+    },
+
+    {
+        id: "user_stamp_78",
+        name: "Kirby",
+        category: "Imported",
+        width: 10,
+        height: 16,
+        data: createGrid(10, 16, [
+            { x: 0, y: 0, color: "#70472B" }, { x: 1, y: 0, color: "#70472B" }, { x: 2, y: 0, color: "#7D4E2D" }, { x: 3, y: 0, color: "#7D4E2D" }, { x: 4, y: 0, color: "#664028" }, { x: 5, y: 0, color: "#3F2823" }, { x: 6, y: 0, color: "#3F2823" }, { x: 7, y: 0, color: "#2C1F24" }, { x: 8, y: 0, color: "#AEAEB4" }, { x: 0, y: 1, color: "#996032" }, { x: 1, y: 1, color: "#996032" }, { x: 2, y: 1, color: "#664028" }, { x: 3, y: 1, color: "#664028" }, { x: 4, y: 1, color: "#664028" }, { x: 5, y: 1, color: "#3F2823" }, { x: 6, y: 1, color: "#3F2823" }, { x: 7, y: 1, color: "#3F2823" }, { x: 8, y: 1, color: "#6B6B76" }, { x: 0, y: 2, color: "#996032" }, { x: 1, y: 2, color: "#83522E" }, { x: 2, y: 2, color: "#664028" }, { x: 3, y: 2, color: "#482D24" }, { x: 4, y: 2, color: "#422F31" }, { x: 5, y: 2, color: "#422F31" }, { x: 6, y: 2, color: "#3A3139" }, { x: 7, y: 2, color: "#3C3C4C" }, { x: 0, y: 3, color: "#664028" }, { x: 1, y: 3, color: "#664028" }, { x: 2, y: 3, color: "#664028" }, { x: 3, y: 3, color: "#443339" }, { x: 4, y: 3, color: "#6D6DBF" }, { x: 5, y: 3, color: "#131326" }, { x: 0, y: 4, color: "#525274" }, { x: 1, y: 4, color: "#5E5E94" }, { x: 2, y: 4, color: "#131326" }, { x: 0, y: 5, color: "#585885" }, { x: 1, y: 5, color: "#58588F" }, { x: 2, y: 5, color: "#484857" }, { x: 0, y: 6, color: "#131326" }, { x: 1, y: 6, color: "#797984" }, { x: 0, y: 15, color: "#EAEAEA" }, { x: 1, y: 15, color: "#A1A1A1" }, { x: 9, y: 15, color: "#CECECE" }
+        ])
+    },
+
+    {
+        id: "user_stamp_79",
+        name: "Cool Sword",
+        category: "Imported",
+        width: 16,
+        height: 8,
+        data: createGrid(16, 8, [
+            { x: 0, y: 0, color: "#8B8B8B" }, { x: 1, y: 0, color: "#CE8D68" }, { x: 2, y: 0, color: "#FEAE80" }, { x: 3, y: 0, color: "#FEAE80" }, { x: 4, y: 0, color: "#FEAE80" }, { x: 5, y: 0, color: "#FEAE80" }, { x: 6, y: 0, color: "#FEAE80" }, { x: 7, y: 0, color: "#FEAE80" }, { x: 8, y: 0, color: "#FEAE80" }, { x: 9, y: 0, color: "#FEAE80" }, { x: 10, y: 0, color: "#FEAE80" }, { x: 11, y: 0, color: "#FEAE80" }, { x: 12, y: 0, color: "#FEAE80" }, { x: 13, y: 0, color: "#FEAE80" }, { x: 14, y: 0, color: "#FEAE80" }, { x: 15, y: 0, color: "#734F3A" }, { x: 1, y: 1, color: "#757575" }, { x: 2, y: 1, color: "#5C493E" }, { x: 3, y: 1, color: "#D18F69" }, { x: 4, y: 1, color: "#FEAE80" }, { x: 5, y: 1, color: "#FEAE80" }, { x: 6, y: 1, color: "#FEAE80" }, { x: 7, y: 1, color: "#FEAE80" }, { x: 8, y: 1, color: "#FEAE80" }, { x: 9, y: 1, color: "#FEAE80" }, { x: 10, y: 1, color: "#FEAE80" }, { x: 11, y: 1, color: "#D18F69" }, { x: 12, y: 1, color: "#D18F69" }, { x: 13, y: 1, color: "#2D2D2D" }, { x: 14, y: 1, color: "#2D2D2D" }
+        ])
+    },
+
+    {
+        id: "user_stamp_83",
+        name: "Birdo",
+        category: "Imported",
+        width: 13,
+        height: 3,
+        data: createGrid(13, 3, [
+            { x: 0, y: 0, color: "#5D5D5D" }, { x: 1, y: 0, color: "#646464" }, { x: 2, y: 0, color: "#A6A6A6" }, { x: 3, y: 0, color: "#F5F5F5" }, { x: 0, y: 1, color: "#F9F9F9" }, { x: 1, y: 1, color: "#EFEFEF" }, { x: 2, y: 1, color: "#8E8E8E" }, { x: 3, y: 1, color: "#BFBFBF" }, { x: 10, y: 1, color: "#A0A0A0" }, { x: 11, y: 1, color: "#9E9E9E" }, { x: 0, y: 2, color: "#F9F9F9" }, { x: 1, y: 2, color: "#F6F6F6" }, { x: 2, y: 2, color: "#A9A9A9" }, { x: 3, y: 2, color: "#BEBEBE" }, { x: 4, y: 2, color: "#F2F2F2" }, { x: 5, y: 2, color: "#949494" }, { x: 6, y: 2, color: "#6C6C6C" }, { x: 7, y: 2, color: "#707070" }, { x: 8, y: 2, color: "#BFBFBF" }, { x: 9, y: 2, color: "#B2B2B2" }, { x: 10, y: 2, color: "#565656" }, { x: 11, y: 2, color: "#5D5D5D" }, { x: 12, y: 2, color: "#C3C3C3" }
+        ])
+    },
+
+    {
+        id: "user_stamp_86",
+        name: "Xeno",
+        category: "Imported",
+        width: 9,
+        height: 3,
+        data: createGrid(9, 3, [
+            { x: 1, y: 0, color: "#F6F6F6" }, { x: 2, y: 0, color: "#A8A8A8" }, { x: 3, y: 0, color: "#636363" }, { x: 4, y: 0, color: "#6E6E6E" }, { x: 5, y: 0, color: "#BEBEBE" }, { x: 1, y: 1, color: "#A7A7A7" }, { x: 2, y: 1, color: "#939393" }, { x: 4, y: 1, color: "#E0E0E0" }, { x: 5, y: 1, color: "#838383" }, { x: 6, y: 1, color: "#CFCFCF" }, { x: 0, y: 2, color: "#E8E8E8" }, { x: 1, y: 2, color: "#8F8F8F" }, { x: 2, y: 2, color: "#D6D6D6" }, { x: 5, y: 2, color: "#BCBCBC" }, { x: 6, y: 2, color: "#C5C5C5" }, { x: 7, y: 2, color: "#DADADA" }, { x: 8, y: 2, color: "#7D7D7D" }
+        ])
+    },
+
+    {
+        id: "user_stamp_87",
+        name: "Door",
+        category: "Imported",
+        width: 9,
+        height: 2,
+        data: createGrid(9, 2, [
+            { x: 1, y: 0, color: "#ECECEC" }, { x: 2, y: 0, color: "#6D6D6D" }, { x: 3, y: 0, color: "#E4E4E4" }, { x: 0, y: 1, color: "#EBEBEB" }, { x: 1, y: 1, color: "#7F7F7F" }, { x: 2, y: 1, color: "#454545" }, { x: 3, y: 1, color: "#8D8D8D" }, { x: 4, y: 1, color: "#CACACA" }, { x: 5, y: 1, color: "#757575" }, { x: 6, y: 1, color: "#787878" }, { x: 7, y: 1, color: "#ACACAC" }, { x: 8, y: 1, color: "#D9D9D9" }
+        ])
+    },
+
+    {
+        id: "user_stamp_88",
+        name: "8-bit Cat",
+        category: "Imported",
+        width: 5,
+        height: 16,
+        data: createGrid(5, 16, [
+            { x: 0, y: 0, color: "#463028" }, { x: 1, y: 0, color: "#463028" }, { x: 2, y: 0, color: "#3F2B23" }, { x: 3, y: 0, color: "#7F726D" }, { x: 0, y: 1, color: "#463028" }, { x: 1, y: 1, color: "#463028" }, { x: 2, y: 1, color: "#3F2B23" }, { x: 3, y: 1, color: "#7F726D" }, { x: 0, y: 2, color: "#463028" }, { x: 1, y: 2, color: "#463028" }, { x: 2, y: 2, color: "#3F2B23" }, { x: 3, y: 2, color: "#7F726D" }, { x: 0, y: 3, color: "#3E2B23" }, { x: 1, y: 3, color: "#3E2B23" }, { x: 2, y: 3, color: "#3E2B23" }, { x: 3, y: 3, color: "#7F726D" }, { x: 0, y: 4, color: "#3E2B23" }, { x: 1, y: 4, color: "#3E2B23" }, { x: 2, y: 4, color: "#453028" }, { x: 3, y: 4, color: "#432E26" }, { x: 4, y: 4, color: "#D0CCCA" }, { x: 0, y: 5, color: "#6A5B55" }, { x: 1, y: 5, color: "#55443C" }, { x: 2, y: 5, color: "#453028" }, { x: 3, y: 5, color: "#442F27" }, { x: 4, y: 5, color: "#AFA7A4" }, { x: 1, y: 6, color: "#DEDBD9" }, { x: 2, y: 6, color: "#BDB5B3" }, { x: 3, y: 6, color: "#BDB5B3" }, { x: 4, y: 6, color: "#BBB4B1" }
+        ])
+    },
+
+    {
+        id: "user_stamp_89",
+        name: "Crafting Table",
+        category: "Imported",
+        width: 16,
+        height: 14,
+        data: createGrid(16, 14, [
+            { x: 6, y: 0, color: "#DEDEDE" }, { x: 7, y: 0, color: "#EBEBEB" }, { x: 9, y: 0, color: "#A1A1A1" }, { x: 10, y: 0, color: "#B7B7B7" }, { x: 11, y: 0, color: "#E2E2E2" }, { x: 12, y: 0, color: "#8B8B8B" }, { x: 13, y: 0, color: "#E3E3E3" }, { x: 14, y: 0, color: "#EBEBEB" }, { x: 15, y: 0, color: "#A3A3A3" }, { x: 6, y: 1, color: "#DEDEDE" }, { x: 7, y: 1, color: "#EBEBEB" }, { x: 9, y: 1, color: "#A1A1A1" }, { x: 10, y: 1, color: "#ACACAC" }, { x: 11, y: 1, color: "#F1F1F1" }, { x: 12, y: 1, color: "#858585" }, { x: 13, y: 1, color: "#E3E3E3" }, { x: 14, y: 1, color: "#EBEBEB" }, { x: 15, y: 1, color: "#A3A3A3" }
+        ])
+    },
+
+    {
+        id: "user_stamp_90",
+        name: "Leaf",
+        category: "Imported",
+        width: 16,
+        height: 13,
+        data: createGrid(16, 13, [
+            { x: 0, y: 0, color: "#EAEAEA" }, { x: 1, y: 0, color: "#A1A1A1" }, { x: 2, y: 0, color: "#C3C3C3" }, { x: 3, y: 0, color: "#E0E0E0" }, { x: 4, y: 0, color: "#939393" }, { x: 5, y: 0, color: "#7F7F7F" }, { x: 6, y: 0, color: "#F4F4F4" }, { x: 7, y: 0, color: "#D0D0D0" }, { x: 8, y: 0, color: "#BEBEBE" }, { x: 10, y: 0, color: "#7F7F7F" }, { x: 0, y: 1, color: "#F0F0F0" }, { x: 1, y: 1, color: "#BABABA" }, { x: 2, y: 1, color: "#F7F7F7" }, { x: 3, y: 1, color: "#717171" }, { x: 4, y: 1, color: "#A5A5A5" }, { x: 5, y: 1, color: "#A1A1A1" }, { x: 6, y: 1, color: "#F7F7F7" }, { x: 7, y: 1, color: "#DDDDDD" }, { x: 8, y: 1, color: "#A3A3A3" }, { x: 9, y: 1, color: "#727272" }, { x: 10, y: 1, color: "#A1A1A1" }
+        ])
+    },

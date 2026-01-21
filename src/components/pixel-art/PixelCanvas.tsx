@@ -409,7 +409,8 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
   };
 
   const actualPixelSize = pixelSize * zoom;
-  const canvasSize = Math.max(gridWidth, gridHeight) * actualPixelSize;
+  const canvasWidthPx = gridWidth * actualPixelSize;
+  const canvasHeightPx = gridHeight * actualPixelSize;
   const currentFontInfo = PIXEL_FONTS.find(f => f.id === currentFont) || PIXEL_FONTS[0];
 
   return (
@@ -417,8 +418,8 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
       <div className="relative">
         <canvas
           ref={canvasRef}
-          width={canvasSize}
-          height={canvasSize}
+          width={canvasWidthPx}
+          height={canvasHeightPx}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
@@ -433,14 +434,16 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
             backgroundImage: "linear-gradient(45deg, hsl(var(--muted)) 25%, transparent 25%, transparent 75%, hsl(var(--muted)) 75%, hsl(var(--muted))), linear-gradient(45deg, hsl(var(--muted)) 25%, transparent 25%, transparent 75%, hsl(var(--muted)) 75%, hsl(var(--muted)))",
             backgroundSize: "20px 20px",
             backgroundPosition: "0 0, 10px 10px",
+            width: canvasWidthPx,
+            height: canvasHeightPx
           }}
         />
         <canvas
           ref={overlayCanvasRef}
-          width={canvasSize}
-          height={canvasSize}
+          width={canvasWidthPx}
+          height={canvasHeightPx}
           className="absolute top-0 left-0 pointer-events-none"
-          style={{ imageRendering: "pixelated" }}
+          style={{ imageRendering: "pixelated", width: canvasWidthPx, height: canvasHeightPx }}
         />
 
         {/* Horizontal Ruler (Top - Inside Canvas) */}
@@ -451,7 +454,7 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
               top: 0,
               left: 0,
               height: 16,
-              width: canvasSize,
+              width: canvasWidthPx,
             }}
           >
             {Array.from({ length: gridWidth }).map((_, i) => (
@@ -477,7 +480,7 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
               top: 0,
               left: 0,
               width: 16,
-              height: canvasSize,
+              height: canvasHeightPx,
             }}
           >
             {Array.from({ length: gridHeight }).map((_, i) => (

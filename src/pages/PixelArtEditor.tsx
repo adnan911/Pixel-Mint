@@ -188,7 +188,7 @@ export default function PixelArtEditor() {
   const initialState: EditorState = useMemo(() => {
     try {
       const state: EditorState = {
-        layers: [createLayer("Background", initialSize)],
+        layers: [createLayer("Background", initialSize, initialSize)],
         activeLayerId: "",
         palettes: getDefaultPalettes(),
         activePaletteId: "default",
@@ -200,7 +200,7 @@ export default function PixelArtEditor() {
     } catch (error) {
       console.error("Error initializing editor state:", error);
       // Fallback to minimal state
-      const fallbackLayer = createLayer("Background", initialSize);
+      const fallbackLayer = createLayer("Background", initialSize, initialSize);
       return {
         layers: [fallbackLayer],
         activeLayerId: fallbackLayer.id,
@@ -227,7 +227,7 @@ export default function PixelArtEditor() {
   const activePalette = palettes.find((p) => p.id === activePaletteId) || palettes[0];
 
   // Get merged canvas for display
-  const canvasGrid = mergeLayers(layers, Math.max(canvasWidth, canvasHeight));
+  const canvasGrid = mergeLayers(layers, canvasWidth, canvasHeight);
 
   const handlePixelChange = (newGrid: CanvasGrid) => {
     if (!activeLayer || activeLayer.locked) return;
@@ -389,7 +389,7 @@ export default function PixelArtEditor() {
 
   // Layer management handlers
   const handleLayerCreate = () => {
-    const newLayer = createLayer(`Layer ${layers.length + 1}`, CANVAS_SIZE);
+    const newLayer = createLayer(`Layer ${layers.length + 1}`, canvasWidth, canvasHeight);
     setEditorState({
       ...editorState,
       layers: [newLayer, ...layers],
@@ -558,7 +558,7 @@ export default function PixelArtEditor() {
   // Export canvas as PNG with preview dialog
   const handleExport = () => {
     // Merge all visible layers
-    const mergedCanvas = mergeLayers(layers, Math.max(canvasWidth, canvasHeight));
+    const mergedCanvas = mergeLayers(layers, canvasWidth, canvasHeight);
 
     // Calculate optimal scale factor to ensure file size >= 100KB
     // Target: ~500,000 pixels for reliable 100KB+ PNG files

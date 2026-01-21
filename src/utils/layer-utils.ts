@@ -15,13 +15,14 @@ export function generateLayerId(): string {
  */
 export function createLayer(
   name: string,
-  canvasSize: number,
+  width: number,
+  height: number,
   pixels?: CanvasGrid
 ): Layer {
   const layer: Layer = {
     id: generateLayerId(),
     name: String(name),
-    pixels: pixels || createEmptyCanvas(canvasSize),
+    pixels: pixels || createEmptyCanvas(width, height),
     opacity: 100,
     visible: true,
     locked: false,
@@ -52,45 +53,47 @@ export function duplicateLayer(layer: Layer): Layer {
 /**
  * Merge all visible layers into a single canvas
  */
-export function mergeLayers(layers: Layer[], canvasSize: number): CanvasGrid {
+export function mergeLayers(layers: Layer[], width: number, height: number): CanvasGrid {
   // Validate canvas size
-  if (!canvasSize || canvasSize <= 0 || !Number.isFinite(canvasSize)) {
-    console.error("Invalid canvas size:", canvasSize);
-    return createEmptyCanvas(32); // Fallback to default size
+  if (!width || width <= 0 || !height || height <= 0) {
+    console.error("Invalid canvas size:", width, height);
+    return createEmptyCanvas(32, 32); // Fallback to default size
   }
-  
-  const result = createEmptyCanvas(canvasSize);
-  
+
+  const result = createEmptyCanvas(width, height);
+
   // Process layers from bottom to top
   for (let i = layers.length - 1; i >= 0; i--) {
     const layer = layers[i];
-    
+
     if (!layer.visible) continue;
-    
-    for (let y = 0; y < canvasSize; y++) {
-      for (let x = 0; x < canvasSize; x++) {
+
+    for (let y = 0; y < height; y++) {
+      for (let x = 0; x < width; x++) {
         const baseColor = result[y][x];
-        const topColor = layer.pixels[y][x];
-        
-        result[y][x] = blendColors(
-          baseColor,
-          topColor,
-          layer.blendMode,
-          layer.opacity
-        );
+        const topColor = layer.pixels[y]?.[x];
+
+        if (topColor) {
+          result[y][x] = blendColors(
+            baseColor,
+            topColor,
+            layer.blendMode,
+            layer.opacity
+          );
+        }
       }
     }
   }
-  
+
   return result;
 }
 
 /**
  * Flatten all layers into a single layer
  */
-export function flattenLayers(layers: Layer[], canvasSize: number): Layer {
-  const mergedPixels = mergeLayers(layers, canvasSize);
-  return createLayer("Merged Layer", canvasSize, mergedPixels);
+export function flattenLayers(layers: Layer[], width: number, height: number): Layer {
+  const mergedPixels = mergeLayers(layers, width, height);
+  return createLayer("Merged Layer", width, height, mergedPixels);
 }
 
 /**
@@ -112,7 +115,7 @@ export function applyAlphaLock(
   if (!layer.alphaLock) {
     return true; // Allow painting
   }
-  
+
   // Only allow painting if the pixel is not transparent
   return !isTransparent(layer.pixels[y][x]);
 }

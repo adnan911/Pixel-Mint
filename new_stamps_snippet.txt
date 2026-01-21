@@ -1,0 +1,275 @@
+
+    {
+        id: "user_stamp_1",
+        name: "Stamp 1",
+        category: "Imported",
+        width: 2,
+        height: 2,
+        data: createGrid(2, 2, [
+            { x: 0, y: 0, color: "#606060" }, { x: 1, y: 0, color: "#C2C2C2" }, { x: 0, y: 1, color: "#D9D9D9" }
+        ])
+    },
+
+    {
+        id: "user_stamp_3",
+        name: "Stamp 3",
+        category: "Imported",
+        width: 16,
+        height: 13,
+        data: createGrid(16, 13, [
+            { x: 0, y: 0, color: "#505050" }, { x: 1, y: 0, color: "#F1F1F1" }, { x: 0, y: 1, color: "#ECECEC" }
+        ])
+    },
+
+    {
+        id: "user_stamp_4",
+        name: "Stamp 4",
+        category: "Imported",
+        width: 2,
+        height: 2,
+        data: createGrid(2, 2, [
+            { x: 0, y: 0, color: "#B5B5B5" }, { x: 1, y: 0, color: "#585858" }, { x: 1, y: 1, color: "#C6C6C6" }
+        ])
+    },
+
+    {
+        id: "user_stamp_7",
+        name: "Stamp 7",
+        category: "Imported",
+        width: 16,
+        height: 12,
+        data: createGrid(16, 12, [
+            { x: 0, y: 0, color: "#3F3F3F" }, { x: 1, y: 0, color: "#E2E2E2" }, { x: 0, y: 1, color: "#E2E2E2" }, { x: 12, y: 7, color: "#000000" }, { x: 13, y: 7, color: "#000000" }, { x: 14, y: 7, color: "#000000" }, { x: 15, y: 7, color: "#000000" }, { x: 12, y: 8, color: "#000000" }, { x: 13, y: 8, color: "#000000" }, { x: 14, y: 8, color: "#000000" }, { x: 15, y: 8, color: "#000000" }, { x: 10, y: 9, color: "#5F5F5F" }, { x: 11, y: 9, color: "#000000" }, { x: 12, y: 9, color: "#FFC107" }, { x: 13, y: 9, color: "#FFC107" }, { x: 14, y: 9, color: "#FFEB3B" }, { x: 15, y: 9, color: "#FFEB3B" }, { x: 10, y: 10, color: "#5F5F5F" }, { x: 11, y: 10, color: "#000000" }, { x: 12, y: 10, color: "#FFC107" }, { x: 13, y: 10, color: "#FFC107" }, { x: 14, y: 10, color: "#FFEB3B" }, { x: 15, y: 10, color: "#FFEB3B" }, { x: 8, y: 11, color: "#646464" }, { x: 9, y: 11, color: "#000000" }, { x: 10, y: 11, color: "#A07904" }, { x: 11, y: 11, color: "#FFC107" }, { x: 12, y: 11, color: "#FFC107" }, { x: 13, y: 11, color: "#FFC107" }, { x: 14, y: 11, color: "#FFC107" }, { x: 15, y: 11, color: "#FFC107" }
+        ])
+    },
+
+    {
+        id: "user_stamp_8",
+        name: "Stamp 8",
+        category: "Imported",
+        width: 16,
+        height: 13,
+        data: createGrid(16, 13, [
+            { x: 0, y: 8, color: "#000000" }, { x: 1, y: 8, color: "#C0C0C0" }, { x: 0, y: 9, color: "#000000" }, { x: 1, y: 9, color: "#C0C0C0" }, { x: 0, y: 10, color: "#FFEB3B" }, { x: 1, y: 10, color: "#3F3A0F" }, { x: 2, y: 10, color: "#000000" }, { x: 3, y: 10, color: "#C5C5C5" }, { x: 0, y: 11, color: "#FFEB3B" }, { x: 1, y: 11, color: "#3F3A0F" }, { x: 2, y: 11, color: "#000000" }, { x: 3, y: 11, color: "#C5C5C5" }, { x: 0, y: 12, color: "#FFC107" }, { x: 1, y: 12, color: "#FFE12E" }, { x: 2, y: 12, color: "#FFEB3B" }, { x: 3, y: 12, color: "#3A350D" }, { x: 4, y: 12, color: "#000000" }, { x: 5, y: 12, color: "#000000" }
+        ])
+    },
+
+    {
+        id: "user_stamp_9",
+        name: "Stamp 9",
+        category: "Imported",
+        width: 13,
+        height: 16,
+        data: createGrid(13, 16, [
+            { x: 8, y: 0, color: "#E6E6E6" }, { x: 9, y: 0, color: "#9A9A9A" }, { x: 10, y: 0, color: "#F9F9F9" }, { x: 11, y: 0, color: "#A8A8A8" }, { x: 12, y: 0, color: "#C6C6C6" }, { x: 8, y: 1, color: "#797979" }, { x: 9, y: 1, color: "#B9B9B9" }, { x: 10, y: 1, color: "#E6E6E6" }, { x: 11, y: 1, color: "#A2A2A2" }, { x: 12, y: 1, color: "#ABABAB" }, { x: 8, y: 2, color: "#494949" }, { x: 9, y: 2, color: "#717171" }, { x: 10, y: 2, color: "#D3D3D3" }, { x: 11, y: 2, color: "#DFDFDF" }, { x: 12, y: 2, color: "#AEAEAE" }, { x: 8, y: 3, color: "#A0A0A0" }, { x: 9, y: 3, color: "#8D8D8D" }, { x: 10, y: 3, color: "#EDEDED" }, { x: 11, y: 3, color: "#DFDFDF" }, { x: 12, y: 3, color: "#AEAEAE" }, { x: 0, y: 15, color: "#E4E4E4" }
+        ])
+    },
+
+    {
+        id: "user_stamp_10",
+        name: "Stamp 10",
+        category: "Imported",
+        width: 16,
+        height: 10,
+        data: createGrid(16, 10, [
+            { x: 0, y: 0, color: "#F9F9F9" }, { x: 4, y: 0, color: "#EDEDED" }, { x: 0, y: 1, color: "#ECECEC" }, { x: 1, y: 1, color: "#8F8F8F" }, { x: 2, y: 1, color: "#9C9C9C" }, { x: 3, y: 1, color: "#707070" }, { x: 4, y: 1, color: "#818181" }, { x: 5, y: 1, color: "#919191" }, { x: 6, y: 1, color: "#B5B5B5" }, { x: 7, y: 1, color: "#E6E6E6" }, { x: 8, y: 1, color: "#F6F6F6" }, { x: 9, y: 1, color: "#B8B8B8" }, { x: 10, y: 1, color: "#A4A4A4" }, { x: 0, y: 2, color: "#EFEFEF" }, { x: 1, y: 2, color: "#969696" }, { x: 2, y: 2, color: "#B9B9B9" }, { x: 3, y: 2, color: "#808080" }, { x: 4, y: 2, color: "#919191" }, { x: 5, y: 2, color: "#BDBDBD" }, { x: 6, y: 2, color: "#939393" }, { x: 7, y: 2, color: "#6E6E6E" }, { x: 8, y: 2, color: "#666666" }, { x: 9, y: 2, color: "#D8D8D8" }, { x: 10, y: 2, color: "#B7B7B7" }
+        ])
+    },
+
+    {
+        id: "user_stamp_11",
+        name: "Stamp 11",
+        category: "Imported",
+        width: 8,
+        height: 16,
+        data: createGrid(8, 16, [
+            { x: 7, y: 0, color: "#B6CAAF" }
+        ])
+    },
+
+    {
+        id: "user_stamp_13",
+        name: "Stamp 13",
+        category: "Imported",
+        width: 16,
+        height: 5,
+        data: createGrid(16, 5, [
+            { x: 4, y: 0, color: "#ECECEC" }, { x: 5, y: 0, color: "#F7F7F7" }, { x: 15, y: 0, color: "#E7E7E7" }, { x: 4, y: 1, color: "#999999" }, { x: 5, y: 1, color: "#D4D4D4" }, { x: 15, y: 1, color: "#7D7D7D" }, { x: 0, y: 2, color: "#F0F0F0" }, { x: 1, y: 2, color: "#989898" }, { x: 2, y: 2, color: "#D5D5D5" }, { x: 3, y: 2, color: "#979797" }, { x: 4, y: 2, color: "#999999" }, { x: 5, y: 2, color: "#D4D4D4" }, { x: 6, y: 2, color: "#848484" }, { x: 7, y: 2, color: "#CBCBCB" }, { x: 8, y: 2, color: "#929292" }, { x: 9, y: 2, color: "#B0B0B0" }, { x: 10, y: 2, color: "#BABABA" }, { x: 11, y: 2, color: "#ADADAD" }, { x: 12, y: 2, color: "#888888" }, { x: 13, y: 2, color: "#919191" }, { x: 14, y: 2, color: "#BFBFBF" }, { x: 15, y: 2, color: "#616161" }, { x: 0, y: 3, color: "#CECECE" }, { x: 1, y: 3, color: "#969696" }, { x: 4, y: 3, color: "#999999" }, { x: 5, y: 3, color: "#D4D4D4" }, { x: 6, y: 3, color: "#B5B5B5" }, { x: 8, y: 3, color: "#727272" }, { x: 9, y: 3, color: "#B0B0B0" }, { x: 10, y: 3, color: "#BABABA" }, { x: 11, y: 3, color: "#ADADAD" }, { x: 12, y: 3, color: "#868686" }, { x: 13, y: 3, color: "#A1A1A1" }, { x: 14, y: 3, color: "#F8F8F8" }, { x: 15, y: 3, color: "#7D7D7D" }, { x: 0, y: 4, color: "#F8F8F8" }, { x: 1, y: 4, color: "#B3B3B3" }, { x: 2, y: 4, color: "#878787" }, { x: 3, y: 4, color: "#989898" }, { x: 4, y: 4, color: "#999999" }, { x: 5, y: 4, color: "#D4D4D4" }, { x: 6, y: 4, color: "#929292" }, { x: 7, y: 4, color: "#878787" }, { x: 8, y: 4, color: "#B7B7B7" }, { x: 9, y: 4, color: "#CDCDCD" }, { x: 10, y: 4, color: "#7D7D7D" }, { x: 11, y: 4, color: "#797979" }, { x: 12, y: 4, color: "#888888" }, { x: 13, y: 4, color: "#9F9F9F" }, { x: 14, y: 4, color: "#808080" }, { x: 15, y: 4, color: "#696969" }
+        ])
+    },
+
+    {
+        id: "user_stamp_14",
+        name: "Stamp 14",
+        category: "Imported",
+        width: 15,
+        height: 7,
+        data: createGrid(15, 7, [
+            { x: 1, y: 0, color: "#CACACA" }, { x: 2, y: 0, color: "#919191" }, { x: 3, y: 0, color: "#929292" }, { x: 4, y: 0, color: "#D6D6D6" }, { x: 6, y: 0, color: "#D6D6D6" }, { x: 7, y: 0, color: "#999999" }, { x: 8, y: 0, color: "#909090" }, { x: 9, y: 0, color: "#C8C8C8" }, { x: 10, y: 0, color: "#F9F9F9" }, { x: 11, y: 0, color: "#C3C3C3" }, { x: 12, y: 0, color: "#AEAEAE" }, { x: 13, y: 0, color: "#9B9B9B" }, { x: 14, y: 0, color: "#EEEEEE" }, { x: 0, y: 1, color: "#DADADA" }, { x: 1, y: 1, color: "#919191" }, { x: 2, y: 1, color: "#C8C8C8" }, { x: 3, y: 1, color: "#C9C9C9" }, { x: 4, y: 1, color: "#8D8D8D" }, { x: 5, y: 1, color: "#D4D4D4" }, { x: 6, y: 1, color: "#9B9B9B" }, { x: 7, y: 1, color: "#C6C6C6" }, { x: 8, y: 1, color: "#C9C9C9" }, { x: 9, y: 1, color: "#898989" }, { x: 10, y: 1, color: "#DCDCDC" }, { x: 11, y: 1, color: "#959595" }, { x: 12, y: 1, color: "#8F8F8F" }, { x: 13, y: 1, color: "#DADADA" }, { x: 14, y: 1, color: "#F9F9F9" }, { x: 0, y: 2, color: "#BABABA" }, { x: 1, y: 2, color: "#B1B1B1" }, { x: 2, y: 2, color: "#F9F9F9" }, { x: 8, y: 2, color: "#F5F5F5" }, { x: 9, y: 2, color: "#898989" }, { x: 10, y: 2, color: "#CACACA" }, { x: 11, y: 2, color: "#9C9C9C" }, { x: 12, y: 2, color: "#CBCBCB" }, { x: 0, y: 3, color: "#AFAFAF" }, { x: 1, y: 3, color: "#ACACAC" }, { x: 2, y: 3, color: "#F9F9F9" }, { x: 5, y: 3, color: "#F3F3F3" }, { x: 6, y: 3, color: "#A8A8A8" }, { x: 7, y: 3, color: "#727272" }, { x: 8, y: 3, color: "#707070" }, { x: 9, y: 3, color: "#636363" }, { x: 10, y: 3, color: "#CACACA" }, { x: 11, y: 3, color: "#9C9C9C" }, { x: 12, y: 3, color: "#CBCBCB" }, { x: 0, y: 4, color: "#C4C4C4" }, { x: 1, y: 4, color: "#A2A2A2" }, { x: 2, y: 4, color: "#F2F2F2" }, { x: 3, y: 4, color: "#F6F6F6" }, { x: 4, y: 4, color: "#CCCCCC" }, { x: 5, y: 4, color: "#CCCCCC" }, { x: 6, y: 4, color: "#898989" }, { x: 7, y: 4, color: "#E9E9E9" }, { x: 8, y: 4, color: "#ECECEC" }, { x: 9, y: 4, color: "#808080" }, { x: 10, y: 4, color: "#CACACA" }, { x: 11, y: 4, color: "#9C9C9C" }, { x: 12, y: 4, color: "#CBCBCB" }, { x: 0, y: 5, color: "#EAEAEA" }, { x: 1, y: 5, color: "#9C9C9C" }, { x: 2, y: 5, color: "#858585" }, { x: 3, y: 5, color: "#878787" }, { x: 4, y: 5, color: "#A9A9A9" }, { x: 5, y: 5, color: "#E0E0E0" }, { x: 6, y: 5, color: "#949494" }, { x: 7, y: 5, color: "#7F7F7F" }, { x: 8, y: 5, color: "#8C8C8C" }, { x: 9, y: 5, color: "#787878" }, { x: 10, y: 5, color: "#C3C3C3" }, { x: 11, y: 5, color: "#9C9C9C" }, { x: 12, y: 5, color: "#CBCBCB" }, { x: 1, y: 6, color: "#EFEFEF" }, { x: 2, y: 6, color: "#DDDDDD" }, { x: 3, y: 6, color: "#DEDEDE" }, { x: 4, y: 6, color: "#F3F3F3" }, { x: 6, y: 6, color: "#EDEDED" }, { x: 7, y: 6, color: "#DBDBDB" }, { x: 8, y: 6, color: "#E0E0E0" }, { x: 9, y: 6, color: "#E7E7E7" }, { x: 10, y: 6, color: "#F3F3F3" }, { x: 11, y: 6, color: "#EDEDED" }, { x: 12, y: 6, color: "#F6F6F6" }
+        ])
+    },
+
+    {
+        id: "user_stamp_15",
+        name: "Stamp 15",
+        category: "Imported",
+        width: 11,
+        height: 16,
+        data: createGrid(11, 16, [
+            { x: 8, y: 0, color: "#595959" }, { x: 9, y: 0, color: "#000000" }, { x: 10, y: 0, color: "#000000" }, { x: 8, y: 1, color: "#595959" }, { x: 9, y: 1, color: "#000000" }, { x: 10, y: 1, color: "#000000" }, { x: 10, y: 2, color: "#000000" }, { x: 8, y: 3, color: "#595959" }, { x: 9, y: 3, color: "#000000" }, { x: 10, y: 3, color: "#FF7043" }, { x: 9, y: 8, color: "#7A7A7A" }, { x: 9, y: 9, color: "#E9E9E9" }, { x: 10, y: 9, color: "#D0D0D0" }, { x: 9, y: 10, color: "#DADADA" }
+        ])
+    },
+
+    {
+        id: "user_stamp_16",
+        name: "Stamp 16",
+        category: "Imported",
+        width: 9,
+        height: 16,
+        data: createGrid(9, 16, [
+            { x: 0, y: 0, color: "#000000" }, { x: 1, y: 0, color: "#000000" }, { x: 2, y: 0, color: "#BF360C" }, { x: 3, y: 0, color: "#280B02" }, { x: 4, y: 0, color: "#000000" }, { x: 5, y: 0, color: "#A1A1A1" }, { x: 0, y: 1, color: "#000000" }, { x: 1, y: 1, color: "#000000" }, { x: 2, y: 1, color: "#BF360C" }, { x: 3, y: 1, color: "#280B02" }, { x: 4, y: 1, color: "#000000" }, { x: 5, y: 1, color: "#A1A1A1" }, { x: 1, y: 2, color: "#000000" }, { x: 2, y: 2, color: "#FF7043" }, { x: 3, y: 2, color: "#35170E" }, { x: 4, y: 2, color: "#000000" }, { x: 0, y: 3, color: "#000000" }, { x: 1, y: 3, color: "#FF7043" }, { x: 2, y: 3, color: "#FF5722" }, { x: 3, y: 3, color: "#FF5722" }, { x: 4, y: 3, color: "#FF5722" }, { x: 5, y: 3, color: "#A1A1A1" }, { x: 1, y: 9, color: "#979797" }, { x: 0, y: 10, color: "#E9E9E9" }, { x: 1, y: 10, color: "#F5F5F5" }
+        ])
+    },
+
+    {
+        id: "user_stamp_17",
+        name: "Stamp 17",
+        category: "Imported",
+        width: 4,
+        height: 16,
+        data: createGrid(4, 16, [
+            { x: 0, y: 0, color: "#979797" }, { x: 3, y: 15, color: "#513C38" }
+        ])
+    },
+
+    {
+        id: "user_stamp_18",
+        name: "Stamp 18",
+        category: "Imported",
+        width: 8,
+        height: 16,
+        data: createGrid(8, 16, [
+            { x: 5, y: 3, color: "#41FFFF" }, { x: 5, y: 4, color: "#18FFFF" }, { x: 6, y: 4, color: "#2B1900" }, { x: 4, y: 5, color: "#00B8D4" }, { x: 5, y: 5, color: "#2B1900" }, { x: 6, y: 5, color: "#2B1900" }, { x: 2, y: 6, color: "#E9FDFF" }, { x: 3, y: 6, color: "#7BFFFF" }, { x: 4, y: 6, color: "#2F1F08" }, { x: 5, y: 6, color: "#08E5F1" }, { x: 6, y: 6, color: "#3D2D16" }, { x: 1, y: 7, color: "#00F2FF" }, { x: 2, y: 7, color: "#00B8D4" }, { x: 3, y: 7, color: "#18FFFF" }, { x: 4, y: 7, color: "#00F2FF" }, { x: 5, y: 7, color: "#2B1900" }, { x: 1, y: 8, color: "#ABF2F6" }, { x: 2, y: 8, color: "#0EABAB" }, { x: 3, y: 8, color: "#3E8D91" }, { x: 4, y: 8, color: "#716454" }, { x: 0, y: 9, color: "#00D9E5" }, { x: 1, y: 9, color: "#00D9E5" }, { x: 2, y: 9, color: "#5C5C5C" }, { x: 3, y: 9, color: "#5C5C5C" }, { x: 0, y: 10, color: "#00F2FF" }, { x: 1, y: 10, color: "#5C5C5C" }, { x: 2, y: 10, color: "#5C5C5C" }, { x: 0, y: 11, color: "#525252" }, { x: 1, y: 11, color: "#5C5C5C" }, { x: 0, y: 12, color: "#525252" }
+        ])
+    },
+
+    {
+        id: "user_stamp_19",
+        name: "Stamp 19",
+        category: "Imported",
+        width: 5,
+        height: 16,
+        data: createGrid(5, 16, [
+            { x: 0, y: 0, color: "#787878" }, { x: 3, y: 8, color: "#131326" }, { x: 4, y: 8, color: "#131326" }, { x: 4, y: 9, color: "#E0E0E0" }, { x: 4, y: 10, color: "#F5F5F5" }
+        ])
+    },
+
+    {
+        id: "user_stamp_20",
+        name: "Stamp 20",
+        category: "Imported",
+        width: 7,
+        height: 16,
+        data: createGrid(7, 16, [
+            { x: 0, y: 6, color: "#D5D5D8" }, { x: 1, y: 6, color: "#C3C3C8" }, { x: 0, y: 7, color: "#EFEFEF" }, { x: 1, y: 7, color: "#555563" }, { x: 0, y: 8, color: "#F5F5F5" }, { x: 1, y: 8, color: "#565663" }, { x: 2, y: 8, color: "#BEBEC4" }, { x: 0, y: 9, color: "#EEEEEE" }, { x: 2, y: 9, color: "#F5F5F5" }, { x: 0, y: 10, color: "#F5F5F5" }, { x: 1, y: 10, color: "#E0E0E0" }, { x: 2, y: 10, color: "#F5F5F5" }, { x: 0, y: 11, color: "#E5E5E5" }, { x: 1, y: 11, color: "#EEEEEE" }, { x: 2, y: 11, color: "#73737E" }, { x: 0, y: 12, color: "#F5F5F5" }, { x: 1, y: 12, color: "#EEEEEE" }, { x: 0, y: 13, color: "#F5F5F5" }, { x: 1, y: 13, color: "#B9B9BF" }, { x: 0, y: 14, color: "#EEEEEE" }, { x: 1, y: 14, color: "#B9B9BF" }, { x: 0, y: 15, color: "#EEEEEE" }
+        ])
+    },
+
+    {
+        id: "user_stamp_21",
+        name: "Stamp 21",
+        category: "Imported",
+        width: 12,
+        height: 16,
+        data: createGrid(12, 16, [
+            { x: 3, y: 0, color: "#FBEBC6" }, { x: 4, y: 0, color: "#FFFFC5" }, { x: 5, y: 0, color: "#FFFFC5" }, { x: 6, y: 0, color: "#FFFFC5" }, { x: 7, y: 0, color: "#FBEDC6" }, { x: 8, y: 0, color: "#FBEBC6" }, { x: 9, y: 0, color: "#FBEBC6" }, { x: 3, y: 1, color: "#EDA807" }, { x: 4, y: 1, color: "#FFFF00" }, { x: 5, y: 1, color: "#FFFF00" }, { x: 6, y: 1, color: "#FFFF00" }, { x: 7, y: 1, color: "#EFB204" }, { x: 8, y: 1, color: "#EDA705" }, { x: 9, y: 1, color: "#EDA705" }, { x: 1, y: 2, color: "#EEAB12" }, { x: 2, y: 2, color: "#FFFD00" }, { x: 3, y: 2, color: "#FFF8DF" }, { x: 4, y: 2, color: "#FFF8E1" }, { x: 5, y: 2, color: "#FFF8E1" }, { x: 6, y: 2, color: "#FFF8E1" }, { x: 7, y: 2, color: "#FFF8E1" }, { x: 8, y: 2, color: "#FFF8E1" }, { x: 9, y: 2, color: "#FFF8E1" }, { x: 10, y: 2, color: "#FFFF00" }, { x: 11, y: 2, color: "#EDA705" }, { x: 0, y: 3, color: "#EDA705" }, { x: 1, y: 3, color: "#FEF4D6" }, { x: 2, y: 3, color: "#FFF8E1" }, { x: 3, y: 3, color: "#FFFF02" }, { x: 4, y: 3, color: "#EDA705" }, { x: 5, y: 3, color: "#EDA705" }, { x: 6, y: 3, color: "#EDA705" }, { x: 7, y: 3, color: "#E39E05" }, { x: 8, y: 3, color: "#EDA705" }, { x: 9, y: 3, color: "#EDA705" }, { x: 10, y: 3, color: "#FFFF00" }, { x: 11, y: 3, color: "#FFFF00" }, { x: 0, y: 4, color: "#FFFF00" }, { x: 1, y: 4, color: "#FFF8D6" }, { x: 2, y: 4, color: "#EDA90B" }, { x: 3, y: 4, color: "#9F6106" }, { x: 8, y: 4, color: "#74501F" }, { x: 9, y: 4, color: "#633B03" }, { x: 10, y: 4, color: "#EDA705" }, { x: 11, y: 4, color: "#FFFF00" }, { x: 0, y: 5, color: "#FFF8E1" }, { x: 1, y: 5, color: "#FFFF0B" }, { x: 2, y: 5, color: "#674003" }, { x: 10, y: 5, color: "#633B03" }, { x: 11, y: 5, color: "#EDA705" }, { x: 0, y: 6, color: "#FFFF00" }, { x: 1, y: 6, color: "#EEAB05" }, { x: 2, y: 6, color: "#FFFDF8" }, { x: 11, y: 6, color: "#EDA705" }, { x: 0, y: 7, color: "#FFFF00" }, { x: 1, y: 7, color: "#FFFFF2" }, { x: 11, y: 7, color: "#9E6106" }, { x: 0, y: 8, color: "#EDA705" }, { x: 1, y: 8, color: "#FEFBF2" }, { x: 0, y: 9, color: "#EDA705" }, { x: 1, y: 9, color: "#FEFBF2" }, { x: 0, y: 10, color: "#FFFF00" }, { x: 1, y: 10, color: "#FFFFF2" }, { x: 11, y: 10, color: "#EDA705" }, { x: 0, y: 11, color: "#FFFF00" }, { x: 1, y: 11, color: "#FFFF00" }, { x: 2, y: 11, color: "#FFFFF8" }, { x: 11, y: 11, color: "#FFFF00" }, { x: 0, y: 12, color: "#EDA705" }, { x: 1, y: 12, color: "#FEFB00" }, { x: 2, y: 12, color: "#FFFF00" }, { x: 10, y: 12, color: "#FFFF00" }, { x: 11, y: 12, color: "#FFF8E1" }, { x: 0, y: 13, color: "#9E6106" }, { x: 1, y: 13, color: "#E9A305" }, { x: 2, y: 13, color: "#FFF6DB" }, { x: 3, y: 13, color: "#FFFF02" }, { x: 8, y: 13, color: "#FFF9E4" }, { x: 9, y: 13, color: "#FFF8E1" }, { x: 10, y: 13, color: "#FFF8E1" }, { x: 11, y: 13, color: "#FFFF00" }, { x: 0, y: 14, color: "#995E06" }, { x: 1, y: 14, color: "#E29E05" }, { x: 2, y: 14, color: "#FDEFC9" }, { x: 3, y: 14, color: "#FFFF02" }, { x: 8, y: 14, color: "#FFF9E6" }, { x: 9, y: 14, color: "#FFF9E4" }, { x: 10, y: 14, color: "#FDF1CE" }, { x: 11, y: 14, color: "#F7F100" }, { x: 1, y: 15, color: "#6B4510" }, { x: 2, y: 15, color: "#633B03" }, { x: 3, y: 15, color: "#9E6106" }, { x: 4, y: 15, color: "#9E6106" }, { x: 5, y: 15, color: "#9E6106" }, { x: 6, y: 15, color: "#EDA705" }, { x: 7, y: 15, color: "#EDA705" }, { x: 8, y: 15, color: "#A76906" }, { x: 9, y: 15, color: "#9E6106" }, { x: 10, y: 15, color: "#633B03" }, { x: 11, y: 15, color: "#633B03" }
+        ])
+    },
+
+    {
+        id: "user_stamp_22",
+        name: "Stamp 22",
+        category: "Imported",
+        width: 8,
+        height: 16,
+        data: createGrid(8, 16, [
+            { x: 3, y: 0, color: "#292929" }, { x: 4, y: 0, color: "#292929" }, { x: 5, y: 0, color: "#292929" }, { x: 6, y: 0, color: "#292929" }, { x: 1, y: 1, color: "#000000" }, { x: 2, y: 1, color: "#000000" }, { x: 7, y: 1, color: "#000000" }, { x: 0, y: 2, color: "#797979" }, { x: 0, y: 3, color: "#F6F1F1" }, { x: 2, y: 3, color: "#FDE7E6" }, { x: 0, y: 4, color: "#F9D6D4" }, { x: 0, y: 5, color: "#F3F3F3" }, { x: 7, y: 7, color: "#6A251F" }, { x: 6, y: 8, color: "#F0E9E8" }, { x: 7, y: 8, color: "#641C16" }, { x: 6, y: 9, color: "#F0E9E8" }, { x: 7, y: 9, color: "#641C16" }, { x: 6, y: 10, color: "#F9F6F6" }, { x: 7, y: 10, color: "#641C16" }, { x: 7, y: 11, color: "#641C16" }, { x: 0, y: 12, color: "#FEF5F4" }, { x: 0, y: 13, color: "#F4EDED" }, { x: 0, y: 14, color: "#EEEEEE" }, { x: 2, y: 14, color: "#FCD0CD" }, { x: 0, y: 15, color: "#000000" }, { x: 1, y: 15, color: "#EEEEEE" }, { x: 2, y: 15, color: "#EEEEEE" }, { x: 3, y: 15, color: "#F7F7F7" }, { x: 4, y: 15, color: "#FCD0CD" }
+        ])
+    },
+
+    {
+        id: "user_stamp_23",
+        name: "Stamp 23",
+        category: "Imported",
+        width: 7,
+        height: 16,
+        data: createGrid(7, 16, [
+            { x: 0, y: 0, color: "#565656" }, { x: 6, y: 4, color: "#D9F9A5" }, { x: 5, y: 5, color: "#8FDC3E" }, { x: 6, y: 5, color: "#2B854B" }, { x: 4, y: 6, color: "#52A745" }, { x: 5, y: 6, color: "#8EDA3B" }, { x: 6, y: 6, color: "#5DB043" }, { x: 4, y: 7, color: "#7ABD45" }, { x: 5, y: 7, color: "#339054" }, { x: 6, y: 7, color: "#2B854B" }, { x: 3, y: 8, color: "#A5E264" }, { x: 4, y: 8, color: "#7FCE3F" }, { x: 5, y: 8, color: "#A2E257" }, { x: 6, y: 8, color: "#4BA34D" }, { x: 3, y: 9, color: "#429947" }, { x: 4, y: 9, color: "#2F884A" }, { x: 5, y: 9, color: "#2F894B" }, { x: 6, y: 9, color: "#2F884A" }, { x: 3, y: 10, color: "#50636D" }, { x: 4, y: 10, color: "#264D4A" }, { x: 5, y: 10, color: "#223A47" }, { x: 6, y: 10, color: "#4C1A3A" }, { x: 4, y: 11, color: "#D8DCDF" }, { x: 5, y: 11, color: "#50636D" }, { x: 6, y: 11, color: "#50636D" }, { x: 6, y: 14, color: "#B3E67B" }, { x: 6, y: 15, color: "#339054" }
+        ])
+    },
+
+    {
+        id: "user_stamp_24",
+        name: "Stamp 24",
+        category: "Imported",
+        width: 6,
+        height: 16,
+        data: createGrid(6, 16, [
+            { x: 0, y: 4, color: "#2E894E" }, { x: 1, y: 4, color: "#223A47" }, { x: 0, y: 5, color: "#2D884D" }, { x: 1, y: 5, color: "#29714A" }, { x: 2, y: 5, color: "#2B854B" }, { x: 0, y: 6, color: "#223A47" }, { x: 1, y: 6, color: "#276049" }, { x: 2, y: 6, color: "#223A47" }, { x: 0, y: 7, color: "#6FC347" }, { x: 1, y: 7, color: "#8EDA3B" }, { x: 2, y: 7, color: "#2B854B" }, { x: 3, y: 7, color: "#223A47" }, { x: 0, y: 8, color: "#76C641" }, { x: 1, y: 8, color: "#4BA34D" }, { x: 2, y: 8, color: "#339054" }, { x: 3, y: 8, color: "#2F7951" }, { x: 0, y: 9, color: "#4EA449" }, { x: 1, y: 9, color: "#339054" }, { x: 2, y: 9, color: "#339054" }, { x: 3, y: 9, color: "#223D47" }, { x: 4, y: 9, color: "#223A47" }, { x: 0, y: 10, color: "#223A47" }, { x: 1, y: 10, color: "#223A47" }, { x: 2, y: 10, color: "#223A47" }, { x: 3, y: 10, color: "#2B854B" }, { x: 0, y: 11, color: "#714963" }, { x: 1, y: 11, color: "#50636D" }, { x: 2, y: 11, color: "#223A47" }, { x: 0, y: 12, color: "#883946" }, { x: 0, y: 15, color: "#8EDA3B" }
+        ])
+    },
+
+    {
+        id: "user_stamp_25",
+        name: "Stamp 25",
+        category: "Imported",
+        width: 2,
+        height: 2,
+        data: createGrid(2, 2, [
+            { x: 0, y: 0, color: "#D7D7D7" }, { x: 0, y: 1, color: "#585858" }, { x: 1, y: 1, color: "#BEBEBE" }
+        ])
+    },
+
+    {
+        id: "user_stamp_26",
+        name: "Stamp 26",
+        category: "Imported",
+        width: 3,
+        height: 3,
+        data: createGrid(3, 3, [
+            { x: 2, y: 0, color: "#E5E5E5" }, { x: 2, y: 1, color: "#9C9C9C" }, { x: 0, y: 2, color: "#E8E8E8" }, { x: 1, y: 2, color: "#939393" }, { x: 2, y: 2, color: "#434343" }
+        ])
+    },
+
+    {
+        id: "user_stamp_27",
+        name: "Stamp 27",
+        category: "Imported",
+        width: 2,
+        height: 3,
+        data: createGrid(2, 3, [
+            { x: 0, y: 0, color: "#EAEAEA" }, { x: 0, y: 1, color: "#B0B0B0" }, { x: 0, y: 2, color: "#4A4A4A" }, { x: 1, y: 2, color: "#A1A1A1" }
+        ])
+    },
+
+    {
+        id: "user_stamp_28",
+        name: "Stamp 28",
+        category: "Imported",
+        width: 2,
+        height: 2,
+        data: createGrid(2, 2, [
+            { x: 1, y: 0, color: "#C3C3C3" }, { x: 0, y: 1, color: "#AFAFAF" }, { x: 1, y: 1, color: "#515151" }
+        ])
+    },
+
+    {
+        id: "user_stamp_30",
+        name: "Stamp 30",
+        category: "Imported",
+        width: 3,
+        height: 2,
+        data: createGrid(3, 2, [
+            { x: 0, y: 0, color: "#E4E4E4" }, { x: 1, y: 0, color: "#AAAAAA" }, { x: 2, y: 0, color: "#A8A8A8" }, { x: 0, y: 1, color: "#C5C5C5" }, { x: 1, y: 1, color: "#A0A0A0" }, { x: 2, y: 1, color: "#EDEDED" }
+        ])
+    },

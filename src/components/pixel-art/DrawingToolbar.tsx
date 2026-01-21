@@ -22,7 +22,7 @@ import {
   Stamp,
 } from "lucide-react";
 import type { Tool, BrushMode, PencilSize } from "@/types/pixel-art";
-import { FontSelector, PIXEL_FONTS } from "./FontSelector";
+import { PIXEL_FONTS } from "./FontSelector";
 
 interface DrawingToolbarProps {
   currentTool: Tool;
@@ -34,44 +34,6 @@ interface DrawingToolbarProps {
   currentFont?: string;
   onFontChange?: (font: string) => void;
 }
-
-const drawingTools: Array<{
-  id: Tool;
-  icon: React.ReactNode;
-  label: string;
-  shortcut: string;
-}> = [
-    {
-      id: "eraser",
-      icon: <Eraser className="h-5 w-5" />,
-      label: "Eraser",
-      shortcut: "E",
-    },
-    {
-      id: "fill",
-      icon: <PaintBucket className="h-5 w-5" />,
-      label: "Fill",
-      shortcut: "F",
-    },
-    {
-      id: "eyedropper",
-      icon: <Pipette className="h-5 w-5" />,
-      label: "Eyedropper",
-      shortcut: "I",
-    },
-    {
-      id: "text",
-      icon: <Type className="h-5 w-5" />,
-      label: "Text Tool",
-      shortcut: "T",
-    },
-    {
-      id: "stamp",
-      icon: <Stamp className="h-5 w-5" />,
-      label: "Stamp Tool",
-      shortcut: "S",
-    },
-  ];
 
 const shapeTools: Array<{
   id: Tool;
@@ -157,7 +119,7 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
   return (
     <TooltipProvider>
       <div className="flex gap-1.5 justify-center items-center border-[2px] border-solid border-[rgb(20,20,82)]">
-        {/* Pencil Tool - Standalone at far left */}
+        {/* 1. Pencil Tool */}
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
@@ -175,114 +137,7 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
           </TooltipContent>
         </Tooltip>
 
-        {/* Font Selector for Text Tool */}
-
-        {drawingTools.map((tool) => {
-          if (tool.id === "text") {
-            // Special handling for Text Tool Dropdown
-            return (
-              <DropdownMenu key={tool.id}>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <DropdownMenuTrigger asChild>
-                      <Button
-                        variant={currentTool === "text" ? "default" : "outline"}
-                        size="icon"
-                        className="h-11 w-11 relative"
-                        aria-label="Text Tool"
-                      >
-                        {tool.icon}
-                        <ChevronDown className="h-3 w-3 absolute bottom-1 right-1" />
-                      </Button>
-                    </DropdownMenuTrigger>
-                  </TooltipTrigger>
-                  <TooltipContent side="top">
-                    <p>Text Tool ({tool.shortcut}) {currentFont ? `- ${PIXEL_FONTS.find(f => f.id === currentFont)?.name}` : ""}</p>
-                  </TooltipContent>
-                </Tooltip>
-                <DropdownMenuContent align="center" className="w-48 pixel-card border-4 border-border font-retro">
-                  <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground font-pixel">
-                    SELECT FONT
-                  </div>
-                  {onFontChange && PIXEL_FONTS.map((font) => (
-                    <DropdownMenuItem
-                      key={font.id}
-                      onClick={() => {
-                        onToolChange("text");
-                        onFontChange(font.id);
-                      }}
-                      className="flex items-center gap-2 cursor-pointer py-2"
-                      style={{ fontFamily: font.family }}
-                    >
-                      <span>{font.name}</span>
-                      {currentFont === font.id && (
-                        <span className="ml-auto text-primary">✓</span>
-                      )}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            );
-          }
-
-          return (
-            <Tooltip key={tool.id}>
-              <TooltipTrigger asChild>
-                <Button
-                  variant={currentTool === tool.id ? "default" : "outline"}
-                  size="icon"
-                  onClick={() => onToolChange(tool.id)}
-                  className="h-11 w-11"
-                  aria-label={tool.label}
-                >
-                  {tool.icon}
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="top">
-                <p>
-                  {tool.label} ({tool.shortcut})
-                </p>
-              </TooltipContent>
-            </Tooltip>
-          )
-        })}
-
-        {/* Shapes Dropdown */}
-        <DropdownMenu>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant={isShapeTool ? "default" : "outline"}
-                  size="icon"
-                  className="h-11 w-11 relative"
-                  aria-label="Shapes"
-                >
-                  {currentShapeTool ? currentShapeTool.icon : <Shapes className="h-5 w-5" />}
-                  <ChevronDown className="h-3 w-3 absolute bottom-1 right-1" />
-                </Button>
-              </DropdownMenuTrigger>
-            </TooltipTrigger>
-            <TooltipContent side="top">
-              <p>Shapes {currentShapeTool && `(${currentShapeTool.label})`}</p>
-            </TooltipContent>
-          </Tooltip>
-          <DropdownMenuContent align="center">
-            {shapeTools.map((tool) => (
-              <DropdownMenuItem
-                key={tool.id}
-                onClick={() => onToolChange(tool.id)}
-                className="flex items-center gap-2 cursor-pointer"
-              >
-                {tool.icon}
-                <span>{tool.label}</span>
-                <span className="ml-auto text-xs text-muted-foreground">{tool.shortcut}</span>
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-
-        {/* Brush Mode Dropdown */}
+        {/* 2. Pixel Mode Dropdown */}
         {onBrushModeChange && (
           <DropdownMenu>
             <Tooltip>
@@ -315,7 +170,6 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
                   className="flex flex-col items-start gap-0 cursor-pointer mb-[0px]"
                 >
                   <span className="font-medium">{mode.label}</span>
-
                 </DropdownMenuItem>
               ))}
 
@@ -351,6 +205,156 @@ export const DrawingToolbar: React.FC<DrawingToolbarProps> = ({
             </DropdownMenuContent>
           </DropdownMenu>
         )}
+
+        {/* 3. Eraser Tool */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              variant={currentTool === "eraser" ? "default" : "outline"}
+              size="icon"
+              onClick={() => onToolChange("eraser")}
+              className="h-11 w-11"
+              aria-label="Eraser"
+            >
+              <Eraser className="h-5 w-5" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="top">
+            <p>Eraser (E)</p>
+          </TooltipContent>
+        </Tooltip>
+
+        {/* 4. Shapes Dropdown */}
+        <DropdownMenu>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant={isShapeTool ? "default" : "outline"}
+                  size="icon"
+                  className="h-11 w-11 relative"
+                  aria-label="Shapes"
+                >
+                  {currentShapeTool ? currentShapeTool.icon : <Shapes className="h-5 w-5" />}
+                  <ChevronDown className="h-3 w-3 absolute bottom-1 right-1" />
+                </Button>
+              </DropdownMenuTrigger>
+            </TooltipTrigger>
+            <TooltipContent side="top">
+              <p>Shapes {currentShapeTool && `(${currentShapeTool.label})`}</p>
+            </TooltipContent>
+          </Tooltip>
+          <DropdownMenuContent align="center">
+            {shapeTools.map((tool) => (
+              <DropdownMenuItem
+                key={tool.id}
+                onClick={() => onToolChange(tool.id)}
+                className="flex items-center gap-2 cursor-pointer"
+              >
+                {tool.icon}
+                <span>{tool.label}</span>
+                <span className="ml-auto text-xs text-muted-foreground">{tool.shortcut}</span>
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        {/* 5. Fill Tool */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              variant={currentTool === "fill" ? "default" : "outline"}
+              size="icon"
+              onClick={() => onToolChange("fill")}
+              className="h-11 w-11"
+              aria-label="Fill"
+            >
+              <PaintBucket className="h-5 w-5" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="top">
+            <p>Fill (F)</p>
+          </TooltipContent>
+        </Tooltip>
+
+        {/* 6. Eyedropper Tool */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              variant={currentTool === "eyedropper" ? "default" : "outline"}
+              size="icon"
+              onClick={() => onToolChange("eyedropper")}
+              className="h-11 w-11"
+              aria-label="Eyedropper"
+            >
+              <Pipette className="h-5 w-5" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="top">
+            <p>Eyedropper (I)</p>
+          </TooltipContent>
+        </Tooltip>
+
+        {/* 7. Text Tool with Font Selector */}
+        <DropdownMenu>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant={currentTool === "text" ? "default" : "outline"}
+                  size="icon"
+                  className="h-11 w-11 relative"
+                  aria-label="Text Tool"
+                >
+                  <Type className="h-5 w-5" />
+                  <ChevronDown className="h-3 w-3 absolute bottom-1 right-1" />
+                </Button>
+              </DropdownMenuTrigger>
+            </TooltipTrigger>
+            <TooltipContent side="top">
+              <p>Text Tool (T) {currentFont ? `- ${PIXEL_FONTS.find(f => f.id === currentFont)?.name}` : ""}</p>
+            </TooltipContent>
+          </Tooltip>
+          <DropdownMenuContent align="center" className="w-48 pixel-card border-4 border-border font-retro">
+            <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground font-pixel">
+              SELECT FONT
+            </div>
+            {onFontChange && PIXEL_FONTS.map((font) => (
+              <DropdownMenuItem
+                key={font.id}
+                onClick={() => {
+                  onToolChange("text");
+                  onFontChange(font.id);
+                }}
+                className="flex items-center gap-2 cursor-pointer py-2"
+                style={{ fontFamily: font.family }}
+              >
+                <span>{font.name}</span>
+                {currentFont === font.id && (
+                  <span className="ml-auto text-primary">✓</span>
+                )}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        {/* 8. Stamp Tool */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              variant={currentTool === "stamp" ? "default" : "outline"}
+              size="icon"
+              onClick={() => onToolChange("stamp")}
+              className="h-11 w-11"
+              aria-label="Stamp Tool"
+            >
+              <Stamp className="h-5 w-5" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="top">
+            <p>Stamp Tool (S)</p>
+          </TooltipContent>
+        </Tooltip>
       </div>
     </TooltipProvider>
   );
