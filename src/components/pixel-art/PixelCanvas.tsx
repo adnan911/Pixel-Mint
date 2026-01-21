@@ -89,6 +89,10 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
     y: number;
     text: string;
     fontSize: number;
+    phase: 'input' | 'placement';
+    previewUrl?: string;
+    width?: number;
+    height?: number;
   } | null>(null);
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -155,8 +159,8 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
         const alpha = imgData.data[i + 3];
 
         if (alpha > 128) {
-          const gridX = activeText.x + px;
-          const gridY = activeText.y + py;
+          const gridX = Math.round(activeText.x) + px;
+          const gridY = Math.round(activeText.y) + py;
 
           if (gridX >= 0 && gridX < gridWidth && gridY >= 0 && gridY < gridHeight) {
             newGrid[gridY][gridX] = currentColor;
@@ -168,6 +172,8 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
     onPixelChange(newGrid);
     setActiveText(null);
   };
+
+
 
   // Helper function to get brush color based on mode
   const getBrushColor = (x: number, y: number, baseColor: Color, isRainbow: boolean = false): Color => {
@@ -291,7 +297,8 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
         x: coords.x,
         y: coords.y,
         text: "Text",
-        fontSize: 16
+        fontSize: 16,
+        phase: 'input'
       });
       return;
     }
@@ -508,96 +515,179 @@ export const EnhancedPixelCanvas: React.FC<EnhancedPixelCanvasProps> = ({
             }}
           >
             {/* Controls Bar */}
-            <div className="flex bg-card border-2 border-border rounded shadow-lg items-center p-1 mb-2 gap-2 absolute -top-12 left-0 z-50 whitespace-nowrap">
-              {/* Font Size Input */}
-              <div className="flex items-center gap-1">
-                <span className="text-[10px] text-muted-foreground font-bold">SIZE:</span>
-                <input
-                  type="number"
-                  min="8"
-                  max="128"
-                  value={Math.round(activeText.fontSize)}
-                  onChange={(e) => {
-                    const newSize = parseInt(e.target.value);
-                    if (!isNaN(newSize) && newSize >= 8) {
-                      setActiveText({ ...activeText, fontSize: newSize });
-                    }
-                  }}
-                  onMouseDown={(e) => e.stopPropagation()}
-                  className="w-14 h-7 text-sm border-2 rounded bg-background text-foreground px-2 font-bold text-center"
-                />
-              </div>
+            <div
+              className="flex bg-card border-2 border-border rounded shadow-lg items-center p-1 mb-2 gap-2 absolute -top-12 left-0 z-50 whitespace-nowrap cursor-move"
+              onMouseDown={(e) => {
+                e.stopPropagation();
+                // Prevent interaction with inputs from triggering drag if clicked directly
+                if ((e.target as HTMLElement).tagName === 'INPUT' || (e.target as HTMLElement).tagName === 'BUTTON') {
+                  return;
+                }
 
-              <div className="w-px h-5 bg-border"></div>
+                const startX = e.clientX;
+                const startY = e.clientY;
+                const startGridX = activeText.x;
+                const startGridY = activeText.y;
 
-              {/* Move Handle */}
-              <div
-                className="cursor-move p-1.5 hover:bg-accent rounded"
-                onMouseDown={(e) => {
-                  e.stopPropagation();
-                  const startX = e.clientX;
-                  const startY = e.clientY;
-                  const startGridX = activeText.x;
-                  const startGridY = activeText.y;
+                const onDrag = (moveEvent: MouseEvent) => {
+                  const dx = moveEvent.clientX - startX;
+                  const dy = moveEvent.clientY - startY;
+                  // Use floating point for smooth drag
+                  const gridDx = dx / actualPixelSize;
+                  const gridDy = dy / actualPixelSize;
 
-                  const onDrag = (moveEvent: MouseEvent) => {
-                    const dx = moveEvent.clientX - startX;
-                    const dy = moveEvent.clientY - startY;
-                    const gridDx = Math.round(dx / actualPixelSize);
-                    const gridDy = Math.round(dy / actualPixelSize);
-                    setActiveText(prev => prev ? ({ ...prev, x: startGridX + gridDx, y: startGridY + gridDy }) : null);
-                  };
+                  setActiveText(prev => prev ? ({
+                    ...prev,
+                    x: startGridX + gridDx,
+                    y: startGridY + gridDy
+                  }) : null);
+                };
 
-                  const onUp = () => {
-                    window.removeEventListener("mousemove", onDrag);
-                    window.removeEventListener("mouseup", onUp);
-                  };
+                const onUp = () => {
+                  window.removeEventListener("mousemove", onDrag);
+                  window.removeEventListener("mouseup", onUp);
+                };
 
-                  window.addEventListener("mousemove", onDrag);
-                  window.addEventListener("mouseup", onUp);
-                }}
-                title="Drag to move"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 9l-3 3 3 3M9 5l3-3 3 3M19 9l3 3-3 3M9 19l3 3 3-3M2 12h20M12 2v20" />
-                </svg>
-              </div>
+                window.addEventListener("mousemove", onDrag);
+                window.addEventListener("mouseup", onUp);
+              }}
+            >
+              {activeText.phase === 'input' ? (
+                /* INPUT PHASE CONTROLS */
+                <>
+                  <div className="flex items-center gap-1">
+                    <span className="text-[10px] text-muted-foreground font-bold">SIZE:</span>
+                    <input
+                      type="number"
+                      min="8"
+                      max="128"
+                      value={Math.round(activeText.fontSize)}
+                      onChange={(e) => {
+                        const newSize = parseInt(e.target.value);
+                        if (!isNaN(newSize) && newSize >= 8) {
+                          setActiveText({ ...activeText, fontSize: newSize });
+                        }
+                      }}
+                      onMouseDown={(e) => e.stopPropagation()}
+                      className="w-14 h-7 text-sm border-2 rounded bg-background text-foreground px-2 font-bold text-center cursor-text"
+                    />
+                  </div>
 
-              <div className="w-px h-5 bg-border"></div>
+                  <div className="w-px h-5 bg-border"></div>
 
-              {/* Confirm Button */}
-              <button
-                onClick={(e) => { e.stopPropagation(); commitText(); }}
-                className="bg-green-500 text-white rounded px-2 py-1 text-xs font-bold hover:bg-green-600 flex items-center gap-1"
-                title="Confirm Text (Enter)"
-              >
-                ✓ OK
-              </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      // Generate preview and switch to placement phase
+                      const fontInfo = PIXEL_FONTS.find(f => f.id === currentFont) || PIXEL_FONTS[0];
+                      const fontName = fontInfo.family.replace(/"/g, "").split(",")[0].trim();
+
+                      const tempCanvas = document.createElement("canvas");
+                      const ctx = tempCanvas.getContext("2d");
+                      if (!ctx) return;
+
+                      const fontString = `${activeText.fontSize}px "${fontName}", sans-serif`;
+                      ctx.font = fontString;
+                      ctx.textBaseline = "top";
+
+                      // Calculate exact bounds
+                      const metrics = ctx.measureText(activeText.text);
+                      const textWidth = Math.ceil(metrics.width) + 2;
+                      const textHeight = Math.ceil(activeText.fontSize * 1.3);
+
+                      tempCanvas.width = textWidth;
+                      tempCanvas.height = textHeight;
+
+                      // Render text color
+                      ctx.font = fontString;
+                      ctx.textBaseline = "top";
+                      ctx.fillStyle = currentColor;
+                      ctx.fillText(activeText.text, 0, 0);
+
+                      setActiveText({
+                        ...activeText,
+                        phase: 'placement',
+                        previewUrl: tempCanvas.toDataURL(),
+                        width: textWidth,
+                        height: textHeight
+                      });
+                    }}
+                    className="bg-primary text-primary-foreground rounded px-2 py-1 text-xs font-bold hover:bg-primary/90 flex items-center gap-1 cursor-pointer"
+                    title="Preview & Place"
+                  >
+                    Generate ✓
+                  </button>
+                </>
+              ) : (
+                /* PLACEMENT PHASE CONTROLS */
+                <>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveText({ ...activeText, phase: 'input', previewUrl: undefined });
+                    }}
+                    className="bg-secondary text-secondary-foreground rounded px-2 py-1 text-xs font-bold hover:bg-secondary/80 flex items-center gap-1 cursor-pointer"
+                    title="Edit Text"
+                  >
+                    ← Edit
+                  </button>
+
+                  <div className="w-px h-5 bg-border"></div>
+
+                  <button
+                    onClick={(e) => { e.stopPropagation(); commitText(); }}
+                    className="bg-green-500 text-white rounded px-2 py-1 text-xs font-bold hover:bg-green-600 flex items-center gap-1 cursor-pointer"
+                    title="Commit to Canvas"
+                  >
+                    Place ✓
+                  </button>
+                </>
+              )}
             </div>
 
-            {/* Text Input */}
-            <input
-              autoFocus
-              value={activeText.text}
-              onChange={(e) => setActiveText({ ...activeText, text: e.target.value })}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && !e.shiftKey) {
-                  e.preventDefault();
-                  commitText();
-                }
-              }}
-              onMouseDown={(e) => e.stopPropagation()}
-              style={{
-                fontFamily: currentFontInfo.family,
-                fontSize: `${activeText.fontSize}px`,
-                color: currentColor,
-                background: "rgba(255,255,255,0.9)",
-                border: "2px dashed #333",
-                outline: "none",
-                minWidth: "60px",
-                padding: "2px 4px",
-              }}
-            />
+            {/* Content Area */}
+            {activeText.phase === 'input' ? (
+              <input
+                autoFocus
+                value={activeText.text}
+                onChange={(e) => setActiveText({ ...activeText, text: e.target.value })}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    // Trigger preview generation logic button click 
+                    // (Simpler to just let user click button for now or duplicate logic if needed)
+                  }
+                }}
+                onMouseDown={(e) => e.stopPropagation()}
+                style={{
+                  fontFamily: currentFontInfo.family,
+                  fontSize: `${activeText.fontSize * actualPixelSize}px`,
+                  lineHeight: 1,
+                  color: currentColor,
+                  background: "rgba(255,255,255,0.9)",
+                  border: "2px dashed #333",
+                  outline: "none",
+                  minWidth: "1ch",
+                  width: `${Math.max(1, activeText.text.length + 3)}ch`,
+                  padding: "0.1em 0.2em",
+                }}
+              />
+            ) : (
+              /* Rasterized Preview Image */
+              activeText.previewUrl && (
+                <img
+                  src={activeText.previewUrl}
+                  alt="Text Preview"
+                  style={{
+                    width: (activeText.width || 0) * actualPixelSize,
+                    height: (activeText.height || 0) * actualPixelSize,
+                    imageRendering: "pixelated",
+                    border: "1px dashed rgba(0,0,0,0.5)",
+                    pointerEvents: "none"
+                  }}
+                />
+              )
+            )}
           </div>
         )}
 

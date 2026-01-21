@@ -34,11 +34,14 @@ export const usePixelCanvas = ({
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Draw pixels
-    for (let y = 0; y < gridSize; y++) {
-      for (let x = 0; x < gridSize; x++) {
+    const gridHeight = canvasGrid.length;
+    const gridWidth = gridHeight > 0 ? canvasGrid[0].length : 0;
+
+    for (let y = 0; y < gridHeight; y++) {
+      for (let x = 0; x < gridWidth; x++) {
         // Safety check for row existence
         if (!canvasGrid[y] || !canvasGrid[y][x]) continue;
-        
+
         const color = canvasGrid[y][x];
         if (color !== "transparent") {
           ctx.fillStyle = color;
@@ -53,17 +56,19 @@ export const usePixelCanvas = ({
       ctx.lineWidth = 1;
       ctx.globalAlpha = 0.3;
 
-      for (let i = 0; i <= gridSize; i++) {
-        // Vertical lines
+      // Vertical lines
+      for (let i = 0; i <= gridWidth; i++) {
         ctx.beginPath();
         ctx.moveTo(i * pixelSize + 0.5, 0);
-        ctx.lineTo(i * pixelSize + 0.5, gridSize * pixelSize);
+        ctx.lineTo(i * pixelSize + 0.5, gridHeight * pixelSize);
         ctx.stroke();
+      }
 
-        // Horizontal lines
+      // Horizontal lines
+      for (let i = 0; i <= gridHeight; i++) {
         ctx.beginPath();
         ctx.moveTo(0, i * pixelSize + 0.5);
-        ctx.lineTo(gridSize * pixelSize, i * pixelSize + 0.5);
+        ctx.lineTo(gridWidth * pixelSize, i * pixelSize + 0.5);
         ctx.stroke();
       }
 
